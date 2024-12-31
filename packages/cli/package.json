@@ -15,6 +15,9 @@
   },
   "author": "wanxger",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "",
   "dependencies": {
     "@ldsg/utils": "workspace:*",
