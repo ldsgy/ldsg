@@ -1,0 +1,24 @@
+{
+  "name": "@ldsg/cms",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+  },
+  "author": "wanxger",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ldsg/app": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.13.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  }
+}

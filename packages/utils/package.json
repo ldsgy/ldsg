@@ -1,0 +1,43 @@
+{
+  "name": "@ldsg/utils",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "bin": {
+    "ldsg": "dist/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+  },
+  "author": "wanxger",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ldsg/app": "workspace:*",
+    "@ldsg/common": "workspace:*",
+    "@ldsg/services": "workspace:*",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.7",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "supertest": "^6.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

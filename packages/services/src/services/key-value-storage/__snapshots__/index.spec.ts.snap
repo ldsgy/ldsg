@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyValueStorageService database 1`] = `
+{
+  "fragment": undefined,
+  "host": undefined,
+  "path": "key-value-storage",
+  "port": undefined,
+  "query": undefined,
+  "reference": "absolute",
+  "scheme": "database",
+  "userinfo": undefined,
+}
+`;
+
+exports[`KeyValueStorageService database 2`] = `
+{
+  "prefix": "key-value-storage",
+}
+`;

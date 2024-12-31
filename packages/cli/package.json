@@ -1,0 +1,34 @@
+{
+  "name": "@ldsg/cli",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "bin": {
+    "ldsg": "dist/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf dist && webpack",
+    "debug": "ts-node src/index.ts"
+  },
+  "author": "wanxger",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ldsg/utils": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.0",
+    "supertest": "^6.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

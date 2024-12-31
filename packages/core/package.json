@@ -1,0 +1,27 @@
+{
+  "name": "@ldsg/core",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+  },
+  "author": "wanxger",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@formily/json-schema": "^2.3.1",
+    "json-schema": "^0.4.0",
+    "lodash": "^4.17.21",
+    "uri-js": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.15",
+    "@types/lodash": "^4.14.202",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  }
+}

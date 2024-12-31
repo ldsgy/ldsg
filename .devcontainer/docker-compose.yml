@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  app:
+    image: node:22.12.0
+    command: sleep infinity
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  mongo:
+    image: mongo:6.0.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo:/data/db
+  redis:
+    image: redis:6.2.7
+    command: "redis-server --requirepass example --appendonly yes"
+volumes:
+  mongo:

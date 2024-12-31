@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty object 1`] = `
+{
+  "properties": {},
+  "type": "object",
+}
+`;
+
+exports[`field service default settings schema 1`] = `
+{
+  "properties": {
+    "alias": {
+      "description": "用于 GraphQL 内生成的字段名，只包含字母、数字和下划线，且以字母开头",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+      "required": true,
+      "title": "别名",
+      "type": "string",
+      "x-component": "Input",
+      "x-decorator": "FormItem",
+    },
+    "description": {
+      "description": "用于注释",
+      "title": "描述",
+      "type": "string",
+      "x-component": "Input",
+      "x-decorator": "FormItem",
+    },
+    "fieldsDirection": {
+      "description": "用于 GraphQL，仅表单中有该字段",
+      "enum": [
+        {
+          "label": "输入",
+          "value": "INPUT",
+        },
+        {
+          "label": "输出",
+          "value": "OUTPUT",
+        },
+      ],
+      "options": [
+        {
+          "label": "输入",
+          "value": "INPUT",
+        },
+        {
+          "label": "输出",
+          "value": "OUTPUT",
+        },
+      ],
+      "title": "字段组方向",
+      "type": "string",
+      "x-component": "Select",
+      "x-decorator": "FormItem",
+    },
+    "isInputArgument": {
+      "default": false,
+      "description": "当是输入参数时，会出现在查询参数中，仅 GraphQL 中有该字段，与 objectTypeName 二选一",
+      "title": "是否是输入参数",
+      "type": "boolean",
+      "x-component": "Checkbox",
+      "x-decorator": "FormItem",
+    },
+    "multiple": {
+      "default": false,
+      "title": "多选",
+      "type": "boolean",
+      "x-reactions": {
+        "dependencies": [
+          "type",
+        ],
+        "fulfill": {
+          "state": {
+            "display": "{{["IMAGE","OPTIONS"].includes($deps[0])?"visible": "hidden"}}",
+          },
+        },
+      },
+    },
+    "name": {
+      "description": "具有辨识度的名称",
+      "required": true,
+      "title": "名称",
+      "type": "string",
+      "x-component": "Input",
+      "x-decorator": "FormItem",
+    },
+    "objectTypeName": {
+      "description": "此表单字段会添加至此对象类型中，仅 GraphQL 中有该字段，与 isInputArgument 二选一",
+      "title": "对象类型名称",
+      "type": "string",
+      "x-component": "Input",
+      "x-decorator": "FormItem",
+    },
+    "options": {
+      "items": {
+        "properties": {
+          "space": {
+            "properties": {
+              "label": {
+                "required": true,
+                "title": "选项名",
+                "type": "string",
+                "x-component": "Input",
+                "x-decorator": "FormItem",
+              },
+              "remove": {
+                "type": "void",
+                "x-component": "ArrayItems.Remove",
+                "x-decorator": "FormItem",
+              },
+              "sort": {
+                "type": "void",
+                "x-component": "ArrayItems.SortHandle",
+                "x-decorator": "FormItem",
+              },
+              "value": {
+                "required": true,
+                "title": "选项值",
+                "type": "string",
+                "x-component": "Input",
+                "x-decorator": "FormItem",
+              },
+            },
+            "type": "void",
+            "x-component": "Space",
+          },
+        },
+        "type": "object",
+      },
+      "properties": {
+        "add": {
+          "title": "添加",
+          "type": "void",
+          "x-component": "ArrayItems.Addition",
+        },
+      },
+      "title": "选项",
+      "type": "array",
+      "x-component": "ArrayItems",
+      "x-decorator": "FormItem",
+      "x-reactions": {
+        "dependencies": [
+          "type",
+        ],
+        "fulfill": {
+          "state": {
+            "display": "{{$deps[0]==="OPTIONS"?"visible": "hidden"}}",
+          },
+        },
+      },
+    },
+    "path": {
+      "description": "用于存储，仅表格中有该字段，只包含字母、数字和下划线，且以字母开头",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+      "title": "路径",
+      "type": "string",
+      "x-component": "Input",
+      "x-decorator": "FormItem",
+    },
+    "required": {
+      "default": false,
+      "title": "必填",
+      "type": "boolean",
+      "x-component": "Checkbox",
+      "x-decorator": "FormItem",
+    },
+    "type": {
+      "default": "TEXT",
+      "description": "用于字段类型",
+      "enum": [
+        {
+          "label": "文本",
+          "value": "TEXT",
+        },
+        {
+          "label": "数字",
+          "value": "NUMBER",
+        },
+        {
+          "label": "ID",
+          "value": "ID",
+        },
+        {
+          "label": "MongoID",
+          "value": "MongoID",
+        },
+        {
+          "label": "日期",
+          "value": "DATE",
+        },
+        {
+          "label": "选项",
+          "value": "OPTIONS",
+        },
+        {
+          "label": "是否",
+          "value": "BOOLEAN",
+        },
+        {
+          "label": "图片",
+          "value": "IMAGE",
+        },
+        {
+          "label": "附件",
+          "value": "FILE",
+        },
+        {
+          "label": "JSON",
+          "value": "JSON",
+        },
+        {
+          "label": "对象",
+          "value": "OBJECT",
+        },
+        {
+          "label": "列表",
+          "value": "LIST",
+        },
+      ],
+      "options": [
+        {
+          "label": "文本",
+          "value": "TEXT",
+        },
+        {
+          "label": "数字",
+          "value": "NUMBER",
+        },
+        {
+          "label": "ID",
+          "value": "ID",
+        },
+        {
+          "label": "MongoID",
+          "value": "MongoID",
+        },
+        {
+          "label": "日期",
+          "value": "DATE",
+        },
+        {
+          "label": "选项",
+          "value": "OPTIONS",
+        },
+        {
+          "label": "是否",
+          "value": "BOOLEAN",
+        },
+        {
+          "label": "图片",
+          "value": "IMAGE",
+        },
+        {
+          "label": "附件",
+          "value": "FILE",
+        },
+        {
+          "label": "JSON",
+          "value": "JSON",
+        },
+        {
+          "label": "对象",
+          "value": "OBJECT",
+        },
+        {
+          "label": "列表",
+          "value": "LIST",
+        },
+      ],
+      "required": true,
+      "title": "类型",
+      "type": "string",
+      "x-component": "Select",
+      "x-decorator": "FormItem",
+    },
+    "unique": {
+      "default": false,
+      "title": "唯一",
+      "type": "boolean",
+      "x-component": "Checkbox",
+      "x-decorator": "FormItem",
+    },
+  },
+  "required": [
+    "name",
+    "type",
+    "alias",
+  ],
+  "type": "object",
+}
+`;

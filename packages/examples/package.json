@@ -1,0 +1,40 @@
+{
+  "name": "@ldsg/examples",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json",
+    "dev": "pnpm dev:prepare && pnpm dev:base",
+    "dev:base": "pnpm run server",
+    "dev:prepare": "pnpm dev:install && pnpm dev:build",
+    "dev:install": "pnpm i --prefix=apps/$APP_NAME",
+    "dev:build": "pnpm run --prefix=apps/$APP_NAME --recursive build",
+    "server": "ts-node src/server.ts",
+    "start": "node dist/server.js"
+  },
+  "author": "wanxger",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ldsg/app": "workspace:*",
+    "@ldsg/common": "workspace:*",
+    "@ldsg/services": "workspace:*",
+    "fs-extra": "^11.2.0",
+    "graphql": "^16.8.1",
+    "graphql-middleware": "^6.1.35",
+    "graphql-shield": "^7.6.5",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "supertest": "^6.3.4",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "version": "0.0.1"
+}
