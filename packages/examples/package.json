@@ -12,7 +12,7 @@
     "start": "node dist/server.js"
   },
   "author": "wanxger",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },

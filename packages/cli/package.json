@@ -14,7 +14,7 @@
     "debug": "ts-node src/index.ts"
   },
   "author": "wanxger",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },

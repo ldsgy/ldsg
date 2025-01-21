@@ -13,7 +13,7 @@
     "build": "rm -rf dist && tsc --project tsconfig.build.json"
   },
   "author": "wanxger",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
