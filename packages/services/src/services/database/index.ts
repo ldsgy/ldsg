@@ -19,7 +19,9 @@ export class DatabaseService extends Service {
   getMongooseCreateConnectionParams: GetMongooseCreateConnectionParams = () => {
     const settings = this.getSettings();
 
-    const { uri, dbName } = settings;
+    const { DATABASE_URI = "127.0.0.1", DATABASE_NAME = "27017" } = process.env;
+
+    const { uri = DATABASE_URI, dbName = DATABASE_NAME } = settings;
 
     const result: MongooseCreateConnectionParams = {
       uri,
