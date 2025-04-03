@@ -231,6 +231,18 @@ importers:
         specifier: ^5.4.5
         version: 5.5.2
 
+  packages/handler: {}
+
+  packages/resource: {}
+
+  packages/resource-definition:
+    dependencies:
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+
+  packages/service: {}
+
   packages/services:
     dependencies:
       '@formily/json-schema':
