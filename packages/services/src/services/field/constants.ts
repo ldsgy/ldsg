@@ -16,7 +16,7 @@ export const FIELD_TYPE_OPTIONS: RichJsonSchemaOptions = [
   },
   {
     label: "MongoID",
-    value: FieldType.MongoID,
+    value: FieldType.MONGOID,
   },
   {
     label: "日期",
@@ -97,25 +97,6 @@ export const FIELD_SERVICE_DEFAULT_SETTINGS_SCHEMA: SettingsSchema = {
         "用于存储，仅表格中有该字段，只包含字母、数字和下划线，且以字母开头",
       pattern: "^[a-zA-Z][a-zA-Z0-9_]*$",
     },
-    fieldsDirection: {
-      type: "string",
-      title: "字段组方向",
-      description: "用于 GraphQL，仅表单中有该字段",
-      options: FIELDS_DIRECTION_OPTIONS,
-    },
-    multiple: {
-      type: "boolean",
-      title: "多选",
-      default: false,
-      "x-reactions": {
-        dependencies: ["type"],
-        fulfill: {
-          state: {
-            display: `{{["IMAGE","OPTIONS"].includes($deps[0])?"visible": "hidden"}}`,
-          },
-        },
-      },
-    },
     options: {
       type: "array",
       title: "选项",
@@ -133,36 +114,10 @@ export const FIELD_SERVICE_DEFAULT_SETTINGS_SCHEMA: SettingsSchema = {
         },
         required: ["label", "value"],
       },
-      "x-reactions": {
-        dependencies: ["type"],
-        fulfill: {
-          state: {
-            display: `{{$deps[0]==="OPTIONS"?"visible": "hidden"}}`,
-          },
-        },
-      },
     },
     required: {
       type: "boolean",
       title: "必填",
-      default: false,
-    },
-    unique: {
-      type: "boolean",
-      title: "唯一",
-      default: false,
-    },
-    objectTypeName: {
-      type: "string",
-      title: "对象类型名称",
-      description:
-        "此表单字段会添加至此对象类型中，仅 GraphQL 中有该字段，与 isInputArgument 二选一",
-    },
-    isInputArgument: {
-      type: "boolean",
-      title: "是否是输入参数",
-      description:
-        "当是输入参数时，会出现在查询参数中，仅 GraphQL 中有该字段，与 objectTypeName 二选一",
       default: false,
     },
   },

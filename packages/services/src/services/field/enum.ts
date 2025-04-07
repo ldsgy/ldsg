@@ -18,9 +18,9 @@ export enum FieldType {
   ID = "ID",
 
   /**
-   * MongoID
+   * Mongo ID
    */
-  MongoID = "MongoID",
+  MONGOID = "MONGOID",
 
   /**
    * 日期
