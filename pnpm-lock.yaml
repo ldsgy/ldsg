@@ -239,6 +239,13 @@ importers:
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@types/node':
+        specifier: ^20.13.0
+        version: 20.14.8
 
   packages/resource: {}
 
