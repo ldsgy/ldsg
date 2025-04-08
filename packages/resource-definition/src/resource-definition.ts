@@ -1,9 +1,8 @@
-import { Manifest } from "./types/manifest";
+import { Manifest } from "@ldsg/resource";
 
-export class Resource<
+class ResourceDefinition<
   T extends Manifest.ResourceSettings = Manifest.ResourceSettings
-> implements Manifest.Resource<T>
-{
+> extends Resource {
   /**
    * Resource ID
    */

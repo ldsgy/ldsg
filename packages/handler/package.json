@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "wanxger",
   "license": "MIT",
-  "packageManager": "pnpm@10.7.1"
+  "packageManager": "pnpm@10.7.1",
+  "dependencies": {
+    "@ldsg/resource": "workspace:*"
+  }
 }
