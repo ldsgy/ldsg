@@ -20,6 +20,7 @@
   "dependencies": {
     "@ldsg/app": "workspace:*",
     "@ldsg/common": "workspace:*",
+    "@ldsg/resource": "workspace:*",
     "@ldsg/services": "workspace:*",
     "fs-extra": "^11.2.0",
     "graphql": "^16.8.1",

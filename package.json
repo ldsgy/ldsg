@@ -6,8 +6,7 @@
   ],
   "scripts": {
     "cli:debug": "pnpm --filter @ldsg/cli debug",
-    "b": "pnpm build",
-    "build": "lerna run build",
+    "build": "pnpm run --recursive build",
     "dev": "nodemon --exec \"pnpm build && pnpm --filter @ldsg/examples dev\"",
     "p": "pnpm build && npx lerna version --yes && lerna publish from-package --no-private --yes",
     "test": "jest",

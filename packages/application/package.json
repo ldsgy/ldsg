@@ -1,0 +1,25 @@
+{
+  "name": "@ldsg/application",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json"
+  },
+  "keywords": [],
+  "author": "wanxger",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.1",
+  "dependencies": {
+    "@ldsg/handler": "workspace:*",
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.13.0"
+  }
+}

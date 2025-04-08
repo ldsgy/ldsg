@@ -61,6 +61,22 @@ importers:
         specifier: ^5.4.5
         version: 5.5.2
 
+  packages/application:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@types/node':
+        specifier: ^20.13.0
+        version: 20.14.8
+
   packages/cli:
     dependencies:
       '@ldsg/utils':
@@ -184,6 +200,9 @@ importers:
       '@ldsg/common':
         specifier: workspace:*
         version: link:../common
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
       '@ldsg/services':
         specifier: workspace:*
         version: link:../services

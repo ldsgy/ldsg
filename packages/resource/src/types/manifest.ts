@@ -12,6 +12,11 @@ export namespace Manifest {
      * Resource Description
      */
     description: string;
+
+    /**
+     * Extra Key
+     */
+    [key: string]: any;
   }
 
   /**
@@ -25,6 +30,7 @@ export namespace Manifest {
 
     /**
      * Resource Kind
+     * Connect uppercase letters with underscores
      */
     kind: string;
 
