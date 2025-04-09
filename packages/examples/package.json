@@ -8,7 +8,7 @@
     "dev:prepare": "pnpm dev:install && pnpm dev:build",
     "dev:install": "pnpm i --prefix=apps/$APP_NAME",
     "dev:build": "pnpm run --prefix=apps/$APP_NAME --recursive build",
-    "server": "ts-node src/server.ts",
+    "serve": "ts-node src/server.ts",
     "start": "node dist/server.js"
   },
   "author": "wanxger",

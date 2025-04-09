@@ -266,6 +266,25 @@ importers:
         specifier: ^20.13.0
         version: 20.14.8
 
+  packages/prepare:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+    devDependencies:
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.17.5
+
   packages/resource: {}
 
   packages/resource-definition:

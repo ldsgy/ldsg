@@ -1,26 +1,35 @@
-import { createApp } from "@ldsg/app";
-import { SERVICE_TYPE_MAP } from "@ldsg/services";
-import { getServiceRecords } from "./utils";
+// import { createApp } from "@ldsg/app";
+// import { SERVICE_TYPE_MAP } from "@ldsg/services";
+// import { getServiceRecords } from "./utils";
+import { manifest } from "./manifests/ip/manifest";
 
-const { APP_NAME } = process.env;
+const { resources } = manifest;
 
-if (!APP_NAME) {
-  throw new Error("env APP_NAME is required");
-}
+console.debug("resources", resources);
 
-const { serviceRecords } = getServiceRecords({
-  appName: APP_NAME,
-});
+const handlerResources = resources.filter((value) => value.kind === "HANDLER");
 
-const app = createApp({
-  serviceRecords,
-  serviceTypeMap: SERVICE_TYPE_MAP,
-});
+console.debug("handlerResources", handlerResources);
 
-const port = process.env.PORT || "3000";
+// const { APP_NAME } = process.env;
 
-app.listen(port, () => {
-  console.info(`listen on http://localhost:${port}`);
+// if (!APP_NAME) {
+//   throw new Error("env APP_NAME is required");
+// }
 
-  console.info(`listen GraphQL on http://localhost:${port}/graphql`);
-});
+// const { serviceRecords } = getServiceRecords({
+//   appName: APP_NAME,
+// });
+
+// const app = createApp({
+//   serviceRecords,
+//   serviceTypeMap: SERVICE_TYPE_MAP,
+// });
+
+// const port = process.env.PORT || "3000";
+
+// app.listen(port, () => {
+//   console.info(`listen on http://localhost:${port}`);
+
+//   console.info(`listen GraphQL on http://localhost:${port}/graphql`);
+// });
