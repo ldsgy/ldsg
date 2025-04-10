@@ -30,5 +30,5 @@
   "containerEnv": {
     "PORT": "8888"
   },
-  "postCreateCommand": "npm i -g lerna pnpm && pnpm i"
+  "postCreateCommand": "npm i -g pnpm && pnpm i"
 }
