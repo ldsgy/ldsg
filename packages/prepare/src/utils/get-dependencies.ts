@@ -6,15 +6,13 @@ import { Manifest } from "@ldsg/resource";
 import _ from "lodash";
 
 interface Params {
-  manifest: Manifest;
+  resources: Manifest.Resource[];
 }
 
 type GetDependencies = (params: Params) => HandlerResourceDependency[];
 
 export const getDependencies: GetDependencies = (params) => {
-  const { manifest } = params;
-
-  const { resources } = manifest;
+  const { resources } = params;
 
   const handlerResources = resources.filter(
     (value) => value.kind === "HANDLER"
