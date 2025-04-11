@@ -10,7 +10,7 @@ const resourceKinds = [resourceDefinition, application, handler];
 const resourceKindsMapRes = resourceKinds.map((value) => {
   const { resourceDefinitionResourceSettings, handlerResourceSettings } = value;
 
-  const resourceKind = _.upperCase(resourceDefinitionResourceSettings.kind);
+  const resourceKind = resourceDefinitionResourceSettings.kind;
 
   const resourceDefinitionResourceId = `${resourceKind}_RESOURCE_DEFINITION`;
 

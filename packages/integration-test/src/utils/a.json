@@ -1,6 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`manifest 1`] = `
 {
   "resources": [
     {
@@ -11,8 +8,8 @@ exports[`manifest 1`] = `
         "description": "",
         "kind": "RESOURCE_DEFINITION",
         "subKinds": [],
-        "title": "资源定义类型资源定义",
-      },
+        "title": "资源定义类型资源定义"
+      }
     },
     {
       "id": "RESOURCE_DEFINITION_RESOURCE_HANDLER",
@@ -21,12 +18,12 @@ exports[`manifest 1`] = `
       "settings": {
         "dependencies": [
           {
-            "name": "@ldsg/resource-definition",
-          },
+            "name": "@ldsg/resource-definition"
+          }
         ],
         "description": "",
-        "title": "资源定义类型资源处理程序",
-      },
+        "title": "资源定义类型资源处理程序"
+      }
     },
     {
       "id": "APPLICATION_RESOURCE_DEFINITION",
@@ -36,8 +33,8 @@ exports[`manifest 1`] = `
         "description": "",
         "kind": "APPLICATION",
         "subKinds": [],
-        "title": "应用类型资源定义",
-      },
+        "title": "应用类型资源定义"
+      }
     },
     {
       "id": "APPLICATION_RESOURCE_HANDLER",
@@ -46,12 +43,12 @@ exports[`manifest 1`] = `
       "settings": {
         "dependencies": [
           {
-            "name": "@ldsg/application",
-          },
+            "name": "@ldsg/application"
+          }
         ],
         "description": "",
-        "title": "应用类型资源处理程序",
-      },
+        "title": "应用类型资源处理程序"
+      }
     },
     {
       "id": "HANDLER_RESOURCE_DEFINITION",
@@ -61,8 +58,8 @@ exports[`manifest 1`] = `
         "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
         "kind": "HANDLER",
         "subKinds": [],
-        "title": "处理程序类型资源定义",
-      },
+        "title": "处理程序类型资源定义"
+      }
     },
     {
       "id": "HANDLER_RESOURCE_HANDLER",
@@ -71,13 +68,12 @@ exports[`manifest 1`] = `
       "settings": {
         "dependencies": [
           {
-            "name": "@ldsg/handler",
-          },
+            "name": "@ldsg/handler"
+          }
         ],
         "description": "包含处理程序相应的模块，此模块主要通过",
-        "title": "处理程序类型资源处理程序",
-      },
-    },
-  ],
+        "title": "处理程序类型资源处理程序"
+      }
+    }
+  ]
 }
-`;

@@ -4,6 +4,6 @@ export const resourceDefinitionResourceSettings: ResourceDefinitionResourceSetti
   {
     title: "资源定义类型资源定义",
     description: "",
-    kind: "APPLICATION",
+    kind: "RESOURCE_DEFINITION",
     subKinds: [],
   };
