@@ -11,6 +11,31 @@ exports[`manifest 1`] = `
         "description": "",
         "kind": "APPLICATION",
         "subKinds": [],
+        "title": "资源定义类型资源定义",
+      },
+    },
+    {
+      "id": "APPLICATION_RESOURCE_HANDLER",
+      "kind": "HANDLER",
+      "parentId": "APPLICATION_RESOURCE_DEFINITION",
+      "settings": {
+        "dependencies": [
+          {
+            "name": "@ldsg/resource-definition",
+          },
+        ],
+        "description": "",
+        "title": "资源定义类型资源处理程序",
+      },
+    },
+    {
+      "id": "APPLICATION_RESOURCE_DEFINITION",
+      "kind": "RESOURCE_DEFINITION",
+      "parentId": "ROOT",
+      "settings": {
+        "description": "",
+        "kind": "APPLICATION",
+        "subKinds": [],
         "title": "应用类型资源定义",
       },
     },
