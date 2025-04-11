@@ -18,6 +18,7 @@
   "dependencies": {
     "@formily/json-schema": "^2.3.1",
     "@ldsg/core": "workspace:*",
+    "@ldsg/resource": "workspace:*",
     "json-schema": "^0.4.0",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21"
