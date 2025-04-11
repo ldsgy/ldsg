@@ -1,5 +1,5 @@
 import request from "supertest";
-import { ApplicationResource } from "./application-resource";
+import { ApplicationResource } from "./resource";
 
 test("application", async () => {
   const application = new ApplicationResource({

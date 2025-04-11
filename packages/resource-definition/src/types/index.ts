@@ -1,1 +1,1 @@
-export * from "./resource-definition-settings";
+export { ResourceDefinitionResourceSettings } from "@ldsg/resource";
