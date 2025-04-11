@@ -1,4 +1,3 @@
-import { Resource } from "@ldsg/resource";
-import { ResourceDefinitionResourceSettings } from "./types";
+import { Resource, ResourceDefinitionResourceSettings } from "@ldsg/resource";
 
 export class ResourceDefinitionResource extends Resource<ResourceDefinitionResourceSettings> {}
