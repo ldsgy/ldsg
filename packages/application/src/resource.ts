@@ -3,7 +3,7 @@ import express, { Express } from "express";
 import { ApplicationResourceSettings } from "./types";
 
 export class ApplicationResource extends Resource<ApplicationResourceSettings> {
-  createExpressApplication: () => Express = () => {
+  createApp: () => Express = () => {
     const app = express();
 
     app.get("/", (req, res) => {
@@ -13,13 +13,13 @@ export class ApplicationResource extends Resource<ApplicationResourceSettings> {
     return app;
   };
 
-  listen = () => {
-    const app = this.createExpressApplication();
+  start = () => {
+    const app = this.createApp();
 
-    const port = 3000;
+    const port = process.env.PORT || 3000;
 
-    return app.listen(port, () => {
-      console.log(`Example app listening on port ${port}`);
+    app.listen(port, () => {
+      console.log(`app listening on port ${port}`);
     });
   };
 }
