@@ -1,9 +1,30 @@
 import { Handler, HandlerResourceSettings } from "@ldsg/handler";
 import { Manifest, Resource } from "@ldsg/resource";
 import { ResourceDefinitionSettings } from "@ldsg/resource-definition";
+import express, { Express } from "express";
 import { ApplicationResourceSettings } from "./types";
 
-export class ApplicationResource extends Resource<ApplicationResourceSettings> {}
+export class ApplicationResource extends Resource<ApplicationResourceSettings> {
+  createExpressApplication: () => Express = () => {
+    const app = express();
+
+    app.get("/", (req, res) => {
+      res.send("Hello, World!");
+    });
+
+    return app;
+  };
+
+  listen = () => {
+    const app = this.createExpressApplication();
+
+    const port = 3000;
+
+    return app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`);
+    });
+  };
+}
 
 export const resourceDefinitionSettings: ResourceDefinitionSettings = {
   title: "应用",
