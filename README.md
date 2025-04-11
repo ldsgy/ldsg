@@ -10,12 +10,18 @@
 
 ### @ldsg/cms 内容管理系统（CMS）
 
-## 脚本
+## 发布
 
-### 发布
+### 脚本
+
+#### 本地发布 alpha 版本
 
 ```sh
-lerna publish --no-private
+# 发布指定模块
+npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter @ldsg/resource --tag alpha --no-git-checks
+
+# 发布所有模块
+npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter "@ldsg/*" --tag alpha --no-git-checks
 ```
 
 ### 模块管理
