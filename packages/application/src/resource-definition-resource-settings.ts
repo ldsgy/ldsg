@@ -1,4 +1,4 @@
-import { ResourceDefinitionResourceSettings } from "@ldsg/resource-definition";
+import { ResourceDefinitionResourceSettings } from "@ldsg/resource";
 
 export const resourceDefinitionResourceSettings: ResourceDefinitionResourceSettings =
   {

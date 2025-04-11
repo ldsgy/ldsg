@@ -11,7 +11,7 @@ export const manifest: Manifest = {
         description:
           "此资源用于定义处理程序资源，处理程序资源主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
         kind: "HANDLER",
-        subResourceKinds: [],
+        subKinds: [],
       },
     },
     {
