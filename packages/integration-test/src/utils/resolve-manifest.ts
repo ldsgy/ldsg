@@ -1,5 +1,5 @@
 import { Manifest } from "@ldsg/resource";
-import { resolveResources } from "./resolve-resources";
+import { resolveManifestResources } from "./resolve-manifest-resources";
 
 interface Params {
   manifest: Manifest;
@@ -8,9 +8,9 @@ interface Params {
 export const resolveManifest = (params: Params) => {
   const { manifest } = params;
 
-  const { resources } = manifest;
+  const { resources: manifestResources } = manifest;
 
-  resolveResources({
-    resources,
+  resolveManifestResources({
+    manifestResources,
   });
 };

@@ -37,7 +37,7 @@ const resourceKindsMapRes = resourceKinds.map((value) => {
 const resourceKindsResources: Manifest.Resource[] =
   _.flatMap(resourceKindsMapRes);
 
-const manifest: Manifest = {
+export const manifest: Manifest = {
   resources: [...resourceKindsResources],
 };
 
