@@ -20,7 +20,7 @@ export namespace Manifest {
   }
 
   /**
-   * Resource
+   * Resource Config
    */
   export interface Resource<T extends ResourceSettings = ResourceSettings> {
     /**

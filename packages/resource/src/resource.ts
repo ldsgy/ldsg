@@ -1,4 +1,22 @@
+import _, { ListIterateeCustom } from "lodash";
 import { Manifest } from "./types/manifest";
+
+type GetFilteredResourcesParams = ListIterateeCustom<
+  Resource<Manifest.ResourceSettings>,
+  boolean
+>;
+
+type GetFilteredResources = (params: GetFilteredResourcesParams) => Resource[];
+
+type GetFilteredResource = (
+  params: GetFilteredResourcesParams
+) => Resource | undefined;
+
+export interface ResourceConstructorParams<
+  T extends Manifest.ResourceSettings = Manifest.ResourceSettings
+> extends Manifest.Resource<T> {
+  relatedResources?: Resource[];
+}
 
 export class Resource<
   T extends Manifest.ResourceSettings = Manifest.ResourceSettings
@@ -24,52 +42,38 @@ export class Resource<
    */
   settings: T;
 
-  constructor(resource: Manifest.Resource<T>) {
-    const { id, kind, parentId, settings } = resource;
+  /**
+   * Related Resources
+   */
+  relatedResources: Resource[];
+
+  constructor(params: ResourceConstructorParams<T>) {
+    const { id, kind, parentId, settings, relatedResources = [] } = params;
 
     this.id = id;
     this.kind = kind;
     this.parentId = parentId;
     this.settings = settings;
+    this.relatedResources = relatedResources;
   }
 
-  getId = () => {
-    const id = this.id;
-
-    if (!id) {
-      throw new Error("resource id is required");
-    }
-
-    return id;
-  };
-
-  getKind = () => {
-    const type = this.kind;
-
-    if (!type) {
-      throw new Error("resource kind is required");
-    }
-
-    return type;
-  };
-
-  getParentId = () => {
-    const parentId = this.parentId;
-
-    if (!parentId) {
-      throw new Error("resource parent id is required");
-    }
-
-    return parentId;
+  /**
+   * Get Filtered Resource
+   */
+  getFilteredResource: GetFilteredResource = (params) => {
+    return this.getFilteredResources(params)[0];
   };
 
   /**
-   * Get Resource Settings
-   * @returns Resource Settings
+   * Get Filtered Resources
    */
-  getSettings = () => {
-    const settings = this.settings ?? {};
+  getFilteredResources: GetFilteredResources = (params) => {
+    const { relatedResources } = this;
 
-    return settings;
+    console.debug("getFilteredResources relatedResources", relatedResources);
+
+    console.debug("getFilteredResources params", params);
+
+    return _.filter(relatedResources, params);
   };
 }

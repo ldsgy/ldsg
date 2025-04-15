@@ -1,9 +1,13 @@
 import { Handler } from "@ldsg/handler";
-import { Manifest, ResourceDefinitionResourceSettings } from "@ldsg/resource";
+import {
+  InstantiateResourceParams,
+  InstantiateResourceRes,
+  ResourceDefinitionResourceSettings,
+} from "@ldsg/resource";
+import { instantiateResource } from "./instantiate-resource";
 import { ResourceDefinitionResource } from "./resource";
 
 export const handler: Handler<
-  [Manifest.Resource<ResourceDefinitionResourceSettings>]
-> = (params) => {
-  return new ResourceDefinitionResource(params);
-};
+  [InstantiateResourceParams<ResourceDefinitionResourceSettings>],
+  InstantiateResourceRes<ResourceDefinitionResource>
+> = instantiateResource;

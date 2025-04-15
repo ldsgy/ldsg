@@ -13,12 +13,12 @@ type GetHandler<
 
 export class HandlerResource extends Resource<HandlerResourceSettings> {
   getModuleId = (): string => {
-    const { code, dependencies } = this.getSettings();
+    const { code, dependencies } = this.settings;
 
     let res: string;
 
     if (code) {
-      res = this.getId();
+      res = this.id;
     } else if (dependencies[0]) {
       res = dependencies[0].name;
     } else {

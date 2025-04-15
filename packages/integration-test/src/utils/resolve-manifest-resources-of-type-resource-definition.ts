@@ -1,48 +1,31 @@
-import { HandlerResource } from "@ldsg/handler";
+import {
+  instantiateResources as instantiateResourceDefinitionResources,
+  ResourceDefinitionResource,
+} from "@ldsg/resource-definition";
 import _ from "lodash";
 import { ResolveManifestResourcesParams } from "./types";
 
-interface Params extends ResolveManifestResourcesParams {
-  handlerResources: HandlerResource[];
+type KindResourceMap = Record<string, ResourceDefinitionResource>;
+
+interface Res {
+  kindResourceMap: KindResourceMap;
 }
 
 export const resolveManifestResourcesOfTypeResourceDefinition = (
-  params: Params
+  params: ResolveManifestResourcesParams
 ) => {
-  const { manifestResources, handlerResources } = params;
+  const { manifestResources } = params;
 
-  const manifestResourcesOfTypeResourceDefinition = manifestResources.filter(
-    (value) => value.kind === "RESOURCE_DEFINITION"
-  );
-
-  console.debug(
-    "manifestResourcesOfTypeResourceDefinition",
-    manifestResourcesOfTypeResourceDefinition
-  );
-
-  const kindMap = _.keyBy(
-    manifestResourcesOfTypeResourceDefinition,
-    "settings.kind"
-  );
-
-  console.debug("kindMap", kindMap);
-
-  const kindHandlerResourceMap: Record<string, HandlerResource | undefined> =
-    _.mapValues(kindMap, (value) => {
-      console.debug("kindHandlerResourceMap mapValues value", value);
-      return handlerResources.find((handlerResource) => {
-        const getParentIdRes = handlerResource.getParentId();
-
-        console.debug(
-          "kindHandlerResourceMap mapValues getParentIdRes",
-          getParentIdRes
-        );
-
-        const res = getParentIdRes === value.id;
-
-        return res;
-      });
+  const { resources: resourceDefinitionResources } =
+    instantiateResourceDefinitionResources({
+      manifestResources,
     });
 
-  console.debug("kindHandlerResourceMap", kindHandlerResourceMap);
+  const kindResourceMap = _.keyBy(resourceDefinitionResources, "settings.kind");
+
+  const res: Res = {
+    kindResourceMap,
+  };
+
+  return res;
 };
