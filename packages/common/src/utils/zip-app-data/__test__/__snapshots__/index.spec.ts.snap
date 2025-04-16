@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`manifest 1`] = `
+[
+  {
+    "content": "{"resources":[{"id":"RESOURCE_DEFINITION_RESOURCE_DEFINITION","kind":"RESOURCE_DEFINITION","parentId":"ROOT","settings":{"title":"资源定义类型资源定义","description":"","kind":"RESOURCE_DEFINITION","subKinds":[]}},{"id":"RESOURCE_DEFINITION_RESOURCE_HANDLER","kind":"HANDLER","parentId":"RESOURCE_DEFINITION_RESOURCE_DEFINITION","settings":{"title":"资源定义类型资源处理程序","description":"","code":"export * from \\"@ldsg/resource-definition\\";","dependencies":[{"name":"@ldsg/resource-definition"}]}},{"id":"HANDLER_RESOURCE_DEFINITION","kind":"RESOURCE_DEFINITION","parentId":"ROOT","settings":{"title":"处理程序类型资源定义","description":"主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。","kind":"HANDLER","subKinds":[]}},{"id":"HANDLER_RESOURCE_HANDLER","kind":"HANDLER","parentId":"HANDLER_RESOURCE_DEFINITION","settings":{"title":"处理程序类型资源处理程序","description":"包含处理程序相应的模块，此模块主要通过","code":"export * from \\"@ldsg/handler\\";","dependencies":[{"name":"@ldsg/handler"}]}},{"id":"APPLICATION_RESOURCE_DEFINITION","kind":"RESOURCE_DEFINITION","parentId":"ROOT","settings":{"title":"应用类型资源定义","description":"","kind":"APPLICATION","subKinds":[]}},{"id":"APPLICATION_RESOURCE_HANDLER","kind":"HANDLER","parentId":"APPLICATION_RESOURCE_DEFINITION","settings":{"title":"应用类型资源处理程序","description":"","code":"export * from \\"@ldsg/application\\";","dependencies":[{"name":"@ldsg/application"}]}},{"id":"main-app","kind":"APPLICATION","parentId":"ROOT","settings":{"title":"主要应用","description":""}}]}",
+    "name": "manifest.json",
+    "type": "FILE",
+  },
+  {
+    "content": "packages:
+      - 'handlers/**'",
+    "name": "pnpm-workspace.yaml",
+    "type": "FILE",
+  },
+  {
+    "name": "handlers/",
+    "type": "DIRECTORY",
+  },
+  {
+    "name": "handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER/",
+    "type": "DIRECTORY",
+  },
+  {
+    "name": "handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER/src/",
+    "type": "DIRECTORY",
+  },
+  {
+    "content": "export * from "@ldsg/resource-definition";",
+    "name": "handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER/src/index.ts",
+    "type": "FILE",
+  },
+  {
+    "content": "{"name":"RESOURCE_DEFINITION_RESOURCE_HANDLER","version":"1.0.0","main":"dist/index.js","scripts":{"build":"tsc"},"dependencies":{"@ldsg/resource-definition":"latest"}}",
+    "name": "handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER/package.json",
+    "type": "FILE",
+  },
+  {
+    "content": "{"compilerOptions":{"module":"commonjs","declaration":true,"removeComments":true,"emitDecoratorMetadata":true,"experimentalDecorators":true,"allowSyntheticDefaultImports":true,"target":"ES2021","sourceMap":true,"outDir":"./dist","baseUrl":"./","incremental":true,"skipLibCheck":true,"strictNullChecks":false,"noImplicitAny":false,"strictBindCallApply":false,"forceConsistentCasingInFileNames":false,"noFallthroughCasesInSwitch":false,"resolveJsonModule":true,"esModuleInterop":true,"noEmitOnError":true}}",
+    "name": "handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER/tsconfig.json",
+    "type": "FILE",
+  },
+  {
+    "name": "handlers/HANDLER_RESOURCE_HANDLER/",
+    "type": "DIRECTORY",
+  },
+  {
+    "name": "handlers/HANDLER_RESOURCE_HANDLER/src/",
+    "type": "DIRECTORY",
+  },
+  {
+    "content": "export * from "@ldsg/handler";",
+    "name": "handlers/HANDLER_RESOURCE_HANDLER/src/index.ts",
+    "type": "FILE",
+  },
+  {
+    "content": "{"name":"HANDLER_RESOURCE_HANDLER","version":"1.0.0","main":"dist/index.js","scripts":{"build":"tsc"},"dependencies":{"@ldsg/handler":"latest"}}",
+    "name": "handlers/HANDLER_RESOURCE_HANDLER/package.json",
+    "type": "FILE",
+  },
+  {
+    "content": "{"compilerOptions":{"module":"commonjs","declaration":true,"removeComments":true,"emitDecoratorMetadata":true,"experimentalDecorators":true,"allowSyntheticDefaultImports":true,"target":"ES2021","sourceMap":true,"outDir":"./dist","baseUrl":"./","incremental":true,"skipLibCheck":true,"strictNullChecks":false,"noImplicitAny":false,"strictBindCallApply":false,"forceConsistentCasingInFileNames":false,"noFallthroughCasesInSwitch":false,"resolveJsonModule":true,"esModuleInterop":true,"noEmitOnError":true}}",
+    "name": "handlers/HANDLER_RESOURCE_HANDLER/tsconfig.json",
+    "type": "FILE",
+  },
+  {
+    "name": "handlers/APPLICATION_RESOURCE_HANDLER/",
+    "type": "DIRECTORY",
+  },
+  {
+    "name": "handlers/APPLICATION_RESOURCE_HANDLER/src/",
+    "type": "DIRECTORY",
+  },
+  {
+    "content": "export * from "@ldsg/application";",
+    "name": "handlers/APPLICATION_RESOURCE_HANDLER/src/index.ts",
+    "type": "FILE",
+  },
+  {
+    "content": "{"name":"APPLICATION_RESOURCE_HANDLER","version":"1.0.0","main":"dist/index.js","scripts":{"build":"tsc"},"dependencies":{"@ldsg/application":"latest"}}",
+    "name": "handlers/APPLICATION_RESOURCE_HANDLER/package.json",
+    "type": "FILE",
+  },
+  {
+    "content": "{"compilerOptions":{"module":"commonjs","declaration":true,"removeComments":true,"emitDecoratorMetadata":true,"experimentalDecorators":true,"allowSyntheticDefaultImports":true,"target":"ES2021","sourceMap":true,"outDir":"./dist","baseUrl":"./","incremental":true,"skipLibCheck":true,"strictNullChecks":false,"noImplicitAny":false,"strictBindCallApply":false,"forceConsistentCasingInFileNames":false,"noFallthroughCasesInSwitch":false,"resolveJsonModule":true,"esModuleInterop":true,"noEmitOnError":true}}",
+    "name": "handlers/APPLICATION_RESOURCE_HANDLER/tsconfig.json",
+    "type": "FILE",
+  },
+]
+`;
