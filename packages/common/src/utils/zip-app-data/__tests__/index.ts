@@ -1,9 +1,9 @@
 import AdmZip from "adm-zip";
 import { zipAppData } from "..";
-import manifestJson from "./manifest.json";
+import MANIFEST_JSON from "./manifest.json";
 
-test("manifest", async () => {
-  const { resources } = manifestJson;
+test("zip app data", async () => {
+  const { resources } = MANIFEST_JSON;
 
   const { archive } = await zipAppData({
     resources,
