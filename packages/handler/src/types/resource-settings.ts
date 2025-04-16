@@ -22,9 +22,9 @@ export interface HandlerResourceDependency {
 export interface HandlerResourceSettings extends Manifest.ResourceSettings {
   /**
    * Code
-   * When code is undefined, import handler from first in dependencies.
+   * The code must exist to avoid problems caused by different versions resulting from dependencies being installed in the root project.
    */
-  code?: string;
+  code: string;
 
   /**
    * Dependencies

@@ -150,6 +150,9 @@ importers:
       '@ldsg/core':
         specifier: workspace:*
         version: link:../core
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource

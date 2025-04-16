@@ -8,6 +8,7 @@ import { HandlerResourceSettings } from "@ldsg/handler";
 export const handlerResourceSettings: HandlerResourceSettings = {
   title: "资源定义类型资源处理程序",
   description: "",
+  code: `export * from "@ldsg/resource-definition";`,
   dependencies: [
     {
       name: "@ldsg/resource-definition",

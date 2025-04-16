@@ -8,6 +8,7 @@ import { HandlerResourceSettings } from "./types";
 export const handlerResourceSettings: HandlerResourceSettings = {
   title: "处理程序类型资源处理程序",
   description: "包含处理程序相应的模块，此模块主要通过",
+  code: `export * from "@ldsg/handler";`,
   dependencies: [
     {
       name: "@ldsg/handler",

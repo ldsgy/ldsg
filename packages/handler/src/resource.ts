@@ -13,29 +13,19 @@ type GetHandler<
 
 export class HandlerResource extends Resource<HandlerResourceSettings> {
   getModuleId = (): string => {
-    const { code, dependencies } = this.settings;
+    const { id } = this.settings;
 
-    let res: string;
-
-    if (code) {
-      res = this.id;
-    } else if (dependencies[0]) {
-      res = dependencies[0].name;
-    } else {
-      throw new Error("invalid handler settings");
-    }
-
-    return res;
+    return id;
   };
 
   getHandler: GetHandler = () => {
     const moduleId = this.getModuleId();
 
     try {
-      const requireResult = require(moduleId);
+      const requireRes = require(moduleId);
 
-      if ("handler" in requireResult) {
-        return requireResult.handler;
+      if ("handler" in requireRes) {
+        return requireRes.handler;
       } else {
         throw new Error("invalid handler in module");
       }
