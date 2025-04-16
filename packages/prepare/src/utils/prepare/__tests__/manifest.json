@@ -1,0 +1,76 @@
+{
+  "resources": [
+    {
+      "id": "RESOURCE_DEFINITION_RESOURCE_DEFINITION",
+      "kind": "RESOURCE_DEFINITION",
+      "parentId": "ROOT",
+      "settings": {
+        "title": "资源定义类型资源定义",
+        "description": "",
+        "kind": "RESOURCE_DEFINITION",
+        "subKinds": []
+      }
+    },
+    {
+      "id": "RESOURCE_DEFINITION_RESOURCE_HANDLER",
+      "kind": "HANDLER",
+      "parentId": "RESOURCE_DEFINITION_RESOURCE_DEFINITION",
+      "settings": {
+        "title": "资源定义类型资源处理程序",
+        "description": "",
+        "code": "export * from \"@ldsg/resource-definition\";",
+        "dependencies": [{ "name": "@ldsg/resource-definition" }]
+      }
+    },
+    {
+      "id": "HANDLER_RESOURCE_DEFINITION",
+      "kind": "RESOURCE_DEFINITION",
+      "parentId": "ROOT",
+      "settings": {
+        "title": "处理程序类型资源定义",
+        "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
+        "kind": "HANDLER",
+        "subKinds": []
+      }
+    },
+    {
+      "id": "HANDLER_RESOURCE_HANDLER",
+      "kind": "HANDLER",
+      "parentId": "HANDLER_RESOURCE_DEFINITION",
+      "settings": {
+        "title": "处理程序类型资源处理程序",
+        "description": "包含处理程序相应的模块，此模块主要通过",
+        "code": "export * from \"@ldsg/handler\";",
+        "dependencies": [{ "name": "@ldsg/handler" }]
+      }
+    },
+    {
+      "id": "APPLICATION_RESOURCE_DEFINITION",
+      "kind": "RESOURCE_DEFINITION",
+      "parentId": "ROOT",
+      "settings": {
+        "title": "应用类型资源定义",
+        "description": "",
+        "kind": "APPLICATION",
+        "subKinds": []
+      }
+    },
+    {
+      "id": "APPLICATION_RESOURCE_HANDLER",
+      "kind": "HANDLER",
+      "parentId": "APPLICATION_RESOURCE_DEFINITION",
+      "settings": {
+        "title": "应用类型资源处理程序",
+        "description": "",
+        "code": "export * from \"@ldsg/application\";",
+        "dependencies": [{ "name": "@ldsg/application" }]
+      }
+    },
+    {
+      "id": "main-app",
+      "kind": "APPLICATION",
+      "parentId": "ROOT",
+      "settings": { "title": "主要应用", "description": "" }
+    }
+  ]
+}
