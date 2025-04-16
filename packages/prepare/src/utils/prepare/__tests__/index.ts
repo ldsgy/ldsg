@@ -1,10 +1,10 @@
+import { appManifest } from "@ldsg/constants";
 import path from "path";
 import { prepare } from "..";
-import MANIFEST_JSON from "./manifest.json";
 
 test("prepare", async () => {
   await prepare({
-    ...MANIFEST_JSON,
+    ...appManifest,
     outputPath: path.join(__dirname, "apps", "main"),
   });
 });
