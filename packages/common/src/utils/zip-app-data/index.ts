@@ -78,7 +78,9 @@ export const zipAppData: ZipAppData = async (params) => {
         const handlerFolder = handlersFolder.folder(id);
 
         if (handlerFolder) {
-          // save code in src/index.ts
+          /**
+           * save code in src/index.ts
+           */
           {
             const handlerSrcFolder = handlerFolder.folder("src");
 
@@ -87,7 +89,9 @@ export const zipAppData: ZipAppData = async (params) => {
             }
           }
 
-          // save modules in package.json
+          /**
+           * save modules in package.json
+           */
           {
             const { packageJson } = getHandlerPackageJson({
               moduleName: id,
@@ -101,7 +105,9 @@ export const zipAppData: ZipAppData = async (params) => {
             );
           }
 
-          // save tsconfig.json
+          /**
+           * save tsconfig.json
+           */
           handlerFolder.file(
             HANDLER_TSCONFIG_JSON_FILE_INFO.name,
             JSON.stringify(HANDLER_TSCONFIG_JSON_FILE_INFO.content)
