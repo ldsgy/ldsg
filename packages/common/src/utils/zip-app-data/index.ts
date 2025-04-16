@@ -1,17 +1,22 @@
+import {
+  resourceDefinitionResourceSettings as handlerResourceDefinitionResourceSettings,
+  HandlerResourceSettings,
+} from "@ldsg/handler";
+import { Manifest } from "@ldsg/resource";
 import JSZip from "jszip";
 import _ from "lodash";
 import path from "path";
-import { AppData, HandlerServiceSettings } from "../../types";
+import { AppData } from "../../types";
 import {
   HANDLER_PACKAGE_JSON_BASE_FILE_INFO,
   HANDLER_SRC_INDEX_TS_FILE_INFO,
   HANDLER_TSCONFIG_JSON_FILE_INFO,
   PNPM_WORKSPACE_YAML_FILE_INFO,
 } from "./constants";
-import { getHandlerServicePackageJsonContentByModuleData } from "./utils/get-handler-service-package-json-content-by-module-data";
+import { getHandlerPackageJson } from "./utils";
 
 export * from "./constants";
-export * from "./utils/get-handler-service-package-json-content-by-module-data";
+export * from "./utils";
 
 interface ZipAppDataParams<T extends JSZip.OutputType>
   extends JSZip.JSZipGeneratorOptions<T>,
@@ -27,20 +32,22 @@ interface ZipAppDataRes<T extends JSZip.OutputType> {
   archive: OutputByType<T>;
 }
 
-export const zipAppData = async <T extends JSZip.OutputType>(
+type ZipAppData = <T extends JSZip.OutputType>(
   params: ZipAppDataParams<T>
-): Promise<ZipAppDataRes<T>> => {
+) => Promise<ZipAppDataRes<T>>;
+
+export const zipAppData: ZipAppData = async (params) => {
   const {
     environmentVariables,
     files = [],
+    resources: manifestResources,
     reuseMainAppDependencies = [],
-    serviceRecords,
     type,
   } = params;
 
   const zip = new JSZip();
 
-  zip.file("service-records.json", JSON.stringify(serviceRecords));
+  zip.file("manifest.json", JSON.stringify(_.pick(params, "resources")));
 
   if (environmentVariables) {
     zip.file(
@@ -50,11 +57,11 @@ export const zipAppData = async <T extends JSZip.OutputType>(
     );
   }
 
-  const handlerServiceRecords = serviceRecords.filter(
-    (value) => value.type === "HANDLER"
-  );
+  const handlerManifestResources = manifestResources.filter(
+    (value) => value.kind === handlerResourceDefinitionResourceSettings.kind
+  ) as Manifest.Resource<HandlerResourceSettings>[];
 
-  if (handlerServiceRecords.length) {
+  if (handlerManifestResources.length) {
     zip.file(
       PNPM_WORKSPACE_YAML_FILE_INFO.name,
       PNPM_WORKSPACE_YAML_FILE_INFO.content
@@ -63,55 +70,42 @@ export const zipAppData = async <T extends JSZip.OutputType>(
     const handlersFolder = zip.folder("handlers");
 
     if (handlersFolder) {
-      _.each(handlerServiceRecords, (handlerServiceRecord) => {
-        const { id, settings: handlerServiceRecordSettings } =
-          handlerServiceRecord;
+      _.each(handlerManifestResources, (handlerManifestResource) => {
+        const { id, settings } = handlerManifestResource;
 
-        const settings = handlerServiceRecordSettings as HandlerServiceSettings;
+        const { code, dependencies } = settings;
 
-        const moduleData = _.get(settings, ["moduleData"]);
+        const handlerFolder = handlersFolder.folder(id);
 
-        const code = _.get(moduleData, ["code"]);
+        if (handlerFolder) {
+          // save code in src/index.ts
+          {
+            const handlerSrcFolder = handlerFolder.folder("src");
 
-        const modules = _.get(moduleData, ["modules"]);
-
-        if (code && modules) {
-          const handlerFolder = handlersFolder.folder(id);
-
-          if (handlerFolder) {
-            // save code in src/index.ts
-            {
-              const handlerSrcFolder = handlerFolder.folder("src");
-
-              if (handlerSrcFolder) {
-                handlerSrcFolder.file(
-                  HANDLER_SRC_INDEX_TS_FILE_INFO.name,
-                  code
-                );
-              }
+            if (handlerSrcFolder) {
+              handlerSrcFolder.file(HANDLER_SRC_INDEX_TS_FILE_INFO.name, code);
             }
+          }
 
-            // save modules in package.json
-            {
-              const { content } =
-                getHandlerServicePackageJsonContentByModuleData({
-                  moduleData,
-                  moduleName: id,
-                  reuseMainAppDependencies,
-                });
+          // save modules in package.json
+          {
+            const { packageJson } = getHandlerPackageJson({
+              moduleName: id,
+              dependencies,
+              reuseMainAppDependencies,
+            });
 
-              handlerFolder.file(
-                HANDLER_PACKAGE_JSON_BASE_FILE_INFO.name,
-                JSON.stringify(content)
-              );
-            }
-
-            // save tsconfig.json
             handlerFolder.file(
-              HANDLER_TSCONFIG_JSON_FILE_INFO.name,
-              JSON.stringify(HANDLER_TSCONFIG_JSON_FILE_INFO.content)
+              HANDLER_PACKAGE_JSON_BASE_FILE_INFO.name,
+              JSON.stringify(packageJson)
             );
           }
+
+          // save tsconfig.json
+          handlerFolder.file(
+            HANDLER_TSCONFIG_JSON_FILE_INFO.name,
+            JSON.stringify(HANDLER_TSCONFIG_JSON_FILE_INFO.content)
+          );
         }
       });
     }
@@ -144,7 +138,7 @@ export const zipAppData = async <T extends JSZip.OutputType>(
 
   const archive = await zip.generateAsync({ type });
 
-  const res: ZipAppDataRes<T> = {
+  const res = {
     archive,
   };
 

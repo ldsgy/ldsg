@@ -17,6 +17,7 @@ export const HANDLER_PACKAGE_JSON_BASE_FILE_INFO = {
     scripts: {
       build: "tsc",
     },
+    dependencies: {},
   },
 };
 
