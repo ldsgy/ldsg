@@ -1,8 +1,8 @@
-import { manifest } from "../manifest.spec";
+import { appManifest } from "@ldsg/constants";
 import { resolveManifestResources } from "./resolve-manifest-resources";
 
 test("resolve-manifest-resources", async () => {
-  const { resources } = manifest;
+  const { resources } = appManifest;
 
   const resolveManifestResourcesRes = resolveManifestResources({
     manifestResources: resources,
