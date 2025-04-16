@@ -3,7 +3,6 @@ import * as handler from "@ldsg/handler";
 import { Manifest } from "@ldsg/resource";
 import * as resourceDefinition from "@ldsg/resource-definition";
 import _ from "lodash";
-// import fs-extra from "fs-extra";
 
 /**
  * 基础层资源类型组
@@ -65,9 +64,4 @@ export const manifest: Manifest = {
 
 test("manifest", async () => {
   expect(manifest).toMatchSnapshot();
-
-  /**
-   * 需要写成相应文件后现测试吗？不需要，上一步已经对生成数据进行验证，无需再次验证。
-   */
-  // await fs.writeJSON("manifest.json", manifest);
 });
