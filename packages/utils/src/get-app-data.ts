@@ -1,5 +1,5 @@
 import { AppData } from "@ldsg/common";
-import { extendAppData } from "./extend-app-data";
+import { extendAppDataWithPath } from "./extend-app-data-with-path";
 import { fetchAppData, FetchAppDataParams } from "./fetch-app-data";
 
 interface GetAppDataParams extends FetchAppDataParams {
@@ -13,7 +13,7 @@ export const getAppData: GetAppData = async (params) => {
 
   const appData = await fetchAppData(params);
 
-  const res: AppData = await extendAppData({
+  const res: AppData = await extendAppDataWithPath({
     appData,
     extraAppDataPath,
   });

@@ -1,25 +1,14 @@
 import { AppData } from "@ldsg/common";
-import fs from "fs-extra";
 
 export interface ExtendAppDataParams {
   appData: AppData;
-  extraAppDataPath?: string;
+  extraAppData?: Partial<AppData>;
 }
 
-type ExtendAppData = (params: ExtendAppDataParams) => Promise<AppData>;
+type ExtendAppData = (params: ExtendAppDataParams) => AppData;
 
-export const extendAppData: ExtendAppData = async (params) => {
-  const { appData, extraAppDataPath } = params;
-
-  let extraAppData = {};
-
-  if (extraAppDataPath) {
-    const existsRes = await fs.exists(extraAppDataPath);
-
-    if (existsRes) {
-      extraAppData = await fs.readJson(extraAppDataPath);
-    }
-  }
+export const extendAppData: ExtendAppData = (params) => {
+  const { appData, extraAppData } = params;
 
   const res: AppData = {
     ...extraAppData,
