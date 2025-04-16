@@ -16,8 +16,9 @@
   },
   "description": "",
   "dependencies": {
+    "@ldsg/application": "workspace:*",
     "@ldsg/common": "workspace:*",
-    "@ldsg/services": "workspace:*",
+    "@ldsg/resource": "workspace:*",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0"
   },

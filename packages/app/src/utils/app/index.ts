@@ -1,40 +1,28 @@
-import { GetApplicationInstanceParams } from "@ldsg/services";
-import express, { Express } from "express";
 import {
-  GetApplicationServiceParams,
-  getApplicationService,
-  handleApplicationInstanceRequest,
-} from "./utils";
+  ApplicationResource,
+  resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
+} from "@ldsg/application";
+import { Resource } from "@ldsg/resource";
+import { Express } from "express";
 
-export * from "./utils";
-
-interface CreateAppParams
-  extends GetApplicationServiceParams,
-    GetApplicationInstanceParams {}
+interface CreateAppParams {
+  resources: Resource[];
+}
 
 type CreateApp = (params: CreateAppParams) => Express;
 
 export const createApp: CreateApp = (params) => {
-  const { basePath, yogaServerOptions } = params;
+  const { resources } = params;
 
-  const app = express();
+  const applicationResource = resources.find(
+    (value) => value.kind === applicationResourceDefinitionResourceSettings.kind
+  ) as ApplicationResource | undefined;
 
-  const { applicationService } = getApplicationService(params);
+  if (!applicationResource) {
+    throw new Error("invalid application resource");
+  }
 
-  const applicationInstance = applicationService.getApplicationInstance({
-    basePath,
-    yogaServerOptions,
-  });
+  const res = applicationResource.createApp();
 
-  app.use((req, res, next) => {
-    handleApplicationInstanceRequest({
-      applicationInstance,
-      basePath,
-      req,
-      res,
-      next,
-    });
-  });
-
-  return app;
+  return res;
 };

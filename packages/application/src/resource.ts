@@ -12,14 +12,4 @@ export class ApplicationResource extends Resource<ApplicationResourceSettings> {
 
     return app;
   };
-
-  start = () => {
-    const app = this.createApp();
-
-    const port = process.env.PORT || 3000;
-
-    app.listen(port, () => {
-      console.log(`app listening on port ${port}`);
-    });
-  };
 }
