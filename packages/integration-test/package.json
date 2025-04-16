@@ -19,9 +19,11 @@
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
+    "fs-extra": "^11.3.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.14.202",
     "@types/supertest": "^6.0.0",
     "supertest": "^6.3.4"

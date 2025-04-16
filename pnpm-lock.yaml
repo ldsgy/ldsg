@@ -292,10 +292,16 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      fs-extra:
+        specifier: ^11.3.0
+        version: 11.3.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
     devDependencies:
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.17.5
@@ -2433,6 +2439,10 @@ packages:
 
   fs-extra@11.2.0:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
+    engines: {node: '>=14.14'}
+
+  fs-extra@11.3.0:
+    resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
 
   fs-extra@7.0.1:
@@ -6984,6 +6994,12 @@ snapshots:
   fresh@0.5.2: {}
 
   fs-extra@11.2.0:
+    dependencies:
+      graceful-fs: 4.2.11
+      jsonfile: 6.1.0
+      universalify: 2.0.1
+
+  fs-extra@11.3.0:
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
