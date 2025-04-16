@@ -8,9 +8,9 @@
   ],
   "types": "dist",
   "scripts": {
-    "build": "npm run clean && npm run generate",
-    "generate": "npx tsx scripts/generate.ts",
-    "clean": "rm -rf dist"
+    "build": "npm run clean && npm run generate && tsc --project tsconfig.build.json",
+    "generate": "npx tsx src/scripts/generate.ts",
+    "clean": "rm -rf dist src/manifests"
   },
   "keywords": [],
   "author": "wanxger",
@@ -26,6 +26,7 @@
     "@ldsg/resource-definition": "workspace:*",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.14.202",
+    "@types/node": "^20.13.0",
     "@types/supertest": "^6.0.0",
     "fs-extra": "^11.3.0",
     "lodash": "^4.17.21",
