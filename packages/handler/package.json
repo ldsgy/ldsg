@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "wanxger",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "pnpm@10.7.1",
   "dependencies": {
     "@ldsg/resource": "workspace:*"
