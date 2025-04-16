@@ -19,6 +19,7 @@ exports[`manifest 1`] = `
       "kind": "HANDLER",
       "parentId": "RESOURCE_DEFINITION_RESOURCE_DEFINITION",
       "settings": {
+        "code": "export * from "@ldsg/resource-definition";",
         "dependencies": [
           {
             "name": "@ldsg/resource-definition",
@@ -26,31 +27,6 @@ exports[`manifest 1`] = `
         ],
         "description": "",
         "title": "资源定义类型资源处理程序",
-      },
-    },
-    {
-      "id": "APPLICATION_RESOURCE_DEFINITION",
-      "kind": "RESOURCE_DEFINITION",
-      "parentId": "ROOT",
-      "settings": {
-        "description": "",
-        "kind": "APPLICATION",
-        "subKinds": [],
-        "title": "应用类型资源定义",
-      },
-    },
-    {
-      "id": "APPLICATION_RESOURCE_HANDLER",
-      "kind": "HANDLER",
-      "parentId": "APPLICATION_RESOURCE_DEFINITION",
-      "settings": {
-        "dependencies": [
-          {
-            "name": "@ldsg/application",
-          },
-        ],
-        "description": "",
-        "title": "应用类型资源处理程序",
       },
     },
     {
@@ -69,6 +45,7 @@ exports[`manifest 1`] = `
       "kind": "HANDLER",
       "parentId": "HANDLER_RESOURCE_DEFINITION",
       "settings": {
+        "code": "export * from "@ldsg/handler";",
         "dependencies": [
           {
             "name": "@ldsg/handler",
@@ -76,6 +53,41 @@ exports[`manifest 1`] = `
         ],
         "description": "包含处理程序相应的模块，此模块主要通过",
         "title": "处理程序类型资源处理程序",
+      },
+    },
+    {
+      "id": "APPLICATION_RESOURCE_DEFINITION",
+      "kind": "RESOURCE_DEFINITION",
+      "parentId": "ROOT",
+      "settings": {
+        "description": "",
+        "kind": "APPLICATION",
+        "subKinds": [],
+        "title": "应用类型资源定义",
+      },
+    },
+    {
+      "id": "APPLICATION_RESOURCE_HANDLER",
+      "kind": "HANDLER",
+      "parentId": "APPLICATION_RESOURCE_DEFINITION",
+      "settings": {
+        "code": "export * from "@ldsg/application";",
+        "dependencies": [
+          {
+            "name": "@ldsg/application",
+          },
+        ],
+        "description": "",
+        "title": "应用类型资源处理程序",
+      },
+    },
+    {
+      "id": "main-app",
+      "kind": "APPLICATION",
+      "parentId": "ROOT",
+      "settings": {
+        "description": "",
+        "title": "主要应用",
       },
     },
   ],

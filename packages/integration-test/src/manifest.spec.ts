@@ -3,57 +3,65 @@ import * as handler from "@ldsg/handler";
 import { Manifest } from "@ldsg/resource";
 import * as resourceDefinition from "@ldsg/resource-definition";
 import _ from "lodash";
-// import request from "supertest";
 
-const resourceKinds = [resourceDefinition, application, handler];
+/**
+ * 基础层资源类型组
+ */
+const baseResourceKinds = [resourceDefinition, handler];
 
-const resourceKindsMapRes = resourceKinds.map((value) => {
-  const { resourceDefinitionResourceSettings, handlerResourceSettings } = value;
+/**
+ * 应用层资源类型组
+ */
+const applicationResourceKinds = [application];
 
-  const resourceKind = resourceDefinitionResourceSettings.kind;
+const resourceKinds = [...baseResourceKinds, ...applicationResourceKinds];
 
-  const resourceDefinitionResourceId = `${resourceKind}_RESOURCE_DEFINITION`;
+const resourceKindsResources: Manifest.Resource[] = _.flatMap(
+  resourceKinds.map((value) => {
+    const { resourceDefinitionResourceSettings, handlerResourceSettings } =
+      value;
 
-  const handlerResourceId = `${resourceKind}_RESOURCE_HANDLER`;
+    const resourceKind = resourceDefinitionResourceSettings.kind;
 
-  const res: Manifest.Resource[] = [
-    {
-      id: resourceDefinitionResourceId,
-      kind: "RESOURCE_DEFINITION",
-      parentId: "ROOT",
-      settings: resourceDefinitionResourceSettings,
+    const resourceDefinitionResourceId = `${resourceKind}_RESOURCE_DEFINITION`;
+
+    const handlerResourceId = `${resourceKind}_RESOURCE_HANDLER`;
+
+    const res: Manifest.Resource[] = [
+      {
+        id: resourceDefinitionResourceId,
+        kind: "RESOURCE_DEFINITION",
+        parentId: "ROOT",
+        settings: resourceDefinitionResourceSettings,
+      },
+      {
+        id: handlerResourceId,
+        kind: "HANDLER",
+        parentId: resourceDefinitionResourceId,
+        settings: handlerResourceSettings,
+      },
+    ];
+
+    return res;
+  })
+);
+
+const applicationResources: Manifest.Resource<Manifest.ResourceSettings>[] = [
+  {
+    id: "main-app",
+    kind: "APPLICATION",
+    parentId: "ROOT",
+    settings: {
+      title: "主要应用",
+      description: "",
     },
-    {
-      id: handlerResourceId,
-      kind: "HANDLER",
-      parentId: resourceDefinitionResourceId,
-      settings: handlerResourceSettings,
-    },
-  ];
-
-  return res;
-});
-
-const resourceKindsResources: Manifest.Resource[] =
-  _.flatMap(resourceKindsMapRes);
+  },
+];
 
 export const manifest: Manifest = {
-  resources: [...resourceKindsResources],
+  resources: [...resourceKindsResources, ...applicationResources],
 };
 
 test("manifest", async () => {
   expect(manifest).toMatchSnapshot();
-
-  // const application = new ApplicationResource({
-  //   id: "APPLICATION",
-  //   kind: "APPLICATION",
-  //   parentId: "ROOT",
-  //   settings: {
-  //     title: "应用",
-  //     description: "应用根资源",
-  //   },
-  // });
-  // const app = application.createExpressApplication();
-  // const response = await request(app).get("/");
-  // expect(response.statusCode).toBe(200);
 });
