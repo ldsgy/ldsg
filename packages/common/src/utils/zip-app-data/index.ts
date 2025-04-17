@@ -5,14 +5,9 @@ import {
 import { Manifest } from "@ldsg/resource";
 import JSZip from "jszip";
 import _ from "lodash";
-import path from "path";
-import { AppData } from "../../types";
-import {
-  HANDLER_PACKAGE_JSON_BASE_FILE_INFO,
-  HANDLER_SRC_INDEX_TS_FILE_INFO,
-  HANDLER_TSCONFIG_JSON_FILE_INFO,
-} from "./constants";
-import { getHandlerPackageJson } from "./utils";
+import { AppData, AppDataFileData } from "../../types";
+import { FILES_IN_HANDLER_MODELE, FILES_IN_ROOT_MODELE } from "./constants";
+import { addFileToZipFolder, getHandlerPackageJson } from "./utils";
 
 export * from "./constants";
 export * from "./utils";
@@ -46,16 +41,6 @@ export const zipAppData: ZipAppData = async (params) => {
 
   const zip = new JSZip();
 
-  zip.file("manifest.json", JSON.stringify(_.pick(params, "resources")));
-
-  if (environmentVariables) {
-    zip.file(
-      ".env",
-      _.toPairs(environmentVariables).map((value) => value.join("=")).join(`
-`)
-    );
-  }
-
   const handlerManifestResources = manifestResources.filter(
     (value) => value.kind === handlerResourceDefinitionResourceSettings.kind
   ) as Manifest.Resource<HandlerResourceSettings>[];
@@ -72,68 +57,99 @@ export const zipAppData: ZipAppData = async (params) => {
         const handlerFolder = handlersFolder.folder(id);
 
         if (handlerFolder) {
-          /**
-           * save code in src/index.ts
-           */
-          {
-            const handlerSrcFolder = handlerFolder.folder("src");
+          for (const file of FILES_IN_HANDLER_MODELE) {
+            const { path } = file;
 
-            if (handlerSrcFolder) {
-              handlerSrcFolder.file(HANDLER_SRC_INDEX_TS_FILE_INFO.name, code);
+            let data: AppDataFileData | undefined;
+
+            switch (path) {
+              case "src/index.ts": {
+                data = code;
+
+                break;
+              }
+
+              case "package.json": {
+                const { packageJson } = getHandlerPackageJson({
+                  packageJson: file.data,
+                  moduleName: id,
+                  dependencies,
+                  reuseMainAppDependencies,
+                });
+
+                data = packageJson;
+
+                break;
+              }
+
+              default: {
+                data = file.data;
+
+                break;
+              }
+            }
+
+            if (data) {
+              addFileToZipFolder({
+                folder: zip,
+                path,
+                data,
+              });
             }
           }
-
-          /**
-           * save modules in package.json
-           */
-          {
-            const { packageJson } = getHandlerPackageJson({
-              moduleName: id,
-              dependencies,
-              reuseMainAppDependencies,
-            });
-
-            handlerFolder.file(
-              HANDLER_PACKAGE_JSON_BASE_FILE_INFO.name,
-              JSON.stringify(packageJson)
-            );
-          }
-
-          /**
-           * save tsconfig.json
-           */
-          handlerFolder.file(
-            HANDLER_TSCONFIG_JSON_FILE_INFO.name,
-            JSON.stringify(HANDLER_TSCONFIG_JSON_FILE_INFO.content)
-          );
         }
       });
     }
   }
 
-  for (const file of files) {
-    const { name, content } = file;
+  for (const file of FILES_IN_ROOT_MODELE) {
+    const { path } = file;
 
-    const extnameRes = path.extname(name);
+    let data: AppDataFileData | undefined;
 
-    let data: string;
+    switch (path) {
+      case "package.json": {
+        break;
+      }
 
-    switch (extnameRes) {
-      case ".json": {
-        data = JSON.stringify(content as object);
+      case "manifest.json": {
+        data = _.pick(params, "resources");
 
         break;
       }
 
-      case ".ts":
-      default: {
-        data = content as string;
+      case ".env": {
+        if (environmentVariables) {
+          data = _.toPairs(environmentVariables).map((value) => value.join("="))
+            .join(`
+`);
+        }
 
+        break;
+      }
+
+      default: {
         break;
       }
     }
 
-    zip.file(name, data);
+    if (data) {
+      addFileToZipFolder({
+        folder: zip,
+        path,
+        data,
+      });
+    }
+  }
+
+  for (const file of files) {
+    const { path, data } = file;
+
+    addFileToZipFolder({
+      folder: zip,
+      path,
+      data,
+    });
   }
 
   const archive = await zip.generateAsync({ type });

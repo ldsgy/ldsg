@@ -1,8 +1,10 @@
 import { Manifest } from "@ldsg/resource";
 
+export type AppDataFileData = string | object;
+
 export interface AppDataFile {
-  name: string;
-  content: string | object;
+  path: string;
+  data: AppDataFileData;
 }
 
 export interface AppData extends Manifest {

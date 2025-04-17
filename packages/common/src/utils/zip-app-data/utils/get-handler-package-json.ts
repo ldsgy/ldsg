@@ -1,8 +1,8 @@
 import { HandlerResourceDependency } from "@ldsg/handler";
 import _ from "lodash";
-import { HANDLER_PACKAGE_JSON_BASE_FILE_INFO } from "../constants";
 
 interface GetHandlerPackageJsonParams {
+  packageJson: PackageJson;
   moduleName: string;
   dependencies: HandlerResourceDependency[];
   reuseMainAppDependencies: string[];
@@ -25,9 +25,8 @@ type GetHandlerPackageJson = (
 ) => GetHandlerPackageJsonRes;
 
 export const getHandlerPackageJson: GetHandlerPackageJson = (params) => {
-  const { moduleName, dependencies, reuseMainAppDependencies } = params;
-
-  const { content: packageJson } = HANDLER_PACKAGE_JSON_BASE_FILE_INFO;
+  const { moduleName, dependencies, reuseMainAppDependencies, packageJson } =
+    params;
 
   _.set(packageJson, "name", moduleName);
 

@@ -1,7 +1,6 @@
-export const EXTRA_FILES_IN_HANDLER_MODELE = [
+export const FILES_IN_HANDLER_MODELE = [
   {
-    path: "index.ts",
-    data: "",
+    path: "src/index.ts",
   },
   {
     path: "package.json",
@@ -44,10 +43,12 @@ export const EXTRA_FILES_IN_HANDLER_MODELE = [
   },
 ] as const;
 
-export const EXTRA_FILES_IN_ROOT_MODELE = [
+export const FILES_IN_ROOT_MODELE = [
   {
     path: ".env",
-    data: "",
+  },
+  {
+    path: "manifest.json",
   },
   {
     path: "package.json",
