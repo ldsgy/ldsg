@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@ldsg/constants": "workspace:*",
+    "@ldsg/utils": "workspace:*",
     "@types/lodash": "^4.14.202",
     "@types/supertest": "^6.0.0",
     "supertest": "^6.3.4"
