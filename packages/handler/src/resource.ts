@@ -13,7 +13,7 @@ type GetHandler<
 
 export class HandlerResource extends Resource<HandlerResourceSettings> {
   getModuleId = (): string => {
-    const { id } = this.settings;
+    const { id } = this;
 
     return id;
   };
