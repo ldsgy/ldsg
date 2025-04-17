@@ -1,9 +1,8 @@
-import { zipAppData } from "@ldsg/common";
-import { Manifest } from "@ldsg/resource";
+import { AppData, zipAppData } from "@ldsg/common";
 import AdmZip from "adm-zip";
 import _ from "lodash";
 
-interface Params extends Manifest {
+interface Params extends AppData {
   outputPath: string;
 }
 
