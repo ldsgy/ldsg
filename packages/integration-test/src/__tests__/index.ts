@@ -1,7 +1,7 @@
 import { appManifest } from "@ldsg/constants";
+import { prepare } from "@ldsg/prepare";
 import { extendAppData } from "@ldsg/utils";
 import path from "path";
-import { prepare } from "..";
 
 test("prepare", async () => {
   const appData = extendAppData({
@@ -83,6 +83,6 @@ test("prepare", async () => {
 
   await prepare({
     ...appData,
-    outputPath: path.join(__dirname, "apps", "main"),
+    outputPath: path.join(__dirname, "..", "..", "apps", "main"),
   });
 });

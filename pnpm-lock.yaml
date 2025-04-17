@@ -330,26 +330,25 @@ importers:
         version: 20.14.8
 
   packages/integration-test:
-    dependencies:
+    devDependencies:
       '@ldsg/application':
         specifier: workspace:*
         version: link:../application
+      '@ldsg/constants':
+        specifier: workspace:*
+        version: link:../constants
       '@ldsg/handler':
         specifier: workspace:*
         version: link:../handler
+      '@ldsg/prepare':
+        specifier: workspace:*
+        version: link:../prepare
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
-    devDependencies:
-      '@ldsg/constants':
-        specifier: workspace:*
-        version: link:../constants
       '@ldsg/utils':
         specifier: workspace:*
         version: link:../utils
@@ -359,6 +358,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
