@@ -21,6 +21,7 @@
   "packageManager": "pnpm@10.7.1",
   "devDependencies": {
     "@ldsg/application": "workspace:*",
+    "@ldsg/common": "workspace:*",
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",

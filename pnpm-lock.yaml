@@ -224,6 +224,9 @@ importers:
       '@ldsg/application':
         specifier: workspace:*
         version: link:../application
+      '@ldsg/common':
+        specifier: workspace:*
+        version: link:../common
       '@ldsg/handler':
         specifier: workspace:*
         version: link:../handler
