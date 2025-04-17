@@ -32,12 +32,18 @@ importers:
 
   packages/app:
     dependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
       '@ldsg/common':
         specifier: workspace:*
         version: link:../common
-      '@ldsg/services':
+      '@ldsg/manifest-resolver':
         specifier: workspace:*
-        version: link:../services
+        version: link:../manifest-resolver
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
       express:
         specifier: ^4.18.2
         version: 4.19.2
@@ -354,6 +360,31 @@ importers:
         specifier: ^6.3.4
         version: 6.3.4
 
+  packages/manifest-resolver:
+    dependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+    devDependencies:
+      '@ldsg/constants':
+        specifier: workspace:*
+        version: link:../constants
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.17.5
+
   packages/prepare:
     dependencies:
       '@ldsg/common':
@@ -375,6 +406,9 @@ importers:
       '@ldsg/constants':
         specifier: workspace:*
         version: link:../constants
+      '@ldsg/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@types/adm-zip':
         specifier: ^0.5.6
         version: 0.5.6
