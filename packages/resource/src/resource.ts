@@ -43,7 +43,7 @@ export class Resource<
   /**
    * Related Resources
    */
-  static relatedResources: Resource[];
+  static relatedResources: Resource[] = [];
 
   constructor(params: ResourceConstructorParams<T>) {
     const { id, kind, parentId, settings } = params;
