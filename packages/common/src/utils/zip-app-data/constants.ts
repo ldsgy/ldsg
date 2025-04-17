@@ -71,7 +71,7 @@ export const FILES_IN_ROOT_MODELE = [
         start: "node dist/index.js",
       },
       dependencies: {
-        "@ldsg/app": "0.1.0-alpha.7",
+        "@ldsg/app": "latest",
         graphql: "^16.9.0",
         "graphql-middleware": "^6.1.35",
         "graphql-shield": "^7.6.5",
