@@ -1,28 +1,4 @@
-interface FileInfo {
-  /**
-   * path
-   * Relative path to file
-   */
-  path: string;
-
-  /**
-   * data
-   * Content of the file
-   */
-  data?: unknown;
-}
-
-interface JsonFileInfo extends FileInfo {
-  data: object;
-}
-
-interface StringFileInfo extends FileInfo {
-  data: string;
-}
-
-type MultiTypeFileInfo = JsonFileInfo | StringFileInfo;
-
-export const EXTRA_FILES_IN_HANDLER_MODELE: MultiTypeFileInfo[] = [
+export const EXTRA_FILES_IN_HANDLER_MODELE = [
   {
     path: "index.ts",
     data: "",
@@ -66,9 +42,9 @@ export const EXTRA_FILES_IN_HANDLER_MODELE: MultiTypeFileInfo[] = [
       },
     },
   },
-];
+] as const;
 
-export const EXTRA_FILES_IN_ROOT_MODELE: MultiTypeFileInfo[] = [
+export const EXTRA_FILES_IN_ROOT_MODELE = [
   {
     path: ".env",
     data: "",
@@ -103,4 +79,4 @@ export const EXTRA_FILES_IN_ROOT_MODELE: MultiTypeFileInfo[] = [
       },
     },
   },
-];
+] as const;
