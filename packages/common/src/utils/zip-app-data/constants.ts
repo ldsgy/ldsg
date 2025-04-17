@@ -2,12 +2,6 @@ export const ENV_FILE_INFO = {
   name: ".env",
 };
 
-export const PNPM_WORKSPACE_YAML_FILE_INFO = {
-  name: "pnpm-workspace.yaml",
-  content: `packages:
-      - 'handlers/**'`,
-};
-
 export const HANDLER_PACKAGE_JSON_BASE_FILE_INFO = {
   name: "package.json",
   content: {

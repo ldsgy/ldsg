@@ -11,7 +11,6 @@ import {
   HANDLER_PACKAGE_JSON_BASE_FILE_INFO,
   HANDLER_SRC_INDEX_TS_FILE_INFO,
   HANDLER_TSCONFIG_JSON_FILE_INFO,
-  PNPM_WORKSPACE_YAML_FILE_INFO,
 } from "./constants";
 import { getHandlerPackageJson } from "./utils";
 
@@ -62,11 +61,6 @@ export const zipAppData: ZipAppData = async (params) => {
   ) as Manifest.Resource<HandlerResourceSettings>[];
 
   if (handlerManifestResources.length) {
-    zip.file(
-      PNPM_WORKSPACE_YAML_FILE_INFO.name,
-      PNPM_WORKSPACE_YAML_FILE_INFO.content
-    );
-
     const handlersFolder = zip.folder("handlers");
 
     if (handlersFolder) {
