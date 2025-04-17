@@ -1,13 +1,10 @@
 import { createApp } from "@ldsg/app";
+import MANIFEST_JSON from "./manifest.json";
+
+const { resources } = MANIFEST_JSON;
 
 const app = createApp({
-  serviceRecords: SERVICE_RECORDS_JSON,
-  serviceTypeMap: {
-    ...SERVICE_TYPE_MAP,
-    STORAGE: {
-      class: StorageService,
-    },
-  },
+  manifestResources: resources,
 });
 
 const port = process.env.PORT || "3000";
