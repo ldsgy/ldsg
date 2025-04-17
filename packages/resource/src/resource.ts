@@ -14,9 +14,7 @@ type GetFilteredResource = (
 
 export interface ResourceConstructorParams<
   T extends Manifest.ResourceSettings = Manifest.ResourceSettings
-> extends Manifest.Resource<T> {
-  relatedResources?: Resource[];
-}
+> extends Manifest.Resource<T> {}
 
 export class Resource<
   T extends Manifest.ResourceSettings = Manifest.ResourceSettings
@@ -45,16 +43,17 @@ export class Resource<
   /**
    * Related Resources
    */
-  relatedResources: Resource[];
+  static relatedResources: Resource[];
 
   constructor(params: ResourceConstructorParams<T>) {
-    const { id, kind, parentId, settings, relatedResources = [] } = params;
+    const { id, kind, parentId, settings } = params;
 
     this.id = id;
     this.kind = kind;
     this.parentId = parentId;
     this.settings = settings;
-    this.relatedResources = relatedResources;
+
+    Resource.relatedResources.push(this);
   }
 
   /**
@@ -68,7 +67,7 @@ export class Resource<
    * Get Filtered Resources
    */
   getFilteredResources: GetFilteredResources = (params) => {
-    const { relatedResources } = this;
+    const { relatedResources } = Resource;
 
     console.debug("getFilteredResources relatedResources", relatedResources);
 

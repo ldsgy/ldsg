@@ -352,12 +352,18 @@ importers:
       '@ldsg/utils':
         specifier: workspace:*
         version: link:../utils
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.17.5
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
+      fs-extra:
+        specifier: ^11.3.0
+        version: 11.3.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21

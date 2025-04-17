@@ -91,7 +91,7 @@ export const zipAppData: ZipAppData = async (params) => {
 
             if (data) {
               addFileToZipFolder({
-                folder: zip,
+                folder: handlerFolder,
                 path,
                 data,
               });
@@ -109,6 +109,20 @@ export const zipAppData: ZipAppData = async (params) => {
 
     switch (path) {
       case "package.json": {
+        data = {
+          ...file.data,
+          dependencies: {
+            ..._.fromPairs(
+              handlerManifestResources.map((handlerManifestResource) => {
+                const { id: moduleName } = handlerManifestResource;
+
+                return [moduleName, `link:handlers/${moduleName}`];
+              })
+            ),
+            ...file.data.dependencies,
+          },
+        };
+
         break;
       }
 
@@ -129,6 +143,8 @@ export const zipAppData: ZipAppData = async (params) => {
       }
 
       default: {
+        data = file.data;
+
         break;
       }
     }
