@@ -7,7 +7,7 @@
   "scripts": {
     "cli:debug": "pnpm --filter @ldsg/cli debug",
     "build": "pnpm run --recursive build",
-    "dev": "nodemon --exec \"pnpm build && pnpm --filter @ldsg/examples dev\"",
+    "dev": "nodemon --exec \"pnpm build && pnpm --filter examples dev\"",
     "test": "jest",
     "bt": "pnpm build-test",
     "build-test": "pnpm build && pnpm test"
