@@ -7,7 +7,11 @@ import JSZip from "jszip";
 import _ from "lodash";
 import { AppData, AppDataFileData } from "../../types";
 import { FILES_IN_HANDLER_MODELE, FILES_IN_ROOT_MODELE } from "./constants";
-import { addFileToZipFolder, getHandlerPackageJson } from "./utils";
+import {
+  addFileToZipFolder,
+  getHandlerPackageJson,
+  PackageJson,
+} from "./utils";
 
 export * from "./constants";
 export * from "./utils";
@@ -33,7 +37,8 @@ type ZipAppData = <T extends JSZip.OutputType>(
 export const zipAppData: ZipAppData = async (params) => {
   const {
     environmentVariables,
-    files = [],
+    filesInHandlerModele = FILES_IN_HANDLER_MODELE,
+    filesInRootModele = FILES_IN_ROOT_MODELE,
     resources: manifestResources,
     reuseMainAppDependencies = [],
     type,
@@ -57,10 +62,10 @@ export const zipAppData: ZipAppData = async (params) => {
         const handlerFolder = handlersFolder.folder(id);
 
         if (handlerFolder) {
-          for (const file of FILES_IN_HANDLER_MODELE) {
+          for (const file of filesInHandlerModele) {
             const { path } = file;
 
-            let data: AppDataFileData | undefined;
+            let data: AppDataFileData;
 
             switch (path) {
               case "src/index.ts": {
@@ -71,7 +76,7 @@ export const zipAppData: ZipAppData = async (params) => {
 
               case "package.json": {
                 const { packageJson } = getHandlerPackageJson({
-                  packageJson: file.data,
+                  packageJson: file.data as PackageJson,
                   moduleName: id,
                   dependencies,
                   reuseMainAppDependencies,
@@ -83,7 +88,9 @@ export const zipAppData: ZipAppData = async (params) => {
               }
 
               default: {
-                data = file.data;
+                if ("data" in file) {
+                  data = file.data;
+                }
 
                 break;
               }
@@ -102,15 +109,17 @@ export const zipAppData: ZipAppData = async (params) => {
     }
   }
 
-  for (const file of FILES_IN_ROOT_MODELE) {
+  for (const file of filesInRootModele) {
     const { path } = file;
 
-    let data: AppDataFileData | undefined;
+    let data: AppDataFileData;
 
     switch (path) {
       case "package.json": {
+        const packageJson = file.data as PackageJson;
+
         data = {
-          ...file.data,
+          ...packageJson,
           dependencies: {
             ..._.fromPairs(
               handlerManifestResources.map((handlerManifestResource) => {
@@ -119,7 +128,7 @@ export const zipAppData: ZipAppData = async (params) => {
                 return [moduleName, `link:handlers/${moduleName}`];
               })
             ),
-            ...file.data.dependencies,
+            ...packageJson,
           },
         };
 
@@ -143,7 +152,9 @@ export const zipAppData: ZipAppData = async (params) => {
       }
 
       default: {
-        data = file.data;
+        if ("data" in file) {
+          data = file.data;
+        }
 
         break;
       }
@@ -156,16 +167,6 @@ export const zipAppData: ZipAppData = async (params) => {
         data,
       });
     }
-  }
-
-  for (const file of files) {
-    const { path, data } = file;
-
-    addFileToZipFolder({
-      folder: zip,
-      path,
-      data,
-    });
   }
 
   const archive = await zip.generateAsync({ type });

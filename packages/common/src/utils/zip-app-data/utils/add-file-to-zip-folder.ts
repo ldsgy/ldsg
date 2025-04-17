@@ -1,9 +1,10 @@
 import JSZip from "jszip";
 import _ from "lodash";
-import { AppDataFile } from "../../../types";
+import { AppDataFile, FileData } from "../../../types";
 
 interface AddFileToZipFolderParams extends AppDataFile {
   folder: JSZip;
+  data: FileData;
 }
 
 type AddFileToZipFolder = (params: AddFileToZipFolderParams) => void;

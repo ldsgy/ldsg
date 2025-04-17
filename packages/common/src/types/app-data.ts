@@ -1,6 +1,8 @@
 import { Manifest } from "@ldsg/resource";
 
-export type AppDataFileData = string | object;
+export type FileData = string | object;
+
+export type AppDataFileData = FileData | undefined;
 
 export interface AppDataFile {
   path: string;
@@ -10,5 +12,6 @@ export interface AppDataFile {
 export interface AppData extends Manifest {
   environmentVariables?: Record<string, string>;
   reuseMainAppDependencies?: string[];
-  files?: AppDataFile[];
+  filesInHandlerModele?: AppDataFile[];
+  filesInRootModele?: AppDataFile[];
 }

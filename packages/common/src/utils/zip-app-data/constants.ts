@@ -41,7 +41,7 @@ export const FILES_IN_HANDLER_MODELE = [
       },
     },
   },
-] as const;
+];
 
 export const FILES_IN_ROOT_MODELE = [
   {
@@ -117,4 +117,4 @@ export const FILES_IN_ROOT_MODELE = [
       include: ["./index.ts", "./manifest.json"],
     },
   },
-] as const;
+];
