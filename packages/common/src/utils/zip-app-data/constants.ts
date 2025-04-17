@@ -1,48 +1,106 @@
-export const ENV_FILE_INFO = {
-  name: ".env",
-};
+interface FileInfo {
+  /**
+   * path
+   * Relative path to file
+   */
+  path: string;
 
-export const HANDLER_PACKAGE_JSON_BASE_FILE_INFO = {
-  name: "package.json",
-  content: {
-    name: "PACKAGE-NAME",
-    version: "1.0.0",
-    main: "dist/index.js",
-    scripts: {
-      build: "tsc",
-    },
-    dependencies: {},
+  /**
+   * data
+   * Content of the file
+   */
+  data?: unknown;
+}
+
+interface JsonFileInfo extends FileInfo {
+  data: object;
+}
+
+interface StringFileInfo extends FileInfo {
+  data: string;
+}
+
+type MultiTypeFileInfo = JsonFileInfo | StringFileInfo;
+
+export const EXTRA_FILES_IN_HANDLER_MODELE: MultiTypeFileInfo[] = [
+  {
+    path: "index.ts",
+    data: "",
   },
-};
-
-export const HANDLER_TSCONFIG_JSON_FILE_INFO = {
-  name: "tsconfig.json",
-  content: {
-    compilerOptions: {
-      module: "commonjs",
-      declaration: true,
-      removeComments: true,
-      emitDecoratorMetadata: true,
-      experimentalDecorators: true,
-      allowSyntheticDefaultImports: true,
-      target: "ES2021",
-      sourceMap: true,
-      outDir: "./dist",
-      baseUrl: "./",
-      incremental: true,
-      skipLibCheck: true,
-      strictNullChecks: false,
-      noImplicitAny: false,
-      strictBindCallApply: false,
-      forceConsistentCasingInFileNames: false,
-      noFallthroughCasesInSwitch: false,
-      resolveJsonModule: true,
-      esModuleInterop: true,
-      noEmitOnError: true,
+  {
+    path: "package.json",
+    data: {
+      name: "PACKAGE-NAME",
+      version: "1.0.0",
+      main: "dist/index.js",
+      scripts: {
+        build: "tsc",
+      },
+      dependencies: {},
     },
   },
-};
+  {
+    path: "tsconfig.json",
+    data: {
+      compilerOptions: {
+        module: "commonjs",
+        declaration: true,
+        removeComments: true,
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true,
+        allowSyntheticDefaultImports: true,
+        target: "ES2021",
+        sourceMap: true,
+        outDir: "./dist",
+        baseUrl: "./",
+        incremental: true,
+        skipLibCheck: true,
+        strictNullChecks: false,
+        noImplicitAny: false,
+        strictBindCallApply: false,
+        forceConsistentCasingInFileNames: false,
+        noFallthroughCasesInSwitch: false,
+        resolveJsonModule: true,
+        esModuleInterop: true,
+        noEmitOnError: true,
+      },
+    },
+  },
+];
 
-export const HANDLER_SRC_INDEX_TS_FILE_INFO = {
-  name: "index.ts",
-};
+export const EXTRA_FILES_IN_ROOT_MODELE: MultiTypeFileInfo[] = [
+  {
+    path: ".env",
+    data: "",
+  },
+  {
+    path: "package.json",
+    data: {
+      name: "ldsg-app",
+      version: "0.0.0",
+      description: "",
+      author: "",
+      private: true,
+      license: "UNLICENSED",
+      scripts: {
+        build:
+          "pnpm run --workspace-root build:workspace-root && pnpm run --workspace-root build:recursive",
+        "build:workspace-root": "tsc --project tsconfig.json",
+        "build:recursive": "pnpm run --recursive build",
+        start: "node dist/index.js",
+      },
+      dependencies: {
+        "@ldsg/app": "0.1.0-alpha.7",
+        graphql: "^16.9.0",
+        "graphql-middleware": "^6.1.35",
+        "graphql-shield": "^7.6.5",
+      },
+      devDependencies: {
+        "@types/node": "^22.1.0",
+        "ts-loader": "^9.5.1",
+        tslib: "^2.6.3",
+        typescript: "^5.5.4",
+      },
+    },
+  },
+];
