@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolve-manifest-resources 1`] = `
+{
+  "APPLICATION": ResourceDefinitionResource {
+    "getFilteredResource": [Function],
+    "getFilteredResources": [Function],
+    "id": "application-resource-definition",
+    "instantiateResource": [Function],
+    "kind": "RESOURCE_DEFINITION",
+    "parentId": "root",
+    "relatedResources": [
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "resource-definition-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "resource-definition-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/resource-definition";",
+          "dependencies": [
+            {
+              "name": "@ldsg/resource-definition",
+            },
+          ],
+          "description": "",
+          "title": "资源定义类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "handler-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "handler-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/handler";",
+          "dependencies": [
+            {
+              "name": "@ldsg/handler",
+            },
+          ],
+          "description": "包含处理程序相应的模块，此模块主要通过",
+          "title": "处理程序类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "application-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "application-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/application";",
+          "dependencies": [
+            {
+              "name": "@ldsg/application",
+            },
+          ],
+          "description": "",
+          "title": "应用类型资源处理程序",
+        },
+      },
+    ],
+    "settings": {
+      "description": "",
+      "kind": "APPLICATION",
+      "subKinds": [],
+      "title": "应用类型资源定义",
+    },
+  },
+  "HANDLER": ResourceDefinitionResource {
+    "getFilteredResource": [Function],
+    "getFilteredResources": [Function],
+    "id": "handler-resource-definition",
+    "instantiateResource": [Function],
+    "kind": "RESOURCE_DEFINITION",
+    "parentId": "root",
+    "relatedResources": [
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "resource-definition-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "resource-definition-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/resource-definition";",
+          "dependencies": [
+            {
+              "name": "@ldsg/resource-definition",
+            },
+          ],
+          "description": "",
+          "title": "资源定义类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "handler-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "handler-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/handler";",
+          "dependencies": [
+            {
+              "name": "@ldsg/handler",
+            },
+          ],
+          "description": "包含处理程序相应的模块，此模块主要通过",
+          "title": "处理程序类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "application-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "application-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/application";",
+          "dependencies": [
+            {
+              "name": "@ldsg/application",
+            },
+          ],
+          "description": "",
+          "title": "应用类型资源处理程序",
+        },
+      },
+    ],
+    "settings": {
+      "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
+      "kind": "HANDLER",
+      "subKinds": [],
+      "title": "处理程序类型资源定义",
+    },
+  },
+  "RESOURCE_DEFINITION": ResourceDefinitionResource {
+    "getFilteredResource": [Function],
+    "getFilteredResources": [Function],
+    "id": "resource-definition-resource-definition",
+    "instantiateResource": [Function],
+    "kind": "RESOURCE_DEFINITION",
+    "parentId": "root",
+    "relatedResources": [
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "resource-definition-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "resource-definition-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/resource-definition";",
+          "dependencies": [
+            {
+              "name": "@ldsg/resource-definition",
+            },
+          ],
+          "description": "",
+          "title": "资源定义类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "handler-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "handler-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/handler";",
+          "dependencies": [
+            {
+              "name": "@ldsg/handler",
+            },
+          ],
+          "description": "包含处理程序相应的模块，此模块主要通过",
+          "title": "处理程序类型资源处理程序",
+        },
+      },
+      HandlerResource {
+        "getFilteredResource": [Function],
+        "getFilteredResources": [Function],
+        "getHandler": [Function],
+        "getModuleId": [Function],
+        "id": "application-resource-handler",
+        "kind": "HANDLER",
+        "parentId": "application-resource-definition",
+        "relatedResources": [],
+        "settings": {
+          "code": "export * from "@ldsg/application";",
+          "dependencies": [
+            {
+              "name": "@ldsg/application",
+            },
+          ],
+          "description": "",
+          "title": "应用类型资源处理程序",
+        },
+      },
+    ],
+    "settings": {
+      "description": "",
+      "kind": "RESOURCE_DEFINITION",
+      "subKinds": [],
+      "title": "资源定义类型资源定义",
+    },
+  },
+}
+`;
