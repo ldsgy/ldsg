@@ -2,17 +2,35 @@ import {
   ApplicationResource,
   resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
 } from "@ldsg/application";
-import { Resource } from "@ldsg/resource";
+import { resolveManifestResources } from "@ldsg/manifest-resolver";
+import { Manifest, Resource } from "@ldsg/resource";
 import { Express } from "express";
 
 interface CreateAppParams {
-  resources: Resource[];
+  resources?: Resource[];
+  manifestResources?: Manifest.Resource[];
 }
 
 type CreateApp = (params: CreateAppParams) => Express;
 
 export const createApp: CreateApp = (params) => {
-  const { resources } = params;
+  const { resources: paramsResources, manifestResources } = params;
+
+  let resources: Resource[];
+
+  if (paramsResources) {
+    resources = paramsResources;
+  } else {
+    if (!manifestResources) {
+      throw new Error("invalid manifest resources");
+    }
+
+    const resolveManifestResourcesRes = resolveManifestResources({
+      manifestResources,
+    });
+
+    resources = resolveManifestResourcesRes.resources;
+  }
 
   const applicationResource = resources.find(
     (value) => value.kind === applicationResourceDefinitionResourceSettings.kind
