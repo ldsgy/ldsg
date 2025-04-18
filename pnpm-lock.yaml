@@ -181,6 +181,9 @@ importers:
       '@formily/json-schema':
         specifier: ^2.3.1
         version: 2.3.1(typescript@5.5.2)
+      '@ldsg/constants':
+        specifier: workspace:*
+        version: link:../constants
       '@ldsg/core':
         specifier: workspace:*
         version: link:../core

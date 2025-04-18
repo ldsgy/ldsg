@@ -17,6 +17,7 @@
   "description": "",
   "dependencies": {
     "@formily/json-schema": "^2.3.1",
+    "@ldsg/constants": "workspace:*",
     "@ldsg/core": "workspace:*",
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",

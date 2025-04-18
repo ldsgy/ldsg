@@ -1,3 +1,4 @@
+import { FILES_IN_ROOT_MODULE } from "@ldsg/constants";
 import {
   resourceDefinitionResourceSettings as handlerResourceDefinitionResourceSettings,
   HandlerResourceSettings,
@@ -6,7 +7,7 @@ import { Manifest } from "@ldsg/resource";
 import JSZip from "jszip";
 import _ from "lodash";
 import { AppData, AppDataFileData } from "../../types";
-import { FILES_IN_HANDLER_MODELE, FILES_IN_ROOT_MODELE } from "./constants";
+import { FILES_IN_HANDLER_MODULE } from "./constants";
 import {
   addFileToZipFolder,
   getHandlerPackageJson,
@@ -37,8 +38,8 @@ type ZipAppData = <T extends JSZip.OutputType>(
 export const zipAppData: ZipAppData = async (params) => {
   const {
     environmentVariables,
-    filesInHandlerModele = FILES_IN_HANDLER_MODELE,
-    filesInRootModele = FILES_IN_ROOT_MODELE,
+    filesInHandlerModele = FILES_IN_HANDLER_MODULE,
+    filesInRootModele = FILES_IN_ROOT_MODULE,
     resources: manifestResources,
     reuseMainAppDependencies = [],
     type,
@@ -152,8 +153,12 @@ export const zipAppData: ZipAppData = async (params) => {
       }
 
       default: {
-        if ("data" in file) {
-          data = file.data;
+        const omitPaths = [".gitignore", "pnpm-lock.yaml"];
+
+        if (!omitPaths.includes(path)) {
+          if ("data" in file) {
+            data = file.data;
+          }
         }
 
         break;
