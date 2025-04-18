@@ -7,8 +7,8 @@ import {
   Manifest,
   ResourceDefinitionResourceSettings,
 } from "@ldsg/resource";
-import { instantiateResource } from "./instantiate-resource";
-import { ResourceDefinitionResource } from "./resource";
+import { instantiateResource as instantiateResourceDefinitionResource } from "@ldsg/resource-definition";
+import { ResourceDefinitionResource } from "@ldsg/resource-definition/src/resource";
 
 export const instantiateResources: InstantiateResources<
   Manifest.ResourceSettings,
@@ -29,13 +29,13 @@ export const instantiateResources: InstantiateResources<
       )
   ) as Manifest.Resource<HandlerResourceSettings>[];
 
-  const { resources: handlerResources } = instantiateHandlerResources({
+  instantiateHandlerResources({
     manifestResources: handlerManifestResources,
   });
 
   const resources = resourceDefinitionManifestResources.map(
     (resourceDefinitionManifestResource) => {
-      const { resource } = instantiateResource({
+      const { resource } = instantiateResourceDefinitionResource({
         resourceConstructorParams: resourceDefinitionManifestResource,
       });
 
