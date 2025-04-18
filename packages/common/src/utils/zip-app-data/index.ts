@@ -129,7 +129,7 @@ export const zipAppData: ZipAppData = async (params) => {
                 return [moduleName, `link:handlers/${moduleName}`];
               })
             ),
-            ...packageJson,
+            ...packageJson.dependencies,
           },
         };
 
