@@ -1,4 +1,4 @@
-import { Manifest } from "@ldsg/resource";
+import { ResourceSettings } from "@ldsg/resource";
 
 export interface HandlerResourceDependency {
   /**
@@ -19,7 +19,7 @@ export interface HandlerResourceDependency {
   uri?: string;
 }
 
-export interface HandlerResourceSettings extends Manifest.ResourceSettings {
+export interface HandlerResourceSettings extends ResourceSettings {
   /**
    * Code
    * The code must exist to avoid problems caused by different versions resulting from dependencies being installed in the root project.

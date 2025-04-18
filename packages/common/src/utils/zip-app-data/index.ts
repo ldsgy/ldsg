@@ -3,7 +3,7 @@ import {
   resourceDefinitionResourceSettings as handlerResourceDefinitionResourceSettings,
   HandlerResourceSettings,
 } from "@ldsg/handler";
-import { Manifest } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/resource";
 import JSZip from "jszip";
 import _ from "lodash";
 import { AppData, AppDataFileData } from "../../types";
@@ -49,7 +49,7 @@ export const zipAppData: ZipAppData = async (params) => {
 
   const handlerManifestResources = manifestResources.filter(
     (value) => value.kind === handlerResourceDefinitionResourceSettings.kind
-  ) as Manifest.Resource<HandlerResourceSettings>[];
+  ) as ResourceRecord<HandlerResourceSettings>[];
 
   if (handlerManifestResources.length) {
     const handlersFolder = zip.folder("handlers");

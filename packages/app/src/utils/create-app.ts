@@ -3,12 +3,12 @@ import {
   resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
 } from "@ldsg/application";
 import { resolveManifestResources } from "@ldsg/manifest-resolver";
-import { Manifest, Resource } from "@ldsg/resource";
+import { Resource, ResourceRecord } from "@ldsg/resource";
 import { Express } from "express";
 
 interface CreateAppParams {
   resources?: Resource[];
-  manifestResources?: Manifest.Resource[];
+  manifestResources?: ResourceRecord[];
 }
 
 type CreateApp = (params: CreateAppParams) => Express;

@@ -1,5 +1,5 @@
-import { Manifest } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/resource";
 
 export interface ResolveManifestResourcesParams {
-  manifestResources: Manifest.Resource[];
+  manifestResources: ResourceRecord[];
 }

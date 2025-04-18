@@ -1,20 +1,21 @@
 import {
   InstantiateResources,
-  Manifest,
   ResourceDefinitionResourceSettings,
+  ResourceRecord,
+  ResourceSettings,
 } from "@ldsg/resource";
 import { instantiateResource } from "./instantiate-resource";
 import { ResourceDefinitionResource } from "./resource";
 
 export const instantiateResources: InstantiateResources<
-  Manifest.ResourceSettings,
+  ResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
   const { manifestResources } = params;
 
   const resourceDefinitionManifestResources = manifestResources.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
-  ) as Manifest.Resource<ResourceDefinitionResourceSettings>[];
+  ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
 
   const resources = resourceDefinitionManifestResources.map(
     (resourceDefinitionManifestResource) => {

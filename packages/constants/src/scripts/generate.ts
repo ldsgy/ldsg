@@ -1,5 +1,5 @@
 import { AppDataFile } from "@ldsg/common";
-import { Manifest } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/resource";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -10,7 +10,7 @@ const main = async () => {
   const fileNameManifestMap: Record<
     string,
     {
-      resources: Manifest.Resource[];
+      resources: ResourceRecord[];
     }
   > = {
     app: {

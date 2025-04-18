@@ -1,6 +1,6 @@
 import * as application from "@ldsg/application";
 import * as handler from "@ldsg/handler";
-import { Manifest } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/resource";
 import * as resourceDefinition from "@ldsg/resource-definition";
 import _ from "lodash";
 
@@ -21,7 +21,7 @@ export const RESOURCE_KINDS = [
   ...APPLICATION_RESOURCE_KINDS,
 ];
 
-export const RESOURCE_KINDS_RESOURCES: Manifest.Resource[] = _.flatMap(
+export const RESOURCE_KINDS_RESOURCES: ResourceRecord[] = _.flatMap(
   RESOURCE_KINDS.map((value) => {
     const { resourceDefinitionResourceSettings, handlerResourceSettings } =
       value;
@@ -32,7 +32,7 @@ export const RESOURCE_KINDS_RESOURCES: Manifest.Resource[] = _.flatMap(
 
     const handlerResourceId = `${resourceKind}-resource-handler`;
 
-    const res: Manifest.Resource[] = [
+    const res: ResourceRecord[] = [
       {
         id: resourceDefinitionResourceId,
         kind: "RESOURCE_DEFINITION",

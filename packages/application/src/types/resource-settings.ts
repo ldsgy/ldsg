@@ -1,4 +1,3 @@
-import { Manifest } from "@ldsg/resource";
+import { ResourceSettings } from "@ldsg/resource";
 
-export interface ApplicationResourceSettings
-  extends Manifest.ResourceSettings {}
+export interface ApplicationResourceSettings extends ResourceSettings {}

@@ -1,8 +1,8 @@
-import { Manifest } from "@ldsg/resource";
+import { ResourceRecord, ResourceSettings } from "@ldsg/resource";
 import { ROOT_RESOURCE_ID } from "../constants";
 import { getConstants } from "./get-constants";
 
-const applicationResources: Manifest.Resource<Manifest.ResourceSettings>[] = [
+const applicationResources: ResourceRecord<ResourceSettings>[] = [
   {
     id: "main-app",
     kind: "APPLICATION",
