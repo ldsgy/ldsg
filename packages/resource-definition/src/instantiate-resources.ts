@@ -1,8 +1,4 @@
 import {
-  HandlerResourceSettings,
-  instantiateResources as instantiateHandlerResources,
-} from "@ldsg/handler";
-import {
   InstantiateResources,
   Manifest,
   ResourceDefinitionResourceSettings,
@@ -19,19 +15,6 @@ export const instantiateResources: InstantiateResources<
   const resourceDefinitionManifestResources = manifestResources.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
   ) as Manifest.Resource<ResourceDefinitionResourceSettings>[];
-
-  const handlerManifestResources = manifestResources.filter(
-    (value) =>
-      value.kind === "HANDLER" &&
-      resourceDefinitionManifestResources.find(
-        (resourceDefinitionManifestResource) =>
-          resourceDefinitionManifestResource.id === value.parentId
-      )
-  ) as Manifest.Resource<HandlerResourceSettings>[];
-
-  const { resources: handlerResources } = instantiateHandlerResources({
-    manifestResources: handlerManifestResources,
-  });
 
   const resources = resourceDefinitionManifestResources.map(
     (resourceDefinitionManifestResource) => {
