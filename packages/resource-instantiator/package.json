@@ -1,5 +1,5 @@
 {
-  "name": "@ldsg/manifest-resolver",
+  "name": "@ldsg/resource-instantiator",
   "version": "0.1.0-alpha.13",
   "description": "",
   "main": "dist/index.js",
