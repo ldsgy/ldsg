@@ -34,7 +34,7 @@ test("prepare", async () => {
 
   shell.exec("pnpm i");
 
-  shell.exec("pnpm build"); 
+  shell.exec("pnpm build");
 
   /**
    * TODO: need to test pnpm start
