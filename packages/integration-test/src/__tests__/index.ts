@@ -5,9 +5,11 @@ import fs from "fs-extra";
 import path from "path";
 
 test("prepare", async () => {
-  const appsDir = path.join(__dirname, "..", "..", "apps");
+  const appsDirPath = path.join(__dirname, "..", "..", "apps");
 
-  await fs.rm(appsDir, { force: true, recursive: true });
+  const currentAppDirPath = path.join(appsDirPath, "main");
+
+  await fs.rm(currentAppDirPath, { force: true, recursive: true });
 
   const appData = extendAppData({
     appData: APP_MANIFEST,
@@ -22,6 +24,6 @@ test("prepare", async () => {
 
   await prepare({
     ...appData,
-    outputPath: path.join(appsDir, "main"),
+    outputPath: currentAppDirPath,
   });
 });
