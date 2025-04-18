@@ -1,4 +1,4 @@
-import { appManifest } from "@ldsg/constants";
+import { APP_MANIFEST } from "@ldsg/constants";
 import { prepare } from "@ldsg/prepare";
 import { extendAppData } from "@ldsg/utils";
 import fs from "fs-extra";
@@ -10,7 +10,7 @@ test("prepare", async () => {
   await fs.rm(appsDir, { force: true, recursive: true });
 
   const appData = extendAppData({
-    appData: appManifest,
+    appData: APP_MANIFEST,
     extraAppData: {
       reuseMainAppDependencies: [
         "graphql",

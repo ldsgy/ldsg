@@ -1,8 +1,8 @@
-import { appManifest } from "@ldsg/constants";
+import { APP_MANIFEST } from "@ldsg/constants";
 import { resolveManifestResourcesOfTypeResourceDefinition } from "./resolve-manifest-resources-of-type-resource-definition";
 
 test("resolve-manifest-resources", () => {
-  const { resources } = appManifest;
+  const { resources } = APP_MANIFEST;
 
   const { kindResourceDefinitionResourceMap } =
     resolveManifestResourcesOfTypeResourceDefinition({
