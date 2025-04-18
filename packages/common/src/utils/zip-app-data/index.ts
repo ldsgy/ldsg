@@ -40,7 +40,7 @@ export const zipAppData: ZipAppData = async (params) => {
     environmentVariables,
     filesInHandlerModele = FILES_IN_HANDLER_MODULE,
     filesInRootModele = FILES_IN_ROOT_MODULE,
-    resources: resourceRecords,
+    resourceRecords,
     reuseMainAppDependencies = [],
     type,
   } = params;

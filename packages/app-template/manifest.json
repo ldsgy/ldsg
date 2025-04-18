@@ -1,5 +1,5 @@
 {
-  "resources": [
+  "resourceRecords": [
     {
       "id": "resource-definition-resource-definition",
       "kind": "RESOURCE_DEFINITION",

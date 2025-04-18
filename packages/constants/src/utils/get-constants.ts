@@ -1,11 +1,15 @@
-import { Manifest } from "@ldsg/resource";
-import { RESOURCE_KINDS_RESOURCES } from "../constants";
+import { Manifest, ResourceRecord } from "@ldsg/resource";
+import { RESOURCE_KINDS_RESOURCE_RECORDS } from "../constants";
 
-export const getConstants = (params: Manifest) => {
-  const { resources } = params;
+interface Params {
+  resourceRecords?: ResourceRecord[];
+}
+
+export const getConstants = (params: Params) => {
+  const { resourceRecords = [] } = params;
 
   const manifest: Manifest = {
-    resources: [...RESOURCE_KINDS_RESOURCES, ...resources],
+    resourceRecords: [...RESOURCE_KINDS_RESOURCE_RECORDS, ...resourceRecords],
   };
 
   const res = { manifest };

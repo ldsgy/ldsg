@@ -1,10 +1,10 @@
 import { createApp } from "@ldsg/app";
 import MANIFEST_JSON from "./manifest.json";
 
-const { resources } = MANIFEST_JSON;
+const { resourceRecords } = MANIFEST_JSON;
 
 const app = createApp({
-  resourceRecords: resources,
+  resourceRecords,
 });
 
 const port = process.env.PORT || "3000";

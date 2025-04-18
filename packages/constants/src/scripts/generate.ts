@@ -10,11 +10,11 @@ const main = async () => {
   const fileNameManifestMap: Record<
     string,
     {
-      resources: ResourceRecord[];
+      resourceRecords: ResourceRecord[];
     }
   > = {
     app: {
-      resources: [
+      resourceRecords: [
         {
           id: "main-app",
           kind: "APPLICATION",
@@ -46,10 +46,10 @@ export const FILES_IN_ROOT_MODULE = FILES_IN_ROOT_MODULE_JSON;
   const fileNames = _.keys(fileNameManifestMap);
 
   for (const fileName of fileNames) {
-    const { resources } = fileNameManifestMap[fileName];
+    const { resourceRecords } = fileNameManifestMap[fileName];
 
     const { manifest } = getConstants({
-      resources,
+      resourceRecords,
     });
 
     await fs.writeJson(

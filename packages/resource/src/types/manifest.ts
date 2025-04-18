@@ -48,5 +48,5 @@ export interface ResourceRecord<T extends ResourceSettings = ResourceSettings> {
  * Manifest
  */
 export interface Manifest {
-  resources: ResourceRecord[];
+  resourceRecords: ResourceRecord[];
 }

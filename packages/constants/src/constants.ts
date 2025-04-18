@@ -21,7 +21,7 @@ export const RESOURCE_KINDS = [
   ...APPLICATION_RESOURCE_KINDS,
 ];
 
-export const RESOURCE_KINDS_RESOURCES: ResourceRecord[] = _.flatMap(
+export const RESOURCE_KINDS_RESOURCE_RECORDS: ResourceRecord[] = _.flatMap(
   RESOURCE_KINDS.map((value) => {
     const { resourceDefinitionResourceSettings, handlerResourceSettings } =
       value;

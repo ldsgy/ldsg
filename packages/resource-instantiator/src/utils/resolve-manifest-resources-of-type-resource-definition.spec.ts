@@ -2,11 +2,11 @@ import { APP_MANIFEST } from "@ldsg/constants";
 import { resolveManifestResourcesOfTypeResourceDefinition } from "./resolve-manifest-resources-of-type-resource-definition";
 
 test("resolve-manifest-resources", () => {
-  const { resources } = APP_MANIFEST;
+  const { resourceRecords } = APP_MANIFEST;
 
   const { kindResourceDefinitionResourceMap } =
     resolveManifestResourcesOfTypeResourceDefinition({
-      resourceRecords: resources,
+      resourceRecords,
     });
 
   expect(kindResourceDefinitionResourceMap).toMatchSnapshot();

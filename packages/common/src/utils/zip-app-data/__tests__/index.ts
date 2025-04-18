@@ -3,10 +3,10 @@ import { zipAppData } from "..";
 import MANIFEST_JSON from "./manifest.json";
 
 test("zip app data", async () => {
-  const { resources } = MANIFEST_JSON;
+  const { resourceRecords } = MANIFEST_JSON;
 
   const { archive } = await zipAppData({
-    resources,
+    resourceRecords,
     type: "nodebuffer",
   });
 

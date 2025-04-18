@@ -1,7 +1,7 @@
 import { createApp } from "@ldsg/app";
 
 const app = createApp({
-  resources: [],
+  resourceRecords: [],
 });
 
 const port = process.env.PORT || "3000";

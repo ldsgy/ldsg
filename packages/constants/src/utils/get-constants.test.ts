@@ -2,7 +2,7 @@ import { ResourceRecord, ResourceSettings } from "@ldsg/resource";
 import { ROOT_RESOURCE_ID } from "../constants";
 import { getConstants } from "./get-constants";
 
-const applicationResources: ResourceRecord<ResourceSettings>[] = [
+const applicationResourceRecords: ResourceRecord<ResourceSettings>[] = [
   {
     id: "main-app",
     kind: "APPLICATION",
@@ -16,7 +16,7 @@ const applicationResources: ResourceRecord<ResourceSettings>[] = [
 
 test("get constants", () => {
   const { manifest } = getConstants({
-    resources: applicationResources,
+    resourceRecords: applicationResourceRecords,
   });
 
   expect(manifest).toMatchSnapshot();
