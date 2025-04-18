@@ -2,8 +2,8 @@ import {
   ApplicationResource,
   resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
 } from "@ldsg/application";
-import { resolveManifestResources } from "@ldsg/manifest-resolver";
 import { Resource, ResourceRecord } from "@ldsg/resource";
+import { resolveManifestResources } from "@ldsg/resource-instantiator";
 import { Express } from "express";
 
 interface CreateAppParams {
