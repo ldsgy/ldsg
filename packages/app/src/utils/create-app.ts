@@ -8,25 +8,25 @@ import { Express } from "express";
 
 interface CreateAppParams {
   resources?: Resource[];
-  manifestResources?: ResourceRecord[];
+  resourceRecords?: ResourceRecord[];
 }
 
 type CreateApp = (params: CreateAppParams) => Express;
 
 export const createApp: CreateApp = (params) => {
-  const { resources: paramsResources, manifestResources } = params;
+  const { resources: paramsResources, resourceRecords } = params;
 
   let resources: Resource[];
 
   if (paramsResources) {
     resources = paramsResources;
   } else {
-    if (!manifestResources) {
+    if (!resourceRecords) {
       throw new Error("invalid manifest resources");
     }
 
     const resolveManifestResourcesRes = resolveManifestResources({
-      manifestResources,
+      resourceRecords,
     });
 
     resources = resolveManifestResourcesRes.resources;

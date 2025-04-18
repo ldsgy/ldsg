@@ -40,14 +40,14 @@ export const zipAppData: ZipAppData = async (params) => {
     environmentVariables,
     filesInHandlerModele = FILES_IN_HANDLER_MODULE,
     filesInRootModele = FILES_IN_ROOT_MODULE,
-    resources: manifestResources,
+    resources: resourceRecords,
     reuseMainAppDependencies = [],
     type,
   } = params;
 
   const zip = new JSZip();
 
-  const handlerManifestResources = manifestResources.filter(
+  const handlerManifestResources = resourceRecords.filter(
     (value) => value.kind === handlerResourceDefinitionResourceSettings.kind
   ) as ResourceRecord<HandlerResourceSettings>[];
 

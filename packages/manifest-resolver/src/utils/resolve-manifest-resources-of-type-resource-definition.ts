@@ -17,11 +17,11 @@ interface Res {
 export const resolveManifestResourcesOfTypeResourceDefinition = (
   params: ResolveManifestResourcesParams
 ) => {
-  const { manifestResources } = params;
+  const { resourceRecords } = params;
 
   const { resources: resourceDefinitionResources } =
     instantiateResourceDefinitionResources({
-      manifestResources,
+      resourceRecords,
     });
 
   const kindResourceDefinitionResourceMap = _.keyBy(

@@ -11,9 +11,9 @@ export const instantiateResources: InstantiateResources<
   ResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
-  const { manifestResources } = params;
+  const { resourceRecords } = params;
 
-  const resourceDefinitionManifestResources = manifestResources.filter(
+  const resourceDefinitionManifestResources = resourceRecords.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
   ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
 

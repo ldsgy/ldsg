@@ -15,14 +15,14 @@ type ResolveManifestResources = (
  * 1. 转换清单内全部资源定义类型资源配置为资源实例
  */
 export const resolveManifestResources: ResolveManifestResources = (params) => {
-  const { manifestResources } = params;
+  const { resourceRecords } = params;
 
   const { kindResourceDefinitionResourceMap } =
     resolveManifestResourcesOfTypeResourceDefinition({
-      manifestResources,
+      resourceRecords,
     });
 
-  const resources: Resource[] = manifestResources.map((manifestResource) => {
+  const resources: Resource[] = resourceRecords.map((manifestResource) => {
     const { kind } = manifestResource;
 
     const resourceDefinitionResource = kindResourceDefinitionResourceMap[kind];

@@ -2,7 +2,7 @@ import { Resource } from "../resource";
 import { ResourceRecord, ResourceSettings } from "./manifest";
 
 interface Params<T extends ResourceSettings = ResourceSettings> {
-  manifestResources: ResourceRecord<T>[];
+  resourceRecords: ResourceRecord<T>[];
 }
 
 export interface InstantiateResourcesRes<R extends Resource = Resource> {

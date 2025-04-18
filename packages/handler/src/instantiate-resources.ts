@@ -7,9 +7,9 @@ export const instantiateResources: InstantiateResources<
   HandlerResourceSettings,
   HandlerResource
 > = (params) => {
-  const { manifestResources } = params;
+  const { resourceRecords } = params;
 
-  const resources = manifestResources.map((manifestResource) => {
+  const resources = resourceRecords.map((manifestResource) => {
     const { resource } = instantiateResource({
       resourceConstructorParams: manifestResource,
     });

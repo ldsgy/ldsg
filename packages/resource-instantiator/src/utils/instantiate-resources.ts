@@ -15,13 +15,13 @@ export const instantiateResources: InstantiateResources<
   ResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
-  const { manifestResources } = params;
+  const { resourceRecords } = params;
 
-  const resourceDefinitionManifestResources = manifestResources.filter(
+  const resourceDefinitionManifestResources = resourceRecords.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
   ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
 
-  const handlerManifestResources = manifestResources.filter(
+  const handlerManifestResources = resourceRecords.filter(
     (value) =>
       value.kind === "HANDLER" &&
       resourceDefinitionManifestResources.find(
@@ -31,7 +31,7 @@ export const instantiateResources: InstantiateResources<
   ) as ResourceRecord<HandlerResourceSettings>[];
 
   instantiateHandlerResources({
-    manifestResources: handlerManifestResources,
+    resourceRecords: handlerManifestResources,
   });
 
   const resources = resourceDefinitionManifestResources.map(

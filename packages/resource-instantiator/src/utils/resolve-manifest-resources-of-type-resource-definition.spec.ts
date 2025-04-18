@@ -6,7 +6,7 @@ test("resolve-manifest-resources", () => {
 
   const { kindResourceDefinitionResourceMap } =
     resolveManifestResourcesOfTypeResourceDefinition({
-      manifestResources: resources,
+      resourceRecords: resources,
     });
 
   expect(kindResourceDefinitionResourceMap).toMatchSnapshot();

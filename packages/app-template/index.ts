@@ -4,7 +4,7 @@ import MANIFEST_JSON from "./manifest.json";
 const { resources } = MANIFEST_JSON;
 
 const app = createApp({
-  manifestResources: resources,
+  resourceRecords: resources,
 });
 
 const port = process.env.PORT || "3000";
