@@ -1,7 +1,6 @@
-import { Manifest } from "./manifest";
+import { ResourceSettings } from "./manifest";
 
-export interface ResourceDefinitionResourceSettings
-  extends Manifest.ResourceSettings {
+export interface ResourceDefinitionResourceSettings extends ResourceSettings {
   /**
    * Resource Kind
    */

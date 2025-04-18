@@ -1,8 +1,8 @@
 import _, { ListIterateeCustom } from "lodash";
-import { Manifest } from "./types/manifest";
+import { ResourceRecord, ResourceSettings } from "./types";
 
 type GetFilteredResourcesParams = ListIterateeCustom<
-  Resource<Manifest.ResourceSettings>,
+  Resource<ResourceSettings>,
   boolean
 >;
 
@@ -13,12 +13,11 @@ type GetFilteredResource = (
 ) => Resource | undefined;
 
 export interface ResourceConstructorParams<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings
-> extends Manifest.Resource<T> {}
+  T extends ResourceSettings = ResourceSettings
+> extends ResourceRecord<T> {}
 
-export class Resource<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings
-> implements Manifest.Resource<T>
+export class Resource<T extends ResourceSettings = ResourceSettings>
+  implements ResourceRecord<T>
 {
   /**
    * Resource ID

@@ -1,10 +1,8 @@
 import { Resource } from "../resource";
-import { Manifest } from "./manifest";
+import { ResourceRecord, ResourceSettings } from "./manifest";
 
-interface Params<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings
-> {
-  manifestResources: Manifest.Resource<T>[];
+interface Params<T extends ResourceSettings = ResourceSettings> {
+  manifestResources: ResourceRecord<T>[];
 }
 
 export interface InstantiateResourcesRes<R extends Resource = Resource> {
@@ -12,6 +10,6 @@ export interface InstantiateResourcesRes<R extends Resource = Resource> {
 }
 
 export type InstantiateResources<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings,
+  T extends ResourceSettings = ResourceSettings,
   R extends Resource = Resource
 > = (params: Params<T>) => InstantiateResourcesRes<R>;

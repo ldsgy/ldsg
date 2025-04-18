@@ -1,8 +1,8 @@
 import { Resource, ResourceConstructorParams } from "../resource";
-import { Manifest } from "./manifest";
+import { ResourceSettings } from "./manifest";
 
 export interface InstantiateResourceParams<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings
+  T extends ResourceSettings = ResourceSettings
 > {
   resourceConstructorParams: ResourceConstructorParams<T>;
 }
@@ -12,6 +12,6 @@ export interface InstantiateResourceRes<R extends Resource = Resource> {
 }
 
 export type InstantiateResource<
-  T extends Manifest.ResourceSettings = Manifest.ResourceSettings,
+  T extends ResourceSettings = ResourceSettings,
   R extends Resource = Resource
 > = (params: InstantiateResourceParams<T>) => InstantiateResourceRes<R>;
