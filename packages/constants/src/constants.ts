@@ -1,28 +1,28 @@
-import * as application from "@ldsg/application";
-import * as handler from "@ldsg/handler";
+import * as applicationModule from "@ldsg/application";
+import * as handlerModule from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/resource";
-import * as resourceDefinition from "@ldsg/resource-definition";
+import * as resourceDefinitionModule from "@ldsg/resource-definition";
 import _ from "lodash";
 
 export const ROOT_RESOURCE_ID = "root";
 
 /**
- * 基础层资源类型组
+ * 基座级资源模块
  */
-export const BASE_RESOURCE_KINDS = [resourceDefinition, handler];
+export const BASE_RESOURCE_MODULES = [resourceDefinitionModule, handlerModule];
 
 /**
- * 应用层资源类型组
+ * 应用级资源模块
  */
-export const APPLICATION_RESOURCE_KINDS = [application];
+export const APPLICATION_RESOURCE_MODULES = [applicationModule];
 
-export const RESOURCE_KINDS = [
-  ...BASE_RESOURCE_KINDS,
-  ...APPLICATION_RESOURCE_KINDS,
+export const RESOURCE_MODULES = [
+  ...BASE_RESOURCE_MODULES,
+  ...APPLICATION_RESOURCE_MODULES,
 ];
 
 export const RESOURCE_KINDS_RESOURCE_RECORDS: ResourceRecord[] = _.flatMap(
-  RESOURCE_KINDS.map((value) => {
+  RESOURCE_MODULES.map((value) => {
     const { resourceDefinitionResourceSettings, handlerResourceSettings } =
       value;
 
