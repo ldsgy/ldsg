@@ -3,7 +3,7 @@ import {
   resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
 } from "@ldsg/application";
 import { Resource, ResourceRecord } from "@ldsg/resource";
-import { instantiateAppResources } from "@ldsg/resource-instantiator";
+import { instantiateResourcesRequiredByApp } from "@ldsg/resource-instantiator";
 import { Express } from "express";
 
 interface CreateAppParams {
@@ -25,7 +25,7 @@ export const createApp: CreateApp = (params) => {
       throw new Error("invalid manifest resources");
     }
 
-    const resolveManifestResourcesRes = instantiateAppResources({
+    const resolveManifestResourcesRes = instantiateResourcesRequiredByApp({
       resourceRecords,
     });
 

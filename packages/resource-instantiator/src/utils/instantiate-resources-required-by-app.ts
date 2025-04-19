@@ -1,21 +1,14 @@
-import { Resource } from "@ldsg/resource";
+import { InstantiateResources, Resource } from "@ldsg/resource";
 import { getResourceKindMap } from "./get-resource-kind-map";
-import { ResolveManifestResourcesParams } from "./types";
-
-interface ResolveManifestResourcesRes {
-  resources: Resource[];
-}
-
-type ResolveManifestResources = (
-  params: ResolveManifestResourcesParams
-) => ResolveManifestResourcesRes;
 
 /**
- * 实例化应用资源
+ * 实例化应用所需资源
  * 1. 实例化资源定义资源记录为资源实例
  * 2. 实例化非资源定义资源记录为资源实例
  */
-export const instantiateAppResources: ResolveManifestResources = (params) => {
+export const instantiateResourcesRequiredByApp: InstantiateResources = (
+  params
+) => {
   const { resourceRecords } = params;
 
   const { resourceKindMap } = getResourceKindMap({
@@ -28,9 +21,7 @@ export const instantiateAppResources: ResolveManifestResources = (params) => {
     const { resourceDefinitionResource } = resourceKindMap[kind];
 
     const { resource } = resourceDefinitionResource.instantiateResource({
-      resourceConstructorParams: {
-        ...manifestResource,
-      },
+      resourceConstructorParams: manifestResource,
     });
 
     return resource;

@@ -1,19 +1,17 @@
-import { ResourceDefinitionResource } from "@ldsg/resource-definition";
+import { ResourceRecord } from "@ldsg/resource";
 import _ from "lodash";
 import { instantiateResourceDefinitionResourceSubtrees } from "./instantiate-resource-definition-resource-subtrees";
-import { ResolveManifestResourcesParams } from "./types";
+import { ResourceKindMap } from "./types";
 
-interface ResourceKindMapValue {
-  resourceDefinitionResource: ResourceDefinitionResource;
+interface Params {
+  resourceRecords: ResourceRecord[];
 }
-
-type ResourceKindMap = Record<string, ResourceKindMapValue>;
 
 interface Res {
   resourceKindMap: ResourceKindMap;
 }
 
-export const getResourceKindMap = (params: ResolveManifestResourcesParams) => {
+export const getResourceKindMap = (params: Params) => {
   const { resourceRecords } = params;
 
   const { resources: resourceDefinitionResources } =
