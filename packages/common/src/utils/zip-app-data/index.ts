@@ -137,7 +137,7 @@ export const zipAppData: ZipAppData = async (params) => {
       }
 
       case "manifest.json": {
-        data = _.pick(params, "resourcesRecords");
+        data = _.pick(params, "resourceRecords");
 
         break;
       }

@@ -9,7 +9,7 @@
   "types": "dist",
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.build.json",
-    "clean": "rm -rf dist src/utils/prepare/__tests__/apps"
+    "clean": "rm -rf dist apps"
   },
   "keywords": [],
   "author": "wanxger",
@@ -27,7 +27,11 @@
   },
   "devDependencies": {
     "@ldsg/constants": "workspace:*",
+    "@ldsg/utils": "workspace:*",
     "@types/adm-zip": "^0.5.6",
-    "@types/lodash": "^4.14.202"
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.13.0",
+    "fs-extra": "^11.3.0"
   }
 }
