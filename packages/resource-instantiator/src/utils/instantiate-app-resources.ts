@@ -1,5 +1,5 @@
 import { Resource } from "@ldsg/resource";
-import { resolveManifestResourcesOfTypeResourceDefinition } from "./resolve-manifest-resources-of-type-resource-definition";
+import { getResourceKindMap } from "./get-resource-kind-map";
 import { ResolveManifestResourcesParams } from "./types";
 
 interface ResolveManifestResourcesRes {
@@ -11,21 +11,21 @@ type ResolveManifestResources = (
 ) => ResolveManifestResourcesRes;
 
 /**
- * 处理清单内全部资源
- * 1. 转换清单内全部资源定义类型资源配置为资源实例
+ * 实例化应用资源
+ * 1. 实例化资源定义资源记录为资源实例
+ * 2. 实例化非资源定义资源记录为资源实例
  */
-export const resolveManifestResources: ResolveManifestResources = (params) => {
+export const instantiateAppResources: ResolveManifestResources = (params) => {
   const { resourceRecords } = params;
 
-  const { kindResourceDefinitionResourceMap } =
-    resolveManifestResourcesOfTypeResourceDefinition({
-      resourceRecords,
-    });
+  const { resourceKindMap } = getResourceKindMap({
+    resourceRecords,
+  });
 
   const resources: Resource[] = resourceRecords.map((manifestResource) => {
     const { kind } = manifestResource;
 
-    const resourceDefinitionResource = kindResourceDefinitionResourceMap[kind];
+    const { resourceDefinitionResource } = resourceKindMap[kind];
 
     const { resource } = resourceDefinitionResource.instantiateResource({
       resourceConstructorParams: {
