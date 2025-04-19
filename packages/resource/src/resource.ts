@@ -40,9 +40,14 @@ export class Resource<T extends ResourceSettings = ResourceSettings>
   settings: T;
 
   /**
-   * Related Resources
+   * Resource List
    */
-  static relatedResources: Resource[] = [];
+  static resourceList: Resource[] = [];
+
+  /**
+   * Resource Map
+   */
+  static resourceMap: Record<string, Resource> = {};
 
   constructor(params: ResourceConstructorParams<T>) {
     const { id, kind, parentId, settings } = params;
@@ -52,7 +57,9 @@ export class Resource<T extends ResourceSettings = ResourceSettings>
     this.parentId = parentId;
     this.settings = settings;
 
-    Resource.relatedResources.push(this);
+    Resource.resourceList.push(this);
+
+    Resource.resourceMap[id] = this;
   }
 
   /**
@@ -66,12 +73,8 @@ export class Resource<T extends ResourceSettings = ResourceSettings>
    * Get Filtered Resources
    */
   getFilteredResources: GetFilteredResources = (params) => {
-    const { relatedResources } = Resource;
+    const { resourceList } = Resource;
 
-    console.debug("getFilteredResources relatedResources", relatedResources);
-
-    console.debug("getFilteredResources params", params);
-
-    return _.filter(relatedResources, params);
+    return _.filter(resourceList, params);
   };
 }
