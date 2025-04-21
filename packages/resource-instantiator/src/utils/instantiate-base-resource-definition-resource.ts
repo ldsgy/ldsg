@@ -8,6 +8,7 @@ import {
 } from "@ldsg/resource";
 import { ResourceDefinitionResource } from "@ldsg/resource-definition/src/resource";
 import { instantiateResourceDefinitionResourcesWithSubHandlerResources } from "./instantiate-resource-definition-resources-with-sub-handler-resources";
+import { resourceKindMap } from "./resource-kind-map";
 
 /**
  * 实例化基座级资源定义资源组
@@ -36,12 +37,22 @@ export const instantiateBaseResourceDefinitionResources: InstantiateResources<
       )
   ) as ResourceRecord<HandlerResourceSettings>[];
 
-  const res = instantiateResourceDefinitionResourcesWithSubHandlerResources({
-    resourceRecords: [
-      ...handlerResourceRecords,
-      ...resourceDefinitionResourceRecords,
-    ],
-  });
+  const instantiateResourceDefinitionResourcesWithSubHandlerResourcesRes =
+    instantiateResourceDefinitionResourcesWithSubHandlerResources({
+      resourceRecords: [
+        ...handlerResourceRecords,
+        ...resourceDefinitionResourceRecords,
+      ],
+    });
 
-  return res;
+  const { resources: resourceDefinitionResources } =
+    instantiateResourceDefinitionResourcesWithSubHandlerResourcesRes;
+
+  for (const resourceDefinitionResource of resourceDefinitionResources) {
+    resourceKindMap[resourceDefinitionResource.settings.kind] = {
+      resourceDefinitionResource,
+    };
+  }
+
+  return instantiateResourceDefinitionResourcesWithSubHandlerResourcesRes;
 };

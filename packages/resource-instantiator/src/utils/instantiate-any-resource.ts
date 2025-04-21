@@ -1,9 +1,11 @@
+import { BASE_RESOURCE_KINDS } from "@ldsg/constants";
 import {
   Resource,
   ResourceDefinitionResourceSettings,
   ResourceRecord,
   ResourceSettings,
 } from "@ldsg/resource";
+import { instantiateBaseResourceDefinitionResources } from "./instantiate-base-resource-definition-resource";
 import { resourceKindMap } from "./resource-kind-map";
 
 interface InstantiateAnyResourceParams<
@@ -41,6 +43,12 @@ export const instantiateAnyResource: InstantiateAnyResource = (params) => {
   }
 
   if (!(kind in resourceKindMap)) {
+    if (!BASE_RESOURCE_KINDS.includes(kind)) {
+      instantiateBaseResourceDefinitionResources({
+        resourceRecords: relatedResourceRecords,
+      });
+    }
+
     const resourceRecord = relatedResourceRecords?.find(
       (relatedResourceRecord) => {
         return (
