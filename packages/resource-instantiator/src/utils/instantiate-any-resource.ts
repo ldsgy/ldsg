@@ -26,6 +26,8 @@ type InstantiateAnyResource<
 
 /**
  * 初始化任意资源
+ * 可以实例化任意资源（包含资源定义）
+ * 如果基建层资源未实例化，则自动实例化。
  */
 export const instantiateAnyResource: InstantiateAnyResource = (params) => {
   const { resourceRecord, relatedResourceRecords } = params;
