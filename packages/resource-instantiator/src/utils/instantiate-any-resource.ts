@@ -4,9 +4,7 @@ import {
   ResourceRecord,
   ResourceSettings,
 } from "@ldsg/resource";
-import { ResourceKindMap } from "./types";
-
-const resourceKindMap: ResourceKindMap = {};
+import { resourceKindMap } from "./resource-kind-map";
 
 interface InstantiateAnyResourceParams<
   T extends ResourceSettings = ResourceSettings
@@ -24,6 +22,9 @@ type InstantiateAnyResource<
   R extends Resource = Resource
 > = (params: InstantiateAnyResourceParams<T>) => InstantiateAnyResourceRes<R>;
 
+/**
+ * 初始化任意资源
+ */
 export const instantiateAnyResource: InstantiateAnyResource = (params) => {
   const { resourceRecord, relatedResourceRecords } = params;
 

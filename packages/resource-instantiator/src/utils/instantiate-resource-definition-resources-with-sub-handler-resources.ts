@@ -12,9 +12,10 @@ import { instantiateResources as instantiateResourceDefinitionResources } from "
 import { ResourceDefinitionResource } from "@ldsg/resource-definition/src/resource";
 
 /**
- * 实例化资源定义资源子树
+ * 实例化资源定义资源组及子级程序处理资源组
+ * 同时实例化资源定义资源组及资源定义的子级程序处理资源组
  */
-export const instantiateResourceDefinitionResourceSubtrees: InstantiateResources<
+export const instantiateResourceDefinitionResourcesWithSubHandlerResources: InstantiateResources<
   ResourceSettings,
   ResourceDefinitionResource
 > = (params) => {

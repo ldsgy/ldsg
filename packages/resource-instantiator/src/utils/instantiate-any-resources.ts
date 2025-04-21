@@ -17,6 +17,9 @@ type InstantiateAnyResources<
   R extends Resource = Resource
 > = (params: InstantiateAnyResourcesParams<T>) => InstantiateAnyResourcesRes<R>;
 
+/**
+ * 初始化任意资源组
+ */
 export const instantiateAnyResources: InstantiateAnyResources = (params) => {
   const { resourceRecords, relatedResourceRecords } = params;
 

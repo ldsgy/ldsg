@@ -1,6 +1,6 @@
 import { ResourceRecord } from "@ldsg/resource";
 import _ from "lodash";
-import { instantiateResourceDefinitionResourceSubtrees } from "./instantiate-resource-definition-resource-subtrees";
+import { instantiateResourceDefinitionResourcesWithSubHandlerResources } from "./instantiate-resource-definition-resources-with-sub-handler-resources";
 import { ResourceKindMap } from "./types";
 
 interface Params {
@@ -15,7 +15,7 @@ export const getResourceKindMap = (params: Params) => {
   const { resourceRecords } = params;
 
   const { resources: resourceDefinitionResources } =
-    instantiateResourceDefinitionResourceSubtrees({
+    instantiateResourceDefinitionResourcesWithSubHandlerResources({
       resourceRecords,
     });
 
