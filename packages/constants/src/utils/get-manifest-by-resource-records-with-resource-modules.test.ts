@@ -1,6 +1,6 @@
 import { ResourceRecord, ResourceSettings } from "@ldsg/resource";
 import { ROOT_RESOURCE_ID } from "../constants";
-import { getConstants } from "./get-constants";
+import { getManifestByResourceRecordsWithResourceModules } from "./get-manifest-by-resource-records-with-resource-modules";
 
 const applicationResourceRecords: ResourceRecord<ResourceSettings>[] = [
   {
@@ -15,7 +15,7 @@ const applicationResourceRecords: ResourceRecord<ResourceSettings>[] = [
 ];
 
 test("get constants", () => {
-  const { manifest } = getConstants({
+  const { manifest } = getManifestByResourceRecordsWithResourceModules({
     resourceRecords: applicationResourceRecords,
   });
 

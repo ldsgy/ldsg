@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run clean && npm run generate && tsc --project tsconfig.build.json",
     "generate": "npx tsx src/scripts/generate.ts",
-    "clean": "rm -rf dist src/manifests"
+    "clean": "rm -rf src/dist dist"
   },
   "keywords": [],
   "author": "wanxger",
