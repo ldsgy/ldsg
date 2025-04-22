@@ -1,17 +1,17 @@
-import { Resource } from "@ldsg/resource";
 import {
   DefaultParams,
   DefaultRes,
   Handler,
-  HandlerResourceSettings,
-} from "./types";
+  HandlerSpecificResourceSettings,
+} from "@ldsg/handler-part";
+import { Resource } from "@ldsg/resource";
 
 type GetHandler<
   Params extends DefaultParams = DefaultParams,
   Res extends DefaultRes = DefaultRes
 > = () => Handler<Params, Res>;
 
-export class HandlerResource extends Resource<HandlerResourceSettings> {
+export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
   getModuleId = (): string => {
     const { id } = this;
 

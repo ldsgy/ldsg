@@ -1,4 +1,4 @@
-import { HandlerResourceSettings } from "./types";
+import { HandlerResourceSettings } from "@ldsg/handler-part";
 
 /**
  * Handler Resource Settings

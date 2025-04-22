@@ -1,3 +1,4 @@
+export * from "@ldsg/resource-definition-part";
 export * from "./handler";
 export * from "./handler-resource-settings";
 export * from "./instantiate-resource";

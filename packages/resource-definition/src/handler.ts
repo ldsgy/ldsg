@@ -2,12 +2,12 @@ import { Handler } from "@ldsg/handler";
 import {
   InstantiateResourceParams,
   InstantiateResourceRes,
-  ResourceDefinitionResourceSettings,
 } from "@ldsg/resource";
+import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition-part";
 import { instantiateResource } from "./instantiate-resource";
 import { ResourceDefinitionResource } from "./resource";
 
 export const handler: Handler<
-  [InstantiateResourceParams<ResourceDefinitionResourceSettings>],
+  [InstantiateResourceParams<ResourceDefinitionSpecificResourceSettings>],
   InstantiateResourceRes<ResourceDefinitionResource>
 > = instantiateResource;

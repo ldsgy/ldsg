@@ -18,7 +18,10 @@
   },
   "packageManager": "pnpm@10.7.1",
   "dependencies": {
-    "@ldsg/resource": "workspace:*"
+    "@ldsg/handler-part": "workspace:*",
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition-part": "workspace:*",
+    "@ldsg/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.13.0"

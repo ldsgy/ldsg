@@ -1,4 +1,4 @@
-import { ResourceSettings } from "@ldsg/resource";
+import { SpecificResourceSettings } from "@ldsg/types";
 
 export interface HandlerResourceDependency {
   /**
@@ -19,7 +19,8 @@ export interface HandlerResourceDependency {
   uri?: string;
 }
 
-export interface HandlerResourceSettings extends ResourceSettings {
+export interface HandlerSpecificResourceSettings
+  extends SpecificResourceSettings {
   /**
    * Code
    * The code must exist to avoid problems caused by different versions resulting from dependencies being installed in the root project.

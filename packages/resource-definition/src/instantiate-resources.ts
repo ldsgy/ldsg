@@ -1,9 +1,6 @@
-import {
-  InstantiateResources,
-  ResourceDefinitionResourceSettings,
-  ResourceRecord,
-  ResourceSettings,
-} from "@ldsg/resource";
+import { InstantiateResources } from "@ldsg/resource";
+import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition-part";
+import { ResourceRecord, ResourceSettings } from "@ldsg/types";
 import { instantiateResource } from "./instantiate-resource";
 import { ResourceDefinitionResource } from "./resource";
 
@@ -15,7 +12,7 @@ export const instantiateResources: InstantiateResources<
 
   const resourceDefinitionManifestResources = resourceRecords.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
-  ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
+  ) as ResourceRecord<ResourceDefinitionSpecificResourceSettings>[];
 
   const resources = resourceDefinitionManifestResources.map(
     (resourceDefinitionManifestResource) => {

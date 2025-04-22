@@ -1,11 +1,9 @@
-import {
-  InstantiateResource,
-  ResourceDefinitionResourceSettings,
-} from "@ldsg/resource";
+import { InstantiateResource } from "@ldsg/resource";
+import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition-part";
 import { ResourceDefinitionResource } from "./resource";
 
 export const instantiateResource: InstantiateResource<
-  ResourceDefinitionResourceSettings,
+  ResourceDefinitionSpecificResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
   const { resourceConstructorParams } = params;

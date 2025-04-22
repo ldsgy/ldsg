@@ -1,2 +1,2 @@
-export * from "./handler";
+export * from "./resource";
 export * from "./resource-settings";

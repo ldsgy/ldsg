@@ -1,9 +1,9 @@
+import { HandlerSpecificResourceSettings } from "@ldsg/handler-part";
 import { InstantiateResource } from "@ldsg/resource";
 import { HandlerResource } from "./resource";
-import { HandlerResourceSettings } from "./types";
 
 export const instantiateResource: InstantiateResource<
-  HandlerResourceSettings,
+  HandlerSpecificResourceSettings,
   HandlerResource
 > = (params) => {
   const { resourceConstructorParams } = params;
