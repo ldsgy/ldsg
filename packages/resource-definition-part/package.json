@@ -1,0 +1,24 @@
+{
+  "name": "@ldsg/resource-definition-part",
+  "version": "0.1.0-alpha.16",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+  },
+  "keywords": [],
+  "author": "wanxger",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "dependencies": {
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/types": "workspace:*"
+  }
+}
