@@ -1,4 +1,4 @@
-import { AppDataFile } from "@ldsg/common";
+import { AppDataFile } from "@ldsg/types";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
