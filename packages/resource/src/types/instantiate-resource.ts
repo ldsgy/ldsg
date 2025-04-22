@@ -1,8 +1,8 @@
+import { SpecificResourceSettings } from "@ldsg/types";
 import { Resource, ResourceConstructorParams } from "../resource";
-import { ResourceSettings } from "./manifest";
 
 export interface InstantiateResourceParams<
-  T extends ResourceSettings = ResourceSettings
+  T extends SpecificResourceSettings = SpecificResourceSettings
 > {
   resourceConstructorParams: ResourceConstructorParams<T>;
 }
@@ -12,6 +12,6 @@ export interface InstantiateResourceRes<R extends Resource = Resource> {
 }
 
 export type InstantiateResource<
-  T extends ResourceSettings = ResourceSettings,
+  T extends SpecificResourceSettings = SpecificResourceSettings,
   R extends Resource = Resource
 > = (params: InstantiateResourceParams<T>) => InstantiateResourceRes<R>;

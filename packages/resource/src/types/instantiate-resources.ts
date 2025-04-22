@@ -1,8 +1,8 @@
+import { ResourceRecord, SpecificResourceSettings } from "@ldsg/types";
 import { Resource } from "../resource";
-import { ResourceRecord, ResourceSettings } from "./manifest";
 
 export interface InstantiateResourcesParams<
-  T extends ResourceSettings = ResourceSettings
+  T extends SpecificResourceSettings = SpecificResourceSettings
 > {
   resourceRecords: ResourceRecord<T>[];
 }
@@ -12,6 +12,6 @@ export interface InstantiateResourcesRes<R extends Resource = Resource> {
 }
 
 export type InstantiateResources<
-  T extends ResourceSettings = ResourceSettings,
+  T extends SpecificResourceSettings = SpecificResourceSettings,
   R extends Resource = Resource
 > = (params: InstantiateResourcesParams<T>) => InstantiateResourcesRes<R>;

@@ -1,23 +1,25 @@
+import {
+  ResourceRecord,
+  ResourceSettings,
+  SpecificResourceSettings,
+} from "@ldsg/types";
 import _, { ListIterateeCustom } from "lodash";
-import { ResourceRecord, ResourceSettings } from "./types";
 
-type GetFilteredResourcesParams = ListIterateeCustom<
-  Resource<ResourceSettings>,
-  boolean
->;
-
-type GetFilteredResources = (params: GetFilteredResourcesParams) => Resource[];
+type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
 
 type GetFilteredResource = (
   params: GetFilteredResourcesParams
 ) => Resource | undefined;
 
+type GetFilteredResources = (params: GetFilteredResourcesParams) => Resource[];
+
 export interface ResourceConstructorParams<
-  T extends ResourceSettings = ResourceSettings
+  T extends SpecificResourceSettings = SpecificResourceSettings
 > extends ResourceRecord<T> {}
 
-export class Resource<T extends ResourceSettings = ResourceSettings>
-  implements ResourceRecord<T>
+export class Resource<
+  T extends SpecificResourceSettings = SpecificResourceSettings
+> implements ResourceRecord<T>
 {
   /**
    * Resource ID
@@ -37,7 +39,7 @@ export class Resource<T extends ResourceSettings = ResourceSettings>
   /**
    * Resource Settings
    */
-  settings: T;
+  settings: ResourceSettings<T>;
 
   /**
    * Resource List
