@@ -3,10 +3,9 @@ import {
   resourceDefinitionResourceSettings as handlerResourceDefinitionResourceSettings,
   HandlerResourceSettings,
 } from "@ldsg/handler";
-import { ResourceRecord } from "@ldsg/resource";
+import { AppData, AppDataFileData, ResourceRecord } from "@ldsg/types";
 import JSZip from "jszip";
 import _ from "lodash";
-import { AppData, AppDataFileData } from "../../types";
 import { FILES_IN_HANDLER_MODULE } from "./constants";
 import {
   addFileToZipFolder,

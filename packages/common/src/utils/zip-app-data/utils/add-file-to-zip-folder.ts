@@ -1,6 +1,6 @@
+import { AppDataFile, FileData } from "@ldsg/types";
 import JSZip from "jszip";
 import _ from "lodash";
-import { AppDataFile, FileData } from "../../../types";
 
 interface AddFileToZipFolderParams extends AppDataFile {
   folder: JSZip;

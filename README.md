@@ -49,3 +49,24 @@ pnpm i --save-dev @types/supertest supertest --filter @ldsg/app
 | storage-service | storage service                                       |
 | app             | application                                           |
 | cms             | cms                                                   |
+
+```shell
+@ldsg/types
+@ldsg/resource
+@ldsg/resource-definition-part
+@ldsg/handler
+@ldsg/resource-definition
+@ldsg/constants
+@ldsg/*
+```
+
+```shell
+pnpm --filter @ldsg/types build
+pnpm --filter @ldsg/resource build
+pnpm --filter @ldsg/resource-definition-part build
+pnpm --filter @ldsg/handler build
+pnpm --filter @ldsg/resource-definition build
+pnpm --filter @ldsg/application build
+pnpm --filter @ldsg/constants build
+pnpm --filter @ldsg/common build
+```

@@ -1,3 +1,3 @@
-import { ResourceSettings } from "@ldsg/resource";
+import { SpecificResourceSettings } from "@ldsg/types";
 
-export interface ApplicationResourceSettings extends ResourceSettings {}
+export interface ApplicationResourceSettings extends SpecificResourceSettings {}

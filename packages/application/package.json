@@ -20,6 +20,8 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "express": "^4.18.2"
   },
   "devDependencies": {

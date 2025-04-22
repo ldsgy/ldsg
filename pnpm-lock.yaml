@@ -103,6 +103,12 @@ importers:
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       express:
         specifier: ^4.18.2
         version: 4.19.2
@@ -193,6 +199,9 @@ importers:
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       json-schema:
         specifier: ^0.4.0
         version: 0.4.0
@@ -227,9 +236,6 @@ importers:
       '@ldsg/application':
         specifier: workspace:*
         version: link:../application
-      '@ldsg/common':
-        specifier: workspace:*
-        version: link:../common
       '@ldsg/handler':
         specifier: workspace:*
         version: link:../handler
@@ -239,6 +245,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -358,6 +367,12 @@ importers:
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
+      '@ldsg/resource-definition-part':
+        specifier: workspace:*
+        version: link:../resource-definition-part
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
     devDependencies:
       '@types/node':
         specifier: ^20.13.0
@@ -453,6 +468,9 @@ importers:
 
   packages/resource:
     dependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -469,6 +487,12 @@ importers:
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
+      '@ldsg/resource-definition-part':
+        specifier: workspace:*
+        version: link:../resource-definition-part
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -476,6 +500,15 @@ importers:
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.17.5
+
+  packages/resource-definition-part:
+    dependencies:
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
 
   packages/resource-instantiator:
     dependencies:
@@ -637,6 +670,8 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.5.2
+
+  packages/types: {}
 
   packages/utils:
     dependencies:
