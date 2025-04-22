@@ -1,6 +1,6 @@
-import { HandlerSpecificResourceSettings } from "@ldsg/handler-part";
 import { InstantiateResource } from "@ldsg/resource";
 import { HandlerResource } from "./resource";
+import { HandlerSpecificResourceSettings } from "./types";
 
 export const instantiateResource: InstantiateResource<
   HandlerSpecificResourceSettings,

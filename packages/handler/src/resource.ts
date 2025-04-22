@@ -1,11 +1,10 @@
+import { Resource } from "@ldsg/resource";
 import {
   DefaultParams,
   DefaultRes,
   Handler,
   HandlerSpecificResourceSettings,
-} from "@ldsg/handler-part";
-import { Resource } from "@ldsg/resource";
-
+} from "./types";
 type GetHandler<
   Params extends DefaultParams = DefaultParams,
   Res extends DefaultRes = DefaultRes
