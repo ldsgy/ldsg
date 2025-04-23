@@ -63,6 +63,7 @@ pnpm i --save-dev @types/supertest supertest --filter @ldsg/app
 ```shell
 pnpm --filter @ldsg/types build
 pnpm --filter @ldsg/resource build
+pnpm --filter @ldsg/handler-part build
 pnpm --filter @ldsg/resource-definition-part build
 pnpm --filter @ldsg/handler build
 pnpm --filter @ldsg/resource-definition build
