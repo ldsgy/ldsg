@@ -1,7 +1,7 @@
 import * as applicationModule from "@ldsg/application";
 import * as handlerModule from "@ldsg/handler";
-import { ResourceRecord } from "@ldsg/resource";
 import * as resourceDefinitionModule from "@ldsg/resource-definition";
+import { ResourceRecord } from "@ldsg/types";
 
 export const ROOT_RESOURCE_ID = "root";
 
@@ -12,7 +12,7 @@ export const BASE_RESOURCE_MODULES = [resourceDefinitionModule, handlerModule];
 
 export const BASE_RESOURCE_KINDS = BASE_RESOURCE_MODULES.map(
   (baseResourceModule) =>
-    baseResourceModule.resourceDefinitionResourceSettings.kind
+    baseResourceModule.RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind
 );
 
 /**

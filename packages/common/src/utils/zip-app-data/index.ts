@@ -1,6 +1,6 @@
 import { FILES_IN_ROOT_MODULE } from "@ldsg/constants";
 import {
-  resourceDefinitionResourceSettings as handlerResourceDefinitionResourceSettings,
+  RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
   HandlerResourceSettings,
 } from "@ldsg/handler";
 import { AppData, AppDataFileData, ResourceRecord } from "@ldsg/types";
@@ -47,7 +47,8 @@ export const zipAppData: ZipAppData = async (params) => {
   const zip = new JSZip();
 
   const handlerManifestResources = resourceRecords.filter(
-    (value) => value.kind === handlerResourceDefinitionResourceSettings.kind
+    (value) =>
+      value.kind === HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind
   ) as ResourceRecord<HandlerResourceSettings>[];
 
   if (handlerManifestResources.length) {

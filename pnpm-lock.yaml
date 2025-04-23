@@ -44,6 +44,9 @@ importers:
       '@ldsg/resource-instantiator':
         specifier: workspace:*
         version: link:../resource-instantiator
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       express:
         specifier: ^4.18.2
         version: 4.19.2
@@ -364,6 +367,9 @@ importers:
 
   packages/handler:
     dependencies:
+      '@ldsg/handler-part':
+        specifier: workspace:*
+        version: link:../handler-part
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
@@ -377,6 +383,12 @@ importers:
       '@types/node':
         specifier: ^20.13.0
         version: 20.14.8
+
+  packages/handler-part:
+    dependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
 
   packages/integration-test:
     devDependencies:
@@ -503,6 +515,9 @@ importers:
 
   packages/resource-definition-part:
     dependencies:
+      '@ldsg/handler-part':
+        specifier: workspace:*
+        version: link:../handler-part
       '@ldsg/resource':
         specifier: workspace:*
         version: link:../resource
@@ -521,6 +536,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       lodash:
         specifier: ^4.17.21
         version: 4.17.21

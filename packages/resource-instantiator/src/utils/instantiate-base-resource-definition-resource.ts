@@ -1,12 +1,14 @@
 import { BASE_RESOURCE_KINDS } from "@ldsg/constants";
-import { HandlerResourceSettings } from "@ldsg/handler";
 import {
-  InstantiateResources,
-  ResourceDefinitionResourceSettings,
-  ResourceRecord,
-  ResourceSettings,
-} from "@ldsg/resource";
-import { ResourceDefinitionResource } from "@ldsg/resource-definition/src/resource";
+  HandlerExtendedResourceSettings,
+  HandlerResourceSettings,
+} from "@ldsg/handler";
+import { InstantiateResources } from "@ldsg/resource";
+import {
+  ResourceDefinitionResource,
+  ResourceDefinitionSpecificResourceSettings,
+} from "@ldsg/resource-definition";
+import { ResourceRecord, SpecificResourceSettings } from "@ldsg/types";
 import { instantiateResourceDefinitionResourcesWithSubHandlerResources } from "./instantiate-resource-definition-resources-with-sub-handler-resources";
 import { resourceKindMap } from "./resource-kind-map";
 
@@ -14,7 +16,7 @@ import { resourceKindMap } from "./resource-kind-map";
  * 实例化基座级资源定义资源组
  */
 export const instantiateBaseResourceDefinitionResources: InstantiateResources<
-  ResourceSettings,
+  SpecificResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
   const { resourceRecords } = params;
@@ -23,10 +25,15 @@ export const instantiateBaseResourceDefinitionResources: InstantiateResources<
     (resourceRecord) =>
       resourceRecord.kind === "RESOURCE_DEFINITION" &&
       BASE_RESOURCE_KINDS.includes(
-        (resourceRecord as ResourceRecord<ResourceDefinitionResourceSettings>)
-          .settings.kind
+        (
+          resourceRecord as ResourceRecord<
+            HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
+          >
+        ).settings.kind
       )
-  ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
+  ) as ResourceRecord<
+    HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
+  >[];
 
   const handlerResourceRecords = resourceRecords.filter(
     (value) =>

@@ -1,5 +1,5 @@
-import { ResourceRecord } from "@ldsg/resource";
 import { ResourceDefinitionResource } from "@ldsg/resource-definition";
+import { ResourceRecord } from "@ldsg/types";
 
 export interface InstantiateResourcesResParams {
   resourceRecords: ResourceRecord[];

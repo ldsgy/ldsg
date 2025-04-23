@@ -1,29 +1,31 @@
 import {
+  HandlerExtendedResourceSettings,
   HandlerResourceSettings,
   instantiateResources as instantiateHandlerResources,
 } from "@ldsg/handler";
+import { InstantiateResources } from "@ldsg/resource";
 import {
-  InstantiateResources,
-  ResourceDefinitionResourceSettings,
-  ResourceRecord,
-  ResourceSettings,
-} from "@ldsg/resource";
-import { instantiateResources as instantiateResourceDefinitionResources } from "@ldsg/resource-definition";
+  instantiateResources as instantiateResourceDefinitionResources,
+  ResourceDefinitionSpecificResourceSettings,
+} from "@ldsg/resource-definition";
 import { ResourceDefinitionResource } from "@ldsg/resource-definition/src/resource";
+import { ResourceRecord, SpecificResourceSettings } from "@ldsg/types";
 
 /**
  * 实例化资源定义资源组及子级程序处理资源组
  * 同时实例化资源定义资源组及资源定义的子级程序处理资源组
  */
 export const instantiateResourceDefinitionResourcesWithSubHandlerResources: InstantiateResources<
-  ResourceSettings,
+  SpecificResourceSettings,
   ResourceDefinitionResource
 > = (params) => {
   const { resourceRecords } = params;
 
   const resourceDefinitionResourceRecords = resourceRecords.filter(
     (value) => value.kind === "RESOURCE_DEFINITION"
-  ) as ResourceRecord<ResourceDefinitionResourceSettings>[];
+  ) as ResourceRecord<
+    HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
+  >[];
 
   const handlerResourceRecords = resourceRecords.filter(
     (value) =>

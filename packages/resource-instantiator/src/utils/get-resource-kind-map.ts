@@ -1,4 +1,4 @@
-import { ResourceRecord } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/types";
 import _ from "lodash";
 import { instantiateResourceDefinitionResourcesWithSubHandlerResources } from "./instantiate-resource-definition-resources-with-sub-handler-resources";
 import { ResourceKindMap } from "./types";

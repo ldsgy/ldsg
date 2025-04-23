@@ -1,15 +1,12 @@
 import { BASE_RESOURCE_KINDS } from "@ldsg/constants";
-import {
-  Resource,
-  ResourceDefinitionResourceSettings,
-  ResourceRecord,
-  ResourceSettings,
-} from "@ldsg/resource";
+import { HandlerExtendedResourceSettings } from "@ldsg/handler";
+import { Resource } from "@ldsg/resource";
+import { ResourceRecord, SpecificResourceSettings } from "@ldsg/types";
 import { instantiateBaseResourceDefinitionResources } from "./instantiate-base-resource-definition-resource";
 import { resourceKindMap } from "./resource-kind-map";
 
 interface InstantiateAnyResourceParams<
-  T extends ResourceSettings = ResourceSettings
+  T extends SpecificResourceSettings = SpecificResourceSettings
 > {
   resourceRecord: ResourceRecord<T>;
   relatedResourceRecords: ResourceRecord[];
@@ -20,7 +17,7 @@ interface InstantiateAnyResourceRes<R extends Resource = Resource> {
 }
 
 type InstantiateAnyResource<
-  T extends ResourceSettings = ResourceSettings,
+  T extends SpecificResourceSettings = SpecificResourceSettings,
   R extends Resource = Resource
 > = (params: InstantiateAnyResourceParams<T>) => InstantiateAnyResourceRes<R>;
 
@@ -56,7 +53,9 @@ export const instantiateAnyResource: InstantiateAnyResource = (params) => {
         return (
           relatedResourceRecord.kind === "RESOURCE_DEFINITION" &&
           (
-            relatedResourceRecord as ResourceRecord<ResourceDefinitionResourceSettings>
+            relatedResourceRecord as ResourceRecord<
+              HandlerExtendedResourceSettings<SpecificResourceSettings>
+            >
           ).kind === kind
         );
       }

@@ -1,4 +1,4 @@
-import { ResourceRecord } from "@ldsg/resource";
+import { ResourceRecord } from "@ldsg/types";
 import _ from "lodash";
 import { getResourceRecordsByResourceModule } from "./get-resource-records-by-resource-module";
 

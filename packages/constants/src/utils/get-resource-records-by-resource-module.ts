@@ -1,4 +1,6 @@
-import { ResourceRecord } from "@ldsg/resource";
+import { HandlerExtendedResourceSettings } from "@ldsg/handler";
+import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition";
+import { ResourceRecord } from "@ldsg/types";
 import _ from "lodash";
 import { ROOT_RESOURCE_ID } from "../constants";
 
@@ -16,28 +18,44 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
   (params) => {
     const { resourceModule } = params;
 
-    const { resourceDefinitionResourceSettings, handlerResourceSettings } =
-      resourceModule;
+    const { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } = resourceModule;
 
-    const resourceKind = _.kebabCase(resourceDefinitionResourceSettings.kind);
+    const resourceKind = _.kebabCase(
+      RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind
+    );
 
     const resourceDefinitionResourceId = `${resourceKind}-resource-definition`;
 
     const handlerResourceId = `${resourceKind}-resource-handler`;
 
+    const resourceDefinitionResourceRecord: ResourceRecord<
+      HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
+    > = {
+      id: resourceDefinitionResourceId,
+      kind: "RESOURCE_DEFINITION",
+      parentId: ROOT_RESOURCE_ID,
+      settings: {
+        handlerResourceId,
+        ...resourceModule.RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS,
+        ...resourceModule.RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
+      },
+    };
+
+    const handlerResourceRecord: ResourceRecord<
+      HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
+    > = {
+      id: handlerResourceId,
+      kind: "HANDLER",
+      parentId: ROOT_RESOURCE_ID,
+      settings: {
+        ...resourceModule.HANDLER_GENERAL_RESOURCE_SETTINGS,
+        ...resourceModule.HANDLER_SPECIFIC_RESOURCE_SETTINGS,
+      },
+    };
+
     const resourceRecords: ResourceRecord[] = [
-      {
-        id: resourceDefinitionResourceId,
-        kind: "RESOURCE_DEFINITION",
-        parentId: ROOT_RESOURCE_ID,
-        settings: resourceDefinitionResourceSettings,
-      },
-      {
-        id: handlerResourceId,
-        kind: "HANDLER",
-        parentId: resourceDefinitionResourceId,
-        settings: handlerResourceSettings,
-      },
+      resourceDefinitionResourceRecord,
+      handlerResourceRecord,
     ];
 
     const res = { resourceRecords };

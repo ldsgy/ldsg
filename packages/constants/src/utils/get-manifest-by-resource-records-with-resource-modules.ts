@@ -1,4 +1,4 @@
-import { Manifest, ResourceRecord } from "@ldsg/resource";
+import { Manifest, ResourceRecord } from "@ldsg/types";
 import { RESOURCE_MODULES } from "../constants";
 import { getResourceRecordsByResourceModules } from "./get-resource-records-by-resource-modules";
 

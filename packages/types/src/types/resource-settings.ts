@@ -13,8 +13,14 @@ export interface GeneralResourceSettings {
   description: string;
 }
 
+/**
+ * Specific Resource Settings
+ */
 export type SpecificResourceSettings = Record<string, any>;
 
+/**
+ * Resource Settings
+ */
 export type ResourceSettings<
   T extends SpecificResourceSettings = SpecificResourceSettings
-> = GeneralResourceSettings & Omit<T, keyof GeneralResourceSettings>;
+> = GeneralResourceSettings & T;

@@ -1,11 +1,11 @@
+import { HandlerExtendedResourceSettings } from "@ldsg/handler-part";
 import { Resource } from "@ldsg/resource";
 import { SpecificResourceSettings } from "@ldsg/types";
-import { HandlerResource } from "../resource";
-import { ResourceWithHandlerSpecificResourceSettings } from "./resource-settings";
+import { HandlerResource } from "./resource";
 
-export class ResourceWithHandler<
+export class HandlerExtendedResource<
   T extends SpecificResourceSettings = SpecificResourceSettings
-> extends Resource<ResourceWithHandlerSpecificResourceSettings<T>> {
+> extends Resource<HandlerExtendedResourceSettings<T>> {
   getHandler = () => {
     const { settings, getFilteredResource } = this;
 

@@ -20,6 +20,7 @@
     "@ldsg/common": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-instantiator": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0"
   },

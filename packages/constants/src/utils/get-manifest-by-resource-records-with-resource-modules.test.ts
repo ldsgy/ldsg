@@ -1,4 +1,4 @@
-import { ResourceRecord, ResourceSettings } from "@ldsg/resource";
+import { ResourceRecord, ResourceSettings } from "@ldsg/types";
 import { ROOT_RESOURCE_ID } from "../constants";
 import { getManifestByResourceRecordsWithResourceModules } from "./get-manifest-by-resource-records-with-resource-modules";
 

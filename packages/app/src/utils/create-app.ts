@@ -1,9 +1,10 @@
 import {
+  RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as APPLICATION_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
   ApplicationResource,
-  resourceDefinitionResourceSettings as applicationResourceDefinitionResourceSettings,
 } from "@ldsg/application";
-import { Resource, ResourceRecord } from "@ldsg/resource";
+import { Resource } from "@ldsg/resource";
 import { instantiateResourcesRequiredByApp } from "@ldsg/resource-instantiator";
+import { ResourceRecord } from "@ldsg/types";
 import { Express } from "express";
 
 interface CreateAppParams {
@@ -33,7 +34,9 @@ export const createApp: CreateApp = (params) => {
   }
 
   const applicationResource = resources.find(
-    (value) => value.kind === applicationResourceDefinitionResourceSettings.kind
+    (value) =>
+      value.kind ===
+      APPLICATION_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind
   ) as ApplicationResource | undefined;
 
   if (!applicationResource) {

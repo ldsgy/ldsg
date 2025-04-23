@@ -1,4 +1,5 @@
-import { Resource, ResourceRecord, ResourceSettings } from "@ldsg/resource";
+import { Resource } from "@ldsg/resource";
+import { ResourceRecord, ResourceSettings } from "@ldsg/types";
 import { instantiateAnyResource } from "./instantiate-any-resource";
 
 interface InstantiateAnyResourcesParams<
