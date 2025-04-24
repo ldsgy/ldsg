@@ -36,8 +36,11 @@ npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter @ldsg/resource -
 # 发布所有模块并标记为 alpha
 npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter "@ldsg/*" --tag alpha --no-git-checks
 
+# 发布指定模块并标记为 latest
+npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter "@ldsg/resource" --tag latest --no-git-checks
+
 # 发布所有模块并标记为 latest
-npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter "@ldsg/types" --tag latest --no-git-checks
+npx @dotenvx/dotenvx run -f .env.local -- pnpm publish --filter "@ldsg/*" --tag latest --no-git-checks
 ```
 
 ### 模块管理
