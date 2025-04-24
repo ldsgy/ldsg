@@ -22,6 +22,7 @@
     "@ldsg/common": "workspace:*",
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "adm-zip": "^0.5.16",
     "lodash": "^4.17.21"
   },

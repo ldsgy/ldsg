@@ -1,4 +1,4 @@
-import { AppData } from "@ldsg/common";
+import { AppData } from "@ldsg/types";
 import fs from "fs-extra";
 import { extendAppData } from "./extend-app-data";
 

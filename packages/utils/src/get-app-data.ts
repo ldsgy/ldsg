@@ -1,4 +1,4 @@
-import { AppData } from "@ldsg/common";
+import { AppData } from "@ldsg/types";
 import { extendAppDataWithPath } from "./extend-app-data-with-path";
 import { fetchAppData, FetchAppDataParams } from "./fetch-app-data";
 

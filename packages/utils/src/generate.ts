@@ -1,4 +1,4 @@
-import { AppData } from "@ldsg/common";
+import { AppData } from "@ldsg/types";
 import { generateByAppData } from "./generate-by-app-data";
 import { getAppData } from "./get-app-data";
 

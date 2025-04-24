@@ -1,4 +1,4 @@
-import { AppData } from "@ldsg/common";
+import { AppData } from "@ldsg/types";
 import axios from "axios";
 
 export interface FetchAppDataParams {

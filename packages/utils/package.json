@@ -22,6 +22,7 @@
     "@ldsg/create-app": "workspace:*",
     "@ldsg/common": "workspace:*",
     "@ldsg/services": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "adm-zip": "^0.5.16",
     "axios": "^1.7.7",
     "commander": "^12.1.0",

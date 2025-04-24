@@ -1,4 +1,5 @@
-import { AppData, zipAppData } from "@ldsg/common";
+import { zipAppData } from "@ldsg/common";
+import { AppData } from "@ldsg/types";
 import AdmZip from "adm-zip";
 
 interface GenerateByAppDataParams {
