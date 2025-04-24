@@ -1,4 +1,4 @@
-// import { createApp } from "@ldsg/app";
+// import { createApp } from "@ldsg/create-app";
 // import { SERVICE_TYPE_MAP } from "@ldsg/services";
 // import { getServiceRecords } from "./utils";
 import { manifest } from "./manifests/ip/manifest";

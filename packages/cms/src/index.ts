@@ -1,4 +1,4 @@
-import { createApp } from "@ldsg/app";
+import { createApp } from "@ldsg/create-app";
 
 const app = createApp({
   resourceRecords: [],

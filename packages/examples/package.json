@@ -25,7 +25,7 @@
   },
   "packageManager": "pnpm@10.7.1",
   "dependencies": {
-    "@ldsg/app": "workspace:*",
+    "@ldsg/create-app": "workspace:*",
     "@ldsg/common": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/services": "workspace:*",

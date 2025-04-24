@@ -1,4 +1,4 @@
-import { createApp } from "@ldsg/app";
+import { createApp } from "@ldsg/create-app";
 import fs from "fs-extra";
 import { getIntrospectionQuery } from "graphql";
 import request from "supertest";

@@ -26,7 +26,7 @@ beforeEach(async () => {
         ...FILES_IN_ROOT_MODULE,
         {
           path: "index.ts",
-          data: `import { createApp } from "@ldsg/app";
+          data: `import { createApp } from "@ldsg/create-app";
 import MANIFEST_JSON from "./manifest.json";
 
 const { resourceRecords } = MANIFEST_JSON;

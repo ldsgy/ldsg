@@ -19,7 +19,7 @@
   },
   "description": "",
   "dependencies": {
-    "@ldsg/app": "workspace:*",
+    "@ldsg/create-app": "workspace:*",
     "@ldsg/common": "workspace:*",
     "@ldsg/services": "workspace:*",
     "adm-zip": "^0.5.16",

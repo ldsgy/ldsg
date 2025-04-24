@@ -16,7 +16,7 @@
   },
   "description": "",
   "dependencies": {
-    "@ldsg/app": "workspace:*"
+    "@ldsg/create-app": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.13.0",

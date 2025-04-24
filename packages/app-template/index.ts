@@ -1,4 +1,4 @@
-import { createApp } from "@ldsg/app";
+import { createApp } from "@ldsg/create-app";
 import MANIFEST_JSON from "./manifest.json";
 
 const { resourceRecords } = MANIFEST_JSON;

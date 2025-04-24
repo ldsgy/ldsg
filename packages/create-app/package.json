@@ -1,5 +1,5 @@
 {
-  "name": "@ldsg/app",
+  "name": "@ldsg/create-app",
   "version": "0.1.0-alpha.16",
   "main": "dist/index.js",
   "files": [
