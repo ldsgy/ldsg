@@ -33,8 +33,8 @@ importers:
   packages/app-template:
     dependencies:
       '@ldsg/create-app':
-        specifier: workspace:*
-        version: link:../create-app
+        specifier: latest
+        version: 0.1.0-alpha.16(typescript@5.8.3)
       graphql:
         specifier: ^16.9.0
         version: 16.9.0
@@ -1597,6 +1597,36 @@ packages:
 
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
+
+  '@ldsg/application@0.1.0-alpha.16':
+    resolution: {integrity: sha512-ixYQKfcMUiZAzKQ2d1JMu6lXqNe0gJMYYD/sOjYXW0JJ12Fc45+CJV2izXaarkIWrn8ueG5S0z9rowNByVPvYQ==}
+
+  '@ldsg/common@0.1.0-alpha.16':
+    resolution: {integrity: sha512-VfU7n05o2Z6vysBl63vvhMEVJXg06Tv2hSW4m7W2rTljypXOWJT2i+kd4DCctamP0mnUmfxJlxn6YF/tf1cnRg==}
+
+  '@ldsg/constants@0.1.0-alpha.16':
+    resolution: {integrity: sha512-Gm6UUcmhx3mX8EdNDETed2K5KmD84TDmtZK8ls2TmUgpSG61GNIIViJTCDLkvxEsfTm8H+ybGDljn8eXrfZ4eQ==}
+
+  '@ldsg/core@0.1.0-alpha.16':
+    resolution: {integrity: sha512-VyqUsUX5T61gC+n90WTtlFNVWptePGhCVArCNcdH1dfz/mKlehycRUJZY471x6RIG8/ivNp/VTXSdVL24p+0Lw==}
+
+  '@ldsg/create-app@0.1.0-alpha.16':
+    resolution: {integrity: sha512-GuaTUqrlAWHw5TJ3c8hDCdijMz7m+vHNRSsA4JDjWXYQh+bAeDt/Wp7FD3GiM0HZ+nG41L/t0dlDufrMIYAjzw==}
+
+  '@ldsg/handler@0.1.0-alpha.16':
+    resolution: {integrity: sha512-4U0sc07uAlQ62WDxgWVWXhz6fl/KLC3sklv6rtqDGnmQKqhyYxIBCcfIYWyjngITKDlaFFvuh2OO8egA44FsUw==}
+
+  '@ldsg/resource-definition@0.1.0-alpha.16':
+    resolution: {integrity: sha512-YYrEZXk+2AawReGv2WpMzULI54PzxNVyiIJ7sfqs5E+q0ENWSoL336RVevZgew0EJEPCdPqOj/wwomi9XsVitQ==}
+
+  '@ldsg/resource-instantiator@0.1.0-alpha.16':
+    resolution: {integrity: sha512-+4Ee/qLTrkG2JTvgH2TnbOSgroY1GVa/1wSGTb8ggqYlknCCMirRfSj0DMNdPR+It1tY3pot92HJRcrZfBzh7A==}
+
+  '@ldsg/resource@0.1.0-alpha.16':
+    resolution: {integrity: sha512-IwDNcpzOf+nYEX+tbU0HtuzXovvAks9ktRWkRbmAZg28qwGPb9kNp3KN5eNmjrpBH/L8SXf3UQapPyG+SaoPZw==}
+
+  '@ldsg/types@0.1.0-alpha.16':
+    resolution: {integrity: sha512-LBIyTS1URyc5/8iN2Prqprp4YmpxlFhNDxXL7WKqju5L8Gd8VkJj0pjEmSb0gP61OMyjP4ZUy87C0YHw0VvU5Q==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -5789,6 +5819,13 @@ snapshots:
       '@formily/shared': 2.3.1
       typescript: 5.5.2
 
+  '@formily/json-schema@2.3.1(typescript@5.8.3)':
+    dependencies:
+      '@formily/core': 2.3.1
+      '@formily/reactive': 2.3.1
+      '@formily/shared': 2.3.1
+      typescript: 5.8.3
+
   '@formily/path@2.3.1': {}
 
   '@formily/reactive@2.3.1': {}
@@ -6117,6 +6154,74 @@ snapshots:
       - supports-color
 
   '@kwsites/promise-deferred@1.1.1': {}
+
+  '@ldsg/application@0.1.0-alpha.16':
+    dependencies:
+      '@ldsg/handler': 0.1.0-alpha.16
+      '@ldsg/resource': 0.1.0-alpha.16
+      express: 4.19.2
+    transitivePeerDependencies:
+      - supports-color
+
+  '@ldsg/common@0.1.0-alpha.16(typescript@5.8.3)':
+    dependencies:
+      '@formily/json-schema': 2.3.1(typescript@5.8.3)
+      '@ldsg/constants': 0.1.0-alpha.16
+      '@ldsg/core': 0.1.0-alpha.16(typescript@5.8.3)
+      '@ldsg/handler': 0.1.0-alpha.16
+      '@ldsg/resource': 0.1.0-alpha.16
+      json-schema: 0.4.0
+      jszip: 3.10.1
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - typescript
+
+  '@ldsg/constants@0.1.0-alpha.16': {}
+
+  '@ldsg/core@0.1.0-alpha.16(typescript@5.8.3)':
+    dependencies:
+      '@formily/json-schema': 2.3.1(typescript@5.8.3)
+      json-schema: 0.4.0
+      lodash: 4.17.21
+      uri-js: 4.4.1
+    transitivePeerDependencies:
+      - typescript
+
+  '@ldsg/create-app@0.1.0-alpha.16(typescript@5.8.3)':
+    dependencies:
+      '@ldsg/application': 0.1.0-alpha.16
+      '@ldsg/common': 0.1.0-alpha.16(typescript@5.8.3)
+      '@ldsg/resource': 0.1.0-alpha.16
+      '@ldsg/resource-instantiator': 0.1.0-alpha.16
+      '@ldsg/types': 0.1.0-alpha.16
+      express: 4.19.2
+      express-async-handler: 1.2.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  '@ldsg/handler@0.1.0-alpha.16':
+    dependencies:
+      '@ldsg/resource': 0.1.0-alpha.16
+
+  '@ldsg/resource-definition@0.1.0-alpha.16':
+    dependencies:
+      '@ldsg/handler': 0.1.0-alpha.16
+      '@ldsg/resource': 0.1.0-alpha.16
+      lodash: 4.17.21
+
+  '@ldsg/resource-instantiator@0.1.0-alpha.16':
+    dependencies:
+      '@ldsg/handler': 0.1.0-alpha.16
+      '@ldsg/resource': 0.1.0-alpha.16
+      '@ldsg/resource-definition': 0.1.0-alpha.16
+      lodash: 4.17.21
+
+  '@ldsg/resource@0.1.0-alpha.16':
+    dependencies:
+      lodash: 4.17.21
+
+  '@ldsg/types@0.1.0-alpha.16': {}
 
   '@manypkg/find-root@1.1.0':
     dependencies:
