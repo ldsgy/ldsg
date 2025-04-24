@@ -278,9 +278,6 @@ importers:
       '@ldsg/resource-instantiator':
         specifier: workspace:*
         version: link:../resource-instantiator
-      '@ldsg/types':
-        specifier: workspace:*
-        version: link:../types
       express:
         specifier: ^4.18.2
         version: 4.19.2
@@ -288,12 +285,24 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
     devDependencies:
+      '@ldsg/constants':
+        specifier: workspace:*
+        version: link:../constants
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
       '@types/express':
         specifier: ^4.17.17
         version: 4.17.21
       '@types/node':
         specifier: ^20.13.0
         version: 20.14.8
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@20.14.8)(typescript@5.8.3)
@@ -6417,7 +6426,7 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.14.8
+      '@types/node': 22.14.1
 
   '@types/glob@7.2.0':
     dependencies:

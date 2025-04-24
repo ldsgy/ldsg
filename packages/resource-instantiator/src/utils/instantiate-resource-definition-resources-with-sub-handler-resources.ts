@@ -32,7 +32,8 @@ export const instantiateResourceDefinitionResourcesWithSubHandlerResources: Inst
       value.kind === "HANDLER" &&
       resourceDefinitionResourceRecords.find(
         (resourceDefinitionResourceRecord) =>
-          resourceDefinitionResourceRecord.id === value.parentId
+          resourceDefinitionResourceRecord.settings.handlerResourceId ===
+          value.id
       )
   ) as ResourceRecord<HandlerResourceSettings>[];
 

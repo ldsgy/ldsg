@@ -20,15 +20,18 @@
     "@ldsg/common": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-instantiator": "workspace:*",
-    "@ldsg/types": "workspace:*",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0"
   },
   "devDependencies": {
+    "@ldsg/constants": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "@types/express": "^4.17.17",
     "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
+    "supertest": "^6.3.4",
     "typescript": "^5.4.5"
   }
 }
