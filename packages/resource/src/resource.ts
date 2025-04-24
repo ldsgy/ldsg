@@ -7,11 +7,21 @@ import _, { ListIterateeCustom } from "lodash";
 
 type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
 
+interface GetFilteredResourceRes {
+  resource: Resource | undefined;
+}
+
 type GetFilteredResource = (
   params: GetFilteredResourcesParams
-) => Resource | undefined;
+) => GetFilteredResourceRes;
 
-type GetFilteredResources = (params: GetFilteredResourcesParams) => Resource[];
+interface GetFilteredResourcesRes {
+  resources: Resource[];
+}
+
+type GetFilteredResources = (
+  params: GetFilteredResourcesParams
+) => GetFilteredResourcesRes;
 
 export interface ResourceConstructorParams<
   T extends SpecificResourceSettings = SpecificResourceSettings
@@ -68,7 +78,13 @@ export class Resource<
    * Get Filtered Resource
    */
   getFilteredResource: GetFilteredResource = (params) => {
-    return this.getFilteredResources(params)[0];
+    const getFilteredResourcesRes = this.getFilteredResources(params);
+
+    const res: GetFilteredResourceRes = {
+      resource: getFilteredResourcesRes.resources[0],
+    };
+
+    return res;
   };
 
   /**
@@ -77,6 +93,12 @@ export class Resource<
   getFilteredResources: GetFilteredResources = (params) => {
     const { resourceList } = Resource;
 
-    return _.filter(resourceList, params);
+    const filterRes = _.filter(resourceList, params);
+
+    const res: GetFilteredResourcesRes = {
+      resources: filterRes,
+    };
+
+    return res;
   };
 }

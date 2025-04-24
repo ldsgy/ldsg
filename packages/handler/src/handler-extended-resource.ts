@@ -11,9 +11,13 @@ export class HandlerExtendedResource<
 
     const { handlerResourceId } = settings;
 
-    const handlerResource = getFilteredResource({
+    const getFilteredResourceRes = getFilteredResource({
       id: handlerResourceId,
-    }) as HandlerResource | undefined;
+    });
+
+    const handlerResource = getFilteredResourceRes.resource as
+      | HandlerResource
+      | undefined;
 
     if (!handlerResource) {
       throw new Error("invalid handler resource");
