@@ -1,0 +1,36 @@
+{
+  "name": "constants-generator",
+  "version": "0.1.0-alpha.17",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "npm run generate",
+    "generate": "npx tsx src/scripts/generate.ts"
+  },
+  "keywords": [],
+  "author": "wanxger",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "devDependencies": {
+    "@ldsg/application": "workspace:*",
+    "@ldsg/handler": "workspace:*",
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/types": "workspace:*",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.13.0",
+    "@types/supertest": "^6.0.0",
+    "fs-extra": "^11.3.0",
+    "lodash": "^4.17.21",
+    "supertest": "^6.3.4",
+    "tsx": "^4.19.3"
+  }
+}

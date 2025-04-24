@@ -194,7 +194,9 @@ importers:
         specifier: ^5.4.5
         version: 5.5.2
 
-  packages/constants:
+  packages/constants: {}
+
+  packages/constants-generator:
     devDependencies:
       '@ldsg/application':
         specifier: workspace:*

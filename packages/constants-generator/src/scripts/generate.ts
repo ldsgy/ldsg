@@ -75,15 +75,22 @@ const main = async () => {
    * 向 dist 目录写入全部文件
    */
   {
-    const distDirPath = path.join(__dirname, "..", "dist");
+    const constantsSrcPath = path.join(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      "constants",
+      "src"
+    );
 
-    await fs.ensureDir(distDirPath);
+    await fs.ensureDir(constantsSrcPath);
 
     for (const element of jsonList) {
       const { name, data } = element;
 
       await fs.writeFile(
-        `${path.join(distDirPath, name)}.json`,
+        `${path.join(constantsSrcPath, name)}.json`,
         JSON.stringify(data)
       );
     }
@@ -98,7 +105,7 @@ export const ${snakeCaseUpperName} = ${snakeCaseUpperName}_JSON;`;
     }).join(`
 `);
 
-    await fs.writeFile(path.join(distDirPath, "index.ts"), indexTsCode);
+    await fs.writeFile(path.join(constantsSrcPath, "index.ts"), indexTsCode);
   }
 };
 
