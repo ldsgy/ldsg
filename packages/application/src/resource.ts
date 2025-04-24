@@ -30,7 +30,7 @@ export class ApplicationResource extends Resource<ApplicationSpecificResourceSet
     });
 
     app.get("/", (req, res) => {
-      res.send(`Hello, ${name}!`);
+      res.send(`Hello, ${name ?? "World"}!`);
     });
   };
 

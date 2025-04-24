@@ -19,5 +19,5 @@ test("application", async () => {
 
   expect(response.statusCode).toBe(200);
 
-  expect(response.text).toBe("Hello, World!");
+  expect(response.text).toBe("Hello, 测试应用!");
 });
