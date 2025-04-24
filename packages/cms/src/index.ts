@@ -1,9 +1,13 @@
 import { createApp } from "@ldsg/create-app";
 
-const app = createApp({
-  resourceRecords: [],
-});
+const main = async () => {
+  const app = await createApp({
+    resourceRecords: [],
+  });
 
-const port = process.env.PORT || "3000";
+  const port = process.env.PORT || "3000";
 
-app.listen(port);
+  app.listen(port);
+};
+
+main();

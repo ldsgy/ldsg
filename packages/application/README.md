@@ -1,1 +1,1 @@
-# Application Resource
+# LDSG Application Resource
