@@ -6,11 +6,9 @@
   ],
   "scripts": {
     "cli:debug": "pnpm --filter @ldsg/cli debug",
-    "build": "pnpm --filter @ldsg/* --sort build",
+    "build": "pnpm --filter @ldsg/* --sort build ",
     "dev": "nodemon --exec \"pnpm build && pnpm --filter examples dev\"",
-    "test": "jest",
-    "bt": "pnpm build-test",
-    "build-test": "pnpm build && pnpm test"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.24.7",

@@ -5,9 +5,9 @@ import {
 } from "@ldsg/resource";
 import { instantiateResource } from "./instantiate-resource";
 import { ApplicationResource } from "./resource";
-import { ApplicationResourceSettings } from "./types";
+import { ApplicationSpecificResourceSettings } from "./types";
 
 export const handler: Handler<
-  [InstantiateResourceParams<ApplicationResourceSettings>],
+  [InstantiateResourceParams<ApplicationSpecificResourceSettings>],
   InstantiateResourceRes<ApplicationResource>
 > = instantiateResource;

@@ -3,12 +3,13 @@ import { ApplicationResource } from "./resource";
 
 test("application", async () => {
   const application = new ApplicationResource({
-    id: "APPLICATION",
+    id: "application",
     kind: "APPLICATION",
     parentId: "ROOT",
     settings: {
       title: "应用",
       description: "应用根资源",
+      name: "测试应用",
     },
   });
 

@@ -1,9 +1,9 @@
 import { InstantiateResource } from "@ldsg/resource";
 import { ApplicationResource } from "./resource";
-import { ApplicationResourceSettings } from "./types";
+import { ApplicationSpecificResourceSettings } from "./types";
 
 export const instantiateResource: InstantiateResource<
-  ApplicationResourceSettings,
+  ApplicationSpecificResourceSettings,
   ApplicationResource
 > = (params) => {
   const { resourceConstructorParams } = params;
