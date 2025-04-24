@@ -13,7 +13,7 @@ test("application", async () => {
     },
   });
 
-  const app = await application.createApp();
+  const app = await application.createExpressApp();
 
   const response = await request(app).get("/");
 

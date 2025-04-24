@@ -2,45 +2,53 @@ import { Resource } from "@ldsg/resource";
 import express, { Express } from "express";
 import { ApplicationSpecificResourceSettings } from "./types";
 
-type CreateApp = () => Promise<Express>;
+type CreateExpressApp = () => Promise<Express>;
 
-interface AddRoutesParams {
+interface ExtendExpressAppParams {
   app: Express;
 }
 
-type AddRoutes = (params: AddRoutesParams) => Promise<void>;
+export type ExtendExpressApp = (
+  params: ExtendExpressAppParams
+) => Promise<void>;
 
 export class ApplicationResource extends Resource<ApplicationSpecificResourceSettings> {
-  addRoutes: AddRoutes = async (params) => {
-    const { app } = params;
-
-    const {
-      settings: { name },
-      getFilteredResources,
-    } = this;
-
-    const getFilteredResourcesRes = getFilteredResources({});
-
-    const { resources } = getFilteredResourcesRes;
-
-    resources.forEach((resource) => {
-      if ("addRoute" in resource && typeof resource.addRoute === "function") {
-        resource?.addRoute();
-      }
-    });
-
-    app.get("/", (req, res) => {
-      res.send(`Hello, ${name ?? "World"}!`);
-    });
-  };
-
-  createApp: CreateApp = async () => {
+  createExpressApp: CreateExpressApp = async () => {
     const app = express();
 
-    await this.addRoutes({
+    await this.extendExpressApp({
       app,
     });
 
     return app;
+  };
+
+  extendExpressApp: ExtendExpressApp = async (params) => {
+    const { app } = params;
+
+    const {
+      id,
+      settings: { name },
+      getFilteredResources,
+    } = this;
+
+    app.get("/", (req, res) => {
+      res.send(`Hello, ${name ?? "World"}!`);
+    });
+
+    const getFilteredResourcesRes = getFilteredResources({
+      parentId: id,
+    });
+
+    const { resources } = getFilteredResourcesRes;
+
+    resources.forEach((resource) => {
+      if (
+        "extendExpressApp" in resource &&
+        typeof resource.extendExpressApp === "function"
+      ) {
+        resource.extendExpressApp(params);
+      }
+    });
   };
 }
