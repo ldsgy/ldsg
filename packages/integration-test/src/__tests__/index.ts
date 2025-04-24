@@ -5,7 +5,6 @@ import fs from "fs-extra";
 import path from "path";
 import shell from "shelljs";
 import request from "supertest";
-import { app } from "../../apps/main/dist";
 
 const appsDirPath = path.join(__dirname, "..", "..", "apps");
 
@@ -53,6 +52,10 @@ export const app = createApp({
 });
 
 test("prepare", async () => {
+  const currentAppDistDirPath = path.join(currentAppDirPath, "dist");
+
+  const { app } = require(currentAppDistDirPath);
+
   const response = await request(app).get("/");
 
   expect(response.statusCode).toBe(200);
