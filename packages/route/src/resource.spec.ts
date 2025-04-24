@@ -15,9 +15,9 @@ test("application", async () => {
   });
 
   const routeResource = new RouteResource({
-    id: "application",
-    kind: "APPLICATION",
-    parentId: "ROOT",
+    id: "route",
+    kind: "ROUTE",
+    parentId: "application",
     settings: {
       title: "应用",
       description: "应用根资源",
@@ -33,4 +33,10 @@ test("application", async () => {
   expect(response.statusCode).toBe(200);
 
   expect(response.text).toBe("Hello, 测试应用!");
+
+  const response2 = await request(app).get("/test");
+
+  expect(response2.statusCode).toBe(200);
+
+  expect(response2.text).toBe("Hello, test!");
 });
