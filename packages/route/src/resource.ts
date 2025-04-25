@@ -12,7 +12,7 @@ export class RouteResource extends HandlerExtendedResource<RouteSpecificResource
       getHandler,
     } = this;
 
-    app.get(`/${path}`, (req, res) => {
+    app.get(path, (req, res) => {
       res.send(`Hello, ${path ?? "World"}!`);
     });
 

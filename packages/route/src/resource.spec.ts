@@ -21,7 +21,7 @@ test("application", async () => {
     settings: {
       title: "应用",
       description: "应用根资源",
-      path: "test",
+      path: "/test",
       handlerResourceId: "",
     },
   });
@@ -38,5 +38,5 @@ test("application", async () => {
 
   expect(response2.statusCode).toBe(200);
 
-  expect(response2.text).toBe("Hello, test!");
+  expect(response2.text).toBe("Hello, /test!");
 });
