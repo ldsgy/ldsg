@@ -21,6 +21,8 @@ test("application", async () => {
     settings: {
       title: "",
       description: "",
+      name: "string",
+      platformTypeMap: {},
     },
   });
 
