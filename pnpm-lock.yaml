@@ -376,6 +376,40 @@ importers:
         specifier: ^5.4.5
         version: 5.5.2
 
+  packages/field-type:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      graphql-compose:
+        specifier: ^9.1.0
+        version: 9.1.0(graphql@16.9.0)
+      graphql-yoga:
+        specifier: ^5.13.4
+        version: 5.13.4(graphql@16.9.0)
+      mongoose:
+        specifier: ^8.13.3
+        version: 8.13.3(socks@2.8.3)
+    devDependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
+
   packages/graphql:
     dependencies:
       '@ldsg/handler':
@@ -473,6 +507,62 @@ importers:
       shelljs:
         specifier: ^0.9.2
         version: 0.9.2
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
+
+  packages/object:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      graphql-yoga:
+        specifier: ^5.13.4
+        version: 5.13.4(graphql@16.9.0)
+    devDependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
+
+  packages/object-field:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      graphql-yoga:
+        specifier: ^5.13.4
+        version: 5.13.4(graphql@16.9.0)
+    devDependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
@@ -1752,6 +1842,9 @@ packages:
   '@mongodb-js/saslprep@1.1.7':
     resolution: {integrity: sha512-dCHW/oEX0KJ4NjDULBo3JiOaK5+6axtpBbS+ao2ZInoAL9/YRQLhXzSNAFz7hP4nzLkIqsfYAK/PDE3+XHny0Q==}
 
+  '@mongodb-js/saslprep@1.2.2':
+    resolution: {integrity: sha512-EB0O3SCSNRUFk66iRCpI+cXzIjdswfCs7F6nOC3RAGJ7xr5YhaicvsRwJ9eyzYvYRlCSDUO/c7g4yNulxKC1WA==}
+
   '@noble/ciphers@1.2.1':
     resolution: {integrity: sha512-rONPWMC7PeExE077uLE4oqWrZ1IvAfz3oH9LibVAcVCopJiA9R62uavnbEzdkVmJYI6M6Zgkbeb07+tWjlq2XA==}
     engines: {node: ^14.21.3 || >=16}
@@ -2366,6 +2459,10 @@ packages:
 
   bser@2.1.1:
     resolution: {integrity: sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==}
+
+  bson@6.10.3:
+    resolution: {integrity: sha512-MTxGsqgYTwfshYWTRdmZRC+M7FnG1b4y7RO7p2k3X24Wq0yv1m77Wsj0BzlPzd/IowgESfsruQCUToa7vbOpPQ==}
+    engines: {node: '>=16.20.1'}
 
   bson@6.7.0:
     resolution: {integrity: sha512-w2IquM5mYzYZv6rs3uN2DZTOBe2a0zXLj53TGDqwF4l6Sz/XsISrisXOJihArF9+BZ6Cq/GjVht7Sjfmri7ytQ==}
@@ -3103,6 +3200,11 @@ packages:
     peerDependencies:
       graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
 
+  graphql-compose@9.1.0:
+    resolution: {integrity: sha512-nFL2+oeF8IlKjXPzmFL9rlBhrHlJMKGC0JeuBfOkWLLNqAtlFV+M1YGuuORyx0+mbLsBl9XToKWBPPfCHL8HHA==}
+    peerDependencies:
+      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
+
   graphql-middleware@6.1.35:
     resolution: {integrity: sha512-azawK7ApUYtcuPGRGBR9vDZu795pRuaFhO5fgomdJppdfKRt7jwncuh0b7+D3i574/4B+16CNWgVpnGVlg3ZCg==}
     peerDependencies:
@@ -3735,6 +3837,33 @@ packages:
   mongodb-connection-string-url@3.0.1:
     resolution: {integrity: sha512-XqMGwRX0Lgn05TDB4PyG2h2kKO/FfWJyCzYQbIhXUxz7ETt0I/FqHjUeqj37irJ+Dl1ZtU82uYyj14u2XsZKfg==}
 
+  mongodb@6.15.0:
+    resolution: {integrity: sha512-ifBhQ0rRzHDzqp9jAQP6OwHSH7dbYIQjD3SbJs9YYk9AikKEettW/9s/tbSFDTpXcRbF+u1aLrhHxDFaYtZpFQ==}
+    engines: {node: '>=16.20.1'}
+    peerDependencies:
+      '@aws-sdk/credential-providers': ^3.188.0
+      '@mongodb-js/zstd': ^1.1.0 || ^2.0.0
+      gcp-metadata: ^5.2.0
+      kerberos: ^2.0.1
+      mongodb-client-encryption: '>=6.0.0 <7'
+      snappy: ^7.2.2
+      socks: ^2.7.1
+    peerDependenciesMeta:
+      '@aws-sdk/credential-providers':
+        optional: true
+      '@mongodb-js/zstd':
+        optional: true
+      gcp-metadata:
+        optional: true
+      kerberos:
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      snappy:
+        optional: true
+      socks:
+        optional: true
+
   mongodb@6.6.2:
     resolution: {integrity: sha512-ZF9Ugo2JCG/GfR7DEb4ypfyJJyiKbg5qBYKRintebj8+DNS33CyGMkWbrS9lara+u+h+yEOGSRiLhFO/g1s1aw==}
     engines: {node: '>=16.20.1'}
@@ -3788,6 +3917,10 @@ packages:
         optional: true
       socks:
         optional: true
+
+  mongoose@8.13.3:
+    resolution: {integrity: sha512-85S6AOABJcgn77ZKFZKOQkWID69vvtv0YFOk+mMOUrq/7+ziIyybWGZSGQRxN9M41Ehe6a9ug41nV13uJFB9Pw==}
+    engines: {node: '>=16.20.1'}
 
   mongoose@8.4.3:
     resolution: {integrity: sha512-GxPVLD+I/dxVkgcts2r2QmJJvS62/++btVj3RFt8YnHt+DSOp1Qjj62YEvgZaElwIOTcc4KGJM95X5LlrU1qQg==}
@@ -6462,6 +6595,10 @@ snapshots:
     dependencies:
       sparse-bitfield: 3.0.3
 
+  '@mongodb-js/saslprep@1.2.2':
+    dependencies:
+      sparse-bitfield: 3.0.3
+
   '@noble/ciphers@1.2.1': {}
 
   '@noble/curves@1.8.1':
@@ -7273,6 +7410,8 @@ snapshots:
     dependencies:
       node-int64: 0.4.0
 
+  bson@6.10.3: {}
+
   bson@6.7.0: {}
 
   buffer-equal-constant-time@1.0.1: {}
@@ -8042,6 +8181,11 @@ snapshots:
       graphql-compose: 9.0.11(graphql@16.9.0)
 
   graphql-compose@9.0.11(graphql@16.9.0):
+    dependencies:
+      graphql: 16.9.0
+      graphql-type-json: 0.3.2(graphql@16.9.0)
+
+  graphql-compose@9.1.0(graphql@16.9.0):
     dependencies:
       graphql: 16.9.0
       graphql-type-json: 0.3.2(graphql@16.9.0)
@@ -8834,6 +8978,14 @@ snapshots:
       '@types/whatwg-url': 11.0.5
       whatwg-url: 13.0.0
 
+  mongodb@6.15.0(socks@2.8.3):
+    dependencies:
+      '@mongodb-js/saslprep': 1.2.2
+      bson: 6.10.3
+      mongodb-connection-string-url: 3.0.1
+    optionalDependencies:
+      socks: 2.8.3
+
   mongodb@6.6.2(socks@2.8.3):
     dependencies:
       '@mongodb-js/saslprep': 1.1.7
@@ -8849,6 +9001,25 @@ snapshots:
       mongodb-connection-string-url: 3.0.1
     optionalDependencies:
       socks: 2.8.3
+
+  mongoose@8.13.3(socks@2.8.3):
+    dependencies:
+      bson: 6.10.3
+      kareem: 2.6.3
+      mongodb: 6.15.0(socks@2.8.3)
+      mpath: 0.9.0
+      mquery: 5.0.0
+      ms: 2.1.3
+      sift: 17.1.3
+    transitivePeerDependencies:
+      - '@aws-sdk/credential-providers'
+      - '@mongodb-js/zstd'
+      - gcp-metadata
+      - kerberos
+      - mongodb-client-encryption
+      - snappy
+      - socks
+      - supports-color
 
   mongoose@8.4.3(socks@2.8.3):
     dependencies:
