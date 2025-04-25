@@ -14,13 +14,13 @@ test("application", async () => {
     },
   });
 
-  const graphqlResource = new GraphqlResource({
+  new GraphqlResource({
     id: "graphql",
     kind: "GRAPHQL",
     parentId: "application",
     settings: {
-      title: "应用",
-      description: "应用根资源",
+      title: "",
+      description: "",
       graphqlEndpoint: "/test-graphql",
     },
   });

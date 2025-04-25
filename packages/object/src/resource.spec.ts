@@ -1,6 +1,6 @@
 import { ApplicationResource } from "@ldsg/application";
 import request from "supertest";
-import { RouteResource } from "./resource";
+import { ObjectResource } from "./resource";
 
 test("application", async () => {
   const applicationResource = new ApplicationResource({
@@ -14,15 +14,14 @@ test("application", async () => {
     },
   });
 
-  new RouteResource({
-    id: "route",
-    kind: "ROUTE",
+  new ObjectResource({
+    id: "object",
+    kind: "OBJECT",
     parentId: "application",
     settings: {
-      title: "应用",
-      description: "应用根资源",
-      path: "/test",
-      handlerResourceId: "",
+      title: "对象",
+      description: "对象根资源",
+      objectEndpoint: "/test-object",
     },
   });
 
@@ -34,9 +33,9 @@ test("application", async () => {
 
   expect(response.text).toBe("Hello, 测试应用!");
 
-  const response2 = await request(app).get("/test");
+  const response2 = await request(app).get("/test-object");
 
   expect(response2.statusCode).toBe(200);
 
-  expect(response2.text).toBe("Hello, /test!");
+  expect(response2.text).toMatchSnapshot();
 });
