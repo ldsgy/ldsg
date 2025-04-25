@@ -20,10 +20,7 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*",
-    "graphql-compose": "^9.1.0",
-    "graphql-yoga": "^5.13.4",
-    "mongoose": "^8.13.3"
+    "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
     "@ldsg/application": "workspace:*",

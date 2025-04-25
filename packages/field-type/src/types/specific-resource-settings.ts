@@ -1,6 +1,4 @@
 import { SpecificResourceSettings } from "@ldsg/types";
-import {} from "graphql-compose";
-import { SchemaDefinitionProperty } from "mongoose";
 
 export interface FieldTypeSpecificResourceSettings
   extends SpecificResourceSettings {
@@ -9,12 +7,8 @@ export interface FieldTypeSpecificResourceSettings
    */
   name: string;
 
-  a: Record<string, Record<string, any>>;
-
   /**
-   * Mongoose Schema Definition Property
+   * Platform Type Map
    */
-  mongooseSchemaDefinitionProperty?: SchemaDefinitionProperty;
-
-  graphql?: "";
+  platformTypeMapp: Record<string, Record<string, any>>;
 }
