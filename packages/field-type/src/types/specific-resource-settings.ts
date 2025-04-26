@@ -10,5 +10,5 @@ export interface FieldTypeSpecificResourceSettings
   /**
    * Platform Type Map
    */
-  platformTypeMap: Record<string, Record<string, any>>;
+  platformTypeMap: Record<string, any>;
 }
