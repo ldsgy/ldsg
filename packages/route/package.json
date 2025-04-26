@@ -2,13 +2,9 @@
   "name": "@ldsg/route",
   "version": "0.1.0-alpha.17",
   "description": "",
-  "main": "dist/index.js",
-  "files": [
-    "dist/"
-  ],
-  "types": "dist",
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+    "build": "pnpm clean && tsc --project tsconfig.build.json",
+    "clean": "rm -rf dist"
   },
   "keywords": [],
   "author": "wanxger",
