@@ -7,6 +7,10 @@
     "dist/"
   ],
   "types": "dist",
+  "scripts": {
+    "build": "pnpm clean",
+    "clean": "rm -rf apps "
+  },
   "keywords": [],
   "author": "wanxger",
   "license": "MIT",
@@ -14,11 +18,12 @@
   "dependencies": {},
   "devDependencies": {
     "@ldsg/application": "workspace:*",
+    "@ldsg/constants": "workspace:*",
+    "@ldsg/field-type": "workspace:*",
     "@ldsg/handler": "workspace:*",
     "@ldsg/prepare": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
-    "@ldsg/constants": "workspace:*",
     "@ldsg/utils": "workspace:*",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.14.202",

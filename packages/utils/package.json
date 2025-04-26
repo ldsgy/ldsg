@@ -10,7 +10,8 @@
     "ldsg": "dist/index.js"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+    "build": "pnpm clean && tsc --project tsconfig.build.json",
+    "clean": "rm -rf dist"
   },
   "author": "wanxger",
   "license": "MIT",

@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "cli:debug": "pnpm --filter @ldsg/cli debug",
-    "build": "pnpm --filter @ldsg/* --sort build ",
+    "build": "pnpm clean && pnpm --recursive --sort build",
+    "clean": "pnpm --recursive clean",
     "dev": "nodemon --exec \"pnpm build && pnpm --filter examples dev\"",
     "test": "jest"
   },
