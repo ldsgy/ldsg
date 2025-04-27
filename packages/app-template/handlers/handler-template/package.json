@@ -1,8 +1,16 @@
 {
-  "name": "handler-template",
+  "name": "ldsg-handler",
   "version": "0.0.0",
   "description": "",
-  "author": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "tsc"
+  },
   "private": true,
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {}
 }

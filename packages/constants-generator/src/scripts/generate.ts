@@ -36,7 +36,7 @@ const main = async () => {
    * 处理应用模板内文件
    */
   {
-    const appTemplateDirPath = path.join(
+    const appTemplateRootDirPath = path.join(
       __dirname,
       "..",
       "..",
@@ -44,31 +44,73 @@ const main = async () => {
       "app-template"
     );
 
-    const readAppTemplateDirRes = await fs.readdir(appTemplateDirPath);
+    const appTemplateRootDirRes = await fs.readdir(appTemplateRootDirPath);
 
-    const filesInRootModule: AppDataFile[] = [];
+    /**
+     * 处理根模块内文件
+     */
+    {
+      const filesInRootModule: AppDataFile[] = [];
 
-    for (const fileName of readAppTemplateDirRes) {
-      const filePath = path.join(appTemplateDirPath, fileName);
+      for (const fileName of appTemplateRootDirRes) {
+        const filePath = path.join(appTemplateRootDirPath, fileName);
 
-      const stats = await fs.stat(filePath);
+        const stats = await fs.stat(filePath);
 
-      if (!stats.isDirectory()) {
-        const readFileRes = await fs.readFile(filePath, "utf8");
+        if (!stats.isDirectory()) {
+          const readFileRes = await fs.readFile(filePath, "utf8");
 
-        filesInRootModule.push({
-          path: fileName,
-          data: isJSONString(readFileRes)
-            ? JSON.parse(readFileRes)
-            : readFileRes,
-        });
+          filesInRootModule.push({
+            path: fileName,
+            data: isJSONString(readFileRes)
+              ? JSON.parse(readFileRes)
+              : readFileRes,
+          });
+        }
       }
+
+      jsonList.push({
+        name: "files-in-root-module",
+        data: filesInRootModule,
+      });
     }
 
-    jsonList.push({
-      name: "files-in-root-module",
-      data: filesInRootModule,
-    });
+    /**
+     * 处理 handler 模板内文件
+     */
+    {
+      const handlerTemplateDirPath = path.join(
+        appTemplateRootDirPath,
+        "handlers",
+        "handler-template"
+      );
+
+      const filesInHandlerModule: AppDataFile[] = [];
+
+      const handlerTemplateDirRes = await fs.readdir(handlerTemplateDirPath);
+
+      for (const fileName of handlerTemplateDirRes) {
+        const filePath = path.join(handlerTemplateDirPath, fileName);
+
+        const stats = await fs.stat(filePath);
+
+        if (!stats.isDirectory()) {
+          const readFileRes = await fs.readFile(filePath, "utf8");
+
+          filesInHandlerModule.push({
+            path: fileName,
+            data: isJSONString(readFileRes)
+              ? JSON.parse(readFileRes)
+              : readFileRes,
+          });
+        }
+      }
+
+      jsonList.push({
+        name: "files-in-handler-module",
+        data: filesInHandlerModule,
+      });
+    }
   }
 
   /**
