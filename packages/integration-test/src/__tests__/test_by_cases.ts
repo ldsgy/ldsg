@@ -169,8 +169,8 @@ beforeAll(async () => {
   await Promise.all(promises);
 });
 
-describe("tests", () => {
-  test.each(testCaseList)("test", async (testCase) => {
+describe("test apps", () => {
+  test.each(testCaseList)("test app $name", async (testCase) => {
     const { name } = testCase;
 
     const currentAppDirPath = path.join(appsDirPath, name);
