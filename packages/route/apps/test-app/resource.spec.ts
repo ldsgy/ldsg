@@ -23,12 +23,12 @@ test("application", async () => {
       title: "应用",
       description: "应用根资源",
       path: "/test",
-      handlerResourceId: "test-route",
+      handlerResourceId: "route-test-app-test-handler",
     },
   });
 
   new HandlerResource({
-    id: "test-route",
+    id: "route-test-app-test-handler",
     kind: "HANDLER",
     parentId: "root",
     settings: {
@@ -39,7 +39,7 @@ test("application", async () => {
     },
   });
 
-  const app = await applicationResource.createExpressApp();
+  const app = applicationResource.createExpressApp();
 
   const response = await request(app).get("/");
 
