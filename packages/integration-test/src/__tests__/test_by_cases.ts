@@ -10,7 +10,9 @@ import path from "path";
 import shell from "shelljs";
 import request from "supertest";
 
-const appsDirPath = path.join(__dirname, "..", "..", "dist", "apps");
+const rootDistDirPath = path.join(__dirname, "..", "..", "dist");
+
+const appsDirPath = path.join(rootDistDirPath, "apps");
 
 const testCaseList: {
   name: string;
@@ -115,7 +117,7 @@ export const app = createApp({
 ];
 
 beforeAll(async () => {
-  await fs.rm(appsDirPath, { force: true, recursive: true });
+  await fs.rm(rootDistDirPath, { force: true, recursive: true });
 
   const promises = testCaseList.map(async (testCase) => {
     const { name } = testCase;
