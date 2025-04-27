@@ -69,7 +69,7 @@ export const zipAppData: ZipAppData = async (params) => {
             let data: AppDataFileData;
 
             switch (path) {
-              case "src/index.ts": {
+              case "index.ts": {
                 data = code;
 
                 break;

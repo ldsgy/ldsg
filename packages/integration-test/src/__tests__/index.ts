@@ -1,4 +1,8 @@
-import { APP_MANIFEST, FILES_IN_ROOT_MODULE } from "@ldsg/constants";
+import {
+  APP_MANIFEST,
+  FILES_IN_HANDLER_MODULE,
+  FILES_IN_ROOT_MODULE,
+} from "@ldsg/constants";
 import { prepare } from "@ldsg/prepare";
 import { extendAppData } from "@ldsg/utils";
 import fs from "fs-extra";
@@ -6,7 +10,7 @@ import path from "path";
 import shell from "shelljs";
 import request from "supertest";
 
-const appsDirPath = path.join(__dirname, "..", "..", "apps");
+const appsDirPath = path.join(__dirname, "..", "..", "dist", "apps");
 
 const currentAppDirPath = path.join(appsDirPath, "main");
 
@@ -25,6 +29,9 @@ beforeEach(async () => {
         ...FILES_IN_ROOT_MODULE,
         {
           path: "index.ts",
+          /**
+           * replace code in index.ts for export app
+           */
           data: `import { createApp } from "@ldsg/create-app";
 import MANIFEST_JSON from "./manifest.json";
 
@@ -36,6 +43,7 @@ export const app = createApp({
 `,
         },
       ],
+      filesInHandlerModele: FILES_IN_HANDLER_MODULE,
     },
   });
 

@@ -8,8 +8,7 @@
   ],
   "types": "dist",
   "scripts": {
-    "build": "pnpm clean",
-    "clean": "rm -rf apps "
+    "clean": "rm -rf dist "
   },
   "keywords": [],
   "author": "wanxger",
