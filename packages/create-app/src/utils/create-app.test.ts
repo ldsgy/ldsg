@@ -3,7 +3,7 @@ import request from "supertest";
 import { createApp } from "./create-app";
 
 test("create app", async () => {
-  const app = await createApp(APP_MANIFEST);
+  const app = createApp(APP_MANIFEST);
 
   const response = await request(app).get("/");
 

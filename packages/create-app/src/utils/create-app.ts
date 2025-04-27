@@ -12,9 +12,9 @@ interface CreateAppParams {
   resourceRecords?: ResourceRecord[];
 }
 
-type CreateApp = (params: CreateAppParams) => Promise<Express>;
+type CreateApp = (params: CreateAppParams) => Express;
 
-export const createApp: CreateApp = async (params) => {
+export const createApp: CreateApp = (params) => {
   const { resources: paramsResources, resourceRecords } = params;
 
   let resources: Resource[];
@@ -43,7 +43,7 @@ export const createApp: CreateApp = async (params) => {
     throw new Error("invalid application resource");
   }
 
-  const res = await applicationResource.createExpressApp();
+  const res = applicationResource.createExpressApp();
 
   return res;
 };

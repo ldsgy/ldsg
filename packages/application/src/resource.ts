@@ -2,28 +2,26 @@ import { Resource } from "@ldsg/resource";
 import express, { Express } from "express";
 import { ApplicationSpecificResourceSettings } from "./types";
 
-type CreateExpressApp = () => Promise<Express>;
+type CreateExpressApp = () => Express;
 
 interface ExtendExpressAppParams {
   app: Express;
 }
 
-export type ExtendExpressApp = (
-  params: ExtendExpressAppParams
-) => Promise<void>;
+export type ExtendExpressApp = (params: ExtendExpressAppParams) => void;
 
 export class ApplicationResource extends Resource<ApplicationSpecificResourceSettings> {
-  createExpressApp: CreateExpressApp = async () => {
+  createExpressApp: CreateExpressApp = () => {
     const app = express();
 
-    await this.extendExpressApp({
+    this.extendExpressApp({
       app,
     });
 
     return app;
   };
 
-  extendExpressApp: ExtendExpressApp = async (params) => {
+  extendExpressApp: ExtendExpressApp = (params) => {
     const { app } = params;
 
     const {
