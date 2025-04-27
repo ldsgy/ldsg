@@ -14,7 +14,7 @@ const appsDirPath = path.join(__dirname, "..", "..", "dist", "apps");
 
 const currentAppDirPath = path.join(appsDirPath, "main");
 
-beforeEach(async () => {
+beforeAll(async () => {
   await fs.rm(currentAppDirPath, { force: true, recursive: true });
 
   const appData = extendAppData({
