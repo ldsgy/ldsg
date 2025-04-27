@@ -1,0 +1,21 @@
+{
+  "name": "field-type-test-app-test-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "pnpm clean && tsc --project tsconfig.json",
+    "clean": "rm -f index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "dependencies": {
+    "@ldsg/handler": "workspace:*"
+  }
+}

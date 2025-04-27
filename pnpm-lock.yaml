@@ -291,6 +291,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      json-schema:
+        specifier: 0.4.0
+        version: 0.4.0
     devDependencies:
       '@ldsg/application':
         specifier: workspace:*
@@ -298,12 +301,55 @@ importers:
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
+      '@types/json-schema':
+        specifier: ^7.0.15
+        version: 7.0.15
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
+
+  packages/field-type/apps/test-app:
+    dependencies:
+      '@ldsg/create-app':
+        specifier: workspace:*
+        version: link:../../../create-app
+      '@ldsg/route':
+        specifier: workspace:*
+        version: link:../../../route
+      graphql:
+        specifier: ^16.9.0
+        version: 16.9.0
+      graphql-middleware:
+        specifier: ^6.1.35
+        version: 6.1.35(graphql@16.9.0)
+      graphql-shield:
+        specifier: ^7.6.5
+        version: 7.6.5(graphql-middleware@6.1.35(graphql@16.9.0))(graphql@16.9.0)
+      test-handler:
+        specifier: link:handlers/test-handler
+        version: link:handlers/test-handler
+    devDependencies:
+      '@types/node':
+        specifier: ^22.1.0
+        version: 22.14.1
+      ts-loader:
+        specifier: ^9.5.1
+        version: 9.5.1(typescript@5.8.3)(webpack@5.97.1)
+      tslib:
+        specifier: ^2.6.3
+        version: 2.8.1
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
+
+  packages/field-type/apps/test-app/handlers/test-handler:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../../../../../handler
 
   packages/graphql:
     dependencies:

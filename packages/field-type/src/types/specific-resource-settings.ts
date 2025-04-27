@@ -1,14 +1,10 @@
 import { SpecificResourceSettings } from "@ldsg/types";
+import { JSONSchema7 } from "json-schema";
 
 export interface FieldTypeSpecificResourceSettings
   extends SpecificResourceSettings {
   /**
-   * field type name
+   * Field Properties Schema
    */
-  name: string;
-
-  /**
-   * Platform Type Map
-   */
-  platformTypeMap: Record<string, any>;
+  fieldPropertiesSchema?: JSONSchema7;
 }
