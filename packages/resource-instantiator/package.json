@@ -1,6 +1,6 @@
 {
   "name": "@ldsg/resource-instantiator",
-  "version": "0.1.0-alpha.18",
+  "version": "0.1.0-alpha.19",
   "description": "",
   "main": "dist/index.js",
   "files": [
