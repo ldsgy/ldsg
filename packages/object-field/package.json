@@ -21,8 +21,7 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*",
-    "graphql-yoga": "^5.13.4"
+    "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
     "@ldsg/application": "workspace:*",
