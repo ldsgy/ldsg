@@ -10,7 +10,7 @@ interface GetObjectInfoParams {
   platform: string;
 }
 
-interface GetObjectInfoRes {
+export interface ObjectInfo {
   /**
    * Object Name
    */
@@ -22,7 +22,7 @@ interface GetObjectInfoRes {
   fieldInfoList: FieldInfo[];
 }
 
-type GetObjectInfo = (params: GetObjectInfoParams) => GetObjectInfoRes;
+type GetObjectInfo = (params: GetObjectInfoParams) => ObjectInfo;
 
 export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
   getObjectInfo: GetObjectInfo = (params) => {
@@ -47,7 +47,7 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
       return fieldInfo;
     });
 
-    const res = {
+    const res: ObjectInfo = {
       name,
       fieldInfoList,
     };

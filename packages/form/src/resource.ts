@@ -1,4 +1,4 @@
-import { FieldInfo, FormFieldResource } from "@ldsg/form-field";
+import { ObjectInfo, ObjectResource } from "@ldsg/object";
 import { Resource } from "@ldsg/resource";
 import { FormSpecificResourceSettings } from "./types";
 
@@ -10,46 +10,49 @@ interface GetFormInfoParams {
   platform: string;
 }
 
-interface GetFormInfoRes {
+export interface FormInfo {
   /**
    * Form Name
    */
   name: string;
 
   /**
-   * Field Info List
+   * Input Object Info
    */
-  fieldInfoList: FieldInfo[];
+  inputObjectInfo: ObjectInfo;
+
+  /**
+   * Output Object Info
+   */
+  outputObjectInfo: ObjectInfo;
 }
 
-type GetFormInfo = (params: GetFormInfoParams) => GetFormInfoRes;
+type GetFormInfo = (params: GetFormInfoParams) => FormInfo;
 
 export class FormResource extends Resource<FormSpecificResourceSettings> {
   getFormInfo: GetFormInfo = (params) => {
     const { platform } = params;
 
     const {
-      id,
       settings: { name },
-      getFilteredResources,
+      getResourcesFromSettings,
     } = this;
 
-    const getFilteredResourcesRes = getFilteredResources({
-      parentId: id,
-    });
+    const { inputObjectResource, outputObjectResource, workflowResource } =
+      getResourcesFromSettings();
 
-    const formFieldResources =
-      getFilteredResourcesRes.resources as FormFieldResource[];
+    const inputObjectInfo = (
+      inputObjectResource as ObjectResource
+    ).getObjectInfo({ platform });
 
-    const fieldInfoList = formFieldResources.map((formFieldResource) => {
-      const fieldInfo = formFieldResource.getFieldInfo({ platform });
+    const outputObjectInfo = (
+      outputObjectResource as ObjectResource
+    ).getObjectInfo({ platform });
 
-      return fieldInfo;
-    });
-
-    const res = {
+    const res: FormInfo = {
       name,
-      fieldInfoList,
+      inputObjectInfo,
+      outputObjectInfo,
     };
 
     return res;
