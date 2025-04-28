@@ -476,6 +476,9 @@ importers:
       '@ldsg/application':
         specifier: workspace:*
         version: link:../application
+      '@ldsg/object-field':
+        specifier: workspace:*
+        version: link:../object-field
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types

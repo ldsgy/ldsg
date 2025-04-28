@@ -19,13 +19,13 @@ test("application", async () => {
     kind: "OBJECT",
     parentId: "application",
     settings: {
-      title: "对象",
-      description: "对象根资源",
-      objectEndpoint: "/test-object",
+      title: "测试对象",
+      description: "",
+      name: "test-object",
     },
   });
 
-  const app = await applicationResource.createExpressApp();
+  const app = applicationResource.createExpressApp();
 
   const response = await request(app).get("/");
 

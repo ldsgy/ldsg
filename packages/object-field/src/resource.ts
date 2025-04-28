@@ -10,9 +10,9 @@ interface GetFieldInfoParams {
   platform: string;
 }
 
-interface GetFieldInfoRes {
+export interface FieldInfo {
   /**
-   * Name
+   * Field Name
    */
   name: string;
 
@@ -22,7 +22,7 @@ interface GetFieldInfoRes {
   typeInfo: any;
 }
 
-type GetFieldInfo = (params: GetFieldInfoParams) => GetFieldInfoRes;
+type GetFieldInfo = (params: GetFieldInfoParams) => FieldInfo;
 
 export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {
