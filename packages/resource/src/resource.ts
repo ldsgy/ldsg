@@ -5,6 +5,10 @@ import {
 } from "@ldsg/types";
 import _, { ListIterateeCustom } from "lodash";
 
+export interface ResourceConstructorParams<
+  T extends SpecificResourceSettings = SpecificResourceSettings
+> extends ResourceRecord<T> {}
+
 type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
 
 interface GetFilteredResourceRes {
@@ -23,9 +27,11 @@ type GetFilteredResources = (
   params: GetFilteredResourcesParams
 ) => GetFilteredResourcesRes;
 
-export interface ResourceConstructorParams<
-  T extends SpecificResourceSettings = SpecificResourceSettings
-> extends ResourceRecord<T> {}
+type GetResourcesFromSettingsRes<T extends SpecificResourceSettings> = {
+  [K in keyof T as K extends `${infer P}ResourceId`
+    ? `${P}Resource`
+    : never]: Resource;
+};
 
 export class Resource<
   T extends SpecificResourceSettings = SpecificResourceSettings
@@ -98,6 +104,35 @@ export class Resource<
     const res: GetFilteredResourcesRes = {
       resources: filterRes,
     };
+
+    return res;
+  };
+
+  /**
+   * Get Resources From Settings
+   */
+  getResourcesFromSettings = () => {
+    const { settings } = this;
+
+    const pickByRes = _.pickBy(settings, (value, key) =>
+      _.endsWith(key, "ResourceId")
+    );
+
+    const mapValuesRes = _.mapValues(pickByRes, (resourceId) => {
+      const { resource } = this.getFilteredResource({
+        id: resourceId,
+      });
+
+      return resource;
+    });
+
+    const mapKeysRes = _.mapKeys(mapValuesRes, (value, key) => {
+      const res = _.replace(key, "ResourceId", "Resource");
+
+      return res;
+    });
+
+    const res = mapKeysRes as GetResourcesFromSettingsRes<T>;
 
     return res;
   };
