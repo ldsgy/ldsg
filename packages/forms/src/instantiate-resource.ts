@@ -1,15 +1,15 @@
 import { HandlerExtendedResourceSettings } from "@ldsg/handler";
 import { InstantiateResource } from "@ldsg/resource";
-import { FormResource } from "./resource";
-import { FormSpecificResourceSettings } from "./types";
+import { FormsResource } from "./resource";
+import { FormsSpecificResourceSettings } from "./types";
 
 export const instantiateResource: InstantiateResource<
-  HandlerExtendedResourceSettings<FormSpecificResourceSettings>,
-  FormResource
+  HandlerExtendedResourceSettings<FormsSpecificResourceSettings>,
+  FormsResource
 > = (params) => {
   const { resourceConstructorParams } = params;
 
-  const resource = new FormResource(resourceConstructorParams);
+  const resource = new FormsResource(resourceConstructorParams);
 
   const res = {
     resource,

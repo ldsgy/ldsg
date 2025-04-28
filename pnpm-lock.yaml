@@ -376,6 +376,31 @@ importers:
         specifier: ^6.3.4
         version: 6.3.4
 
+  packages/forms:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@ldsg/form':
+        specifier: workspace:*
+        version: link:../form
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
+
   packages/graphql:
     dependencies:
       '@ldsg/handler':

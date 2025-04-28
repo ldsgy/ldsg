@@ -3,7 +3,7 @@ import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-defin
 import { GeneralResourceSettings } from "@ldsg/types";
 
 export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
-  title: "表单类型资源处理程序",
+  title: "表单组类型资源处理程序",
   description: "",
 };
 
@@ -14,19 +14,19 @@ export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
  */
 export const HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
   {
-    code: `export * from "@ldsg/form";`,
+    code: `export * from "@ldsg/forms";`,
     dependencies: [
       {
-        name: "@ldsg/form",
+        name: "@ldsg/forms",
       },
     ],
   };
 
 export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
-  { title: "表单类型资源定义", description: "" };
+  { title: "表单组类型资源定义", description: "" };
 
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
-    kind: "FORM",
+    kind: "FORMS",
     subKinds: [],
   };

@@ -1,5 +1,5 @@
 {
-  "name": "@ldsg/form",
+  "name": "@ldsg/forms",
   "version": "0.1.0-alpha.19",
   "description": "",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
     "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
-    "@ldsg/object": "workspace:*",
+    "@ldsg/form": "workspace:*",
     "@ldsg/types": "workspace:*",
     "@types/supertest": "^6.0.0",
     "supertest": "^6.3.4"
