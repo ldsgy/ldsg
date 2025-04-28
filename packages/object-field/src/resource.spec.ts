@@ -21,6 +21,9 @@ test("application", async () => {
     settings: {
       title: "",
       description: "",
+      name: "",
+      fieldTypeId: "",
+      properties: {},
     },
   });
 

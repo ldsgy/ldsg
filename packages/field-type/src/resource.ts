@@ -1,7 +1,7 @@
 import { HandlerExtendedResource } from "@ldsg/handler";
 import { FieldTypeSpecificResourceSettings } from "./types";
 
-interface GetFieldTypeParams {
+interface GetFieldTypeInfoParams {
   /**
    * Field Properties
    */
@@ -14,10 +14,10 @@ interface GetFieldTypeParams {
   platform: string;
 }
 
-export type GetFieldType = (params: GetFieldTypeParams) => any;
+export type GetFieldTypeInfo = (params: GetFieldTypeInfoParams) => any;
 
 export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecificResourceSettings> {
-  getFieldType: GetFieldType = (params) => {
+  getFieldTypeInfo: GetFieldTypeInfo = (params) => {
     const { fieldProperties, platform } = params;
 
     const { getHandler } = this;
