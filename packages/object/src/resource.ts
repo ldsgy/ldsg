@@ -10,15 +10,29 @@ interface GetObjectInfoParams {
   platform: string;
 }
 
-type GetObjectInfo = (params: GetObjectInfoParams) => {
+interface GetObjectInfoRes {
+  /**
+   * Object Name
+   */
+  name: string;
+
+  /**
+   * Field Info List
+   */
   fieldInfoList: FieldInfo[];
-};
+}
+
+type GetObjectInfo = (params: GetObjectInfoParams) => GetObjectInfoRes;
 
 export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
   getObjectInfo: GetObjectInfo = (params) => {
     const { platform } = params;
 
-    const { id, getFilteredResources } = this;
+    const {
+      id,
+      settings: { name },
+      getFilteredResources,
+    } = this;
 
     const getFilteredResourcesRes = getFilteredResources({
       parentId: id,
@@ -34,6 +48,7 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
     });
 
     const res = {
+      name,
       fieldInfoList,
     };
 
