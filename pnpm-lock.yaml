@@ -454,6 +454,12 @@ importers:
         specifier: workspace:*
         version: link:../types
 
+  packages/handlers/handler-for-field-type-string:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../../handler
+
   packages/integration-test:
     devDependencies:
       '@ldsg/application':
