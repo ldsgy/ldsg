@@ -307,6 +307,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
+      field-type-string-handler:
+        specifier: workspace:*
+        version: link:../handlers/field-type-string-handler
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
@@ -454,7 +457,7 @@ importers:
         specifier: workspace:*
         version: link:../types
 
-  packages/handlers/handler-for-field-type-string:
+  packages/handlers/field-type-string-handler:
     dependencies:
       '@ldsg/handler':
         specifier: workspace:*
