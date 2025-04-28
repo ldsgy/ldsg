@@ -29,18 +29,13 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
     const { platform } = params;
 
     const {
-      settings: { name, fieldTypeId, properties },
-      getFilteredResource,
+      settings: { name, properties },
+      getResourcesFromSettings,
     } = this;
 
-    const getFilteredResourceRes = getFilteredResource({
-      id: fieldTypeId,
-    });
+    const { fieldTypeResource } = getResourcesFromSettings();
 
-    const fieldTypeResource =
-      getFilteredResourceRes.resource as FieldTypeResource;
-
-    const typeInfo = fieldTypeResource.getFieldTypeInfo({
+    const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
       platform,
       fieldProperties: properties,
     });

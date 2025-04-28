@@ -22,7 +22,7 @@ test("application", async () => {
       title: "",
       description: "",
       name: "",
-      fieldTypeId: "",
+      fieldTypeResourceId: "",
       properties: {},
     },
   });

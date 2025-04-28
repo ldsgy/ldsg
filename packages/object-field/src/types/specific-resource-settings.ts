@@ -8,9 +8,9 @@ export interface ObjectFieldSpecificResourceSettings
   name: string;
 
   /**
-   * Field Type ID
+   * Field Type Resource ID
    */
-  fieldTypeId: string;
+  fieldTypeResourceId: string;
 
   /**
    * Field Properties
