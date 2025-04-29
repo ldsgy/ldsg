@@ -24,7 +24,9 @@
     "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
+    "@ldsg/field-type": "workspace:*",
     "@ldsg/object": "workspace:*",
+    "@ldsg/object-field": "workspace:*",
     "@ldsg/types": "workspace:*",
     "@types/supertest": "^6.0.0",
     "supertest": "^6.3.4"

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form 1`] = `
+{
+  "inputObjectInfo": {
+    "fieldInfoList": [
+      {
+        "name": "test-1",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "name": "test-2",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "name": "test-3",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+    ],
+    "name": "test-object-1",
+  },
+  "name": "test-form",
+  "outputObjectInfo": {
+    "fieldInfoList": [
+      {
+        "name": "test-1",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+    ],
+    "name": "test-object-2",
+  },
+}
+`;
