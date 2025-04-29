@@ -351,6 +351,9 @@ importers:
       '@ldsg/form':
         specifier: workspace:*
         version: link:../form
+      '@ldsg/graphql':
+        specifier: workspace:*
+        version: link:../graphql
       '@ldsg/object':
         specifier: workspace:*
         version: link:../object
