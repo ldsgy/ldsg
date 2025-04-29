@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object 1`] = `
+{
+  "fieldInfoList": [
+    {
+      "name": "test1",
+      "typeInfo": {
+        "maxLength": "10",
+        "type": "String",
+      },
+    },
+    {
+      "name": "test2",
+      "typeInfo": {
+        "maxLength": "10",
+        "type": "String",
+      },
+    },
+    {
+      "name": "test",
+      "typeInfo": {
+        "maxLength": "10",
+        "type": "String",
+      },
+    },
+  ],
+  "name": "test-object",
+}
+`;

@@ -471,21 +471,15 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
-      '@ldsg/application':
+      '@ldsg/field-type':
         specifier: workspace:*
-        version: link:../application
+        version: link:../field-type
       '@ldsg/object-field':
         specifier: workspace:*
         version: link:../object-field
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
-      '@types/supertest':
-        specifier: ^6.0.0
-        version: 6.0.2
-      supertest:
-        specifier: ^6.3.4
-        version: 6.3.4
 
   packages/object-field:
     dependencies:
