@@ -1,4 +1,5 @@
 import { FormInfo, FormResource } from "@ldsg/form";
+import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import { FormsSpecificResourceSettings } from "./types";
 
@@ -46,5 +47,9 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
     };
 
     return res;
+  };
+
+  modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
+    const { schemaComposer } = params;
   };
 }

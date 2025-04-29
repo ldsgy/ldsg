@@ -1,7 +1,8 @@
 import { ExtendExpressApp } from "@ldsg/application";
 import { Resource } from "@ldsg/resource";
+import { SchemaComposer } from "graphql-compose";
 import { createYoga } from "graphql-yoga";
-import { GraphqlSpecificResourceSettings } from "./types";
+import { GraphqlSpecificResourceSettings, ModifyGraphQLSchema } from "./types";
 
 export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
   extendExpressApp: ExtendExpressApp = async (params) => {
@@ -26,5 +27,33 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
     });
 
     app.use(yoga.graphqlEndpoint, yoga);
+  };
+
+  getGraphQLSchema = () => {
+    const schemaComposer = new SchemaComposer();
+
+    const { parentId, getFilteredResources } = this;
+
+    const { resources } = getFilteredResources({
+      parentId,
+    });
+
+    resources.forEach((resource) => {
+      (
+        resource as {
+          modifyGraphQLSchema?: ModifyGraphQLSchema;
+        } & Resource
+      ).modifyGraphQLSchema?.({
+        schemaComposer,
+      });
+    });
+
+    const schema = schemaComposer.buildSchema();
+
+    const res = {
+      schema,
+    };
+
+    return res;
   };
 }

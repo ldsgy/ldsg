@@ -384,6 +384,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      graphql-compose:
+        specifier: ^9.1.0
+        version: 9.1.0(graphql@16.9.0)
       graphql-yoga:
         specifier: ^5.13.4
         version: 5.13.4(graphql@16.9.0)
@@ -2486,6 +2489,11 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+  graphql-compose@9.1.0:
+    resolution: {integrity: sha512-nFL2+oeF8IlKjXPzmFL9rlBhrHlJMKGC0JeuBfOkWLLNqAtlFV+M1YGuuORyx0+mbLsBl9XToKWBPPfCHL8HHA==}
+    peerDependencies:
+      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
+
   graphql-middleware@6.1.35:
     resolution: {integrity: sha512-azawK7ApUYtcuPGRGBR9vDZu795pRuaFhO5fgomdJppdfKRt7jwncuh0b7+D3i574/4B+16CNWgVpnGVlg3ZCg==}
     peerDependencies:
@@ -2496,6 +2504,11 @@ packages:
     peerDependencies:
       graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
       graphql-middleware: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^6.0.0
+
+  graphql-type-json@0.3.2:
+    resolution: {integrity: sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==}
+    peerDependencies:
+      graphql: '>=0.8.0'
 
   graphql-yoga@5.13.4:
     resolution: {integrity: sha512-q5l3HEvgXnZCKG6K38fz3XNBX41GkHkIYspJbdVl9QVsm5Ah0EFUkY303tEOx8IucyB0h2hb8OfbYXEcoNCLMw==}
@@ -5963,6 +5976,11 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
+  graphql-compose@9.1.0(graphql@16.9.0):
+    dependencies:
+      graphql: 16.9.0
+      graphql-type-json: 0.3.2(graphql@16.9.0)
+
   graphql-middleware@6.1.35(graphql@16.9.0):
     dependencies:
       '@graphql-tools/delegate': 8.8.1(graphql@16.9.0)
@@ -5977,6 +5995,10 @@ snapshots:
       object-hash: 3.0.0
       tslib: 2.6.3
       yup: 0.32.11
+
+  graphql-type-json@0.3.2(graphql@16.9.0):
+    dependencies:
+      graphql: 16.9.0
 
   graphql-yoga@5.13.4(graphql@16.9.0):
     dependencies:
