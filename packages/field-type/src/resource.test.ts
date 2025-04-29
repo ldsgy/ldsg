@@ -1,7 +1,53 @@
-import { HandlerResource } from "@ldsg/handler";
+import { Handler, HandlerResource } from "@ldsg/handler";
 import { FieldTypeResource } from "./resource";
 
-test("field type", async () => {
+const handler: Handler<
+  [
+    {
+      /**
+       * Field Properties
+       */
+      fieldProperties?: any;
+      /**
+       * Platform
+       * Such as mongoose\formily.
+       */
+      platform: string;
+    }
+  ],
+  {}
+> = (params) => {
+  const { fieldProperties, platform } = params;
+
+  const { max } = fieldProperties;
+
+  let res;
+
+  switch (platform) {
+    case "mongoose": {
+      res = {
+        type: "String",
+        ...(max
+          ? {
+              maxLength: max,
+            }
+          : {}),
+      };
+
+      break;
+    }
+
+    default: {
+      res = {};
+
+      break;
+    }
+  }
+
+  return res;
+};
+
+test("field type", () => {
   const fieldTypeResource = new FieldTypeResource({
     id: "test-field-type",
     kind: "FIELD_TYPE",
@@ -19,12 +65,12 @@ test("field type", async () => {
           },
         },
       },
-      handlerResourceId: "field-type-string-handler",
+      handlerResourceId: "test-handler",
     },
   });
 
   new HandlerResource({
-    id: "field-type-string-handler",
+    id: "test-handler",
     kind: "HANDLER",
     parentId: "root",
     settings: {
@@ -33,9 +79,10 @@ test("field type", async () => {
       code: "",
       dependencies: [],
     },
+    handler,
   });
 
-  const fieldTypeOnMongoose = await fieldTypeResource.getFieldTypeInfo({
+  const fieldTypeOnMongoose = fieldTypeResource.getFieldTypeInfo({
     fieldProperties: {
       max: "10",
     },
