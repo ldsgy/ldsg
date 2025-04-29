@@ -345,6 +345,9 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
+      '@ldsg/application':
+        specifier: workspace:*
+        version: link:../application
       '@ldsg/field-type':
         specifier: workspace:*
         version: link:../field-type

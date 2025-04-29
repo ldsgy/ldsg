@@ -24,6 +24,7 @@
     "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
+    "@ldsg/application": "workspace:*",
     "@ldsg/field-type": "workspace:*",
     "@ldsg/form": "workspace:*",
     "@ldsg/graphql": "workspace:*",
