@@ -7,7 +7,19 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
   extendExpressApp: ExtendExpressApp = async (params) => {
     const { app } = params;
 
-    const { graphqlEndpoint } = this.settings;
+    const {
+      parentId,
+      settings: { graphqlEndpoint },
+      getFilteredResources,
+    } = this;
+
+    const { resources } = getFilteredResources({
+      parentId,
+    });
+
+    /**
+     * TODO: extends graphql schema
+     */
 
     const yoga = createYoga({
       graphqlEndpoint,
