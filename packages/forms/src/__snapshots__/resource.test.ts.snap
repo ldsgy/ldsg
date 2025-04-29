@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`forms 1`] = `
+{
+  "formInfoList": [
+    {
+      "inputObjectInfo": {
+        "fieldInfoList": [
+          {
+            "name": "test-1",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+          {
+            "name": "test-2",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+          {
+            "name": "test-3",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+        ],
+        "name": "test-object-1",
+      },
+      "name": "test-form-1",
+      "outputObjectInfo": {
+        "fieldInfoList": [
+          {
+            "name": "test-1",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+        ],
+        "name": "test-object-2",
+      },
+    },
+    {
+      "inputObjectInfo": {
+        "fieldInfoList": [
+          {
+            "name": "test-1",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+        ],
+        "name": "test-object-2",
+      },
+      "name": "test-form-2",
+      "outputObjectInfo": {
+        "fieldInfoList": [
+          {
+            "name": "test-1",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+          {
+            "name": "test-2",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+          {
+            "name": "test-3",
+            "typeInfo": {
+              "maxLength": "10",
+              "type": "String",
+            },
+          },
+        ],
+        "name": "test-object-1",
+      },
+    },
+  ],
+}
+`;

@@ -345,9 +345,18 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
+      '@ldsg/field-type':
+        specifier: workspace:*
+        version: link:../field-type
       '@ldsg/form':
         specifier: workspace:*
         version: link:../form
+      '@ldsg/object':
+        specifier: workspace:*
+        version: link:../object
+      '@ldsg/object-field':
+        specifier: workspace:*
+        version: link:../object-field
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
