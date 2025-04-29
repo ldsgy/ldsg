@@ -25,7 +25,6 @@
     "json-schema": "0.4.0"
   },
   "devDependencies": {
-    "@ldsg/application": "workspace:*",
     "@ldsg/types": "workspace:*",
     "@types/json-schema": "^7.0.15"
   }

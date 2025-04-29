@@ -48,6 +48,19 @@ const handler: Handler<
 };
 
 test("field type", () => {
+  new HandlerResource({
+    id: "test-handler",
+    kind: "HANDLER",
+    parentId: "root",
+    settings: {
+      title: "测试处理程序",
+      description: "",
+      code: "",
+      dependencies: [],
+    },
+    handler,
+  });
+
   const fieldTypeResource = new FieldTypeResource({
     id: "test-field-type",
     kind: "FIELD_TYPE",
@@ -67,19 +80,6 @@ test("field type", () => {
       },
       handlerResourceId: "test-handler",
     },
-  });
-
-  new HandlerResource({
-    id: "test-handler",
-    kind: "HANDLER",
-    parentId: "root",
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-    },
-    handler,
   });
 
   const fieldTypeOnMongoose = fieldTypeResource.getFieldTypeInfo({
