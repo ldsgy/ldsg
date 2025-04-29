@@ -25,7 +25,7 @@ test("application", async () => {
     },
   });
 
-  const app = await applicationResource.createExpressApp();
+  const app = applicationResource.createExpressApp();
 
   const response = await request(app).get("/");
 

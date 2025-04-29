@@ -14,9 +14,5 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
     });
 
     app.use(yoga.graphqlEndpoint, yoga);
-
-    // const handler = getHandler();
-
-    // app.get(path, handler);
   };
 }
