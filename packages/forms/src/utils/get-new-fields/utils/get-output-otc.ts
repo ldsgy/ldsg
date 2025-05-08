@@ -22,14 +22,14 @@ export const getOutputOTC: GetOutputOTC = (params) => {
 
   const { title, description, name, fieldInfoList } = outputObjectInfo;
 
-  const objectTypeName = _.upperFirst(_.camelCase(name));
+  const upperFirstCamelCaseName = _.upperFirst(_.camelCase(name));
 
   const { fieldConfigMapDefinition } = getFieldConfigMapDefinition({
     fieldInfoList,
   });
 
   const definition: ObjectTypeComposerDefinition<any, any> = {
-    name: objectTypeName,
+    name: upperFirstCamelCaseName,
     fields: fieldConfigMapDefinition,
   };
 

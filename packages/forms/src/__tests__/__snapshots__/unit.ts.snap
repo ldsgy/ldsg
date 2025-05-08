@@ -120,10 +120,22 @@ exports[`forms 1`] = `
 exports[`forms 2`] = `
 "type Query {
   """测试表单1"""
-  testA1: TestObject2
+  testA1(
+    """测试对象1测试字段1"""
+    test1: String
+
+    """测试对象1测试字段2"""
+    test2: String
+
+    """测试对象1测试字段3"""
+    test3: String
+  ): TestObject2
 
   """测试表单2"""
-  testA2: TestObject1
+  testA2(
+    """测试对象2测试字段1"""
+    test1: String
+  ): TestObject1
 }
 
 """测试对象2"""
@@ -146,9 +158,21 @@ type TestObject1 {
 
 type Mutation {
   """测试表单1"""
-  testA1: TestObject2
+  testA1(
+    """测试对象1测试字段1"""
+    test1: String
+
+    """测试对象1测试字段2"""
+    test2: String
+
+    """测试对象1测试字段3"""
+    test3: String
+  ): TestObject2
 
   """测试表单2"""
-  testA2: TestObject1
+  testA2(
+    """测试对象2测试字段1"""
+    test1: String
+  ): TestObject1
 }"
 `;

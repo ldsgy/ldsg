@@ -1,9 +1,4 @@
 import { FieldInfo } from "@ldsg/object";
-import {
-  ObjectTypeComposerFieldConfigAsObjectDefinition,
-  ObjectTypeComposerFieldConfigDefinition,
-  ObjectTypeComposerFieldConfigMapDefinition,
-} from "graphql-compose";
 import _ from "lodash";
 
 interface GetFieldConfigMapDefinitionParams {
@@ -11,10 +6,7 @@ interface GetFieldConfigMapDefinitionParams {
 }
 
 interface GetFieldConfigMapDefinitionRes {
-  fieldConfigMapDefinition: ObjectTypeComposerFieldConfigMapDefinition<
-    any,
-    any
-  >;
+  fieldConfigMapDefinition: Record<string, any>;
 }
 
 type GetFieldConfigMapDefinition = (
@@ -26,33 +18,19 @@ export const getFieldConfigMapDefinition: GetFieldConfigMapDefinition = (
 ) => {
   const { fieldInfoList } = params;
 
-  const fieldConfigMapDefinition: ObjectTypeComposerFieldConfigMapDefinition<
-    any,
-    any
-  > = {};
+  const fieldConfigMapDefinition: Record<string, any> = {};
 
   _.each(fieldInfoList, (fieldInfo) => {
     const { title, description, name, typeInfo } = fieldInfo;
 
     const camelCaseName = _.camelCase(name);
 
-    const type =
-      typeInfo.type as ObjectTypeComposerFieldConfigAsObjectDefinition<
-        any,
-        any
-      >["type"];
+    const { type } = typeInfo;
 
-    const objectTypeComposerFieldConfigDefinition: ObjectTypeComposerFieldConfigDefinition<
-      any,
-      any,
-      any
-    > = {
+    fieldConfigMapDefinition[camelCaseName] = {
       type,
       description: `${title}${description ? `:${description}` : ""}`,
     };
-
-    fieldConfigMapDefinition[camelCaseName] =
-      objectTypeComposerFieldConfigDefinition;
   });
 
   const res = {

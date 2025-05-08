@@ -5,7 +5,7 @@ import {
 } from "graphql-compose";
 import _ from "lodash";
 import { FormInfo } from "../../types";
-import { getOutputOTC } from "./utils";
+import { getInputITC, getOutputOTC } from "./utils";
 
 interface GetNewFieldsParams extends SchemaComposerParams {
   formInfoList: FormInfo[];
@@ -30,14 +30,14 @@ export const getNewFields: GetNewFields = (params) => {
 
     const { outputOTC } = getOutputOTC({ schemaComposer, outputObjectInfo });
 
+    const { inputITC } = getInputITC({ schemaComposer, inputObjectInfo });
+
     const resolverDefinition: ResolverDefinition<any, any, any> = {
       name: graphqlFieldName,
       description: `${title}${description ? `:${description}` : ""}`,
       type: outputOTC,
-      // args: inputITC.getFields(),
+      args: inputITC.getFields(),
     };
-
-    // outputObjectInfo.name
 
     const fieldResolver = schemaComposer.createResolver(resolverDefinition);
 
