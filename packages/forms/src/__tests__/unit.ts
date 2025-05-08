@@ -1,9 +1,68 @@
 import { FieldTypeResource } from "@ldsg/field-type";
-import { FormResource } from "@ldsg/form";
+import { GraphqlResource } from "@ldsg/graphql";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { ObjectResource } from "@ldsg/object";
 import { ObjectFieldResource } from "@ldsg/object-field";
-import { FormsResource } from "./resource";
+import { Resource } from "@ldsg/resource";
+import { SpecificResourceSettings } from "@ldsg/types";
+import { printSchema } from "graphql";
+import { ObjectTypeComposerFieldConfigAsObjectDefinition } from "graphql-compose";
+import { FormsResource } from "../resource";
+import { FormInfo, GetFormInfo } from "../types";
+
+interface ASpecificResourceSettings extends SpecificResourceSettings {
+  /**
+   * Form Name
+   */
+  name: string;
+
+  /**
+   * Input Object Resource Id
+   */
+  inputObjectResourceId: string;
+
+  /**
+   * Output Object Resource Id
+   */
+  outputObjectResourceId: string;
+
+  /**
+   * Workflow Resource Id
+   */
+  workflowResourceId: string;
+}
+
+class AResource extends Resource<ASpecificResourceSettings> {
+  getFormInfo: GetFormInfo = (params) => {
+    const { platform } = params;
+
+    const {
+      settings: { title, description, name },
+      getResourcesFromSettings,
+    } = this;
+
+    const { inputObjectResource, outputObjectResource, workflowResource } =
+      getResourcesFromSettings();
+
+    const { objectInfo: inputObjectInfo } = (
+      inputObjectResource as ObjectResource
+    ).getObjectInfo({ platform });
+
+    const { objectInfo: outputObjectInfo } = (
+      outputObjectResource as ObjectResource
+    ).getObjectInfo({ platform });
+
+    const res: FormInfo = {
+      title,
+      description,
+      name,
+      inputObjectInfo,
+      outputObjectInfo,
+    };
+
+    return res;
+  };
+}
 
 const handler: Handler<
   [
@@ -28,6 +87,19 @@ const handler: Handler<
   let res;
 
   switch (platform) {
+    case "graphql": {
+      const type: ObjectTypeComposerFieldConfigAsObjectDefinition<
+        any,
+        any
+      >["type"] = "String";
+
+      res = {
+        type,
+      };
+
+      break;
+    }
+
     case "mongoose": {
       res = {
         type: "String",
@@ -52,6 +124,18 @@ const handler: Handler<
 };
 
 test("forms", () => {
+  const graphqlResource = new GraphqlResource({
+    id: "test-graphql",
+    kind: "GRAPHQL",
+    parentId: "test-application",
+    settings: {
+      title: "测试GraphQL",
+      description: "",
+      code: "",
+      dependencies: [],
+    },
+  });
+
   new HandlerResource({
     id: "test-handler",
     kind: "HANDLER",
@@ -168,34 +252,6 @@ test("forms", () => {
     },
   });
 
-  new FormResource({
-    id: "test-form-1",
-    kind: "FORM",
-    parentId: "test-forms",
-    settings: {
-      title: "测试表单1",
-      description: "",
-      name: "test-form-1",
-      inputObjectResourceId: "test-object-1",
-      outputObjectResourceId: "test-object-2",
-      workflowResourceId: "",
-    },
-  });
-
-  new FormResource({
-    id: "test-form-2",
-    kind: "FORM",
-    parentId: "test-forms",
-    settings: {
-      title: "测试表单2",
-      description: "",
-      name: "test-form-2",
-      inputObjectResourceId: "test-object-2",
-      outputObjectResourceId: "test-object-1",
-      workflowResourceId: "",
-    },
-  });
-
   const formsResource = new FormsResource({
     id: "test-forms",
     kind: "FORM",
@@ -206,9 +262,45 @@ test("forms", () => {
     },
   });
 
+  new AResource({
+    id: "test-a-1",
+    kind: "FORM",
+    parentId: "test-forms",
+    settings: {
+      title: "测试表单1",
+      description: "",
+      name: "test-a-1",
+      inputObjectResourceId: "test-object-1",
+      outputObjectResourceId: "test-object-2",
+      workflowResourceId: "",
+    },
+  });
+
+  new AResource({
+    id: "test-a-2",
+    kind: "FORM",
+    parentId: "test-forms",
+    settings: {
+      title: "测试表单2",
+      description: "",
+      name: "test-a-2",
+      inputObjectResourceId: "test-object-2",
+      outputObjectResourceId: "test-object-1",
+      workflowResourceId: "",
+    },
+  });
+
   const getFormInfoListRes = formsResource.getFormInfoList({
     platform: "mongoose",
   });
 
   expect(getFormInfoListRes).toMatchSnapshot();
+
+  const { schema } = graphqlResource.getGraphQLSchema();
+
+  const schemaDSL = printSchema(schema);
+
+  console.log(schemaDSL);
+
+  expect(schemaDSL).toMatchSnapshot();
 });

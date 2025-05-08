@@ -1,7 +1,8 @@
-import { FormInfo, FormResource } from "@ldsg/form";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
-import { FormsSpecificResourceSettings } from "./types";
+import _ from "lodash";
+import { FormInfo, FormsSpecificResourceSettings, GetFormInfo } from "./types";
+import { getNewFields } from "./utils";
 
 interface GetFormInfoListParams {
   /**
@@ -21,26 +22,24 @@ interface GetFormInfoListRes {
 type GetFormInfoList = (params: GetFormInfoListParams) => GetFormInfoListRes;
 
 export class FormsResource extends Resource<FormsSpecificResourceSettings> {
-  getSubFormResources = () => {
+  getFormInfoList: GetFormInfoList = (params) => {
+    const { platform } = params;
+
     const { id, getFilteredResources } = this;
 
     const { resources } = getFilteredResources({
       parentId: id,
     });
 
-    return resources as FormResource[];
-  };
-
-  getFormInfoList: GetFormInfoList = (params) => {
-    const { platform } = params;
-
-    const { getSubFormResources } = this;
-
-    const formResources = getSubFormResources();
-
-    const formInfoList = formResources.map((formResource) => {
-      return formResource.getFormInfo({ platform });
+    const mapRes = resources.map((resource) => {
+      return (
+        resource as {
+          getFormInfo?: GetFormInfo;
+        } & Resource
+      ).getFormInfo?.({ platform });
     });
+
+    const formInfoList = _.filter(mapRes, (value) => !_.isUndefined(value));
 
     const res = {
       formInfoList,
@@ -51,5 +50,17 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
 
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
     const { schemaComposer } = params;
+
+    const { formInfoList } = this.getFormInfoList({
+      platform: "graphql",
+    });
+
+    const { newFields } = getNewFields({
+      formInfoList,
+      schemaComposer,
+    });
+
+    schemaComposer.Mutation.addFields(newFields);
+    schemaComposer.Query.addFields(newFields);
   };
 }

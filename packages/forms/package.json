@@ -21,17 +21,20 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*"
+    "@ldsg/resource-definition": "workspace:*",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@ldsg/application": "workspace:*",
     "@ldsg/field-type": "workspace:*",
-    "@ldsg/form": "workspace:*",
     "@ldsg/graphql": "workspace:*",
     "@ldsg/object": "workspace:*",
     "@ldsg/object-field": "workspace:*",
     "@ldsg/types": "workspace:*",
+    "@types/lodash": "^4.14.202",
     "@types/supertest": "^6.0.0",
+    "graphql": "16.11.0",
+    "graphql-compose": "^9.1.0",
     "supertest": "^6.3.4"
   }
 }
