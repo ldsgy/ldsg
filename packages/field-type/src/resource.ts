@@ -1,20 +1,5 @@
 import { HandlerExtendedResource } from "@ldsg/handler";
-import { FieldTypeSpecificResourceSettings } from "./types";
-
-interface GetFieldTypeInfoParams {
-  /**
-   * Field Properties
-   */
-  fieldProperties: any;
-
-  /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
-
-export type GetFieldTypeInfo = (params: GetFieldTypeInfoParams) => any;
+import { FieldTypeSpecificResourceSettings, GetFieldTypeInfo } from "./types";
 
 export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecificResourceSettings> {
   getFieldTypeInfo: GetFieldTypeInfo = (params) => {

@@ -1,5 +1,5 @@
 import { Handler, HandlerResource } from "@ldsg/handler";
-import { FieldTypeResource } from "./resource";
+import { FieldTypeResource } from "../resource";
 
 const handler: Handler<
   [
