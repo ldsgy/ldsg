@@ -2,7 +2,7 @@ import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { ObjectResource } from "@ldsg/object";
 import { ObjectFieldResource } from "@ldsg/object-field";
-import { FormResource } from "./resource";
+import { FormResource } from "../resource";
 
 const handler: Handler<
   [
@@ -50,7 +50,7 @@ const handler: Handler<
   return res;
 };
 
-test("form", () => {
+test("unit", () => {
   new HandlerResource({
     id: "test-handler",
     kind: "HANDLER",
@@ -82,6 +82,17 @@ test("form", () => {
         },
       },
       handlerResourceId: "test-handler",
+    },
+  });
+
+  new ObjectResource({
+    id: "test-object-1",
+    kind: "OBJECT",
+    parentId: "root",
+    settings: {
+      title: "测试对象1",
+      description: "",
+      name: "test-object-1",
     },
   });
 
@@ -131,13 +142,13 @@ test("form", () => {
   });
 
   new ObjectResource({
-    id: "test-object-1",
+    id: "test-object-2",
     kind: "OBJECT",
     parentId: "root",
     settings: {
-      title: "测试对象1",
+      title: "测试对象2",
       description: "",
-      name: "test-object-1",
+      name: "test-object-2",
     },
   });
 
@@ -153,17 +164,6 @@ test("form", () => {
       properties: {
         max: "10",
       },
-    },
-  });
-
-  new ObjectResource({
-    id: "test-object-2",
-    kind: "OBJECT",
-    parentId: "root",
-    settings: {
-      title: "测试对象2",
-      description: "",
-      name: "test-object-2",
     },
   });
 

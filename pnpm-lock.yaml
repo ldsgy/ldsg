@@ -295,9 +295,6 @@ importers:
         specifier: 0.4.0
         version: 0.4.0
     devDependencies:
-      '@ldsg/forms':
-        specifier: workspace:*
-        version: link:../forms
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
@@ -317,6 +314,9 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
+      '@ldsg/field-type':
+        specifier: workspace:*
+        version: link:../field-type
       '@ldsg/forms':
         specifier: workspace:*
         version: link:../forms
@@ -509,16 +509,19 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@ldsg/field-type':
         specifier: workspace:*
         version: link:../field-type
-      '@ldsg/object-field':
-        specifier: workspace:*
-        version: link:../object-field
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.17.5
 
   packages/object-field:
     dependencies:
