@@ -1,25 +1,7 @@
-import { FieldTypeResource, PlatformParams } from "@ldsg/field-type";
+import { FieldTypeResource } from "@ldsg/field-type";
+import { FieldInfo, GetFieldInfo } from "@ldsg/object";
 import { Resource } from "@ldsg/resource";
-import { GeneralResourceSettings } from "@ldsg/types";
 import { ObjectFieldSpecificResourceSettings } from "./types";
-
-export interface FieldInfo extends GeneralResourceSettings {
-  /**
-   * Field Name
-   */
-  name: string;
-
-  /**
-   * Type Info
-   */
-  typeInfo: any;
-}
-
-interface GetFieldInfoRes {
-  fieldInfo: FieldInfo;
-}
-
-type GetFieldInfo = (params: PlatformParams) => GetFieldInfoRes;
 
 export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {

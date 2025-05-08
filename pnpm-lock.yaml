@@ -538,6 +538,9 @@ importers:
       '@ldsg/field-type':
         specifier: workspace:*
         version: link:../field-type
+      '@ldsg/object':
+        specifier: workspace:*
+        version: link:../object
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types

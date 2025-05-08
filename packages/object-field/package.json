@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@ldsg/field-type": "workspace:*",
+    "@ldsg/object": "workspace:*",
     "@ldsg/types": "workspace:*"
   }
 }
