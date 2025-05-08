@@ -1,7 +1,12 @@
 import { ApplicationResource } from "@ldsg/application";
 import { HandlerResource } from "@ldsg/handler";
+import { RequestHandler } from "express";
 import request from "supertest";
-import { RouteResource } from "../../src/resource";
+import { RouteResource } from "../resource";
+
+const handler: RequestHandler = (req, res) => {
+  res.send("Hello, World!");
+};
 
 test("application", async () => {
   const applicationResource = new ApplicationResource({
@@ -37,6 +42,7 @@ test("application", async () => {
       code: "",
       dependencies: [],
     },
+    handler,
   });
 
   const app = applicationResource.createExpressApp();
