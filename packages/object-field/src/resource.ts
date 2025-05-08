@@ -1,16 +1,9 @@
-import { FieldTypeResource } from "@ldsg/field-type";
+import { FieldTypeResource, PlatformParams } from "@ldsg/field-type";
 import { Resource } from "@ldsg/resource";
+import { GeneralResourceSettings } from "@ldsg/types";
 import { ObjectFieldSpecificResourceSettings } from "./types";
 
-interface GetFieldInfoParams {
-  /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
-
-export interface FieldInfo {
+export interface FieldInfo extends GeneralResourceSettings {
   /**
    * Field Name
    */
@@ -22,14 +15,18 @@ export interface FieldInfo {
   typeInfo: any;
 }
 
-type GetFieldInfo = (params: GetFieldInfoParams) => FieldInfo;
+interface GetFieldInfoRes {
+  fieldInfo: FieldInfo;
+}
+
+type GetFieldInfo = (params: PlatformParams) => GetFieldInfoRes;
 
 export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {
     const { platform } = params;
 
     const {
-      settings: { name, properties },
+      settings: { title, description, name, properties },
       getResourcesFromSettings,
     } = this;
 
@@ -40,9 +37,15 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
       fieldProperties: properties,
     });
 
-    const res = {
+    const fieldInfo: FieldInfo = {
+      title,
+      description,
       name,
       typeInfo,
+    };
+
+    const res = {
+      fieldInfo,
     };
 
     return res;

@@ -1,16 +1,14 @@
-import { FieldInfo, ObjectFieldResource } from "@ldsg/object-field";
+import { PlatformParams } from "@ldsg/field-type";
 import { Resource } from "@ldsg/resource";
-import { ObjectSpecificResourceSettings } from "./types";
+import { GeneralResourceSettings } from "@ldsg/types";
+import _ from "lodash";
+import {
+  FieldInfo,
+  GetFieldInfo,
+  ObjectSpecificResourceSettings,
+} from "./types";
 
-interface GetObjectInfoParams {
-  /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
-
-export interface ObjectInfo {
+export interface ObjectInfo extends GeneralResourceSettings {
   /**
    * Object Name
    */
@@ -22,7 +20,14 @@ export interface ObjectInfo {
   fieldInfoList: FieldInfo[];
 }
 
-type GetObjectInfo = (params: GetObjectInfoParams) => ObjectInfo;
+export interface GetObjectInfoRes {
+  /**
+   * Object Info
+   */
+  objectInfo: ObjectInfo;
+}
+
+type GetObjectInfo = (params: PlatformParams) => GetObjectInfoRes;
 
 export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
   getObjectInfo: GetObjectInfo = (params) => {
@@ -30,26 +35,35 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
 
     const {
       id,
-      settings: { name },
+      settings: { title, description, name },
       getFilteredResources,
     } = this;
 
-    const getFilteredResourcesRes = getFilteredResources({
+    const { resources } = getFilteredResources({
       parentId: id,
     });
 
-    const objectFieldResources =
-      getFilteredResourcesRes.resources as ObjectFieldResource[];
-
-    const fieldInfoList = objectFieldResources.map((objectFieldResource) => {
-      const fieldInfo = objectFieldResource.getFieldInfo({ platform });
+    const mapRes = resources.map((resource) => {
+      const fieldInfo = (
+        resource as { getFieldInfo?: GetFieldInfo } & Resource
+      ).getFieldInfo?.({ platform });
 
       return fieldInfo;
     });
 
-    const res: ObjectInfo = {
+    const filterRes = _.filter(mapRes, (value) => !_.isUndefined(value));
+
+    const fieldInfoList = _.map(filterRes, "fieldInfo");
+
+    const objectInfo: ObjectInfo = {
+      title,
+      description,
       name,
       fieldInfoList,
+    };
+
+    const res = {
+      objectInfo,
     };
 
     return res;

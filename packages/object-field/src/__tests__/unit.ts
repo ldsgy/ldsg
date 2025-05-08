@@ -1,7 +1,6 @@
 import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
-import { ObjectFieldResource } from "@ldsg/object-field";
-import { ObjectResource } from "./resource";
+import { ObjectFieldResource } from "../resource";
 
 const handler: Handler<
   [
@@ -49,7 +48,7 @@ const handler: Handler<
   return res;
 };
 
-test("object", () => {
+test("object field", () => {
   new HandlerResource({
     id: "test-handler",
     kind: "HANDLER",
@@ -84,42 +83,12 @@ test("object", () => {
     },
   });
 
-  new ObjectFieldResource({
-    id: "test-object-field-1",
+  const objectFieldResource = new ObjectFieldResource({
+    id: "object-field",
     kind: "OBJECT_FIELD",
-    parentId: "test-object",
+    parentId: "application",
     settings: {
-      title: "测试字段1",
-      description: "",
-      name: "test1",
-      fieldTypeResourceId: "test-field-type",
-      properties: {
-        max: "10",
-      },
-    },
-  });
-
-  new ObjectFieldResource({
-    id: "test-object-field-2",
-    kind: "OBJECT_FIELD",
-    parentId: "test-object",
-    settings: {
-      title: "测试字段2",
-      description: "",
-      name: "test2",
-      fieldTypeResourceId: "test-field-type",
-      properties: {
-        max: "10",
-      },
-    },
-  });
-
-  new ObjectFieldResource({
-    id: "test-object-field-3",
-    kind: "OBJECT_FIELD",
-    parentId: "test-object",
-    settings: {
-      title: "测试字段3",
+      title: "测试字段",
       description: "",
       name: "test",
       fieldTypeResourceId: "test-field-type",
@@ -129,20 +98,9 @@ test("object", () => {
     },
   });
 
-  const objectResource = new ObjectResource({
-    id: "test-object",
-    kind: "OBJECT",
-    parentId: "root",
-    settings: {
-      title: "测试对象",
-      description: "",
-      name: "test-object",
-    },
-  });
-
-  const getObjectInfoRes = objectResource.getObjectInfo({
+  const getFieldInfoRes = objectFieldResource.getFieldInfo({
     platform: "mongoose",
   });
 
-  expect(getObjectInfoRes).toMatchSnapshot();
+  expect(getFieldInfoRes).toMatchSnapshot();
 });

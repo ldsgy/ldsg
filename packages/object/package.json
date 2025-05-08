@@ -21,11 +21,12 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*"
+    "@ldsg/resource-definition": "workspace:*",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@ldsg/field-type": "workspace:*",
-    "@ldsg/object-field": "workspace:*",
-    "@ldsg/types": "workspace:*"
+    "@ldsg/types": "workspace:*",
+    "@types/lodash": "^4.14.202"
   }
 }
