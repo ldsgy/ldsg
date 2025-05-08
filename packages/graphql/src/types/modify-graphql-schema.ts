@@ -1,7 +1,3 @@
-import { SchemaComposer } from "graphql-compose";
+import { SchemaComposerParams } from "./schema-composer-params";
 
-interface ModifyGraphQLSchemaParams {
-  schemaComposer: SchemaComposer;
-}
-
-export type ModifyGraphQLSchema = (params: ModifyGraphQLSchemaParams) => void;
+export type ModifyGraphQLSchema = (params: SchemaComposerParams) => void;
