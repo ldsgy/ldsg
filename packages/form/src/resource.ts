@@ -8,7 +8,7 @@ export class FormResource extends Resource<FormSpecificResourceSettings> {
     const { platform } = params;
 
     const {
-      settings: { name },
+      settings: { title, description, name },
       getResourcesFromSettings,
     } = this;
 
@@ -24,6 +24,8 @@ export class FormResource extends Resource<FormSpecificResourceSettings> {
     ).getObjectInfo({ platform });
 
     const res: FormInfo = {
+      title,
+      description,
       name,
       inputObjectInfo,
       outputObjectInfo,
