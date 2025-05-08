@@ -1,8 +1,8 @@
 import { ApplicationResource } from "@ldsg/application";
 import request from "supertest";
-import { GraphqlResource } from "./resource";
+import { GraphqlResource } from "../resource";
 
-test("application", async () => {
+test("e2e", async () => {
   const applicationResource = new ApplicationResource({
     id: "application",
     kind: "APPLICATION",

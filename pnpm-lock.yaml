@@ -295,6 +295,9 @@ importers:
         specifier: 0.4.0
         version: 0.4.0
     devDependencies:
+      '@ldsg/forms':
+        specifier: workspace:*
+        version: link:../forms
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
@@ -314,9 +317,9 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
-      '@ldsg/field-type':
+      '@ldsg/forms':
         specifier: workspace:*
-        version: link:../field-type
+        version: link:../forms
       '@ldsg/object':
         specifier: workspace:*
         version: link:../object
@@ -344,6 +347,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@ldsg/application':
         specifier: workspace:*
@@ -351,9 +357,6 @@ importers:
       '@ldsg/field-type':
         specifier: workspace:*
         version: link:../field-type
-      '@ldsg/form':
-        specifier: workspace:*
-        version: link:../form
       '@ldsg/graphql':
         specifier: workspace:*
         version: link:../graphql
@@ -366,9 +369,18 @@ importers:
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.17.5
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
+      graphql:
+        specifier: 16.11.0
+        version: 16.11.0
+      graphql-compose:
+        specifier: ^9.1.0
+        version: 9.1.0(graphql@16.11.0)
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
@@ -386,10 +398,10 @@ importers:
         version: link:../resource-definition
       graphql-compose:
         specifier: ^9.1.0
-        version: 9.1.0(graphql@16.9.0)
+        version: 9.1.0(graphql@16.11.0)
       graphql-yoga:
         specifier: ^5.13.4
-        version: 5.13.4(graphql@16.9.0)
+        version: 5.13.4(graphql@16.11.0)
     devDependencies:
       '@ldsg/application':
         specifier: workspace:*
@@ -400,6 +412,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
+      graphql:
+        specifier: 16.11.0
+        version: 16.11.0
       supertest:
         specifier: ^6.3.4
         version: 6.3.4
@@ -660,56 +675,18 @@ importers:
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
-      '@types/supertest':
-        specifier: ^6.0.0
-        version: 6.0.2
-      supertest:
-        specifier: ^6.3.4
-        version: 6.3.4
-
-  packages/route/apps/test-app:
-    dependencies:
-      '@ldsg/create-app':
-        specifier: workspace:*
-        version: link:../../../create-app
-      '@ldsg/route':
-        specifier: workspace:*
-        version: link:../..
-      graphql:
-        specifier: ^16.9.0
-        version: 16.9.0
-      graphql-middleware:
-        specifier: ^6.1.35
-        version: 6.1.35(graphql@16.9.0)
-      graphql-shield:
-        specifier: ^7.6.5
-        version: 7.6.5(graphql-middleware@6.1.35(graphql@16.9.0))(graphql@16.9.0)
-      test-route:
-        specifier: link:handlers/test-route
-        version: link:handlers/test-route
-    devDependencies:
-      '@types/node':
-        specifier: ^22.1.0
-        version: 22.14.1
-      ts-loader:
-        specifier: ^9.5.1
-        version: 9.5.1(typescript@5.8.3)(webpack@5.97.1)
-      tslib:
-        specifier: ^2.6.3
-        version: 2.8.1
-      typescript:
-        specifier: ^5.5.4
-        version: 5.8.3
-
-  packages/route/apps/test-app/handlers/test-handler:
-    dependencies:
-      express:
-        specifier: ^5.1.0
-        version: 5.1.0
-    devDependencies:
       '@types/express':
         specifier: ^5.0.1
         version: 5.0.1
+      '@types/supertest':
+        specifier: ^6.0.0
+        version: 6.0.2
+      express:
+        specifier: ^5.1.0
+        version: 5.1.0
+      supertest:
+        specifier: ^6.3.4
+        version: 6.3.4
 
   packages/types: {}
 
@@ -2515,6 +2492,10 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       graphql: ^15.2.0 || ^16.0.0
+
+  graphql@16.11.0:
+    resolution: {integrity: sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   graphql@16.9.0:
     resolution: {integrity: sha512-GGTKBX4SD7Wdb8mqeDLni2oaRGYQWjWHGKPQ24ZMnUtKfcsVoiv4uX8+LJr1K6U5VW2Lu1BwJnj7uiori0YtRw==}
@@ -4431,14 +4412,14 @@ snapshots:
       tslib: 2.4.1
       value-or-promise: 1.0.11
 
-  '@graphql-tools/executor@1.4.7(graphql@16.9.0)':
+  '@graphql-tools/executor@1.4.7(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.8.6(graphql@16.9.0)
-      '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
+      '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
       '@whatwg-node/promise-helpers': 1.3.1
-      graphql: 16.9.0
+      graphql: 16.11.0
       tslib: 2.8.1
 
   '@graphql-tools/merge@8.3.1(graphql@16.9.0)':
@@ -4447,17 +4428,17 @@ snapshots:
       graphql: 16.9.0
       tslib: 2.8.1
 
-  '@graphql-tools/merge@9.0.24(graphql@16.9.0)':
+  '@graphql-tools/merge@9.0.24(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.8.6(graphql@16.9.0)
-      graphql: 16.9.0
+      '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
+      graphql: 16.11.0
       tslib: 2.8.1
 
-  '@graphql-tools/schema@10.0.23(graphql@16.9.0)':
+  '@graphql-tools/schema@10.0.23(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/merge': 9.0.24(graphql@16.9.0)
-      '@graphql-tools/utils': 10.8.6(graphql@16.9.0)
-      graphql: 16.9.0
+      '@graphql-tools/merge': 9.0.24(graphql@16.11.0)
+      '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
+      graphql: 16.11.0
       tslib: 2.8.1
 
   '@graphql-tools/schema@8.5.1(graphql@16.9.0)':
@@ -4468,13 +4449,13 @@ snapshots:
       tslib: 2.8.1
       value-or-promise: 1.0.11
 
-  '@graphql-tools/utils@10.8.6(graphql@16.9.0)':
+  '@graphql-tools/utils@10.8.6(graphql@16.11.0)':
     dependencies:
-      '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       '@whatwg-node/promise-helpers': 1.3.1
       cross-inspect: 1.0.1
       dset: 3.1.4
-      graphql: 16.9.0
+      graphql: 16.11.0
       tslib: 2.8.1
 
   '@graphql-tools/utils@8.9.0(graphql@16.9.0)':
@@ -4482,9 +4463,9 @@ snapshots:
       graphql: 16.9.0
       tslib: 2.8.1
 
-  '@graphql-typed-document-node/core@3.2.0(graphql@16.9.0)':
+  '@graphql-typed-document-node/core@3.2.0(graphql@16.11.0)':
     dependencies:
-      graphql: 16.9.0
+      graphql: 16.11.0
 
   '@graphql-yoga/logger@2.0.1':
     dependencies:
@@ -5976,10 +5957,10 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphql-compose@9.1.0(graphql@16.9.0):
+  graphql-compose@9.1.0(graphql@16.11.0):
     dependencies:
-      graphql: 16.9.0
-      graphql-type-json: 0.3.2(graphql@16.9.0)
+      graphql: 16.11.0
+      graphql-type-json: 0.3.2(graphql@16.11.0)
 
   graphql-middleware@6.1.35(graphql@16.9.0):
     dependencies:
@@ -5996,26 +5977,28 @@ snapshots:
       tslib: 2.6.3
       yup: 0.32.11
 
-  graphql-type-json@0.3.2(graphql@16.9.0):
+  graphql-type-json@0.3.2(graphql@16.11.0):
     dependencies:
-      graphql: 16.9.0
+      graphql: 16.11.0
 
-  graphql-yoga@5.13.4(graphql@16.9.0):
+  graphql-yoga@5.13.4(graphql@16.11.0):
     dependencies:
       '@envelop/core': 5.2.3
       '@envelop/instrumentation': 1.0.0
-      '@graphql-tools/executor': 1.4.7(graphql@16.9.0)
-      '@graphql-tools/schema': 10.0.23(graphql@16.9.0)
-      '@graphql-tools/utils': 10.8.6(graphql@16.9.0)
+      '@graphql-tools/executor': 1.4.7(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.23(graphql@16.11.0)
+      '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       '@graphql-yoga/logger': 2.0.1
       '@graphql-yoga/subscription': 5.0.5
       '@whatwg-node/fetch': 0.10.6
       '@whatwg-node/promise-helpers': 1.3.1
       '@whatwg-node/server': 0.10.5
       dset: 3.1.4
-      graphql: 16.9.0
+      graphql: 16.11.0
       lru-cache: 10.2.2
       tslib: 2.8.1
+
+  graphql@16.11.0: {}
 
   graphql@16.9.0: {}
 
