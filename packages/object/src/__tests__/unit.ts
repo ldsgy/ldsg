@@ -5,6 +5,54 @@ import { SpecificResourceSettings } from "@ldsg/types";
 import { ObjectResource } from "../resource";
 import { FieldInfo, GetFieldInfo } from "../types";
 
+interface ASpecificResourceSettings extends SpecificResourceSettings {
+  /**
+   * Field Name
+   */
+  name: string;
+
+  /**
+   * Field Type Resource ID
+   */
+  fieldTypeResourceId: string;
+
+  /**
+   * Field Properties
+   */
+  properties: any;
+}
+
+class AResource extends Resource<ASpecificResourceSettings> {
+  getFieldInfo: GetFieldInfo = (params) => {
+    const { platform } = params;
+
+    const {
+      settings: { title, description, name, properties },
+      getResourcesFromSettings,
+    } = this;
+
+    const { fieldTypeResource } = getResourcesFromSettings();
+
+    const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
+      platform,
+      fieldProperties: properties,
+    });
+
+    const fieldInfo: FieldInfo = {
+      title,
+      description,
+      name,
+      typeInfo,
+    };
+
+    const res = {
+      fieldInfo,
+    };
+
+    return res;
+  };
+}
+
 const handler: Handler<
   [
     {
@@ -86,55 +134,16 @@ test("object", () => {
     },
   });
 
-  interface ASpecificResourceSettings extends SpecificResourceSettings {
-    /**
-     * Field Name
-     */
-    name: string;
-
-    /**
-     * Field Type Resource ID
-     */
-    fieldTypeResourceId: string;
-
-    /**
-     * Field Properties
-     */
-    properties: any;
-  }
-
-  class AResource extends Resource<ASpecificResourceSettings> {
-    getFieldInfo: GetFieldInfo = (params) => {
-      const { platform } = params;
-
-      const {
-        settings: { title, description, name, properties },
-        getResourcesFromSettings,
-      } = this;
-
-      const { fieldTypeResource } = getResourcesFromSettings();
-
-      const typeInfo = (
-        fieldTypeResource as FieldTypeResource
-      ).getFieldTypeInfo({
-        platform,
-        fieldProperties: properties,
-      });
-
-      const fieldInfo: FieldInfo = {
-        title,
-        description,
-        name,
-        typeInfo,
-      };
-
-      const res = {
-        fieldInfo,
-      };
-
-      return res;
-    };
-  }
+  const objectResource = new ObjectResource({
+    id: "test-object",
+    kind: "OBJECT",
+    parentId: "root",
+    settings: {
+      title: "测试对象",
+      description: "",
+      name: "test-object",
+    },
+  });
 
   new AResource({
     id: "test-a-1",
@@ -178,17 +187,6 @@ test("object", () => {
       properties: {
         max: "10",
       },
-    },
-  });
-
-  const objectResource = new ObjectResource({
-    id: "test-object",
-    kind: "OBJECT",
-    parentId: "root",
-    settings: {
-      title: "测试对象",
-      description: "",
-      name: "test-object",
     },
   });
 
