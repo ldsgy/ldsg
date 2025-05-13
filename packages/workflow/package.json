@@ -1,5 +1,5 @@
 {
-  "name": "@ldsg/workflow-node-type",
+  "name": "@ldsg/workflow",
   "version": "0.1.0-alpha.19",
   "description": "",
   "main": "dist/index.js",
