@@ -3,7 +3,7 @@ import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-defin
 import { GeneralResourceSettings } from "@ldsg/types";
 
 export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
-  title: "工作流节点类型类型资源处理程序",
+  title: "工作流节点类型资源处理程序",
   description: "",
 };
 
@@ -14,17 +14,17 @@ export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
  */
 export const HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
   {
-    code: `export * from "@ldsg/workflow-node-type";`,
+    code: `export * from "@ldsg/workflow-node";`,
     dependencies: [
       {
-        name: "@ldsg/workflow-node-type",
+        name: "@ldsg/workflow-node",
       },
     ],
   };
 
 export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "工作流节点类型类型资源定义",
+    title: "工作流节点类型资源定义",
     description: "",
   };
 

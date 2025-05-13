@@ -1,1 +1,1 @@
-# LDSG Workflow Node Type
+# LDSG Workflow Edge

@@ -1,5 +1,5 @@
 import { Handler, HandlerResource } from "@ldsg/handler";
-import { WorkflowNodeTypeResource } from "../resource";
+import { WorkflowNodeResource } from "../resource";
 
 const handler: Handler<
   [
@@ -61,7 +61,7 @@ test("field type", () => {
     handler,
   });
 
-  const fieldTypeResource = new WorkflowNodeTypeResource({
+  const fieldTypeResource = new WorkflowNodeResource({
     id: "test-field-type",
     kind: "FIELD_TYPE",
     parentId: "root",
@@ -82,7 +82,7 @@ test("field type", () => {
     },
   });
 
-  const fieldTypeOnMongoose = fieldTypeResource.getWorkflowNodeTypeInfo({
+  const fieldTypeOnMongoose = fieldTypeResource.getWorkflowNodeInfo({
     workflowNodeProperties: {
       max: "10",
     },

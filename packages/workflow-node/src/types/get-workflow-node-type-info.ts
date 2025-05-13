@@ -1,21 +1,21 @@
-export interface GetWorkflowNodeTypeInfoParams {
+export interface GetWorkflowNodeInfoParams {
   /**
    * Workflow Node Properties
    */
   workflowNodeProperties: any;
 }
 
-export interface WorkflowNodeTypeInfo {
+export interface WorkflowNodeInfo {
   execute: (params: any) => any | Promise<any>;
 }
 
-export interface GetWorkflowNodeTypeInfoRes {
+export interface GetWorkflowNodeInfoRes {
   /**
    * Workflow Node Type Info
    */
-  workflowNodeTypeInfo: WorkflowNodeTypeInfo;
+  workflowNodeInfo: WorkflowNodeInfo;
 }
 
-export type GetWorkflowNodeTypeInfo = (
-  params: GetWorkflowNodeTypeInfoParams
-) => GetWorkflowNodeTypeInfoRes;
+export type GetWorkflowNodeInfo = (
+  params: GetWorkflowNodeInfoParams
+) => GetWorkflowNodeInfoRes;
