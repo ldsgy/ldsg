@@ -763,6 +763,76 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.97.1)
 
+  packages/workflow:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+
+  packages/workflow-edge:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+
+  packages/workflow-node:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+    devDependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+
+  packages/workflow-node-type:
+    dependencies:
+      '@ldsg/handler':
+        specifier: workspace:*
+        version: link:../handler
+      '@ldsg/resource':
+        specifier: workspace:*
+        version: link:../resource
+      '@ldsg/resource-definition':
+        specifier: workspace:*
+        version: link:../resource-definition
+      json-schema:
+        specifier: 0.4.0
+        version: 0.4.0
+    devDependencies:
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:../types
+      '@types/json-schema':
+        specifier: ^7.0.15
+        version: 7.0.15
+
 packages:
 
   '@ampproject/remapping@2.3.0':

@@ -24,7 +24,6 @@
     "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
-    "@ldsg/types": "workspace:*",
-    "@types/json-schema": "^7.0.15"
+    "@ldsg/types": "workspace:*"
   }
 }

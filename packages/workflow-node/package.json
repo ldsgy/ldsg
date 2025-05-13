@@ -21,11 +21,9 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*",
-    "json-schema": "0.4.0"
+    "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
-    "@ldsg/types": "workspace:*",
-    "@types/json-schema": "^7.0.15"
+    "@ldsg/types": "workspace:*"
   }
 }
