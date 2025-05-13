@@ -14,10 +14,10 @@ export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
  */
 export const HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
   {
-    code: `export * from "@ldsg/workflow-node-type";`,
+    code: `export * from "@ldsg/workflow-edge";`,
     dependencies: [
       {
-        name: "@ldsg/workflow-node-type",
+        name: "@ldsg/workflow-edge",
       },
     ],
   };

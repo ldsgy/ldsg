@@ -1,15 +1,15 @@
 import { HandlerExtendedResourceSettings } from "@ldsg/handler";
 import { InstantiateResource } from "@ldsg/resource";
-import { WorkflowNodeTypeResource } from "./resource";
-import { WorkflowNodeTypeSpecificResourceSettings } from "./types";
+import { WorkflowEdgeResource } from "./resource";
+import { WorkflowEdgeSpecificResourceSettings } from "./types";
 
 export const instantiateResource: InstantiateResource<
-  HandlerExtendedResourceSettings<WorkflowNodeTypeSpecificResourceSettings>,
-  WorkflowNodeTypeResource
+  HandlerExtendedResourceSettings<WorkflowEdgeSpecificResourceSettings>,
+  WorkflowEdgeResource
 > = (params) => {
   const { resourceConstructorParams } = params;
 
-  const resource = new WorkflowNodeTypeResource(resourceConstructorParams);
+  const resource = new WorkflowEdgeResource(resourceConstructorParams);
 
   const res = {
     resource,
