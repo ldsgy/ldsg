@@ -821,6 +821,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/workflow-node-type':
+        specifier: workspace:*
+        version: link:../workflow-node-type
     devDependencies:
       '@ldsg/types':
         specifier: workspace:*

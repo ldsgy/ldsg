@@ -1,20 +1,24 @@
 import { HandlerExtendedResource } from "@ldsg/handler";
 import {
-  GetWorkflowNodeTypeInfo,
+  GetWorkflowNodeInfo,
   WorkflowNodeTypeSpecificResourceSettings,
 } from "./types";
 
 export class WorkflowNodeTypeResource extends HandlerExtendedResource<WorkflowNodeTypeSpecificResourceSettings> {
-  getWorkflowNodeTypeInfo: GetWorkflowNodeTypeInfo = (params) => {
+  getWorkflowNodeInfo: GetWorkflowNodeInfo = (params) => {
     const { workflowNodeProperties } = params;
 
     const { getHandler } = this;
 
     const handler = getHandler();
 
-    const res = handler({
+    const workflowNodeInfo = handler({
       workflowNodeProperties,
     });
+
+    const res = {
+      workflowNodeInfo,
+    };
 
     return res;
   };

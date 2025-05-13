@@ -21,7 +21,8 @@
   "dependencies": {
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
-    "@ldsg/resource-definition": "workspace:*"
+    "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/workflow-node-type": "workspace:*"
   },
   "devDependencies": {
     "@ldsg/types": "workspace:*"

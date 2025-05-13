@@ -61,7 +61,7 @@ test("field type", () => {
     handler,
   });
 
-  const fieldTypeResource = new WorkflowNodeTypeResource({
+  const workflowNodeTypeResource = new WorkflowNodeTypeResource({
     id: "test-field-type",
     kind: "FIELD_TYPE",
     parentId: "root",
@@ -82,11 +82,11 @@ test("field type", () => {
     },
   });
 
-  const fieldTypeOnMongoose = fieldTypeResource.getWorkflowNodeTypeInfo({
+  const { workflowNodeInfo } = workflowNodeTypeResource.getWorkflowNodeInfo({
     workflowNodeProperties: {
       max: "10",
     },
   });
 
-  expect(fieldTypeOnMongoose).toMatchSnapshot();
+  expect(workflowNodeInfo).toMatchSnapshot();
 });

@@ -5,6 +5,7 @@ export interface WorkflowNodeTypeSpecificResourceSettings
   extends SpecificResourceSettings {
   /**
    * Workflow Node Properties Schema
+   * Include default value.
    */
   workflowNodePropertiesSchema?: JSONSchema7;
 }
