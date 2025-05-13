@@ -22,7 +22,6 @@
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
-    "@ldsg/workflow-edge": "workspace:*",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

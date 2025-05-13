@@ -82,11 +82,12 @@ test("field type", () => {
     },
   });
 
-  const { workflowNodeInfo } = workflowNodeTypeResource.getWorkflowNodeInfo({
-    workflowNodeProperties: {
-      max: "10",
-    },
-  });
+  const { workflowNodeInfo } =
+    workflowNodeTypeResource.getWorkflowNodeInfoWithProperties({
+      workflowNodeProperties: {
+        max: "10",
+      },
+    });
 
   expect(workflowNodeInfo).toMatchSnapshot();
 });

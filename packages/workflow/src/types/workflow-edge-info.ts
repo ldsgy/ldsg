@@ -19,3 +19,12 @@ export interface WorkflowEdgeInfo {
    */
   targetWorkflowNodePortId?: string;
 }
+
+export interface GetWorkflowEdgeInfoRes {
+  /**
+   * Workflow Edge Info
+   */
+  workflowEdgeInfo: WorkflowEdgeInfo;
+}
+
+export type GetWorkflowEdgeInfo = () => GetWorkflowEdgeInfoRes;

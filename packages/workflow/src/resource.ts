@@ -1,13 +1,24 @@
 import { HandlerExtendedResource } from "@ldsg/handler";
-import { GetWorkflowEdgeInfo, WorkflowEdgeInfo } from "@ldsg/workflow-edge";
 import _ from "lodash";
-import { WorkflowSpecificResourceSettings } from "./types";
+import {
+  GetWorkflowEdgeInfo,
+  GetWorkflowNodeInfo,
+  WorkflowEdgeInfo,
+  WorkflowNodeInfo,
+  WorkflowSpecificResourceSettings,
+} from "./types";
 
-interface GetWorkflowEdgeInfoListRes {
+export interface GetWorkflowEdgeInfoListRes {
   workflowEdgeInfoList: WorkflowEdgeInfo[];
 }
 
 export type GetWorkflowEdgeInfoList = () => GetWorkflowEdgeInfoListRes;
+
+export interface GetWorkflowNodeInfoListRes {
+  workflowNodeInfoList: WorkflowNodeInfo[];
+}
+
+export type GetWorkflowNodeInfoList = () => GetWorkflowNodeInfoListRes;
 
 export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificResourceSettings> {
   getWorkflowEdgeInfoList: GetWorkflowEdgeInfoList = () => {
@@ -35,6 +46,36 @@ export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificRe
 
     const res = {
       workflowEdgeInfoList,
+    };
+
+    return res;
+  };
+
+  getWorkflowNodeInfoList: GetWorkflowNodeInfoList = () => {
+    const { id, getFilteredResources } = this;
+
+    const { resources } = getFilteredResources<{
+      getWorkflowNodeInfo?: GetWorkflowNodeInfo;
+    }>({
+      parentId: id,
+    });
+
+    const mapRes = resources.map((resource) => {
+      return resource.getWorkflowNodeInfo?.();
+    });
+
+    const GetWorkflowNodeInfoResList = _.filter(
+      mapRes,
+      (value) => !_.isUndefined(value)
+    );
+
+    const workflowNodeInfoList = _.map(
+      GetWorkflowNodeInfoResList,
+      "workflowNodeInfo"
+    );
+
+    const res = {
+      workflowNodeInfoList,
     };
 
     return res;

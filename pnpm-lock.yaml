@@ -774,9 +774,6 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
-      '@ldsg/workflow-edge':
-        specifier: workspace:*
-        version: link:../workflow-edge
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -799,6 +796,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/workflow':
+        specifier: workspace:*
+        version: link:../workflow
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -821,6 +821,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/workflow':
+        specifier: workspace:*
+        version: link:../workflow
       '@ldsg/workflow-node-type':
         specifier: workspace:*
         version: link:../workflow-node-type
@@ -840,6 +843,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/workflow':
+        specifier: workspace:*
+        version: link:../workflow
       json-schema:
         specifier: 0.4.0
         version: 0.4.0

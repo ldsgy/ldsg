@@ -22,6 +22,7 @@
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/workflow": "workspace:*",
     "json-schema": "0.4.0"
   },
   "devDependencies": {
