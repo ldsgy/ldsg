@@ -11,21 +11,17 @@ export interface ResourceConstructorParams<
 
 type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
 
-interface GetFilteredResourceRes {
-  resource: Resource | undefined;
+interface GetFilteredResourceRes<
+  T extends Record<string, any> = Record<string, any>
+> {
+  resource: (Resource & T) | undefined;
 }
 
-type GetFilteredResource = (
-  params: GetFilteredResourcesParams
-) => GetFilteredResourceRes;
-
-interface GetFilteredResourcesRes {
-  resources: Resource[];
+interface GetFilteredResourcesRes<
+  T extends Record<string, any> = Record<string, any>
+> {
+  resources: (Resource & T)[];
 }
-
-type GetFilteredResources = (
-  params: GetFilteredResourcesParams
-) => GetFilteredResourcesRes;
 
 type GetResourcesFromSettingsRes<T extends SpecificResourceSettings> = {
   [K in keyof T as K extends `${infer P}ResourceId`
@@ -83,10 +79,12 @@ export class Resource<
   /**
    * Get Filtered Resource
    */
-  getFilteredResource: GetFilteredResource = (params) => {
-    const getFilteredResourcesRes = this.getFilteredResources(params);
+  getFilteredResource = <T extends Record<string, any> = Record<string, any>>(
+    params: GetFilteredResourcesParams
+  ) => {
+    const getFilteredResourcesRes = this.getFilteredResources<T>(params);
 
-    const res: GetFilteredResourceRes = {
+    const res: GetFilteredResourceRes<T> = {
       resource: getFilteredResourcesRes.resources[0],
     };
 
@@ -96,13 +94,15 @@ export class Resource<
   /**
    * Get Filtered Resources
    */
-  getFilteredResources: GetFilteredResources = (params) => {
+  getFilteredResources = <T extends Record<string, any> = Record<string, any>>(
+    params: GetFilteredResourcesParams
+  ) => {
     const { resourceList } = Resource;
 
     const filterRes = _.filter(resourceList, params);
 
-    const res: GetFilteredResourcesRes = {
-      resources: filterRes,
+    const res: GetFilteredResourcesRes<T> = {
+      resources: filterRes as (Resource & T)[],
     };
 
     return res;

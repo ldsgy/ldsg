@@ -39,14 +39,14 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
       getFilteredResources,
     } = this;
 
-    const { resources } = getFilteredResources({
-      parentId: id,
-    });
+    const { resources } = getFilteredResources<{ getFieldInfo?: GetFieldInfo }>(
+      {
+        parentId: id,
+      }
+    );
 
     const mapRes = resources.map((resource) => {
-      const fieldInfo = (
-        resource as { getFieldInfo?: GetFieldInfo } & Resource
-      ).getFieldInfo?.({ platform });
+      const fieldInfo = resource.getFieldInfo?.({ platform });
 
       return fieldInfo;
     });

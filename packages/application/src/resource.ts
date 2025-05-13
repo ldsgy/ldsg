@@ -34,19 +34,16 @@ export class ApplicationResource extends Resource<ApplicationSpecificResourceSet
       res.send(`Hello, ${name ?? "World"}!`);
     });
 
-    const getFilteredResourcesRes = getFilteredResources({
+    const getFilteredResourcesRes = getFilteredResources<{
+      extendExpressApp?: ExtendExpressApp;
+    }>({
       parentId: id,
     });
 
     const { resources } = getFilteredResourcesRes;
 
     resources.forEach((resource) => {
-      if (
-        "extendExpressApp" in resource &&
-        typeof resource.extendExpressApp === "function"
-      ) {
-        resource.extendExpressApp(params);
-      }
+      resource.extendExpressApp?.(params);
     });
   };
 }

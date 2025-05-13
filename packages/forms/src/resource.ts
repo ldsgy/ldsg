@@ -27,16 +27,14 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
 
     const { id, getFilteredResources } = this;
 
-    const { resources } = getFilteredResources({
+    const { resources } = getFilteredResources<{
+      getFormInfo?: GetFormInfo;
+    }>({
       parentId: id,
     });
 
     const mapRes = resources.map((resource) => {
-      return (
-        resource as {
-          getFormInfo?: GetFormInfo;
-        } & Resource
-      ).getFormInfo?.({ platform });
+      return resource.getFormInfo?.({ platform });
     });
 
     const formInfoList = _.filter(mapRes, (value) => !_.isUndefined(value));

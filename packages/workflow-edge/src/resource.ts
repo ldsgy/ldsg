@@ -5,16 +5,26 @@ import {
   WorkflowEdgeSpecificResourceSettings,
 } from "./types";
 
+interface GetWorkflowEdgeInfoRes {
+  workflowEdgeInfo: WorkflowEdgeInfo;
+}
+
+export type GetWorkflowEdgeInfo = () => GetWorkflowEdgeInfoRes;
+
 export class WorkflowEdgeResource extends HandlerExtendedResource<WorkflowEdgeSpecificResourceSettings> {
-  getEdgeInfo = () => {
+  getWorkflowEdgeInfo: GetWorkflowEdgeInfo = () => {
     const { settings } = this;
 
-    const res: WorkflowEdgeInfo = _.pick(settings, [
+    const workflowEdgeInfo = _.pick(settings, [
       "sourceWorkflowNodeResourceId",
       "sourceWorkflowNodePortId",
       "targetWorkflowNodeResourceId",
       "targetWorkflowNodePortId",
     ]);
+
+    const res = {
+      workflowEdgeInfo,
+    };
 
     return res;
   };

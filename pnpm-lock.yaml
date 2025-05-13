@@ -774,10 +774,19 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/workflow-edge':
+        specifier: workspace:*
+        version: link:../workflow-edge
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.17.5
 
   packages/workflow-edge:
     dependencies:

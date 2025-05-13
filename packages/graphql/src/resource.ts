@@ -34,16 +34,14 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
 
     const { parentId, getFilteredResources } = this;
 
-    const { resources } = getFilteredResources({
+    const { resources } = getFilteredResources<{
+      modifyGraphQLSchema?: ModifyGraphQLSchema;
+    }>({
       parentId,
     });
 
     resources.forEach((resource) => {
-      (
-        resource as {
-          modifyGraphQLSchema?: ModifyGraphQLSchema;
-        } & Resource
-      ).modifyGraphQLSchema?.({
+      resource.modifyGraphQLSchema?.({
         schemaComposer,
       });
     });
