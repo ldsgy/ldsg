@@ -1,1 +1,1 @@
-# LDSG Graphql Resource
+# LDSG Workflow Node Type

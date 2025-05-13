@@ -1,10 +1,10 @@
 import { SpecificResourceSettings } from "@ldsg/types";
 import { JSONSchema7 } from "json-schema";
 
-export interface FieldTypeSpecificResourceSettings
+export interface WorkflowNodeTypeSpecificResourceSettings
   extends SpecificResourceSettings {
   /**
-   * Field Properties Schema
+   * Workflow Node Properties Schema
    */
-  fieldPropertiesSchema?: JSONSchema7;
+  workflowNodePropertiesSchema?: JSONSchema7;
 }

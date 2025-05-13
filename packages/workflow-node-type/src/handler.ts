@@ -4,14 +4,14 @@ import {
   InstantiateResourceRes,
 } from "@ldsg/resource";
 import { instantiateResource } from "./instantiate-resource";
-import { FieldTypeResource } from "./resource";
-import { FieldTypeSpecificResourceSettings } from "./types";
+import { WorkflowNodeTypeResource } from "./resource";
+import { WorkflowNodeTypeSpecificResourceSettings } from "./types";
 
 export const handler: Handler<
   [
     InstantiateResourceParams<
-      HandlerExtendedResourceSettings<FieldTypeSpecificResourceSettings>
+      HandlerExtendedResourceSettings<WorkflowNodeTypeSpecificResourceSettings>
     >
   ],
-  InstantiateResourceRes<FieldTypeResource>
+  InstantiateResourceRes<WorkflowNodeTypeResource>
 > = instantiateResource;
