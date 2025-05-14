@@ -33,3 +33,12 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
     kind: "WORKFLOW_NODE_TYPE",
     subKinds: [],
   };
+
+/**
+ * Specific Workflow Node Type Id Map
+ */
+export const SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP =
+  {
+    start: "workflow_node_type_start",
+    end: "workflow_node_type_end",
+  } as const;

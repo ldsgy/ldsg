@@ -8,6 +8,7 @@ import {
   WorkflowNodeInfo,
   WorkflowSpecificResourceSettings,
 } from "./types";
+import { getOrderedNodeList } from "./utils";
 
 export interface GetWorkflowEdgeInfoListRes {
   workflowEdgeInfoList: WorkflowEdgeInfo[];
@@ -26,6 +27,8 @@ export interface GetWorkflowInfoRes {
 }
 
 export type GetWorkflowInfo = () => GetWorkflowInfoRes;
+
+export type Execute = () => Promise<any>;
 
 export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificResourceSettings> {
   getWorkflowEdgeInfoList: GetWorkflowEdgeInfoList = () => {
@@ -105,5 +108,34 @@ export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificRe
     };
 
     return res;
+  };
+
+  execute = async () => {
+    const { getWorkflowInfo } = this;
+
+    const { workflowInfo } = getWorkflowInfo();
+
+    const { orderedNodeList } = getOrderedNodeList({
+      workflowInfo,
+    });
+
+    const workflowVariables = {};
+
+    const executeList = orderedNodeList.map((node) => {
+      const { id, Executer } = node;
+
+      const executer = new Executer({
+        nodeId: id,
+        workflowVariables,
+      });
+
+      const res = executer.execute;
+
+      return res;
+    });
+
+    for (const execute of executeList) {
+      await execute();
+    }
   };
 }

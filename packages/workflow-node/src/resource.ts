@@ -9,7 +9,7 @@ export class WorkflowNodeResource extends HandlerExtendedResource<WorkflowNodeSp
 
     const { workflowNodeTypeResource } = getResourcesFromSettings();
 
-    const { properties } = settings;
+    const { workflowNodeTypeResourceId, properties } = settings;
 
     const { extraWorkflowNodeInfo } = (
       workflowNodeTypeResource as WorkflowNodeTypeResource
@@ -20,6 +20,7 @@ export class WorkflowNodeResource extends HandlerExtendedResource<WorkflowNodeSp
     const workflowNodeInfo = {
       ...extraWorkflowNodeInfo,
       id,
+      workflowNodeTypeResourceId,
     };
 
     const res = {
