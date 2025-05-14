@@ -1,2 +1,2 @@
-export * from "./get-workflow-node-info-with-properties";
+export * from "./extra-workflow-node-info";
 export * from "./specific-resource-settings";

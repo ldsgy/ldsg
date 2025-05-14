@@ -5,17 +5,26 @@ import { WorkflowNodeSpecificResourceSettings } from "./types";
 
 export class WorkflowNodeResource extends HandlerExtendedResource<WorkflowNodeSpecificResourceSettings> {
   getWorkflowNodeInfo: GetWorkflowNodeInfo = () => {
-    const { getResourcesFromSettings, settings } = this;
+    const { id, getResourcesFromSettings, settings } = this;
 
     const { workflowNodeTypeResource } = getResourcesFromSettings();
 
     const { properties } = settings;
 
-    const res = (
+    const { extraWorkflowNodeInfo } = (
       workflowNodeTypeResource as WorkflowNodeTypeResource
-    ).getWorkflowNodeInfoWithProperties({
+    ).getExtraWorkflowNodeInfo({
       workflowNodeProperties: properties,
     });
+
+    const workflowNodeInfo = {
+      ...extraWorkflowNodeInfo,
+      id,
+    };
+
+    const res = {
+      workflowNodeInfo,
+    };
 
     return res;
   };

@@ -1,4 +1,12 @@
 export interface WorkflowNodeInfo {
+  /**
+   * ID
+   */
+  id: string;
+
+  /**
+   * Execute
+   */
   execute: (params: any) => any | Promise<any>;
 }
 
