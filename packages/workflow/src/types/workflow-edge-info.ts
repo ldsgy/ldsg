@@ -1,11 +1,12 @@
 export interface WorkflowEdgeInfo {
   /**
-   * 起点工作流节点资源ID
+   * 开始工作流节点资源ID
    */
   sourceWorkflowNodeResourceId: string;
 
   /**
-   * 起点工作流节点端口ID
+   * 开始工作流节点端口ID
+   * 缺省则采用开始节点的默认端口
    */
   sourceWorkflowNodePortId?: string;
 
@@ -16,6 +17,7 @@ export interface WorkflowEdgeInfo {
 
   /**
    * 目标工作流节点端口ID
+   * 缺省则采用目标节点的默认端口
    */
   targetWorkflowNodePortId?: string;
 }

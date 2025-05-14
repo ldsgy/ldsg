@@ -4,6 +4,7 @@ import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
   WorkflowEdgeInfo,
+  WorkflowInfo,
   WorkflowNodeInfo,
   WorkflowSpecificResourceSettings,
 } from "./types";
@@ -19,6 +20,12 @@ export interface GetWorkflowNodeInfoListRes {
 }
 
 export type GetWorkflowNodeInfoList = () => GetWorkflowNodeInfoListRes;
+
+export interface GetWorkflowInfoRes {
+  workflowInfo: WorkflowInfo;
+}
+
+export type GetWorkflowInfo = () => GetWorkflowInfoRes;
 
 export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificResourceSettings> {
   getWorkflowEdgeInfoList: GetWorkflowEdgeInfoList = () => {
@@ -76,6 +83,25 @@ export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificRe
 
     const res = {
       workflowNodeInfoList,
+    };
+
+    return res;
+  };
+
+  getWorkflowInfo: GetWorkflowInfo = () => {
+    const { getWorkflowEdgeInfoList, getWorkflowNodeInfoList } = this;
+
+    const { workflowEdgeInfoList } = getWorkflowEdgeInfoList();
+
+    const { workflowNodeInfoList } = getWorkflowNodeInfoList();
+
+    const workflowInfo = {
+      edges: workflowEdgeInfoList,
+      nodes: workflowNodeInfoList,
+    };
+
+    const res = {
+      workflowInfo,
     };
 
     return res;
