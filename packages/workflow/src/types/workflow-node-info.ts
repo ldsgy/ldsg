@@ -1,37 +1,56 @@
+import {
+  NodeId,
+  NodeIdToOutputVariablesMap,
+  NodeOutputVariables,
+} from "../resource";
+
 type WorkflowNodeExecuterExecute = () => any | Promise<any>;
-
-type NodeId = string;
-
-type WorkflowVariables = Record<NodeId, any>;
 
 interface WorkflowNodeExecuterConstructorParams {
   nodeId: NodeId;
 
-  workflowVariables: WorkflowVariables;
+  nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap;
 }
+
+interface SetOutputVariablesParams {
+  outputVariables: NodeOutputVariables;
+}
+
+type SetOutputVariables = (params: SetOutputVariablesParams) => void;
 
 export class WorkflowNodeExecuter
   implements WorkflowNodeExecuterConstructorParams
 {
   nodeId: NodeId;
 
-  workflowVariables: WorkflowVariables;
+  nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap;
 
   constructor(params: WorkflowNodeExecuterConstructorParams) {
-    const { nodeId, workflowVariables } = params;
+    const { nodeId, nodeIdToOutputVariablesMap } = params;
 
     this.nodeId = nodeId;
-    this.workflowVariables = workflowVariables;
+    this.nodeIdToOutputVariablesMap = nodeIdToOutputVariablesMap;
   }
 
+  /**
+   * Set Node Output Variables
+   */
+  setOutputVariables: SetOutputVariables = (params) => {
+    const { outputVariables } = params;
+
+    const { nodeId, nodeIdToOutputVariablesMap } = this;
+
+    nodeIdToOutputVariablesMap[nodeId] = outputVariables;
+  };
+
   execute: WorkflowNodeExecuterExecute = () => {
-    const { nodeId, workflowVariables } = this;
+    const { nodeId, nodeIdToOutputVariablesMap } = this;
 
     console.debug("WorkflowNodeExecuter execute nodeId", nodeId);
 
     console.debug(
-      "WorkflowNodeExecuter execute workflowVariables",
-      workflowVariables
+      "WorkflowNodeExecuter execute nodeIdToOutputVariablesMap",
+      nodeIdToOutputVariablesMap
     );
   };
 }

@@ -1,9 +1,9 @@
-import { HandlerExtendedResource } from "@ldsg/handler";
+import { Resource } from "@ldsg/resource";
 import { GetWorkflowEdgeInfo } from "@ldsg/workflow";
 import _ from "lodash";
 import { WorkflowEdgeSpecificResourceSettings } from "./types";
 
-export class WorkflowEdgeResource extends HandlerExtendedResource<WorkflowEdgeSpecificResourceSettings> {
+export class WorkflowEdgeResource extends Resource<WorkflowEdgeSpecificResourceSettings> {
   getWorkflowEdgeInfo: GetWorkflowEdgeInfo = () => {
     const { settings } = this;
 

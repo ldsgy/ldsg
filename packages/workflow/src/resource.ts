@@ -1,4 +1,4 @@
-import { HandlerExtendedResource } from "@ldsg/handler";
+import { Resource } from "@ldsg/resource";
 import _ from "lodash";
 import {
   GetWorkflowEdgeInfo,
@@ -30,7 +30,15 @@ export type GetWorkflowInfo = () => GetWorkflowInfoRes;
 
 export type Execute = () => Promise<any>;
 
-export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificResourceSettings> {
+export type NodeId = string;
+
+export type NodeOutputVariables = any;
+
+export type NodeIdToOutputVariablesMap = Record<NodeId, NodeOutputVariables>;
+
+export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings> {
+  nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap = {};
+
   getWorkflowEdgeInfoList: GetWorkflowEdgeInfoList = () => {
     const { id, getFilteredResources } = this;
 
@@ -111,7 +119,7 @@ export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificRe
   };
 
   execute = async () => {
-    const { getWorkflowInfo } = this;
+    const { getWorkflowInfo, nodeIdToOutputVariablesMap } = this;
 
     const { workflowInfo } = getWorkflowInfo();
 
@@ -119,14 +127,12 @@ export class WorkflowResource extends HandlerExtendedResource<WorkflowSpecificRe
       workflowInfo,
     });
 
-    const workflowVariables = {};
-
     const executeList = orderedNodeList.map((node) => {
       const { id, Executer } = node;
 
       const executer = new Executer({
         nodeId: id,
-        workflowVariables,
+        nodeIdToOutputVariablesMap,
       });
 
       const res = executer.execute;
