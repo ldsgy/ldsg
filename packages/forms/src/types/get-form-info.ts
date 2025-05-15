@@ -1,5 +1,6 @@
 import { ObjectInfo } from "@ldsg/object";
 import { GeneralResourceSettings } from "@ldsg/types";
+import { WorkflowInfo } from "@ldsg/workflow";
 
 export interface PlatformParams {
   /**
@@ -24,6 +25,11 @@ export interface FormInfo extends GeneralResourceSettings {
    * Output Object Info
    */
   outputObjectInfo: ObjectInfo;
+
+  /**
+   * Workflow Info
+   */
+  workflowInfo: WorkflowInfo;
 }
 
 export type GetFormInfo = (params: PlatformParams) => FormInfo;

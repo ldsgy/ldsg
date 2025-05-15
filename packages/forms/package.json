@@ -31,6 +31,7 @@
     "@ldsg/object": "workspace:*",
     "@ldsg/object-field": "workspace:*",
     "@ldsg/types": "workspace:*",
+    "@ldsg/workflow": "workspace:*",
     "@types/lodash": "^4.14.202",
     "@types/supertest": "^6.0.0",
     "graphql": "16.11.0",

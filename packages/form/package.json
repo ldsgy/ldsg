@@ -29,6 +29,7 @@
     "@ldsg/object": "workspace:*",
     "@ldsg/object-field": "workspace:*",
     "@ldsg/types": "workspace:*",
+    "@ldsg/workflow": "workspace:*",
     "@types/supertest": "^6.0.0",
     "supertest": "^6.3.4"
   }

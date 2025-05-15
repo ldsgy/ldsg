@@ -4,16 +4,13 @@ import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } fro
 import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
+  WorkflowData,
   WorkflowEdgeInfo,
   WorkflowInfo,
   WorkflowNodeInfo,
   WorkflowSpecificResourceSettings,
 } from "./types";
-import {
-  getEndNodeOutputVariables,
-  GetEndNodeOutputVariablesRes,
-  getOrderedNodeList,
-} from "./utils";
+import { getEndNodeOutputVariables, getOrderedNodeList } from "./utils";
 
 export interface GetWorkflowEdgeInfoListRes {
   workflowEdgeInfoList: WorkflowEdgeInfo[];
@@ -27,19 +24,23 @@ export interface GetWorkflowNodeInfoListRes {
 
 export type GetWorkflowNodeInfoList = () => GetWorkflowNodeInfoListRes;
 
-export interface GetWorkflowInfoRes {
-  workflowInfo: WorkflowInfo;
+export interface GetWorkflowDataRes {
+  workflowData: WorkflowData;
 }
 
-export type GetWorkflowInfo = () => GetWorkflowInfoRes;
-
-export type Execute = () => Promise<GetEndNodeOutputVariablesRes>;
+export type GetWorkflowData = () => GetWorkflowDataRes;
 
 export type NodeId = string;
 
 export type NodeOutputVariables = any;
 
 export type NodeIdToOutputVariablesMap = Record<NodeId, NodeOutputVariables>;
+
+export interface GetWorkflowInfoRes {
+  workflowInfo: WorkflowInfo;
+}
+
+export type GetWorkflowInfo = () => GetWorkflowInfoRes;
 
 export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings> {
   nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap = {};
@@ -104,31 +105,31 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     return res;
   };
 
-  getWorkflowInfo: GetWorkflowInfo = () => {
+  getWorkflowData: GetWorkflowData = () => {
     const { getWorkflowEdgeInfoList, getWorkflowNodeInfoList } = this;
 
     const { workflowEdgeInfoList } = getWorkflowEdgeInfoList();
 
     const { workflowNodeInfoList } = getWorkflowNodeInfoList();
 
-    const workflowInfo = {
+    const workflowData = {
       edges: workflowEdgeInfoList,
       nodes: workflowNodeInfoList,
     };
 
     const res = {
-      workflowInfo,
+      workflowData,
     };
 
     return res;
   };
 
   execute = async () => {
-    const { getWorkflowInfo, nodeIdToOutputVariablesMap } = this;
+    const { getWorkflowData, nodeIdToOutputVariablesMap } = this;
 
-    const { workflowInfo } = getWorkflowInfo();
+    const { workflowData } = getWorkflowData();
 
-    const { nodes } = workflowInfo;
+    const { nodes } = workflowData;
 
     const startNode = nodes.find(
       (value) =>
@@ -147,7 +148,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     }
 
     const { orderedNodeList } = getOrderedNodeList({
-      workflowInfo,
+      workflowData,
       startNode,
       endNode,
     });
@@ -173,6 +174,20 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       endNode,
       nodeIdToOutputVariablesMap,
     });
+
+    return res;
+  };
+
+  getWorkflowInfo: GetWorkflowInfo = () => {
+    const { execute } = this;
+
+    const workflowInfo = {
+      execute,
+    };
+
+    const res = {
+      workflowInfo,
+    };
 
     return res;
   };

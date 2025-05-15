@@ -5,6 +5,7 @@ import { ObjectResource } from "@ldsg/object";
 import { ObjectFieldResource } from "@ldsg/object-field";
 import { Resource } from "@ldsg/resource";
 import { SpecificResourceSettings } from "@ldsg/types";
+import { WorkflowResource } from "@ldsg/workflow";
 import { printSchema } from "graphql";
 import { ObjectTypeComposerFieldConfigAsObjectDefinition } from "graphql-compose";
 import { FormsResource } from "../resource";
@@ -52,12 +53,17 @@ class AResource extends Resource<ASpecificResourceSettings> {
       outputObjectResource as ObjectResource
     ).getObjectInfo({ platform });
 
+    const { workflowInfo } = (
+      workflowResource as WorkflowResource
+    ).getWorkflowInfo();
+
     const res: FormInfo = {
       title,
       description,
       name,
       inputObjectInfo,
       outputObjectInfo,
+      workflowInfo,
     };
 
     return res;

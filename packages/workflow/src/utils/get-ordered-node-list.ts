@@ -1,7 +1,7 @@
-import { WorkflowInfo, WorkflowNodeInfo } from "../types";
+import { WorkflowData, WorkflowNodeInfo } from "../types";
 
 interface GetOrderedNodeListParams {
-  workflowInfo: WorkflowInfo;
+  workflowData: WorkflowData;
   startNode: WorkflowNodeInfo;
   endNode: WorkflowNodeInfo;
 }
@@ -21,9 +21,9 @@ type GetOrderedNodeList = (
  * 2. 从开始节点逐一向后查找
  */
 export const getOrderedNodeList: GetOrderedNodeList = (params) => {
-  const { workflowInfo, startNode, endNode } = params;
+  const { workflowData, startNode, endNode } = params;
 
-  const { edges, nodes } = workflowInfo;
+  const { edges, nodes } = workflowData;
 
   const orderedNodeList: WorkflowNodeInfo[] = [startNode, endNode];
 

@@ -1,6 +1,7 @@
 import { FormInfo, GetFormInfo } from "@ldsg/forms";
 import { ObjectResource } from "@ldsg/object";
 import { Resource } from "@ldsg/resource";
+import { WorkflowResource } from "@ldsg/workflow";
 import { FormSpecificResourceSettings } from "./types";
 
 export class FormResource extends Resource<FormSpecificResourceSettings> {
@@ -23,12 +24,17 @@ export class FormResource extends Resource<FormSpecificResourceSettings> {
       outputObjectResource as ObjectResource
     ).getObjectInfo({ platform });
 
+    const { workflowInfo } = (
+      workflowResource as WorkflowResource
+    ).getWorkflowInfo();
+
     const res: FormInfo = {
       title,
       description,
       name,
       inputObjectInfo,
       outputObjectInfo,
+      workflowInfo,
     };
 
     return res;

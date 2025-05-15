@@ -1,7 +1,7 @@
-import { WorkflowEdgeInfo } from "./workflow-edge-info";
-import { WorkflowNodeInfo } from "./workflow-node-info";
+import { GetEndNodeOutputVariablesRes } from "../utils";
+
+export type WorkflowExecute = () => Promise<GetEndNodeOutputVariablesRes>;
 
 export interface WorkflowInfo {
-  edges: WorkflowEdgeInfo[];
-  nodes: WorkflowNodeInfo[];
+  execute: WorkflowExecute;
 }

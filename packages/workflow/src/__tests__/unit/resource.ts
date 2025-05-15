@@ -1,14 +1,14 @@
 import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } from "../../constants";
 import {
-  GetWorkflowInfo,
-  GetWorkflowInfoRes,
+  GetWorkflowData,
+  GetWorkflowDataRes,
   WorkflowResource,
 } from "../../resource";
-import { WorkflowInfo, WorkflowNodeExecuter } from "../../types";
+import { WorkflowData, WorkflowNodeExecuter } from "../../types";
 
 class AWorkflowResource extends WorkflowResource {
-  getWorkflowInfo: GetWorkflowInfo = () => {
-    const workflowInfo: WorkflowInfo = {
+  getWorkflowData: GetWorkflowData = () => {
+    const workflowData: WorkflowData = {
       edges: [
         {
           sourceWorkflowNodeResourceId: "1",
@@ -82,8 +82,8 @@ class AWorkflowResource extends WorkflowResource {
       ],
     };
 
-    const res: GetWorkflowInfoRes = {
-      workflowInfo,
+    const res: GetWorkflowDataRes = {
+      workflowData,
     };
 
     return res;
