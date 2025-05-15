@@ -1,8 +1,9 @@
-import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } from "../constants";
 import { WorkflowInfo, WorkflowNodeInfo } from "../types";
 
 interface GetOrderedNodeListParams {
   workflowInfo: WorkflowInfo;
+  startNode: WorkflowNodeInfo;
+  endNode: WorkflowNodeInfo;
 }
 
 interface GetOrderedNodeListRes {
@@ -20,25 +21,9 @@ type GetOrderedNodeList = (
  * 2. 从开始节点逐一向后查找
  */
 export const getOrderedNodeList: GetOrderedNodeList = (params) => {
-  const { workflowInfo } = params;
+  const { workflowInfo, startNode, endNode } = params;
 
   const { edges, nodes } = workflowInfo;
-
-  const startNode = nodes.find(
-    (value) =>
-      value.workflowNodeTypeResourceId ===
-      SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.start
-  );
-
-  const endNode = nodes.find(
-    (value) =>
-      value.workflowNodeTypeResourceId ===
-      SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end
-  );
-
-  if (!startNode || !endNode) {
-    throw new Error("invalid workflow nodes");
-  }
 
   const orderedNodeList: WorkflowNodeInfo[] = [startNode, endNode];
 

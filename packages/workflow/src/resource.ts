@@ -1,5 +1,6 @@
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
+import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } from "./constants";
 import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
@@ -8,7 +9,11 @@ import {
   WorkflowNodeInfo,
   WorkflowSpecificResourceSettings,
 } from "./types";
-import { getOrderedNodeList } from "./utils";
+import {
+  getEndNodeOutputVariables,
+  GetEndNodeOutputVariablesRes,
+  getOrderedNodeList,
+} from "./utils";
 
 export interface GetWorkflowEdgeInfoListRes {
   workflowEdgeInfoList: WorkflowEdgeInfo[];
@@ -28,7 +33,7 @@ export interface GetWorkflowInfoRes {
 
 export type GetWorkflowInfo = () => GetWorkflowInfoRes;
 
-export type Execute = () => Promise<any>;
+export type Execute = () => Promise<GetEndNodeOutputVariablesRes>;
 
 export type NodeId = string;
 
@@ -123,8 +128,28 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
 
     const { workflowInfo } = getWorkflowInfo();
 
+    const { nodes } = workflowInfo;
+
+    const startNode = nodes.find(
+      (value) =>
+        value.workflowNodeTypeResourceId ===
+        SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.start
+    );
+
+    const endNode = nodes.find(
+      (value) =>
+        value.workflowNodeTypeResourceId ===
+        SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end
+    );
+
+    if (!startNode || !endNode) {
+      throw new Error("invalid workflow nodes");
+    }
+
     const { orderedNodeList } = getOrderedNodeList({
       workflowInfo,
+      startNode,
+      endNode,
     });
 
     const executeList = orderedNodeList.map((node) => {
@@ -143,5 +168,12 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     for (const execute of executeList) {
       await execute();
     }
+
+    const res = getEndNodeOutputVariables({
+      endNode,
+      nodeIdToOutputVariablesMap,
+    });
+
+    return res;
   };
 }
