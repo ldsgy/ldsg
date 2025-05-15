@@ -37,7 +37,7 @@ export const MANIFEST_LIST: {
     resourceRecords: [
       {
         id: "main-app",
-        kind: "APPLICATION",
+        kind: "application",
         parentId: ROOT_RESOURCE_ID,
         settings: {
           title: "主要应用",

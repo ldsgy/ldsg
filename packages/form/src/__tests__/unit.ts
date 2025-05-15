@@ -53,7 +53,7 @@ const handler: Handler<
 test("unit", () => {
   new HandlerResource({
     id: "test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "测试处理程序",
@@ -66,7 +66,7 @@ test("unit", () => {
 
   new FieldTypeResource({
     id: "test-field-type",
-    kind: "FIELD_TYPE",
+    kind: "field_type",
     parentId: "root",
     settings: {
       title: "文本",
@@ -87,7 +87,7 @@ test("unit", () => {
 
   new ObjectResource({
     id: "test-object-1",
-    kind: "OBJECT",
+    kind: "object",
     parentId: "root",
     settings: {
       title: "测试对象1",
@@ -98,7 +98,7 @@ test("unit", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-1",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段1",
@@ -113,7 +113,7 @@ test("unit", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-2",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段2",
@@ -128,7 +128,7 @@ test("unit", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-3",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段3",
@@ -143,7 +143,7 @@ test("unit", () => {
 
   new ObjectResource({
     id: "test-object-2",
-    kind: "OBJECT",
+    kind: "object",
     parentId: "root",
     settings: {
       title: "测试对象2",
@@ -154,7 +154,7 @@ test("unit", () => {
 
   new ObjectFieldResource({
     id: "test-object-2-field-1",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-2",
     settings: {
       title: "测试对象2测试字段1",
@@ -169,7 +169,7 @@ test("unit", () => {
 
   const formResource = new FormResource({
     id: "test-form",
-    kind: "FORM",
+    kind: "form",
     parentId: "forms",
     settings: {
       title: "测试表单",

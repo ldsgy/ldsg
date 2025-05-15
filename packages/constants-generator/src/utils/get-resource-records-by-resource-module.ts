@@ -32,7 +32,7 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
       HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
     > = {
       id: resourceDefinitionResourceId,
-      kind: "RESOURCE_DEFINITION",
+      kind: "resource_definition",
       parentId: ROOT_RESOURCE_ID,
       settings: {
         handlerResourceId,
@@ -45,7 +45,7 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
       HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
     > = {
       id: handlerResourceId,
-      kind: "HANDLER",
+      kind: "handler",
       parentId: ROOT_RESOURCE_ID,
       settings: {
         ...resourceModule.HANDLER_GENERAL_RESOURCE_SETTINGS,

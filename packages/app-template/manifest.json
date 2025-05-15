@@ -2,18 +2,18 @@
   "resourceRecords": [
     {
       "id": "resource-definition-resource-definition",
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "title": "资源定义类型资源定义",
         "description": "",
-        "kind": "RESOURCE_DEFINITION",
+        "kind": "resource_definition",
         "subKinds": []
       }
     },
     {
       "id": "resource-definition-resource-handler",
-      "kind": "HANDLER",
+      "kind": "handler",
       "parentId": "resource-definition-resource-definition",
       "settings": {
         "title": "资源定义类型资源处理程序",
@@ -24,18 +24,18 @@
     },
     {
       "id": "handler-resource-definition",
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "title": "处理程序类型资源定义",
         "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
-        "kind": "HANDLER",
+        "kind": "handler",
         "subKinds": []
       }
     },
     {
       "id": "handler-resource-handler",
-      "kind": "HANDLER",
+      "kind": "handler",
       "parentId": "handler-resource-definition",
       "settings": {
         "title": "处理程序类型资源处理程序",
@@ -46,18 +46,18 @@
     },
     {
       "id": "application-resource-definition",
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "title": "应用类型资源定义",
         "description": "",
-        "kind": "APPLICATION",
+        "kind": "application",
         "subKinds": []
       }
     },
     {
       "id": "application-resource-handler",
-      "kind": "HANDLER",
+      "kind": "handler",
       "parentId": "application-resource-definition",
       "settings": {
         "title": "应用类型资源处理程序",
@@ -68,7 +68,7 @@
     },
     {
       "id": "main-app",
-      "kind": "APPLICATION",
+      "kind": "application",
       "parentId": "root",
       "settings": { "title": "主要应用", "description": "" }
     }

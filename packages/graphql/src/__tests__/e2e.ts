@@ -5,7 +5,7 @@ import { GraphqlResource } from "../resource";
 test("e2e", async () => {
   const applicationResource = new ApplicationResource({
     id: "application",
-    kind: "APPLICATION",
+    kind: "application",
     parentId: "ROOT",
     settings: {
       title: "应用",
@@ -16,7 +16,7 @@ test("e2e", async () => {
 
   new GraphqlResource({
     id: "graphql",
-    kind: "GRAPHQL",
+    kind: "graphql",
     parentId: "application",
     settings: {
       title: "",

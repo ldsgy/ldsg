@@ -4,7 +4,7 @@ import { ApplicationResource } from "../resource";
 test("application", async () => {
   const application = new ApplicationResource({
     id: "application",
-    kind: "APPLICATION",
+    kind: "application",
     parentId: "ROOT",
     settings: {
       title: "应用",

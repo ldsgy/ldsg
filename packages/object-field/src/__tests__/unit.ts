@@ -51,7 +51,7 @@ const handler: Handler<
 test("object field", () => {
   new HandlerResource({
     id: "test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "测试处理程序",
@@ -64,7 +64,7 @@ test("object field", () => {
 
   new FieldTypeResource({
     id: "test-field-type",
-    kind: "FIELD_TYPE",
+    kind: "field_type",
     parentId: "root",
     settings: {
       title: "文本",
@@ -85,7 +85,7 @@ test("object field", () => {
 
   const objectFieldResource = new ObjectFieldResource({
     id: "object-field",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "application",
     settings: {
       title: "测试字段",

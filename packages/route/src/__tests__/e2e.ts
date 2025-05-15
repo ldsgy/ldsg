@@ -11,7 +11,7 @@ const handler: RequestHandler = (req, res) => {
 test("application", async () => {
   const applicationResource = new ApplicationResource({
     id: "application",
-    kind: "APPLICATION",
+    kind: "application",
     parentId: "root",
     settings: {
       title: "应用",
@@ -22,7 +22,7 @@ test("application", async () => {
 
   new RouteResource({
     id: "route",
-    kind: "ROUTE",
+    kind: "route",
     parentId: "application",
     settings: {
       title: "应用",
@@ -34,7 +34,7 @@ test("application", async () => {
 
   new HandlerResource({
     id: "route-test-app-test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "应用",

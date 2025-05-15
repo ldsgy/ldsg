@@ -50,7 +50,7 @@ const handler: Handler<
 test("field type", () => {
   new HandlerResource({
     id: "test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "测试处理程序",
@@ -63,7 +63,7 @@ test("field type", () => {
 
   const workflowNodeTypeResource = new WorkflowNodeTypeResource({
     id: "test-field-type",
-    kind: "FIELD_TYPE",
+    kind: "field_type",
     parentId: "root",
     settings: {
       title: "文本",

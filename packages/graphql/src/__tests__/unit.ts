@@ -6,7 +6,7 @@ import { ModifyGraphQLSchema } from "../types";
 test("unit", () => {
   const graphqlResource = new GraphqlResource({
     id: "test-graphql",
-    kind: "GRAPHQL",
+    kind: "graphql",
     parentId: "test-application",
     settings: {
       title: "",
@@ -45,7 +45,7 @@ test("unit", () => {
 
   new AResource({
     id: "test-a",
-    kind: "A",
+    kind: "a",
     parentId: "test-application",
     settings: {
       title: "",

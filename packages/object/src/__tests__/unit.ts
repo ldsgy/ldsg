@@ -102,7 +102,7 @@ const handler: Handler<
 test("object", () => {
   new HandlerResource({
     id: "test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "测试处理程序",
@@ -115,7 +115,7 @@ test("object", () => {
 
   new FieldTypeResource({
     id: "test-field-type",
-    kind: "FIELD_TYPE",
+    kind: "field_type",
     parentId: "root",
     settings: {
       title: "文本",
@@ -136,7 +136,7 @@ test("object", () => {
 
   const objectResource = new ObjectResource({
     id: "test-object",
-    kind: "OBJECT",
+    kind: "object",
     parentId: "root",
     settings: {
       title: "测试对象",
@@ -147,7 +147,7 @@ test("object", () => {
 
   new AResource({
     id: "test-a-1",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object",
     settings: {
       title: "测试字段1",
@@ -162,7 +162,7 @@ test("object", () => {
 
   new AResource({
     id: "test-a-2",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object",
     settings: {
       title: "测试字段2",
@@ -177,7 +177,7 @@ test("object", () => {
 
   new AResource({
     id: "test-a-3",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object",
     settings: {
       title: "测试字段3",

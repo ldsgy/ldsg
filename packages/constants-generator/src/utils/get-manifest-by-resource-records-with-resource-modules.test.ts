@@ -5,7 +5,7 @@ import { getManifestByResourceRecordsWithResourceModules } from "./get-manifest-
 const applicationResourceRecords: ResourceRecord<ResourceSettings>[] = [
   {
     id: "main-app",
-    kind: "APPLICATION",
+    kind: "application",
     parentId: ROOT_RESOURCE_ID,
     settings: {
       title: "主要应用",

@@ -126,7 +126,7 @@ const handler: Handler<
 test("forms", () => {
   const graphqlResource = new GraphqlResource({
     id: "test-graphql",
-    kind: "GRAPHQL",
+    kind: "graphql",
     parentId: "test-application",
     settings: {
       title: "测试GraphQL",
@@ -138,7 +138,7 @@ test("forms", () => {
 
   new HandlerResource({
     id: "test-handler",
-    kind: "HANDLER",
+    kind: "handler",
     parentId: "root",
     settings: {
       title: "测试处理程序",
@@ -151,7 +151,7 @@ test("forms", () => {
 
   new FieldTypeResource({
     id: "test-field-type",
-    kind: "FIELD_TYPE",
+    kind: "field_type",
     parentId: "root",
     settings: {
       title: "文本",
@@ -172,7 +172,7 @@ test("forms", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-1",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段1",
@@ -187,7 +187,7 @@ test("forms", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-2",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段2",
@@ -202,7 +202,7 @@ test("forms", () => {
 
   new ObjectFieldResource({
     id: "test-object-1-field-3",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-1",
     settings: {
       title: "测试对象1测试字段3",
@@ -217,7 +217,7 @@ test("forms", () => {
 
   new ObjectResource({
     id: "test-object-1",
-    kind: "OBJECT",
+    kind: "object",
     parentId: "root",
     settings: {
       title: "测试对象1",
@@ -228,7 +228,7 @@ test("forms", () => {
 
   new ObjectFieldResource({
     id: "test-object-2-field-1",
-    kind: "OBJECT_FIELD",
+    kind: "object_field",
     parentId: "test-object-2",
     settings: {
       title: "测试对象2测试字段1",
@@ -243,7 +243,7 @@ test("forms", () => {
 
   new ObjectResource({
     id: "test-object-2",
-    kind: "OBJECT",
+    kind: "object",
     parentId: "root",
     settings: {
       title: "测试对象2",
@@ -254,7 +254,7 @@ test("forms", () => {
 
   const formsResource = new FormsResource({
     id: "test-forms",
-    kind: "FORM",
+    kind: "form",
     parentId: "test-application",
     settings: {
       title: "测试表单组",
@@ -264,7 +264,7 @@ test("forms", () => {
 
   new AResource({
     id: "test-a-1",
-    kind: "FORM",
+    kind: "form",
     parentId: "test-forms",
     settings: {
       title: "测试表单1",
@@ -278,7 +278,7 @@ test("forms", () => {
 
   new AResource({
     id: "test-a-2",
-    kind: "FORM",
+    kind: "form",
     parentId: "test-forms",
     settings: {
       title: "测试表单2",
