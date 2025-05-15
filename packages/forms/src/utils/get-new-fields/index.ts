@@ -23,8 +23,14 @@ export const getNewFields: GetNewFields = (params) => {
   const newFields: ObjectTypeComposerFieldConfigMapDefinition<any, any> = {};
 
   formInfoList.forEach((formInfo) => {
-    const { title, description, name, inputObjectInfo, outputObjectInfo } =
-      formInfo;
+    const {
+      title,
+      description,
+      name,
+      inputObjectInfo,
+      outputObjectInfo,
+      workflowInfo,
+    } = formInfo;
 
     const graphqlFieldName = _.camelCase(name);
 
@@ -37,6 +43,11 @@ export const getNewFields: GetNewFields = (params) => {
       description: `${title}${description ? `:${description}` : ""}`,
       type: outputOTC,
       args: inputITC.getFields(),
+      resolve: async ({ source, args }) => {
+        const { endNodeOutputVariables } = await workflowInfo.execute();
+
+        return endNodeOutputVariables;
+      },
     };
 
     const fieldResolver = schemaComposer.createResolver(resolverDefinition);
