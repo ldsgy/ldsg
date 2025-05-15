@@ -4,8 +4,10 @@ import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } fro
 import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
+  NodeIdToOutputVariablesMap,
   WorkflowData,
   WorkflowEdgeInfo,
+  WorkflowExecute,
   WorkflowInfo,
   WorkflowNodeInfo,
   WorkflowSpecificResourceSettings,
@@ -29,12 +31,6 @@ export interface GetWorkflowDataRes {
 }
 
 export type GetWorkflowData = () => GetWorkflowDataRes;
-
-export type NodeId = string;
-
-export type NodeOutputVariables = any;
-
-export type NodeIdToOutputVariablesMap = Record<NodeId, NodeOutputVariables>;
 
 export interface GetWorkflowInfoRes {
   workflowInfo: WorkflowInfo;
@@ -124,7 +120,9 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     return res;
   };
 
-  execute = async () => {
+  execute: WorkflowExecute = async (params) => {
+    const { startNodeOutputVariables } = params;
+
     const { getWorkflowData, nodeIdToOutputVariablesMap } = this;
 
     const { workflowData } = getWorkflowData();
@@ -152,6 +150,8 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       startNode,
       endNode,
     });
+
+    nodeIdToOutputVariablesMap[startNode.id] = startNodeOutputVariables;
 
     const executeList = orderedNodeList.map((node) => {
       const { id, Executer } = node;

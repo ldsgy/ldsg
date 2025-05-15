@@ -101,7 +101,11 @@ test("WorkflowResource execute", async () => {
     },
   });
 
-  await aWorkflowResource.execute();
+  await aWorkflowResource.execute({
+    startNodeOutputVariables: {
+      hello: "world",
+    },
+  });
 
   expect(aWorkflowResource.nodeIdToOutputVariablesMap).toMatchSnapshot();
 });

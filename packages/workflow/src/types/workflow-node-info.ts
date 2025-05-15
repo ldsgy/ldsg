@@ -2,7 +2,7 @@ import {
   NodeId,
   NodeIdToOutputVariablesMap,
   NodeOutputVariables,
-} from "../resource";
+} from "./output-variables";
 
 type WorkflowNodeExecuterExecute = () => any | Promise<any>;
 
