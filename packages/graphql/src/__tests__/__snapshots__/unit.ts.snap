@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unit 1`] = `
+"type Query {
+  posts: [Post]
+}
+
+type Post {
+  id: Int!
+  title: String
+  votes: Int
+  authorId: Int
+}"
+`;
