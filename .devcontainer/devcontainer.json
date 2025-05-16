@@ -2,6 +2,10 @@
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "containerEnv": {
+    "DATABASE_URI": "mongodb://root:example@mongo:27017/test?directConnection=true&authSource=admin",
+    "PORT": "8888"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -26,9 +30,6 @@
       ],
       "settings": {}
     }
-  },
-  "containerEnv": {
-    "PORT": "8888"
   },
   "postCreateCommand": "npm i -g pnpm typescript ts-node && pnpm i"
 }

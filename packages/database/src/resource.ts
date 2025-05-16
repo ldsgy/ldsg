@@ -1,49 +1,16 @@
 import { Resource } from "@ldsg/resource";
-import express, { Express } from "express";
+import mongoose from "mongoose";
 import { DatabaseSpecificResourceSettings } from "./types";
 
-type CreateExpressApp = () => Express;
-
-interface ExtendExpressAppParams {
-  app: Express;
-}
-
-export type ExtendExpressApp = (params: ExtendExpressAppParams) => void;
-
 export class DatabaseResource extends Resource<DatabaseSpecificResourceSettings> {
-  createExpressApp: CreateExpressApp = () => {
-    const app = express();
-
-    this.extendExpressApp({
-      app,
-    });
-
-    return app;
+  connect = () => {
+    const {
+      settings: { uri, connectOptions },
+    } = this;
+    return mongoose.connect(uri, connectOptions);
   };
 
-  extendExpressApp: ExtendExpressApp = (params) => {
-    const { app } = params;
-
-    const {
-      id,
-      settings: { name },
-      getFilteredResources,
-    } = this;
-
-    app.get("/", (req, res) => {
-      res.send(`Hello, ${name ?? "World"}!`);
-    });
-
-    const getFilteredResourcesRes = getFilteredResources<{
-      extendExpressApp?: ExtendExpressApp;
-    }>({
-      parentId: id,
-    });
-
-    const { resources } = getFilteredResourcesRes;
-
-    resources.forEach((resource) => {
-      resource.extendExpressApp?.(params);
-    });
+  disconnect = () => {
+    return mongoose.disconnect();
   };
 }

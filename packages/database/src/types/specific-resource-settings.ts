@@ -1,9 +1,15 @@
 import { SpecificResourceSettings } from "@ldsg/types";
+import { ConnectOptions } from "mongoose";
 
 export interface DatabaseSpecificResourceSettings
   extends SpecificResourceSettings {
   /**
-   * Database Name
+   * Database URI
    */
-  name?: string;
+  uri: string;
+
+  /**
+   * Connect Options
+   */
+  connectOptions?: ConnectOptions;
 }
