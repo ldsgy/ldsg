@@ -3,6 +3,11 @@ import { SpecificResourceSettings } from "@ldsg/types";
 export interface TableSpecificResourceSettings
   extends SpecificResourceSettings {
   /**
+   * Database Resource Id
+   */
+  databaseResourceId?: string;
+
+  /**
    * Table Name
    */
   name: string;
@@ -11,9 +16,4 @@ export interface TableSpecificResourceSettings
    * Object Resource Id
    */
   objectResourceId: string;
-
-  /**
-   * Database Resource Id
-   */
-  databaseResourceId?: string;
 }
