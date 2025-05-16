@@ -8,8 +8,7 @@
   ],
   "types": "dist",
   "scripts": {
-    "build": "npm run generate",
-    "generate": "npx tsx src/scripts/generate.ts"
+    "generate": "tsx src/scripts/generate.ts"
   },
   "keywords": [],
   "author": "wanxger",

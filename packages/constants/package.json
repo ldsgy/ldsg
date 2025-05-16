@@ -9,7 +9,7 @@
   "types": "dist",
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.build.json",
-    "clean": "rm -rf src/dist dist"
+    "clean": "rm -rf dist"
   },
   "keywords": [],
   "author": "wanxger",

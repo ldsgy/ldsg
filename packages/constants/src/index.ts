@@ -1,3 +1,4 @@
+export const ROOT_RESOURCE_ID = "root";
 import BASE_RESOURCE_KINDS_JSON from "./base-resource-kinds.json";
 export const BASE_RESOURCE_KINDS = BASE_RESOURCE_KINDS_JSON;
 import APP_MANIFEST_JSON from "./app-manifest.json";

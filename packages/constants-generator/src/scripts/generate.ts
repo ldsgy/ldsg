@@ -137,7 +137,7 @@ const main = async () => {
       );
     }
 
-    const indexTsCode = jsonList.map((value) => {
+    const generatedIndexTsCode = jsonList.map((value) => {
       const { name } = value;
 
       const snakeCaseUpperName = _.toUpper(_.snakeCase(name));
@@ -147,6 +147,8 @@ export const ${snakeCaseUpperName} = ${snakeCaseUpperName}_JSON;`;
     }).join(`
 `);
 
+    const indexTsCode = `export const ROOT_RESOURCE_ID = "root";
+${generatedIndexTsCode}`;
     await fs.writeFile(path.join(constantsSrcPath, "index.ts"), indexTsCode);
   }
 };
