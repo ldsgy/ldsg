@@ -1,0 +1,36 @@
+{
+  "name": "@ldsg/form",
+  "version": "0.1.0-alpha.19",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
+  "scripts": {
+    "build": "pnpm clean && tsc --project tsconfig.build.json",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "wanxger",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "dependencies": {
+    "@ldsg/handler": "workspace:*",
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition": "workspace:*"
+  },
+  "devDependencies": {
+    "@ldsg/field-type": "workspace:*",
+    "@ldsg/forms": "workspace:*",
+    "@ldsg/object": "workspace:*",
+    "@ldsg/object-field": "workspace:*",
+    "@ldsg/types": "workspace:*",
+    "@ldsg/workflow": "workspace:*",
+    "@types/supertest": "^6.0.0",
+    "supertest": "^6.3.4"
+  }
+}
