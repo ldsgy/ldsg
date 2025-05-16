@@ -1,5 +1,5 @@
 {
-  "name": "@ldsg/forms",
+  "name": "@ldsg/tables",
   "version": "0.1.0-alpha.19",
   "description": "",
   "main": "dist/index.js",
@@ -22,7 +22,9 @@
     "@ldsg/handler": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
-    "lodash": "^4.17.21"
+    "graphql-compose-mongoose": "^10.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.14.3"
   },
   "devDependencies": {
     "@ldsg/application": "workspace:*",

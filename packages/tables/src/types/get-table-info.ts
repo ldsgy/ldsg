@@ -1,7 +1,6 @@
 import { PlatformParams } from "@ldsg/field-type";
 import { ObjectInfo } from "@ldsg/object";
 import { GeneralResourceSettings } from "@ldsg/types";
-import { WorkflowInfo } from "@ldsg/workflow";
 
 export interface TableInfo extends GeneralResourceSettings {
   /**
@@ -10,19 +9,9 @@ export interface TableInfo extends GeneralResourceSettings {
   name: string;
 
   /**
-   * Input Object Info
+   * Object Info
    */
-  inputObjectInfo: ObjectInfo;
-
-  /**
-   * Output Object Info
-   */
-  outputObjectInfo: ObjectInfo;
-
-  /**
-   * Workflow Info
-   */
-  workflowInfo: WorkflowInfo;
+  objectInfo: ObjectInfo;
 }
 
 export type GetTableInfo = (params: PlatformParams) => TableInfo;

@@ -7,7 +7,7 @@ import {
   TableInfo,
   TablesSpecificResourceSettings,
 } from "./types";
-import { getNewFields } from "./utils";
+import { addFields } from "./utils";
 
 interface GetTableInfoListRes {
   /**
@@ -50,12 +50,9 @@ export class TablesResource extends Resource<TablesSpecificResourceSettings> {
       platform: "graphql",
     });
 
-    const { newFields } = getNewFields({
+    addFields({
       tableInfoList,
       schemaComposer,
     });
-
-    schemaComposer.Mutation.addFields(newFields);
-    schemaComposer.Query.addFields(newFields);
   };
 }

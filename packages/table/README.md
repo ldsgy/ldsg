@@ -1,1 +1,0 @@
-# LDSG Graphql Resource

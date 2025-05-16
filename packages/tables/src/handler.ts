@@ -4,14 +4,14 @@ import {
   InstantiateResourceRes,
 } from "@ldsg/resource";
 import { instantiateResource } from "./instantiate-resource";
-import { FormsResource } from "./resource";
-import { FormsSpecificResourceSettings } from "./types";
+import { TablesResource } from "./resource";
+import { TablesSpecificResourceSettings } from "./types";
 
 export const handler: Handler<
   [
     InstantiateResourceParams<
-      HandlerExtendedResourceSettings<FormsSpecificResourceSettings>
+      HandlerExtendedResourceSettings<TablesSpecificResourceSettings>
     >
   ],
-  InstantiateResourceRes<FormsResource>
+  InstantiateResourceRes<TablesResource>
 > = instantiateResource;

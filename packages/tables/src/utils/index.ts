@@ -1,1 +1,1 @@
-export * from "./get-new-fields";
+export * from "./add-fields";
