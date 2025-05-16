@@ -1,4 +1,4 @@
 import { SpecificResourceSettings } from "@ldsg/types";
 
-export interface FormsSpecificResourceSettings
+export interface TablesSpecificResourceSettings
   extends SpecificResourceSettings {}

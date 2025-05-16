@@ -1,46 +1,43 @@
+import { PlatformParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
-import { FormInfo, FormsSpecificResourceSettings, GetFormInfo } from "./types";
+import {
+  GetTableInfo,
+  TableInfo,
+  TablesSpecificResourceSettings,
+} from "./types";
 import { getNewFields } from "./utils";
 
-interface GetFormInfoListParams {
+interface GetTableInfoListRes {
   /**
-   * Platform
-   * Such as mongoose\formily.
+   * Table Info List
    */
-  platform: string;
+  tableInfoList: TableInfo[];
 }
 
-interface GetFormInfoListRes {
-  /**
-   * Form Info List
-   */
-  formInfoList: FormInfo[];
-}
+type GetTableInfoList = (params: PlatformParams) => GetTableInfoListRes;
 
-type GetFormInfoList = (params: GetFormInfoListParams) => GetFormInfoListRes;
-
-export class FormsResource extends Resource<FormsSpecificResourceSettings> {
-  getFormInfoList: GetFormInfoList = (params) => {
+export class TablesResource extends Resource<TablesSpecificResourceSettings> {
+  getTableInfoList: GetTableInfoList = (params) => {
     const { platform } = params;
 
     const { id, getFilteredResources } = this;
 
     const { resources } = getFilteredResources<{
-      getFormInfo?: GetFormInfo;
+      getTableInfo?: GetTableInfo;
     }>({
       parentId: id,
     });
 
     const mapRes = resources.map((resource) => {
-      return resource.getFormInfo?.({ platform });
+      return resource.getTableInfo?.({ platform });
     });
 
-    const formInfoList = _.filter(mapRes, (value) => !_.isUndefined(value));
+    const tableInfoList = _.filter(mapRes, (value) => !_.isUndefined(value));
 
     const res = {
-      formInfoList,
+      tableInfoList,
     };
 
     return res;
@@ -49,12 +46,12 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
     const { schemaComposer } = params;
 
-    const { formInfoList } = this.getFormInfoList({
+    const { tableInfoList } = this.getTableInfoList({
       platform: "graphql",
     });
 
     const { newFields } = getNewFields({
-      formInfoList,
+      tableInfoList,
       schemaComposer,
     });
 

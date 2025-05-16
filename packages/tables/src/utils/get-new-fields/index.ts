@@ -4,11 +4,11 @@ import {
   ResolverDefinition,
 } from "graphql-compose";
 import _ from "lodash";
-import { FormInfo } from "../../types";
+import { TableInfo } from "../../types";
 import { getInputITC, getOutputOTC } from "./utils";
 
 interface GetNewFieldsParams extends SchemaComposerParams {
-  formInfoList: FormInfo[];
+  tableInfoList: TableInfo[];
 }
 
 interface GetNewFieldsRes {
@@ -18,11 +18,11 @@ interface GetNewFieldsRes {
 type GetNewFields = (params: GetNewFieldsParams) => GetNewFieldsRes;
 
 export const getNewFields: GetNewFields = (params) => {
-  const { schemaComposer, formInfoList } = params;
+  const { schemaComposer, tableInfoList } = params;
 
   const newFields: ObjectTypeComposerFieldConfigMapDefinition<any, any> = {};
 
-  formInfoList.forEach((formInfo) => {
+  tableInfoList.forEach((tableInfo) => {
     const {
       title,
       description,
@@ -30,7 +30,7 @@ export const getNewFields: GetNewFields = (params) => {
       inputObjectInfo,
       outputObjectInfo,
       workflowInfo,
-    } = formInfo;
+    } = tableInfo;
 
     const graphqlFieldName = _.camelCase(name);
 

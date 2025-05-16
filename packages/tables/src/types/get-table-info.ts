@@ -1,18 +1,11 @@
+import { PlatformParams } from "@ldsg/field-type";
 import { ObjectInfo } from "@ldsg/object";
 import { GeneralResourceSettings } from "@ldsg/types";
 import { WorkflowInfo } from "@ldsg/workflow";
 
-export interface PlatformParams {
+export interface TableInfo extends GeneralResourceSettings {
   /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
-
-export interface FormInfo extends GeneralResourceSettings {
-  /**
-   * Form Name
+   * Table Name
    */
   name: string;
 
@@ -32,4 +25,4 @@ export interface FormInfo extends GeneralResourceSettings {
   workflowInfo: WorkflowInfo;
 }
 
-export type GetFormInfo = (params: PlatformParams) => FormInfo;
+export type GetTableInfo = (params: PlatformParams) => TableInfo;
