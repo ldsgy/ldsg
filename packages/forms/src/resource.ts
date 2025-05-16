@@ -1,16 +1,9 @@
+import { PlatformParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
 import { FormInfo, FormsSpecificResourceSettings, GetFormInfo } from "./types";
 import { getNewFields } from "./utils";
-
-interface GetFormInfoListParams {
-  /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
 
 interface GetFormInfoListRes {
   /**
@@ -19,7 +12,7 @@ interface GetFormInfoListRes {
   formInfoList: FormInfo[];
 }
 
-type GetFormInfoList = (params: GetFormInfoListParams) => GetFormInfoListRes;
+type GetFormInfoList = (params: PlatformParams) => GetFormInfoListRes;
 
 export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   getFormInfoList: GetFormInfoList = (params) => {

@@ -1,14 +1,7 @@
+import { PlatformParams } from "@ldsg/field-type";
 import { ObjectInfo } from "@ldsg/object";
 import { GeneralResourceSettings } from "@ldsg/types";
 import { WorkflowInfo } from "@ldsg/workflow";
-
-export interface PlatformParams {
-  /**
-   * Platform
-   * Such as mongoose\formily.
-   */
-  platform: string;
-}
 
 export interface FormInfo extends GeneralResourceSettings {
   /**
