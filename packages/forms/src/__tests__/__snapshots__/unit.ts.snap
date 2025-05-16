@@ -57,6 +57,9 @@ exports[`forms 1`] = `
         "title": "测试对象2",
       },
       "title": "测试表单1",
+      "workflowInfo": {
+        "execute": [Function],
+      },
     },
     {
       "description": "",
@@ -112,6 +115,9 @@ exports[`forms 1`] = `
         "title": "测试对象1",
       },
       "title": "测试表单2",
+      "workflowInfo": {
+        "execute": [Function],
+      },
     },
   ],
 }

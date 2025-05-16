@@ -11,7 +11,7 @@ import { ObjectTypeComposerFieldConfigAsObjectDefinition } from "graphql-compose
 import { FormsResource } from "../resource";
 import { FormInfo, GetFormInfo } from "../types";
 
-interface ASpecificResourceSettings extends SpecificResourceSettings {
+interface TestFormSpecificResourceSettings extends SpecificResourceSettings {
   /**
    * Form Name
    */
@@ -33,7 +33,7 @@ interface ASpecificResourceSettings extends SpecificResourceSettings {
   workflowResourceId: string;
 }
 
-class AResource extends Resource<ASpecificResourceSettings> {
+class TestFormResource extends Resource<TestFormSpecificResourceSettings> {
   getFormInfo: GetFormInfo = (params) => {
     const { platform } = params;
 
@@ -268,8 +268,28 @@ test("forms", () => {
     },
   });
 
-  new AResource({
-    id: "test-a-1",
+  new WorkflowResource({
+    id: "test-workflow-1",
+    kind: "workflow",
+    parentId: "root",
+    settings: {
+      title: "测试工作流1",
+      description: "",
+    },
+  });
+
+  new WorkflowResource({
+    id: "test-workflow-2",
+    kind: "workflow",
+    parentId: "root",
+    settings: {
+      title: "测试工作流2",
+      description: "",
+    },
+  });
+
+  new TestFormResource({
+    id: "test-form-1",
     kind: "form",
     parentId: "test-forms",
     settings: {
@@ -278,12 +298,12 @@ test("forms", () => {
       name: "test-a-1",
       inputObjectResourceId: "test-object-1",
       outputObjectResourceId: "test-object-2",
-      workflowResourceId: "",
+      workflowResourceId: "test-workflow-1",
     },
   });
 
-  new AResource({
-    id: "test-a-2",
+  new TestFormResource({
+    id: "test-form-2",
     kind: "form",
     parentId: "test-forms",
     settings: {
@@ -292,7 +312,7 @@ test("forms", () => {
       name: "test-a-2",
       inputObjectResourceId: "test-object-2",
       outputObjectResourceId: "test-object-1",
-      workflowResourceId: "",
+      workflowResourceId: "test-workflow-2",
     },
   });
 
