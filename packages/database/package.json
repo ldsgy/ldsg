@@ -23,7 +23,8 @@
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
     "@ldsg/types": "workspace:*",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^8.14.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
