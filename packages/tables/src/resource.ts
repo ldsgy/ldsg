@@ -47,7 +47,7 @@ export class TablesResource extends Resource<TablesSpecificResourceSettings> {
     const { schemaComposer } = params;
 
     const { tableInfoList } = this.getTableInfoList({
-      platform: "graphql",
+      platform: "mongoose",
     });
 
     addFields({

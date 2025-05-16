@@ -746,6 +746,9 @@ importers:
         specifier: workspace:*
         version: link:../resource-definition
     devDependencies:
+      '@ldsg/database':
+        specifier: workspace:*
+        version: link:../database
       '@ldsg/field-type':
         specifier: workspace:*
         version: link:../field-type

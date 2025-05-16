@@ -24,6 +24,7 @@
     "@ldsg/resource-definition": "workspace:*"
   },
   "devDependencies": {
+    "@ldsg/database": "workspace:*",
     "@ldsg/field-type": "workspace:*",
     "@ldsg/tables": "workspace:*",
     "@ldsg/object": "workspace:*",
