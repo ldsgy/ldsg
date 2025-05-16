@@ -22,17 +22,11 @@ export class ApplicationResource extends Resource<ApplicationSpecificResourceSet
   };
 
   extendExpressApp: ExtendExpressApp = (params) => {
-    const { app } = params;
-
     const {
       id,
       settings: { name },
       getFilteredResources,
     } = this;
-
-    app.get("/", (req, res) => {
-      res.send(`Hello, ${name ?? "World"}!`);
-    });
 
     const getFilteredResourcesRes = getFilteredResources<{
       extendExpressApp?: ExtendExpressApp;
