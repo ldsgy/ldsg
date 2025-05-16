@@ -1,48 +1,45 @@
 import { Handler, HandlerResource } from "@ldsg/handler";
+import {
+  WorkflowNodeExecuter,
+  WorkflowNodeExecuterExecute,
+} from "@ldsg/workflow";
 import { WorkflowNodeTypeResource } from "../resource";
+import {
+  GetExtraWorkflowNodeInfoParams,
+  GetExtraWorkflowNodeInfoRes,
+} from "../types";
 
 const handler: Handler<
-  [
-    {
-      /**
-       * Field Properties
-       */
-      fieldProperties?: any;
-      /**
-       * Platform
-       * Such as mongoose\formily.
-       */
-      platform: string;
-    }
-  ],
-  {}
+  [GetExtraWorkflowNodeInfoParams],
+  GetExtraWorkflowNodeInfoRes
 > = (params) => {
-  const { fieldProperties, platform } = params;
+  const { workflowNodeProperties } = params;
 
-  const { max } = fieldProperties;
+  const { name } = workflowNodeProperties;
 
-  let res;
+  class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+    execute: WorkflowNodeExecuterExecute = () => {
+      const { setOutputVariables } = this;
 
-  switch (platform) {
-    case "mongoose": {
-      res = {
-        type: "String",
-        ...(max
-          ? {
-              maxLength: max,
-            }
-          : {}),
-      };
-
-      break;
-    }
-
-    default: {
-      res = {};
-
-      break;
-    }
+      setOutputVariables({
+        outputVariables: name,
+      });
+    };
   }
+
+  const res: GetExtraWorkflowNodeInfoRes = {
+    extraWorkflowNodeInfo: {
+      Executer: class a extends WorkflowNodeExecuter {
+        execute = () => {
+          const { setOutputVariables } = this;
+
+          setOutputVariables({
+            outputVariables: "abc",
+          });
+        };
+      },
+    },
+  };
 
   return res;
 };
@@ -68,13 +65,13 @@ test("field type", () => {
     settings: {
       title: "文本",
       description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
+      workflowNodePropertiesSchema: {
         type: "object",
         properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
+          name: {
+            type: "string",
+            title: "名称",
+            description: "",
           },
         },
       },
@@ -89,5 +86,18 @@ test("field type", () => {
       },
     });
 
+  console.debug("extraWorkflowNodeInfo", extraWorkflowNodeInfo);
+
   expect(extraWorkflowNodeInfo).toMatchSnapshot();
+
+  const { Executer } = extraWorkflowNodeInfo;
+
+  const executer = new Executer({
+    nodeId: "test-node-id",
+    nodeIdToOutputVariablesMap: {},
+  });
+
+  executer.execute();
+
+  expect(executer.nodeIdToOutputVariablesMap).toMatchSnapshot();
 });

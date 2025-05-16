@@ -4,7 +4,7 @@ import {
   NodeOutputVariables,
 } from "./output-variables";
 
-type WorkflowNodeExecuterExecute = () => any | Promise<any>;
+export type WorkflowNodeExecuterExecute = () => void | Promise<void>;
 
 interface WorkflowNodeExecuterConstructorParams {
   nodeId: NodeId;

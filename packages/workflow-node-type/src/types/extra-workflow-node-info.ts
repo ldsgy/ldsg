@@ -7,7 +7,7 @@ export interface GetExtraWorkflowNodeInfoParams {
   workflowNodeProperties: any;
 }
 
-type ExtraWorkflowNodeInfo = Pick<WorkflowNodeInfo, "Executer">;
+export type ExtraWorkflowNodeInfo = Pick<WorkflowNodeInfo, "Executer">;
 
 export interface GetExtraWorkflowNodeInfoRes {
   /**
