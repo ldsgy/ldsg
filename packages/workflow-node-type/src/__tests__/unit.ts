@@ -5,13 +5,13 @@ import {
 } from "@ldsg/workflow";
 import { WorkflowNodeTypeResource } from "../resource";
 import {
+  ExtraWorkflowNodeInfo,
   GetExtraWorkflowNodeInfoParams,
-  GetExtraWorkflowNodeInfoRes,
 } from "../types";
 
 const handler: Handler<
   [GetExtraWorkflowNodeInfoParams],
-  GetExtraWorkflowNodeInfoRes
+  ExtraWorkflowNodeInfo
 > = (params) => {
   const { workflowNodeProperties } = params;
 
@@ -27,18 +27,8 @@ const handler: Handler<
     };
   }
 
-  const res: GetExtraWorkflowNodeInfoRes = {
-    extraWorkflowNodeInfo: {
-      Executer: class a extends WorkflowNodeExecuter {
-        execute = () => {
-          const { setOutputVariables } = this;
-
-          setOutputVariables({
-            outputVariables: "abc",
-          });
-        };
-      },
-    },
+  const res: ExtraWorkflowNodeInfo = {
+    Executer: AWorkflowNodeExecuter,
   };
 
   return res;
@@ -59,8 +49,8 @@ test("field type", () => {
   });
 
   const workflowNodeTypeResource = new WorkflowNodeTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
+    id: "test-workflow-node-type",
+    kind: "workflow_node_type",
     parentId: "root",
     settings: {
       title: "文本",
@@ -82,18 +72,16 @@ test("field type", () => {
   const { extraWorkflowNodeInfo } =
     workflowNodeTypeResource.getExtraWorkflowNodeInfo({
       workflowNodeProperties: {
-        max: "10",
+        name: "test",
       },
     });
-
-  console.debug("extraWorkflowNodeInfo", extraWorkflowNodeInfo);
 
   expect(extraWorkflowNodeInfo).toMatchSnapshot();
 
   const { Executer } = extraWorkflowNodeInfo;
 
   const executer = new Executer({
-    nodeId: "test-node-id",
+    nodeId: "test-node",
     nodeIdToOutputVariablesMap: {},
   });
 

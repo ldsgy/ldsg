@@ -2,8 +2,12 @@
 
 exports[`field type 1`] = `
 {
-  "extraWorkflowNodeInfo": {
-    "Executer": [Function],
-  },
+  "Executer": [Function],
+}
+`;
+
+exports[`field type 2`] = `
+{
+  "test-node": "test",
 }
 `;
