@@ -2,6 +2,7 @@ import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { ObjectResource } from "@ldsg/object";
 import { ObjectFieldResource } from "@ldsg/object-field";
+import { WorkflowResource } from "@ldsg/workflow";
 import { FormResource } from "../resource";
 
 const handler: Handler<
@@ -167,6 +168,21 @@ test("unit", () => {
     },
   });
 
+  new WorkflowResource({
+    id: "test-workflow",
+    kind: "workflow",
+    parentId: "root",
+    settings: {
+      title: "测试对象2测试字段1",
+      description: "",
+      name: "test-1",
+      fieldTypeResourceId: "test-field-type",
+      properties: {
+        max: "10",
+      },
+    },
+  });
+
   const formResource = new FormResource({
     id: "test-form",
     kind: "form",
@@ -177,7 +193,7 @@ test("unit", () => {
       name: "test-form",
       inputObjectResourceId: "test-object-1",
       outputObjectResourceId: "test-object-2",
-      workflowResourceId: "",
+      workflowResourceId: "test-workflow",
     },
   });
 

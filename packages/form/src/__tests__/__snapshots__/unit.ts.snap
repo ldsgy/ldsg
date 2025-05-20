@@ -55,5 +55,8 @@ exports[`unit 1`] = `
     "title": "测试对象2",
   },
   "title": "测试表单",
+  "workflowInfo": {
+    "execute": [Function],
+  },
 }
 `;
