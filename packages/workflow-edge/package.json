@@ -1,6 +1,6 @@
 {
   "name": "@ldsg/workflow-edge",
-  "version": "0.1.0-alpha.19",
+  "version": "0.1.0-alpha.20",
   "description": "",
   "main": "dist/index.js",
   "files": [
