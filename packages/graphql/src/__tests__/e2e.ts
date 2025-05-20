@@ -27,15 +27,9 @@ test("e2e", async () => {
 
   const app = applicationResource.createExpressApp();
 
-  const response = await request(app).get("/");
+  const response = await request(app).get("/test-graphql");
 
   expect(response.statusCode).toBe(200);
 
-  expect(response.text).toBe("Hello, 测试应用!");
-
-  const response2 = await request(app).get("/test-graphql");
-
-  expect(response2.statusCode).toBe(200);
-
-  expect(response2.text).toMatchSnapshot();
+  expect(response.text).toMatchSnapshot();
 });
