@@ -1,15 +1,36 @@
+import { Resource } from "@ldsg/resource";
 import request from "supertest";
-import { ApplicationResource } from "../resource";
+import { ApplicationResource, ExtendExpressApp } from "../resource";
+
+export class AResource extends Resource {
+  extendExpressApp: ExtendExpressApp = (params) => {
+    const { app } = params;
+
+    app.get("/", (req, res) => {
+      res.send("Hello, World!");
+    });
+  };
+}
 
 test("application", async () => {
   const application = new ApplicationResource({
-    id: "application",
+    id: "test-application",
     kind: "application",
     parentId: "ROOT",
     settings: {
-      title: "应用",
-      description: "应用根资源",
-      name: "测试应用",
+      title: "测试应用",
+      description: "",
+      name: "",
+    },
+  });
+
+  new AResource({
+    id: "test-a",
+    kind: "a",
+    parentId: "test-application",
+    settings: {
+      title: "",
+      description: "",
     },
   });
 
@@ -19,5 +40,5 @@ test("application", async () => {
 
   expect(response.statusCode).toBe(200);
 
-  expect(response.text).toBe("Hello, 测试应用!");
+  expect(response.text).toBe("Hello, World!");
 });
