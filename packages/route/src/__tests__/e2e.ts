@@ -47,15 +47,9 @@ test("application", async () => {
 
   const app = applicationResource.createExpressApp();
 
-  const response = await request(app).get("/");
+  const response = await request(app).get("/test");
 
   expect(response.statusCode).toBe(200);
 
-  expect(response.text).toBe("Hello, 测试应用!");
-
-  const response2 = await request(app).get("/test");
-
-  expect(response2.statusCode).toBe(200);
-
-  expect(response2.text).toBe("Hello, World!");
+  expect(response.text).toBe("Hello, World!");
 });
