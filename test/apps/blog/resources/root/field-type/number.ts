@@ -1,6 +1,33 @@
+import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { Schema } from "mongoose";
+
+export const numberFieldType = new FieldTypeResource({
+  id: "number-field-type",
+  kind: "field_type",
+  parentId: ROOT_RESOURCE_ID,
+  settings: {
+    title: "文本字段类型",
+    description: "可用来存储各种文本",
+    fieldPropertiesSchema: {
+      type: "object",
+      properties: {
+        max: {
+          type: "integer",
+          title: "最大值",
+          description: "",
+        },
+        min: {
+          type: "integer",
+          title: "最小值",
+          description: "",
+        },
+      },
+    },
+    handlerResourceId: "number-field-type-handler",
+  },
+});
 
 const handler: Handler<
   [
@@ -42,47 +69,15 @@ const handler: Handler<
   return res;
 };
 
-test("field type", () => {
-  new HandlerResource({
-    id: "test-handler",
-    kind: "handler",
-    parentId: "root",
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-    },
-    handler,
-  });
-
-  const fieldTypeResource = new FieldTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
-    parentId: "root",
-    settings: {
-      title: "文本",
-      description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
-        type: "object",
-        properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
-          },
-        },
-      },
-      handlerResourceId: "test-handler",
-    },
-  });
-
-  const fieldTypeOnMongoose = fieldTypeResource.getFieldTypeInfo({
-    fieldProperties: {
-      max: "10",
-    },
-    platform: "mongoose",
-  });
-
-  expect(fieldTypeOnMongoose).toMatchSnapshot();
+export const numberFieldTypeHandler = new HandlerResource({
+  id: "number-field-type-handler",
+  kind: "handler",
+  parentId: ROOT_RESOURCE_ID,
+  settings: {
+    title: "文本字段类型处理程序",
+    description: "",
+    code: "",
+    dependencies: [],
+  },
+  handler,
 });
