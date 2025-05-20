@@ -1,5 +1,6 @@
 import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
+import { Schema } from "mongoose";
 
 const handler: Handler<
   [
@@ -19,19 +20,12 @@ const handler: Handler<
 > = (params) => {
   const { fieldProperties, platform } = params;
 
-  const { max } = fieldProperties;
-
   let res;
 
   switch (platform) {
     case "mongoose": {
       res = {
-        type: "String",
-        ...(max
-          ? {
-              maxLength: max,
-            }
-          : {}),
+        type: Schema.Types.Boolean,
       };
 
       break;
