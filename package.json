@@ -1,8 +1,8 @@
 {
-  "name": "root",
+  "name": "ldsg-project",
   "private": true,
   "workspaces": [
-    "packages/**"
+    "packages/*"
   ],
   "scripts": {
     "cli:debug": "pnpm --filter @ldsg/cli debug",
@@ -15,10 +15,32 @@
     "@babel/preset-typescript": "^7.24.7",
     "@changesets/cli": "^2.28.1",
     "@dotenvx/dotenvx": "^1.39.1",
+    "@ldsg/application": "workspace:*",
+    "@ldsg/constants": "workspace:*",
+    "@ldsg/database": "workspace:*",
+    "@ldsg/field-type": "workspace:*",
+    "@ldsg/handler": "workspace:*",
+    "@ldsg/prepare": "workspace:*",
+    "@ldsg/resource": "workspace:*",
+    "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/utils": "workspace:*",
+    "@ldsg/workflow": "workspace:*",
+    "@ldsg/workflow-edge": "workspace:*",
+    "@ldsg/workflow-node": "workspace:*",
+    "@ldsg/workflow-node-type": "workspace:*",
+    "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.2",
+    "@types/lodash": "^4.14.202",
+    "@types/shelljs": "0.8.15",
+    "@types/supertest": "^6.0.0",
+    "fs-extra": "^11.3.0",
     "jest": "^29.5.0",
+    "lodash": "^4.17.21",
     "nodemon": "^3.1.4",
-    "ts-jest": "^29.1.5"
+    "shelljs": "^0.9.2",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.5",
+    "uuid": "^11.1.0"
   },
   "nodemonConfig": {
     "ext": "ts",
