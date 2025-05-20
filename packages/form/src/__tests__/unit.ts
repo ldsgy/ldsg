@@ -173,13 +173,8 @@ test("unit", () => {
     kind: "workflow",
     parentId: "root",
     settings: {
-      title: "测试对象2测试字段1",
+      title: "测试工作流",
       description: "",
-      name: "test-1",
-      fieldTypeResourceId: "test-field-type",
-      properties: {
-        max: "10",
-      },
     },
   });
 
