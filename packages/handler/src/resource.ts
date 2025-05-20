@@ -63,6 +63,7 @@ export class HandlerResource<
         throw new Error("invalid handler in module");
       }
     } catch (error) {
+      console.error(error);
       throw new Error("require module failed");
     }
   };

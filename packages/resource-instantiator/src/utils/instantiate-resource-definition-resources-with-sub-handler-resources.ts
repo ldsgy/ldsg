@@ -22,14 +22,14 @@ export const instantiateResourceDefinitionResourcesWithSubHandlerResources: Inst
   const { resourceRecords } = params;
 
   const resourceDefinitionResourceRecords = resourceRecords.filter(
-    (value) => value.kind === "RESOURCE_DEFINITION"
+    (value) => value.kind === "resource_definition"
   ) as ResourceRecord<
     HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
   >[];
 
   const handlerResourceRecords = resourceRecords.filter(
     (value) =>
-      value.kind === "HANDLER" &&
+      value.kind === "handler" &&
       resourceDefinitionResourceRecords.find(
         (resourceDefinitionResourceRecord) =>
           resourceDefinitionResourceRecord.settings.handlerResourceId ===

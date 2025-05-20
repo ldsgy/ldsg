@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`resolve-manifest-resources 1`] = `
+exports[`get-resource-kind-map 1`] = `
 {
-  "APPLICATION": {
+  "application": {
     "resourceDefinitionResource": ResourceDefinitionResource {
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
@@ -10,18 +10,18 @@ exports[`resolve-manifest-resources 1`] = `
       "getResourcesFromSettings": [Function],
       "id": "application-resource-definition",
       "instantiateResource": [Function],
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
         "handlerResourceId": "application-resource-handler",
-        "kind": "APPLICATION",
+        "kind": "application",
         "subKinds": [],
         "title": "应用类型资源定义",
       },
     },
   },
-  "HANDLER": {
+  "handler": {
     "resourceDefinitionResource": ResourceDefinitionResource {
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
@@ -29,18 +29,18 @@ exports[`resolve-manifest-resources 1`] = `
       "getResourcesFromSettings": [Function],
       "id": "handler-resource-definition",
       "instantiateResource": [Function],
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
         "handlerResourceId": "handler-resource-handler",
-        "kind": "HANDLER",
+        "kind": "handler",
         "subKinds": [],
         "title": "处理程序类型资源定义",
       },
     },
   },
-  "RESOURCE_DEFINITION": {
+  "resource_definition": {
     "resourceDefinitionResource": ResourceDefinitionResource {
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
@@ -48,12 +48,12 @@ exports[`resolve-manifest-resources 1`] = `
       "getResourcesFromSettings": [Function],
       "id": "resource-definition-resource-definition",
       "instantiateResource": [Function],
-      "kind": "RESOURCE_DEFINITION",
+      "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
         "handlerResourceId": "resource-definition-resource-handler",
-        "kind": "RESOURCE_DEFINITION",
+        "kind": "resource_definition",
         "subKinds": [],
         "title": "资源定义类型资源定义",
       },

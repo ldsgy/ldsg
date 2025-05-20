@@ -11,7 +11,7 @@ export const instantiateResources: InstantiateResources<
   const { resourceRecords } = params;
 
   const resourceDefinitionManifestResources = resourceRecords.filter(
-    (value) => value.kind === "RESOURCE_DEFINITION"
+    (value) => value.kind === "resource_definition"
   );
 
   const resources = resourceDefinitionManifestResources.map(
