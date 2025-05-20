@@ -20,24 +20,13 @@ const handler: Handler<
 > = (params) => {
   const { fieldProperties, platform } = params;
 
-  const { min, max } = fieldProperties;
-
   let res;
 
   switch (platform) {
     case "mongoose": {
       res = {
+        ...fieldProperties,
         type: Schema.Types.Int32,
-        ...(min
-          ? {
-              min,
-            }
-          : {}),
-        ...(max
-          ? {
-              max,
-            }
-          : {}),
       };
 
       break;

@@ -25,6 +25,7 @@ const handler: Handler<
   switch (platform) {
     case "mongoose": {
       res = {
+        ...fieldProperties,
         type: Schema.Types.ObjectId,
       };
 

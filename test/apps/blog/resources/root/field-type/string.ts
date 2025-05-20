@@ -20,19 +20,13 @@ const handler: Handler<
 > = (params) => {
   const { fieldProperties, platform } = params;
 
-  const { max } = fieldProperties;
-
   let res;
 
   switch (platform) {
     case "mongoose": {
       res = {
+        ...fieldProperties,
         type: Schema.Types.String,
-        ...(max
-          ? {
-              maxLength: max,
-            }
-          : {}),
       };
 
       break;
