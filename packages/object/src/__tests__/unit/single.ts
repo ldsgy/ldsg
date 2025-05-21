@@ -1,9 +1,10 @@
+import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import { FieldTypeResource } from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { Resource } from "@ldsg/resource";
 import { SpecificResourceSettings } from "@ldsg/types";
-import { ObjectResource } from "../resource";
-import { FieldInfo, GetFieldInfo } from "../types";
+import { ObjectResource } from "../../resource";
+import { FieldInfo, GetFieldInfo } from "../../types";
 
 interface ASpecificResourceSettings extends SpecificResourceSettings {
   /**
@@ -103,7 +104,7 @@ test("object", () => {
   new HandlerResource({
     id: "test-handler",
     kind: "handler",
-    parentId: "root",
+    parentId: ROOT_RESOURCE_ID,
     settings: {
       title: "测试处理程序",
       description: "",
@@ -116,7 +117,7 @@ test("object", () => {
   new FieldTypeResource({
     id: "test-field-type",
     kind: "field_type",
-    parentId: "root",
+    parentId: ROOT_RESOURCE_ID,
     settings: {
       title: "文本",
       description: "可用来存储各种文本",
@@ -134,23 +135,23 @@ test("object", () => {
     },
   });
 
-  const objectResource = new ObjectResource({
+  const testObject = new ObjectResource({
     id: "test-object",
     kind: "object",
-    parentId: "root",
+    parentId: ROOT_RESOURCE_ID,
     settings: {
       title: "测试对象",
       description: "",
-      name: "test-object",
+      name: "test",
     },
   });
 
   new AResource({
-    id: "test-a-1",
+    id: "test-object-test-1-object-field",
     kind: "object_field",
     parentId: "test-object",
     settings: {
-      title: "测试字段1",
+      title: "测试对象测试1对象字段",
       description: "",
       name: "test1",
       fieldTypeResourceId: "test-field-type",
@@ -161,11 +162,11 @@ test("object", () => {
   });
 
   new AResource({
-    id: "test-a-2",
+    id: "test-object-test-2-object-field",
     kind: "object_field",
     parentId: "test-object",
     settings: {
-      title: "测试字段2",
+      title: "测试对象测试2对象字段",
       description: "",
       name: "test2",
       fieldTypeResourceId: "test-field-type",
@@ -176,13 +177,13 @@ test("object", () => {
   });
 
   new AResource({
-    id: "test-a-3",
+    id: "test-object-test-3-object-field",
     kind: "object_field",
     parentId: "test-object",
     settings: {
-      title: "测试字段3",
+      title: "测试对象测试3对象字段",
       description: "",
-      name: "test",
+      name: "test3",
       fieldTypeResourceId: "test-field-type",
       properties: {
         max: "10",
@@ -190,7 +191,7 @@ test("object", () => {
     },
   });
 
-  const getObjectInfoRes = objectResource.getObjectInfo({
+  const getObjectInfoRes = testObject.getObjectInfo({
     platform: "mongoose",
   });
 

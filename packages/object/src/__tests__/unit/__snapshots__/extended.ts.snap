@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object 1`] = `
+{
+  "objectInfo": {
+    "description": "",
+    "fieldInfoList": [
+      {
+        "description": "",
+        "name": "test-1",
+        "title": "测试1对象测试1对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test2",
+        "title": "测试1对象测试2对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test3",
+        "title": "测试1对象测试3对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+    ],
+    "name": "test-1",
+    "title": "测试1对象",
+  },
+}
+`;
+
+exports[`object 2`] = `
+{
+  "objectInfo": {
+    "description": "",
+    "fieldInfoList": [
+      {
+        "description": "",
+        "name": "test-1",
+        "title": "测试1对象测试1对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test2",
+        "title": "测试1对象测试2对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test3",
+        "title": "测试1对象测试3对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test-1",
+        "title": "测试2对象测试1对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test-4",
+        "title": "测试2对象测试4对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+      {
+        "description": "",
+        "name": "test-5",
+        "title": "测试2对象测试5对象字段",
+        "typeInfo": {
+          "maxLength": "10",
+          "type": "String",
+        },
+      },
+    ],
+    "name": "test-2",
+    "title": "测试2对象",
+  },
+}
+`;

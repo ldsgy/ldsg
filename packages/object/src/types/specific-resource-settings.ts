@@ -6,4 +6,9 @@ export interface ObjectSpecificResourceSettings
    * Object Name
    */
   name: string;
+
+  /**
+   * Extended Resource IDs
+   */
+  extendedResourceIds?: string[];
 }
