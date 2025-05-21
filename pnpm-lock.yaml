@@ -32,6 +32,12 @@ importers:
       '@ldsg/handler':
         specifier: workspace:*
         version: link:packages/handler
+      '@ldsg/object':
+        specifier: workspace:*
+        version: link:packages/object
+      '@ldsg/object-field':
+        specifier: workspace:*
+        version: link:packages/object-field
       '@ldsg/prepare':
         specifier: workspace:*
         version: link:packages/prepare

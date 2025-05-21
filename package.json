@@ -20,6 +20,8 @@
     "@ldsg/database": "workspace:*",
     "@ldsg/field-type": "workspace:*",
     "@ldsg/handler": "workspace:*",
+    "@ldsg/object": "workspace:*",
+    "@ldsg/object-field": "workspace:*",
     "@ldsg/prepare": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
