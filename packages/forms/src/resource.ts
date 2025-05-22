@@ -1,7 +1,9 @@
+import { ExtendExpressApp } from "@ldsg/application";
 import { PlatformParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
+import { FORMS_ROUTE } from "./constants";
 import { FormInfo, FormsSpecificResourceSettings, GetFormInfo } from "./types";
 import { getNewFields } from "./utils";
 
@@ -37,6 +39,15 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
     };
 
     return res;
+  };
+
+  extendExpressApp: ExtendExpressApp = async (params) => {
+    const { app } = params;
+
+    /**
+     * RESTful
+     */
+    app.all(FORMS_ROUTE, (req, res) => {});
   };
 
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {

@@ -30,3 +30,5 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
     kind: "forms",
     subKinds: [],
   };
+
+export const FORMS_ROUTE = "/forms";
