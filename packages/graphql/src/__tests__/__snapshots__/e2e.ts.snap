@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`e2e 1`] = `"{"errors":[{"message":"Must provide query string.","extensions":{"code":"BAD_REQUEST"}}]}"`;

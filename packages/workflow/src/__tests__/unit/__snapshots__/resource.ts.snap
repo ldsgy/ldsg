@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkflowResource execute 1`] = `
+{
+  "1": {
+    "hello": "world",
+  },
+  "2": "abc",
+  "3": "def",
+  "4": "ghi",
+}
+`;

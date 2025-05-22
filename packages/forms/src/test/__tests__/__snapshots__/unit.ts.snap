@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`forms 1`] = `
+{
+  "formInfoList": [
+    {
+      "description": "",
+      "id": "test-form-1",
+      "inputObjectInfo": {
+        "description": "",
+        "fieldInfoList": [
+          {
+            "description": "",
+            "id": "test-object-1-field-1",
+            "name": "test-1",
+            "title": "测试对象1测试字段1",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+          {
+            "description": "",
+            "id": "test-object-1-field-2",
+            "name": "test-2",
+            "title": "测试对象1测试字段2",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+          {
+            "description": "",
+            "id": "test-object-1-field-3",
+            "name": "test-3",
+            "title": "测试对象1测试字段3",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+        ],
+        "name": "test-object-1",
+        "title": "测试对象1",
+      },
+      "name": "test-a-1",
+      "outputObjectInfo": {
+        "description": "",
+        "fieldInfoList": [
+          {
+            "description": "",
+            "id": "test-object-2-field-1",
+            "name": "test-1",
+            "title": "测试对象2测试字段1",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+        ],
+        "name": "test-object-2",
+        "title": "测试对象2",
+      },
+      "title": "测试表单1",
+      "workflowInfo": {
+        "execute": [Function],
+      },
+    },
+    {
+      "description": "",
+      "id": "test-form-2",
+      "inputObjectInfo": {
+        "description": "",
+        "fieldInfoList": [
+          {
+            "description": "",
+            "id": "test-object-2-field-1",
+            "name": "test-1",
+            "title": "测试对象2测试字段1",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+        ],
+        "name": "test-object-2",
+        "title": "测试对象2",
+      },
+      "name": "test-a-2",
+      "outputObjectInfo": {
+        "description": "",
+        "fieldInfoList": [
+          {
+            "description": "",
+            "id": "test-object-1-field-1",
+            "name": "test-1",
+            "title": "测试对象1测试字段1",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+          {
+            "description": "",
+            "id": "test-object-1-field-2",
+            "name": "test-2",
+            "title": "测试对象1测试字段2",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+          {
+            "description": "",
+            "id": "test-object-1-field-3",
+            "name": "test-3",
+            "title": "测试对象1测试字段3",
+            "typeInfo": {
+              "platformToTypeMap": {
+                "COMMON": {
+                  "max": "10",
+                  "type": "string",
+                },
+                "GRAPHQL": undefined,
+                "JSON": undefined,
+                "MONGOOSE": undefined,
+              },
+            },
+          },
+        ],
+        "name": "test-object-1",
+        "title": "测试对象1",
+      },
+      "title": "测试表单2",
+      "workflowInfo": {
+        "execute": [Function],
+      },
+    },
+  ],
+}
+`;
+
+exports[`forms 2`] = `
+"type Query {
+  """测试表单1"""
+  testA1(
+    """测试对象1测试字段1"""
+    test1: String
+
+    """测试对象1测试字段2"""
+    test2: String
+
+    """测试对象1测试字段3"""
+    test3: String
+  ): TestObject2
+
+  """测试表单2"""
+  testA2(
+    """测试对象2测试字段1"""
+    test1: String
+  ): TestObject1
+}
+
+"""测试对象2"""
+type TestObject2 {
+  """测试对象2测试字段1"""
+  test1: String
+}
+
+"""测试对象1"""
+type TestObject1 {
+  """测试对象1测试字段1"""
+  test1: String
+
+  """测试对象1测试字段2"""
+  test2: String
+
+  """测试对象1测试字段3"""
+  test3: String
+}
+
+type Mutation {
+  """测试表单1"""
+  testA1(
+    """测试对象1测试字段1"""
+    test1: String
+
+    """测试对象1测试字段2"""
+    test2: String
+
+    """测试对象1测试字段3"""
+    test3: String
+  ): TestObject2
+
+  """测试表单2"""
+  testA2(
+    """测试对象2测试字段1"""
+    test1: String
+  ): TestObject1
+}"
+`;

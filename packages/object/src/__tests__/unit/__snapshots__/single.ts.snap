@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object 1`] = `
+{
+  "objectInfo": {
+    "description": "",
+    "fieldInfoList": [
+      {
+        "description": "",
+        "id": "test-object-test-1-object-field",
+        "name": "test1",
+        "title": "测试对象测试1对象字段",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+      {
+        "description": "",
+        "id": "test-object-test-2-object-field",
+        "name": "test2",
+        "title": "测试对象测试2对象字段",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+      {
+        "description": "",
+        "id": "test-object-test-3-object-field",
+        "name": "test3",
+        "title": "测试对象测试3对象字段",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+    ],
+    "name": "test",
+    "title": "测试对象",
+  },
+}
+`;

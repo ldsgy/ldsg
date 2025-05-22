@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object field 1`] = `
+{
+  "fieldInfo": {
+    "description": "",
+    "id": "object-field",
+    "name": "test",
+    "title": "测试字段",
+    "typeInfo": {
+      "platformToTypeMap": {
+        "COMMON": {
+          "max": "10",
+          "type": "string",
+        },
+        "GRAPHQL": undefined,
+        "JSON": undefined,
+        "MONGOOSE": undefined,
+      },
+    },
+  },
+}
+`;

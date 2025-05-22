@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unit 1`] = `
+{
+  "description": "",
+  "id": "test-form",
+  "inputObjectInfo": {
+    "description": "",
+    "fieldInfoList": [
+      {
+        "description": "",
+        "id": "test-object-1-field-1",
+        "name": "test-1",
+        "title": "测试对象1测试字段1",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+      {
+        "description": "",
+        "id": "test-object-1-field-2",
+        "name": "test-2",
+        "title": "测试对象1测试字段2",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+      {
+        "description": "",
+        "id": "test-object-1-field-3",
+        "name": "test-3",
+        "title": "测试对象1测试字段3",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+    ],
+    "name": "test-object-1",
+    "title": "测试对象1",
+  },
+  "name": "test-form",
+  "outputObjectInfo": {
+    "description": "",
+    "fieldInfoList": [
+      {
+        "description": "",
+        "id": "test-object-2-field-1",
+        "name": "test-1",
+        "title": "测试对象2测试字段1",
+        "typeInfo": {
+          "platformToTypeMap": {
+            "COMMON": {
+              "max": "10",
+              "type": "string",
+            },
+            "GRAPHQL": undefined,
+            "JSON": undefined,
+            "MONGOOSE": undefined,
+          },
+        },
+      },
+    ],
+    "name": "test-object-2",
+    "title": "测试对象2",
+  },
+  "title": "测试表单",
+  "workflowInfo": {
+    "execute": [Function],
+  },
+}
+`;
