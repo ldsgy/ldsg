@@ -1,11 +1,11 @@
-import { FieldType } from "./field-type-info";
+import { FieldType, FieldTypePlatform } from "./field-type-info";
 
 export interface PlatformParams {
   /**
    * Platform
    * Such as mongoose\formily.
    */
-  platform: string;
+  platform: FieldTypePlatform;
 }
 
 interface GetFieldTypeParams extends PlatformParams {

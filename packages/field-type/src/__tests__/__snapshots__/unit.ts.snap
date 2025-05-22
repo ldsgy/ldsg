@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`field type 1`] = `
+{
+  "platformToTypeMap": {
+    "COMMON": {
+      "max": "10",
+      "type": "string",
+    },
+    "GRAPHQL": undefined,
+    "JSON": undefined,
+    "MONGOOSE": undefined,
+  },
+}
+`;

@@ -1,9 +1,18 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
-import { FieldTypeResource } from "@ldsg/field-type";
-import { HandlerResource } from "@ldsg/handler";
-import { FieldTypeBasePlatform, FieldTypeResourceHandler } from "../types";
+import {
+  HandlerExtendedResourceSettings,
+  HandlerSpecificResourceSettings,
+} from "@ldsg/handler";
+import { ResourceRecord } from "@ldsg/types";
+import {
+  FieldTypeBasePlatform,
+  FieldTypeResourceHandler,
+  FieldTypeSpecificResourceSettings,
+} from "../types";
 
-export const numberFieldType = new FieldTypeResource({
+export const numberFieldTypeResourceRecord: ResourceRecord<
+  HandlerExtendedResourceSettings<FieldTypeSpecificResourceSettings>
+> = {
   id: "number-field-type",
   kind: "field_type",
   parentId: ROOT_RESOURCE_ID,
@@ -27,7 +36,7 @@ export const numberFieldType = new FieldTypeResource({
     },
     handlerResourceId: "number-field-type-handler",
   },
-});
+};
 
 const handler: FieldTypeResourceHandler = (params) => {
   const { fieldProperties, platform } = params;
@@ -52,15 +61,16 @@ const handler: FieldTypeResourceHandler = (params) => {
   return res;
 };
 
-export const numberFieldTypeHandler = new HandlerResource({
-  id: "number-field-type-handler",
-  kind: "handler",
-  parentId: ROOT_RESOURCE_ID,
-  settings: {
-    title: "文本字段类型处理程序",
-    description: "",
-    code: "",
-    dependencies: [],
-  },
-  handler,
-});
+export const numberFieldTypeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
+  {
+    id: "number-field-type-handler",
+    kind: "handler",
+    parentId: ROOT_RESOURCE_ID,
+    settings: {
+      title: "文本字段类型处理程序",
+      description: "",
+      code: "",
+      dependencies: [],
+      handler,
+    },
+  };
