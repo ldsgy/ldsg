@@ -37,7 +37,9 @@ class MockObjectFieldResource extends Resource<ASpecificResourceSettings> {
 
     const { fieldTypeResource } = getResourcesFromSettings();
 
-    const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
+    const { fieldTypeInfo } = (
+      fieldTypeResource as FieldTypeResource
+    ).getFieldTypeInfo({
       ...params,
       fieldProperties: properties,
     });
@@ -47,7 +49,7 @@ class MockObjectFieldResource extends Resource<ASpecificResourceSettings> {
       title,
       description,
       name,
-      typeInfo,
+      typeInfo: fieldTypeInfo,
     };
 
     const res = {

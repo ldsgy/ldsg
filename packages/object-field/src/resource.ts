@@ -13,7 +13,9 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
 
     const { fieldTypeResource } = getResourcesFromSettings();
 
-    const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
+    const { fieldTypeInfo } = (
+      fieldTypeResource as FieldTypeResource
+    ).getFieldTypeInfo({
       ...params,
       fieldProperties: properties,
     });
@@ -23,7 +25,7 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
       title,
       description,
       name,
-      typeInfo,
+      typeInfo: fieldTypeInfo,
     };
 
     const res = {
