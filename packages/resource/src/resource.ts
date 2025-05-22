@@ -36,22 +36,22 @@ export class Resource<
   /**
    * Resource ID
    */
-  id: string;
+  id!: string;
 
   /**
    * Resource Kind
    */
-  kind: string;
+  kind!: string;
 
   /**
    * Parent Resource ID
    */
-  parentId: string;
+  parentId!: string;
 
   /**
    * Resource Settings
    */
-  settings: ResourceSettings<T>;
+  settings!: ResourceSettings<T>;
 
   /**
    * Resource List
@@ -64,12 +64,9 @@ export class Resource<
   static resourceMap: Record<string, Resource> = {};
 
   constructor(params: ResourceConstructorParams<T>) {
-    const { id, kind, parentId, settings } = params;
+    const { id } = params;
 
-    this.id = id;
-    this.kind = kind;
-    this.parentId = parentId;
-    this.settings = settings;
+    Object.assign(this, params);
 
     Resource.resourceList.push(this);
 

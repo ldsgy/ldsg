@@ -1,4 +1,5 @@
 import { SpecificResourceSettings } from "@ldsg/types";
+import { Handler } from "./handler";
 
 export interface HandlerResourceDependency {
   /**
@@ -31,4 +32,9 @@ export interface HandlerSpecificResourceSettings
    * Dependencies
    */
   dependencies: HandlerResourceDependency[];
+
+  /**
+   * Handler
+   */
+  handler?: Handler;
 }
