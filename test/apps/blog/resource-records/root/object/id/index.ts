@@ -3,7 +3,7 @@ import { ResourceRecord } from "@ldsg/types";
 
 export * from "./object-fields";
 
-export const idObjectResource: ResourceRecord<ObjectSpecificResourceSettings> =
+export const idObjectResourceRecord: ResourceRecord<ObjectSpecificResourceSettings> =
   {
     id: "id-object",
     kind: "object",

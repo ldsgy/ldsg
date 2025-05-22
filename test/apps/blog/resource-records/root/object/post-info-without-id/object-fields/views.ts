@@ -1,16 +1,18 @@
+import { numberFieldTypeResourceRecord } from "@ldsg/field-type";
 import { ObjectFieldSpecificResourceSettings } from "@ldsg/object-field";
 import { ResourceRecord } from "@ldsg/types";
+import { postInfoWithoutIdObjectResourceRecord } from "..";
 
 export const postInfoWithoutIdObjectViewsObjectFieldResourceRecord: ResourceRecord<ObjectFieldSpecificResourceSettings> =
   {
-    id: "post-info-without-id-object-views-object-field",
+    id: `${postInfoWithoutIdObjectResourceRecord.id}-views-object-field`,
     kind: "object-field",
-    parentId: "post-info-without-id-object",
+    parentId: postInfoWithoutIdObjectResourceRecord.id,
     settings: {
       title: "访问量",
       description: "",
       name: "views",
-      fieldTypeResourceId: "number-field-type",
+      fieldTypeResourceId: numberFieldTypeResourceRecord.id,
       properties: {},
     },
   };

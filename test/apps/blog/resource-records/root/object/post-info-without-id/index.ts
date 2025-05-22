@@ -4,7 +4,7 @@ import { ResourceRecord } from "@ldsg/types";
 
 export * from "./object-fields";
 
-export const idObjectResource: ResourceRecord<ObjectSpecificResourceSettings> =
+export const postInfoWithoutIdObjectResourceRecord: ResourceRecord<ObjectSpecificResourceSettings> =
   {
     id: "post-info-without-id-object",
     kind: "object",
