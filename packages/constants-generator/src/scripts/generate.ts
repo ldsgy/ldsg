@@ -36,13 +36,16 @@ const main = async () => {
    * 处理应用模板内文件
    */
   {
-    const appTemplateRootDirPath = path.join(
+    const templatesDirPath = path.join(
       __dirname,
       "..",
       "..",
       "..",
-      "app-template"
+      "..",
+      "templates"
     );
+
+    const appTemplateRootDirPath = path.join(templatesDirPath, "app");
 
     const appTemplateRootDirRes = await fs.readdir(appTemplateRootDirPath);
 
@@ -79,11 +82,7 @@ const main = async () => {
      * 处理 handler 模板内文件
      */
     {
-      const handlerTemplateDirPath = path.join(
-        appTemplateRootDirPath,
-        "handlers",
-        "handler-template"
-      );
+      const handlerTemplateDirPath = path.join(templatesDirPath, "handler");
 
       const filesInHandlerModule: AppDataFile[] = [];
 
@@ -114,7 +113,7 @@ const main = async () => {
   }
 
   /**
-   * 向 dist 目录写入全部文件
+   * 向 src 目录写入全部文件
    */
   {
     const constantsSrcPath = path.join(

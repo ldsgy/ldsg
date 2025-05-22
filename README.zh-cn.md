@@ -57,14 +57,12 @@ pnpm i --save-dev @types/supertest supertest --filter @ldsg/app
 
 | 名称                     | 标题         | 描述                                  |
 | ------------------------ | ------------ | ------------------------------------- |
-| app-template             | 应用模板     |
 | application              | 应用         | 应用资源定义                          |
 | common                   | 通用         | NodeJS 和浏览器平台下均可用的实用工具 |
 | constants                | 常量         |
 | create-app               | 创建应用     | 用于创建 Express 应用入口             |
 | handler                  | 处理程序     |
 | handler-part             | 处理程序部分 |
-| integration-test         | 集成测试     |
 | prepare                  | 准备         |
 | resource                 | 资源         |
 | resource-definition      | 资源定义     |
