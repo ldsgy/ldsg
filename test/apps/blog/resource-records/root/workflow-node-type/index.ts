@@ -1,4 +1,4 @@
 export {
-  endWorkflowNodeTypeResource,
-  startWorkflowNodeTypeResource,
+  endWorkflowNodeTypeResourceRecord,
+  startWorkflowNodeTypeResourceRecord,
 } from "@ldsg/workflow-node-type";

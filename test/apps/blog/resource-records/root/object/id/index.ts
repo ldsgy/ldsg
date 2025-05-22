@@ -1,13 +1,16 @@
-import { ObjectResource } from "@ldsg/object";
+import { ObjectSpecificResourceSettings } from "@ldsg/object";
+import { ResourceRecord } from "@ldsg/types";
+
 export * from "./object-fields";
 
-export const objectResource = new ObjectResource({
-  id: "id-object",
-  kind: "object",
-  parentId: "root",
-  settings: {
-    title: "ID",
-    description: "",
-    name: "id",
-  },
-});
+export const idObjectResource: ResourceRecord<ObjectSpecificResourceSettings> =
+  {
+    id: "id-object",
+    kind: "object",
+    parentId: "root",
+    settings: {
+      title: "ID",
+      description: "",
+      name: "id",
+    },
+  };
