@@ -1,16 +1,28 @@
-export interface PlatformParams {
+import { FieldTypeInfo, FieldTypePlatform } from "./field-type-info";
+
+export interface PlatformsParams {
   /**
-   * Platform
-   * Such as mongoose\formily.
+   * Platforms
    */
-  platform?: string;
+  platforms?: FieldTypePlatform[];
+
+  /**
+   * Extra Platforms
+   */
+  extraPlatforms?: FieldTypePlatform[];
 }
 
-export interface GetFieldTypeInfoParams extends PlatformParams {
+export interface GetFieldTypeInfoParams extends PlatformsParams {
   /**
    * Field Properties
    */
   fieldProperties: any;
 }
 
-export type GetFieldTypeInfo = (params: GetFieldTypeInfoParams) => any;
+export interface GetFieldTypeInfoRes {
+  fieldTypeInfo: FieldTypeInfo;
+}
+
+export type GetFieldTypeInfo = (
+  params: GetFieldTypeInfoParams
+) => GetFieldTypeInfoRes;

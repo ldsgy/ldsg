@@ -1,18 +1,48 @@
 import { HandlerExtendedResource } from "@ldsg/handler";
-import { FieldTypeSpecificResourceSettings, GetFieldTypeInfo } from "./types";
+import { FieldTypeBasePlatformList } from "./constants";
+import {
+  FieldTypePlatform,
+  FieldTypeSpecificResourceSettings,
+  GetFieldTypeInfo,
+  GetFieldTypeInfoRes,
+  PlatformToTypeMap,
+} from "./types";
+import { FieldTypeResourceHandler } from "./types/field-type-resource-handler";
 
 export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecificResourceSettings> {
   getFieldTypeInfo: GetFieldTypeInfo = (params) => {
-    const { fieldProperties, platform = "common" } = params;
+    const {
+      fieldProperties,
+      platforms: paramsPlatforms,
+      extraPlatforms,
+    } = params;
 
     const { getHandler } = this;
 
-    const handler = getHandler();
+    const handler: FieldTypeResourceHandler = getHandler();
 
-    const res = handler({
-      fieldProperties,
-      platform,
-    });
+    let platforms: FieldTypePlatform[] = paramsPlatforms
+      ? paramsPlatforms
+      : extraPlatforms
+      ? [...FieldTypeBasePlatformList, ...extraPlatforms]
+      : FieldTypeBasePlatformList;
+
+    const platformToTypeMap: PlatformToTypeMap = {};
+
+    for (const platform of platforms) {
+      const fieldType = handler({
+        fieldProperties,
+        platform,
+      });
+
+      platformToTypeMap[platform] = fieldType;
+    }
+
+    const res: GetFieldTypeInfoRes = {
+      fieldTypeInfo: {
+        platformToTypeMap,
+      },
+    };
 
     return res;
   };

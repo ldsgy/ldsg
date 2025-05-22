@@ -1,6 +1,7 @@
 import { HandlerSpecificResourceSettings } from "@ldsg/handler";
 import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition";
 import { GeneralResourceSettings } from "@ldsg/types";
+import { FieldTypeBasePlatform } from "./types/field-type-info";
 
 export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
   title: "字段类型类型资源处理程序",
@@ -30,3 +31,10 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
     kind: "field_type",
     subKinds: [],
   };
+
+export const FieldTypeBasePlatformList = [
+  FieldTypeBasePlatform.COMMON,
+  FieldTypeBasePlatform.GRAPHQL,
+  FieldTypeBasePlatform.JSON,
+  FieldTypeBasePlatform.MONGOOSE,
+];
