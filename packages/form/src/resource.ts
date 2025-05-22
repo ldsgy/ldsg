@@ -6,8 +6,6 @@ import { FormSpecificResourceSettings } from "./types";
 
 export class FormResource extends Resource<FormSpecificResourceSettings> {
   getFormInfo: GetFormInfo = (params) => {
-    const { platform } = params;
-
     const {
       id,
       settings: { title, description, name },
@@ -19,11 +17,11 @@ export class FormResource extends Resource<FormSpecificResourceSettings> {
 
     const { objectInfo: inputObjectInfo } = (
       inputObjectResource as ObjectResource
-    ).getObjectInfo({ platform });
+    ).getObjectInfo(params);
 
     const { objectInfo: outputObjectInfo } = (
       outputObjectResource as ObjectResource
-    ).getObjectInfo({ platform });
+    ).getObjectInfo(params);
 
     const { workflowInfo } = (
       workflowResource as WorkflowResource

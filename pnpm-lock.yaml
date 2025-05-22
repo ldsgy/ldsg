@@ -47,6 +47,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:packages/resource-definition
+      '@ldsg/types':
+        specifier: workspace:*
+        version: link:packages/types
       '@ldsg/utils':
         specifier: workspace:*
         version: link:packages/utils

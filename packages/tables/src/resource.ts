@@ -1,4 +1,4 @@
-import { PlatformParams } from "@ldsg/field-type";
+import { PlatformsParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
@@ -16,12 +16,10 @@ interface GetTableInfoListRes {
   tableInfoList: TableInfo[];
 }
 
-type GetTableInfoList = (params: PlatformParams) => GetTableInfoListRes;
+type GetTableInfoList = (params?: PlatformsParams) => GetTableInfoListRes;
 
 export class TablesResource extends Resource<TablesSpecificResourceSettings> {
   getTableInfoList: GetTableInfoList = (params) => {
-    const { platform } = params;
-
     const { id, getFilteredResources } = this;
 
     const { resources } = getFilteredResources<{
@@ -31,7 +29,7 @@ export class TablesResource extends Resource<TablesSpecificResourceSettings> {
     });
 
     const mapRes = resources.map((resource) => {
-      return resource.getTableInfo?.({ platform });
+      return resource.getTableInfo?.(params);
     });
 
     const tableInfoList = _.filter(mapRes, (value) => !_.isUndefined(value));
@@ -46,9 +44,7 @@ export class TablesResource extends Resource<TablesSpecificResourceSettings> {
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
     const { schemaComposer } = params;
 
-    const { tableInfoList } = this.getTableInfoList({
-      platform: "mongoose",
-    });
+    const { tableInfoList } = this.getTableInfoList();
 
     addFields({
       tableInfoList,

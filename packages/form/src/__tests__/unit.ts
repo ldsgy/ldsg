@@ -1,90 +1,18 @@
-import { FieldTypeResource } from "@ldsg/field-type";
-import { Handler, HandlerResource } from "@ldsg/handler";
+import {
+  FieldTypeResource,
+  stringFieldTypeHandlerResourceRecord,
+  stringFieldTypeResourceRecord,
+} from "@ldsg/field-type";
+import { HandlerResource } from "@ldsg/handler";
 import { ObjectResource } from "@ldsg/object";
 import { ObjectFieldResource } from "@ldsg/object-field";
 import { WorkflowResource } from "@ldsg/workflow";
 import { FormResource } from "../resource";
 
-const handler: Handler<
-  [
-    {
-      /**
-       * Field Properties
-       */
-      fieldProperties?: any;
-      /**
-       * Platform
-       * Such as mongoose\formily.
-       */
-      platform: string;
-    }
-  ],
-  {}
-> = (params) => {
-  const { fieldProperties, platform } = params;
-
-  const { max } = fieldProperties;
-
-  let res;
-
-  switch (platform) {
-    case "mongoose": {
-      res = {
-        type: "String",
-        ...(max
-          ? {
-              maxLength: max,
-            }
-          : {}),
-      };
-
-      break;
-    }
-
-    default: {
-      res = {};
-
-      break;
-    }
-  }
-
-  return res;
-};
-
 test("unit", () => {
-  new HandlerResource({
-    id: "test-handler",
-    kind: "handler",
-    parentId: "root",
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-      handler,
-    },
-  });
+  new HandlerResource(stringFieldTypeHandlerResourceRecord);
 
-  new FieldTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
-    parentId: "root",
-    settings: {
-      title: "文本",
-      description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
-        type: "object",
-        properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
-          },
-        },
-      },
-      handlerResourceId: "test-handler",
-    },
-  });
+  new FieldTypeResource(stringFieldTypeResourceRecord);
 
   new ObjectResource({
     id: "test-object-1",
@@ -105,7 +33,7 @@ test("unit", () => {
       title: "测试对象1测试字段1",
       description: "",
       name: "test-1",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -120,7 +48,7 @@ test("unit", () => {
       title: "测试对象1测试字段2",
       description: "",
       name: "test-2",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -135,7 +63,7 @@ test("unit", () => {
       title: "测试对象1测试字段3",
       description: "",
       name: "test-3",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -161,7 +89,7 @@ test("unit", () => {
       title: "测试对象2测试字段1",
       description: "",
       name: "test-1",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -192,9 +120,7 @@ test("unit", () => {
     },
   });
 
-  const getFormInfoRes = formResource.getFormInfo({
-    platform: "mongoose",
-  });
+  const getFormInfoRes = formResource.getFormInfo();
 
   expect(getFormInfoRes).toMatchSnapshot();
 });

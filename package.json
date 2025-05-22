@@ -25,6 +25,7 @@
     "@ldsg/prepare": "workspace:*",
     "@ldsg/resource": "workspace:*",
     "@ldsg/resource-definition": "workspace:*",
+    "@ldsg/types": "workspace:*",
     "@ldsg/utils": "workspace:*",
     "@ldsg/workflow": "workspace:*",
     "@ldsg/workflow-edge": "workspace:*",

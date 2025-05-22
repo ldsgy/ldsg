@@ -5,8 +5,6 @@ import { TableSpecificResourceSettings } from "./types";
 
 export class TableResource extends Resource<TableSpecificResourceSettings> {
   getTableInfo: GetTableInfo = (params) => {
-    const { platform } = params;
-
     const {
       settings: { title, description, name },
       getResourcesFromSettings,
@@ -14,9 +12,9 @@ export class TableResource extends Resource<TableSpecificResourceSettings> {
 
     const { objectResource, databaseResource } = getResourcesFromSettings();
 
-    const { objectInfo } = (objectResource as ObjectResource).getObjectInfo({
-      platform,
-    });
+    const { objectInfo } = (objectResource as ObjectResource).getObjectInfo(
+      params
+    );
 
     const res: TableInfo = {
       title,

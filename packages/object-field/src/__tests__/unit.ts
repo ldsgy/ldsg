@@ -1,4 +1,8 @@
-import { FieldTypeResource } from "@ldsg/field-type";
+import {
+  FieldTypeResource,
+  stringFieldTypeHandlerResourceRecord,
+  stringFieldTypeResourceRecord,
+} from "@ldsg/field-type";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { ObjectFieldResource } from "../resource";
 
@@ -49,39 +53,9 @@ const handler: Handler<
 };
 
 test("object field", () => {
-  new HandlerResource({
-    id: "test-handler",
-    kind: "handler",
-    parentId: "root",
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-      handler,
-    },
-  });
+  new HandlerResource(stringFieldTypeHandlerResourceRecord);
 
-  new FieldTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
-    parentId: "root",
-    settings: {
-      title: "文本",
-      description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
-        type: "object",
-        properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
-          },
-        },
-      },
-      handlerResourceId: "test-handler",
-    },
-  });
+  new FieldTypeResource(stringFieldTypeResourceRecord);
 
   const objectFieldResource = new ObjectFieldResource({
     id: "object-field",
@@ -91,7 +65,7 @@ test("object field", () => {
       title: "测试字段",
       description: "",
       name: "test",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },

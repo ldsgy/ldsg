@@ -1,4 +1,4 @@
-import { PlatformParams } from "@ldsg/field-type";
+import { PlatformsParams } from "@ldsg/field-type";
 import { ObjectInfo } from "@ldsg/object";
 import { GeneralResourceSettings } from "@ldsg/types";
 
@@ -14,4 +14,4 @@ export interface TableInfo extends GeneralResourceSettings {
   objectInfo: ObjectInfo;
 }
 
-export type GetTableInfo = (params: PlatformParams) => TableInfo;
+export type GetTableInfo = (params?: PlatformsParams) => TableInfo;

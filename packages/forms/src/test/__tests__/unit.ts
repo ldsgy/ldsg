@@ -1,4 +1,8 @@
-import { FieldTypeResource } from "@ldsg/field-type";
+import {
+  FieldTypeResource,
+  stringFieldTypeHandlerResourceRecord,
+  stringFieldTypeResourceRecord,
+} from "@ldsg/field-type";
 import { GraphqlResource } from "@ldsg/graphql";
 import { Handler, HandlerResource } from "@ldsg/handler";
 import { ObjectResource } from "@ldsg/object";
@@ -142,39 +146,9 @@ test("forms", () => {
     },
   });
 
-  new HandlerResource({
-    id: "test-handler",
-    kind: "handler",
-    parentId: "root",
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-      handler,
-    },
-  });
+  new HandlerResource(stringFieldTypeHandlerResourceRecord);
 
-  new FieldTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
-    parentId: "root",
-    settings: {
-      title: "文本",
-      description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
-        type: "object",
-        properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
-          },
-        },
-      },
-      handlerResourceId: "test-handler",
-    },
-  });
+  new FieldTypeResource(stringFieldTypeResourceRecord);
 
   new ObjectFieldResource({
     id: "test-object-1-field-1",
@@ -184,7 +158,7 @@ test("forms", () => {
       title: "测试对象1测试字段1",
       description: "",
       name: "test-1",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -199,7 +173,7 @@ test("forms", () => {
       title: "测试对象1测试字段2",
       description: "",
       name: "test-2",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -214,7 +188,7 @@ test("forms", () => {
       title: "测试对象1测试字段3",
       description: "",
       name: "test-3",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
@@ -240,7 +214,7 @@ test("forms", () => {
       title: "测试对象2测试字段1",
       description: "",
       name: "test-1",
-      fieldTypeResourceId: "test-field-type",
+      fieldTypeResourceId: stringFieldTypeResourceRecord.id,
       properties: {
         max: "10",
       },
