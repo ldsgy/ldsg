@@ -58,8 +58,8 @@ test("object field", () => {
       description: "",
       code: "",
       dependencies: [],
+      handler,
     },
-    handler,
   });
 
   new FieldTypeResource({

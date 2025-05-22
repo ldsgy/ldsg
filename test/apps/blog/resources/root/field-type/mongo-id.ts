@@ -67,6 +67,6 @@ export const mongoIdFieldTypeHandler = new HandlerResource({
     description: "",
     code: "",
     dependencies: [],
+    handler,
   },
-  handler,
 });

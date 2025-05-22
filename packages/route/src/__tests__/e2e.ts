@@ -41,8 +41,8 @@ test("application", async () => {
       description: "应用根资源",
       code: "",
       dependencies: [],
+      handler,
     },
-    handler,
   });
 
   const app = applicationResource.createExpressApp();

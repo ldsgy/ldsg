@@ -61,8 +61,8 @@ test("unit", () => {
       description: "",
       code: "",
       dependencies: [],
+      handler,
     },
-    handler,
   });
 
   new FieldTypeResource({

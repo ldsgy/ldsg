@@ -78,6 +78,6 @@ export const numberFieldTypeHandler = new HandlerResource({
     description: "",
     code: "",
     dependencies: [],
+    handler,
   },
-  handler,
 });

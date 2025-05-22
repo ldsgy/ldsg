@@ -67,6 +67,6 @@ export const booleanFieldTypeHandler = new HandlerResource({
     description: "",
     code: "",
     dependencies: [],
+    handler,
   },
-  handler,
 });

@@ -44,8 +44,8 @@ test("field type", () => {
       description: "",
       code: "",
       dependencies: [],
+      handler,
     },
-    handler,
   });
 
   const workflowNodeTypeResource = new WorkflowNodeTypeResource({

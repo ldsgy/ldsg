@@ -67,6 +67,6 @@ export const stringFieldTypeHandler = new HandlerResource({
     description: "",
     code: "",
     dependencies: [],
+    handler,
   },
-  handler,
 });
