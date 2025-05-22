@@ -1,5 +1,6 @@
 import { FieldInfo } from "@ldsg/object";
 import _ from "lodash";
+import { getGraphqlTypeByTypeInfo } from "./get-graphql-type-by-type-info";
 
 interface GetFieldConfigMapDefinitionParams {
   fieldInfoList: FieldInfo[];
@@ -25,10 +26,12 @@ export const getFieldConfigMapDefinition: GetFieldConfigMapDefinition = (
 
     const camelCaseName = _.camelCase(name);
 
-    const { type } = typeInfo;
+    const { graphqlType } = getGraphqlTypeByTypeInfo({
+      typeInfo,
+    });
 
     fieldConfigMapDefinition[camelCaseName] = {
-      type,
+      type: graphqlType,
       description: `${title}${description ? `:${description}` : ""}`,
     };
   });

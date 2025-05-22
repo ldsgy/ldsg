@@ -10,7 +10,8 @@ import { SpecificResourceSettings } from "@ldsg/types";
 import { ObjectResource } from "../../resource";
 import { FieldInfo, GetFieldInfo } from "../../types";
 
-interface ASpecificResourceSettings extends SpecificResourceSettings {
+interface MockObjectFieldSpecificResourceSettings
+  extends SpecificResourceSettings {
   /**
    * Field Name
    */
@@ -27,7 +28,7 @@ interface ASpecificResourceSettings extends SpecificResourceSettings {
   properties: any;
 }
 
-class MockObjectFieldResource extends Resource<ASpecificResourceSettings> {
+class MockObjectFieldResource extends Resource<MockObjectFieldSpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {
     const {
       id,
@@ -100,7 +101,7 @@ test("object", () => {
         title: "测试1对象测试1对象字段",
         description: "",
         name: "test-1",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
@@ -115,7 +116,7 @@ test("object", () => {
         title: "测试1对象测试2对象字段",
         description: "",
         name: "test2",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
@@ -130,7 +131,7 @@ test("object", () => {
         title: "测试1对象测试3对象字段",
         description: "",
         name: "test3",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
@@ -150,7 +151,7 @@ test("object", () => {
         title: "测试2对象测试1对象字段",
         description: "",
         name: "test-1",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
@@ -165,7 +166,7 @@ test("object", () => {
         title: "测试2对象测试4对象字段",
         description: "",
         name: "test-4",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
@@ -180,7 +181,7 @@ test("object", () => {
         title: "测试2对象测试5对象字段",
         description: "",
         name: "test-5",
-        fieldTypeResourceId: "test-field-type",
+        fieldTypeResourceId: stringFieldTypeResourceRecord.id,
         properties: {
           max: "10",
         },
