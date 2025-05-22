@@ -63,9 +63,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
      */
     app.get(FORMS_ROUTE, (req, res) => {
       res.json({
-        data: {
-          formInfoList,
-        },
+        list: formInfoList,
       });
     });
 
@@ -76,11 +74,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
         return formInfo.id === formId;
       });
 
-      res.json({
-        data: {
-          formInfo,
-        },
-      });
+      res.json(formInfo);
     });
 
     app.post(`${FORMS_ROUTE}/:formId`, async (req, res) => {
@@ -96,9 +90,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
 
       const data = executeRes?.endNodeOutputVariables;
 
-      res.json({
-        data,
-      });
+      res.json(data);
     });
   };
 
