@@ -1,5 +1,5 @@
 import { ExtendExpressApp } from "@ldsg/application";
-import { PlatformParams } from "@ldsg/field-type";
+import { PlatformsParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
 import _ from "lodash";
@@ -14,14 +14,12 @@ interface GetFormInfoListRes {
   formInfoList: FormInfo[];
 }
 
-type GetFormInfoList = (params: PlatformParams) => GetFormInfoListRes;
+type GetFormInfoList = (params?: PlatformsParams) => GetFormInfoListRes;
 
 export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   formInfoList?: FormInfo[];
 
   getFormInfoList: GetFormInfoList = (params) => {
-    const { platform } = params;
-
     const { id, formInfoList: thisFormInfoList, getFilteredResources } = this;
 
     let formInfoList = thisFormInfoList;
@@ -34,7 +32,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
       });
 
       const mapRes = resources.map((resource) => {
-        return resource.getFormInfo?.({ platform });
+        return resource.getFormInfo?.(params);
       });
 
       const filterRes = _.filter(mapRes, (value) => !_.isUndefined(value));
@@ -54,9 +52,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   extendExpressApp: ExtendExpressApp = async (params) => {
     const { app } = params;
 
-    const { formInfoList } = this.getFormInfoList({
-      platform: "graphql",
-    });
+    const { formInfoList } = this.getFormInfoList();
 
     /**
      * RESTful
@@ -97,9 +93,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
     const { schemaComposer } = params;
 
-    const { formInfoList } = this.getFormInfoList({
-      platform: "graphql",
-    });
+    const { formInfoList } = this.getFormInfoList();
 
     const { newFields } = getNewFields({
       formInfoList,

@@ -8,10 +8,10 @@ import { SpecificResourceSettings } from "@ldsg/types";
 import { WorkflowResource } from "@ldsg/workflow";
 import { printSchema } from "graphql";
 import { ObjectTypeComposerFieldConfigAsObjectDefinition } from "graphql-compose";
-import { FormsResource } from "../resource";
-import { FormInfo, GetFormInfo } from "../types";
+import { FormsResource } from "../../resource";
+import { FormInfo, GetFormInfo } from "../../types";
 
-interface TestFormSpecificResourceSettings extends SpecificResourceSettings {
+interface MockFormSpecificResourceSettings extends SpecificResourceSettings {
   /**
    * Form Name
    */
@@ -33,10 +33,8 @@ interface TestFormSpecificResourceSettings extends SpecificResourceSettings {
   workflowResourceId: string;
 }
 
-class TestFormResource extends Resource<TestFormSpecificResourceSettings> {
+class MockFormResource extends Resource<MockFormSpecificResourceSettings> {
   getFormInfo: GetFormInfo = (params) => {
-    const { platform } = params;
-
     const {
       id,
       settings: { title, description, name },
@@ -48,11 +46,11 @@ class TestFormResource extends Resource<TestFormSpecificResourceSettings> {
 
     const { objectInfo: inputObjectInfo } = (
       inputObjectResource as ObjectResource
-    ).getObjectInfo({ platform });
+    ).getObjectInfo(params);
 
     const { objectInfo: outputObjectInfo } = (
       outputObjectResource as ObjectResource
-    ).getObjectInfo({ platform });
+    ).getObjectInfo(params);
 
     const { workflowInfo } = (
       workflowResource as WorkflowResource
@@ -153,8 +151,8 @@ test("forms", () => {
       description: "",
       code: "",
       dependencies: [],
+      handler,
     },
-    handler,
   });
 
   new FieldTypeResource({
@@ -290,7 +288,7 @@ test("forms", () => {
     },
   });
 
-  new TestFormResource({
+  new MockFormResource({
     id: "test-form-1",
     kind: "form",
     parentId: "test-forms",
@@ -304,7 +302,7 @@ test("forms", () => {
     },
   });
 
-  new TestFormResource({
+  new MockFormResource({
     id: "test-form-2",
     kind: "form",
     parentId: "test-forms",
@@ -318,9 +316,7 @@ test("forms", () => {
     },
   });
 
-  const getFormInfoListRes = formsResource.getFormInfoList({
-    platform: "mongoose",
-  });
+  const getFormInfoListRes = formsResource.getFormInfoList();
 
   expect(getFormInfoListRes).toMatchSnapshot();
 
