@@ -38,6 +38,7 @@ class TestFormResource extends Resource<TestFormSpecificResourceSettings> {
     const { platform } = params;
 
     const {
+      id,
       settings: { title, description, name },
       getResourcesFromSettings,
     } = this;
@@ -58,6 +59,7 @@ class TestFormResource extends Resource<TestFormSpecificResourceSettings> {
     ).getWorkflowInfo();
 
     const res: FormInfo = {
+      id,
       title,
       description,
       name,

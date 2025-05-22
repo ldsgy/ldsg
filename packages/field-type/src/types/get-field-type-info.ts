@@ -3,7 +3,7 @@ export interface PlatformParams {
    * Platform
    * Such as mongoose\formily.
    */
-  platform: string;
+  platform?: string;
 }
 
 export interface GetFieldTypeInfoParams extends PlatformParams {

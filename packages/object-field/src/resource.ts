@@ -8,6 +8,7 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
     const { platform } = params;
 
     const {
+      id,
       settings: { title, description, name, properties },
       getResourcesFromSettings,
     } = this;
@@ -20,6 +21,7 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
     });
 
     const fieldInfo: FieldInfo = {
+      id,
       title,
       description,
       name,

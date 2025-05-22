@@ -28,6 +28,7 @@ class AResource extends Resource<ASpecificResourceSettings> {
     const { platform } = params;
 
     const {
+      id,
       settings: { title, description, name, properties },
       getResourcesFromSettings,
     } = this;
@@ -40,6 +41,7 @@ class AResource extends Resource<ASpecificResourceSettings> {
     });
 
     const fieldInfo: FieldInfo = {
+      id,
       title,
       description,
       name,

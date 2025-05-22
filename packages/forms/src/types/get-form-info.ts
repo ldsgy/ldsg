@@ -5,6 +5,11 @@ import { WorkflowInfo } from "@ldsg/workflow";
 
 export interface FormInfo extends GeneralResourceSettings {
   /**
+   * Form ID
+   */
+  id: string;
+
+  /**
    * Form Name
    */
   name: string;

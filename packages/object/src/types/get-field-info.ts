@@ -3,6 +3,11 @@ import { GeneralResourceSettings } from "@ldsg/types";
 
 export interface FieldInfo extends GeneralResourceSettings {
   /**
+   * Field ID
+   */
+  id: string;
+
+  /**
    * Field Name
    */
   name: string;

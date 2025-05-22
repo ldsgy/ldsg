@@ -3,7 +3,7 @@ import { FieldTypeSpecificResourceSettings, GetFieldTypeInfo } from "./types";
 
 export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecificResourceSettings> {
   getFieldTypeInfo: GetFieldTypeInfo = (params) => {
-    const { fieldProperties, platform } = params;
+    const { fieldProperties, platform = "common" } = params;
 
     const { getHandler } = this;
 
