@@ -1,7 +1,7 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import { FieldTypeResource } from "@ldsg/field-type";
-import { Handler, HandlerResource } from "@ldsg/handler";
-import { Schema } from "mongoose";
+import { HandlerResource } from "@ldsg/handler";
+import { FieldTypeBasePlatform, FieldTypeResourceHandler } from "../types";
 
 export const booleanFieldType = new FieldTypeResource({
   id: "boolean-field-type",
@@ -18,39 +18,22 @@ export const booleanFieldType = new FieldTypeResource({
   },
 });
 
-const handler: Handler<
-  [
-    {
-      /**
-       * Field Properties
-       */
-      fieldProperties?: any;
-      /**
-       * Platform
-       * Such as mongoose\formily.
-       */
-      platform: string;
-    }
-  ],
-  {}
-> = (params) => {
+const handler: FieldTypeResourceHandler = (params) => {
   const { fieldProperties, platform } = params;
 
   let res;
 
   switch (platform) {
-    case "mongoose": {
+    case FieldTypeBasePlatform.COMMON: {
       res = {
         ...fieldProperties,
-        type: Schema.Types.Boolean,
+        type: "boolean",
       };
 
       break;
     }
 
     default: {
-      res = {};
-
       break;
     }
   }
@@ -63,7 +46,7 @@ export const booleanFieldTypeHandler = new HandlerResource({
   kind: "handler",
   parentId: ROOT_RESOURCE_ID,
   settings: {
-    title: "测试处理程序",
+    title: "布尔字段类型处理程序",
     description: "",
     code: "",
     dependencies: [],

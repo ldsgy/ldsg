@@ -1,7 +1,7 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import { FieldTypeResource } from "@ldsg/field-type";
-import { Handler, HandlerResource } from "@ldsg/handler";
-import { Schema } from "mongoose";
+import { HandlerResource } from "@ldsg/handler";
+import { FieldTypeBasePlatform, FieldTypeResourceHandler } from "../types";
 
 export const mongoIdFieldType = new FieldTypeResource({
   id: "mongo-id-field-type",
@@ -18,39 +18,22 @@ export const mongoIdFieldType = new FieldTypeResource({
   },
 });
 
-const handler: Handler<
-  [
-    {
-      /**
-       * Field Properties
-       */
-      fieldProperties?: any;
-      /**
-       * Platform
-       * Such as mongoose\formily.
-       */
-      platform: string;
-    }
-  ],
-  {}
-> = (params) => {
+const handler: FieldTypeResourceHandler = (params) => {
   const { fieldProperties, platform } = params;
 
   let res;
 
   switch (platform) {
-    case "mongoose": {
+    case FieldTypeBasePlatform.COMMON: {
       res = {
         ...fieldProperties,
-        type: Schema.Types.ObjectId,
+        type: "mongo_id",
       };
 
       break;
     }
 
     default: {
-      res = {};
-
       break;
     }
   }

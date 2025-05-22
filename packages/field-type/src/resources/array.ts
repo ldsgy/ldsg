@@ -3,18 +3,18 @@ import { FieldTypeResource } from "@ldsg/field-type";
 import { HandlerResource } from "@ldsg/handler";
 import { FieldTypeBasePlatform, FieldTypeResourceHandler } from "../types";
 
-export const stringFieldType = new FieldTypeResource({
-  id: "string-field-type",
+export const arrayFieldType = new FieldTypeResource({
+  id: "array-field-type",
   kind: "field_type",
   parentId: ROOT_RESOURCE_ID,
   settings: {
-    title: "字符串字段类型",
+    title: "数组字段类型",
     description: "",
     fieldPropertiesSchema: {
       type: "object",
       properties: {},
     },
-    handlerResourceId: "string-field-type-handler",
+    handlerResourceId: "array-field-type-handler",
   },
 });
 
@@ -27,7 +27,7 @@ const handler: FieldTypeResourceHandler = (params) => {
     case FieldTypeBasePlatform.COMMON: {
       res = {
         ...fieldProperties,
-        type: "string",
+        type: "array",
       };
 
       break;
@@ -41,12 +41,12 @@ const handler: FieldTypeResourceHandler = (params) => {
   return res;
 };
 
-export const stringFieldTypeHandler = new HandlerResource({
-  id: "string-field-type-handler",
+export const arrayFieldTypeHandler = new HandlerResource({
+  id: "array-field-type-handler",
   kind: "handler",
   parentId: ROOT_RESOURCE_ID,
   settings: {
-    title: "字符串字段类型处理程序",
+    title: "数组字段类型处理程序",
     description: "",
     code: "",
     dependencies: [],
