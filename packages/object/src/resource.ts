@@ -1,4 +1,4 @@
-import { PlatformParams } from "@ldsg/field-type";
+import { PlatformsParams } from "@ldsg/field-type";
 import { Resource } from "@ldsg/resource";
 import { GeneralResourceSettings } from "@ldsg/types";
 import _ from "lodash";
@@ -23,7 +23,7 @@ export interface GetExtendedObjectInfoRes {
 }
 
 type GetExtendedObjectInfo = (
-  params: PlatformParams
+  params?: PlatformsParams
 ) => GetExtendedObjectInfoRes;
 
 export interface ObjectInfo extends GeneralResourceSettings {
@@ -45,7 +45,7 @@ export interface GetObjectInfoRes {
   objectInfo: ObjectInfo;
 }
 
-type GetObjectInfo = (params: PlatformParams) => GetObjectInfoRes;
+type GetObjectInfo = (params?: PlatformsParams) => GetObjectInfoRes;
 
 export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
   getExtendedObjectInfo: GetExtendedObjectInfo = (params) => {
@@ -83,8 +83,6 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
   };
 
   getObjectInfo: GetObjectInfo = (params) => {
-    const { platform } = params;
-
     const {
       id,
       settings: { title, description, name },
@@ -103,7 +101,7 @@ export class ObjectResource extends Resource<ObjectSpecificResourceSettings> {
     );
 
     const mapRes = resources.map((resource) => {
-      const fieldInfo = resource.getFieldInfo?.({ platform });
+      const fieldInfo = resource.getFieldInfo?.(params);
 
       return fieldInfo;
     });

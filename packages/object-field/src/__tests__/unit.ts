@@ -98,9 +98,7 @@ test("object field", () => {
     },
   });
 
-  const getFieldInfoRes = objectFieldResource.getFieldInfo({
-    platform: "mongoose",
-  });
+  const getFieldInfoRes = objectFieldResource.getFieldInfo();
 
   expect(getFieldInfoRes).toMatchSnapshot();
 });

@@ -1,4 +1,4 @@
-import { PlatformParams } from "@ldsg/field-type";
+import { PlatformsParams } from "@ldsg/field-type";
 import { GeneralResourceSettings } from "@ldsg/types";
 
 export interface FieldInfo extends GeneralResourceSettings {
@@ -22,4 +22,4 @@ interface GetFieldInfoRes {
   fieldInfo: FieldInfo;
 }
 
-export type GetFieldInfo = (params: PlatformParams) => GetFieldInfoRes;
+export type GetFieldInfo = (params?: PlatformsParams) => GetFieldInfoRes;

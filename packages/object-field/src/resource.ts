@@ -5,8 +5,6 @@ import { ObjectFieldSpecificResourceSettings } from "./types";
 
 export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {
-    const { platform } = params;
-
     const {
       id,
       settings: { title, description, name, properties },
@@ -16,7 +14,7 @@ export class ObjectFieldResource extends Resource<ObjectFieldSpecificResourceSet
     const { fieldTypeResource } = getResourcesFromSettings();
 
     const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
-      platform,
+      ...params,
       fieldProperties: properties,
     });
 

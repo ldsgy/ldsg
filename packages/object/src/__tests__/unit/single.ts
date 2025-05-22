@@ -1,6 +1,10 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
-import { FieldTypeResource } from "@ldsg/field-type";
-import { Handler, HandlerResource } from "@ldsg/handler";
+import {
+  FieldTypeResource,
+  stringFieldTypeHandlerResourceRecord,
+  stringFieldTypeResourceRecord,
+} from "@ldsg/field-type";
+import { HandlerResource } from "@ldsg/handler";
 import { Resource } from "@ldsg/resource";
 import { SpecificResourceSettings } from "@ldsg/types";
 import { ObjectResource } from "../../resource";
@@ -23,10 +27,8 @@ interface ASpecificResourceSettings extends SpecificResourceSettings {
   properties: any;
 }
 
-class AResource extends Resource<ASpecificResourceSettings> {
+class MockObjectFieldResource extends Resource<ASpecificResourceSettings> {
   getFieldInfo: GetFieldInfo = (params) => {
-    const { platform } = params;
-
     const {
       id,
       settings: { title, description, name, properties },
@@ -36,7 +38,7 @@ class AResource extends Resource<ASpecificResourceSettings> {
     const { fieldTypeResource } = getResourcesFromSettings();
 
     const typeInfo = (fieldTypeResource as FieldTypeResource).getFieldTypeInfo({
-      platform,
+      ...params,
       fieldProperties: properties,
     });
 
@@ -56,86 +58,10 @@ class AResource extends Resource<ASpecificResourceSettings> {
   };
 }
 
-const handler: Handler<
-  [
-    {
-      /**
-       * Field Properties
-       */
-      fieldProperties?: any;
-      /**
-       * Platform
-       * Such as mongoose\formily.
-       */
-      platform: string;
-    }
-  ],
-  {}
-> = (params) => {
-  const { fieldProperties, platform } = params;
-
-  const { max } = fieldProperties;
-
-  let res;
-
-  switch (platform) {
-    case "mongoose": {
-      res = {
-        type: "String",
-        ...(max
-          ? {
-              maxLength: max,
-            }
-          : {}),
-      };
-
-      break;
-    }
-
-    default: {
-      res = {};
-
-      break;
-    }
-  }
-
-  return res;
-};
-
 test("object", () => {
-  new HandlerResource({
-    id: "test-handler",
-    kind: "handler",
-    parentId: ROOT_RESOURCE_ID,
-    settings: {
-      title: "测试处理程序",
-      description: "",
-      code: "",
-      dependencies: [],
-    },
-    handler,
-  });
+  new HandlerResource(stringFieldTypeHandlerResourceRecord);
 
-  new FieldTypeResource({
-    id: "test-field-type",
-    kind: "field_type",
-    parentId: ROOT_RESOURCE_ID,
-    settings: {
-      title: "文本",
-      description: "可用来存储各种文本",
-      fieldPropertiesSchema: {
-        type: "object",
-        properties: {
-          max: {
-            type: "integer",
-            title: "配置最长字符",
-            description: "长度不可以超过此值",
-          },
-        },
-      },
-      handlerResourceId: "test-handler",
-    },
-  });
+  new FieldTypeResource(stringFieldTypeResourceRecord);
 
   const testObject = new ObjectResource({
     id: "test-object",
@@ -148,7 +74,7 @@ test("object", () => {
     },
   });
 
-  new AResource({
+  new MockObjectFieldResource({
     id: "test-object-test-1-object-field",
     kind: "object_field",
     parentId: "test-object",
@@ -163,7 +89,7 @@ test("object", () => {
     },
   });
 
-  new AResource({
+  new MockObjectFieldResource({
     id: "test-object-test-2-object-field",
     kind: "object_field",
     parentId: "test-object",
@@ -178,7 +104,7 @@ test("object", () => {
     },
   });
 
-  new AResource({
+  new MockObjectFieldResource({
     id: "test-object-test-3-object-field",
     kind: "object_field",
     parentId: "test-object",
@@ -193,9 +119,7 @@ test("object", () => {
     },
   });
 
-  const getObjectInfoRes = testObject.getObjectInfo({
-    platform: "mongoose",
-  });
+  const getObjectInfoRes = testObject.getObjectInfo();
 
   expect(getObjectInfoRes).toMatchSnapshot();
 });
