@@ -5,11 +5,13 @@ exports[`forms 1`] = `
   "formInfoList": [
     {
       "description": "",
+      "id": "test-form-1",
       "inputObjectInfo": {
         "description": "",
         "fieldInfoList": [
           {
             "description": "",
+            "id": "test-object-1-field-1",
             "name": "test-1",
             "title": "测试对象1测试字段1",
             "typeInfo": {
@@ -19,6 +21,7 @@ exports[`forms 1`] = `
           },
           {
             "description": "",
+            "id": "test-object-1-field-2",
             "name": "test-2",
             "title": "测试对象1测试字段2",
             "typeInfo": {
@@ -28,6 +31,7 @@ exports[`forms 1`] = `
           },
           {
             "description": "",
+            "id": "test-object-1-field-3",
             "name": "test-3",
             "title": "测试对象1测试字段3",
             "typeInfo": {
@@ -45,6 +49,7 @@ exports[`forms 1`] = `
         "fieldInfoList": [
           {
             "description": "",
+            "id": "test-object-2-field-1",
             "name": "test-1",
             "title": "测试对象2测试字段1",
             "typeInfo": {
@@ -63,11 +68,13 @@ exports[`forms 1`] = `
     },
     {
       "description": "",
+      "id": "test-form-2",
       "inputObjectInfo": {
         "description": "",
         "fieldInfoList": [
           {
             "description": "",
+            "id": "test-object-2-field-1",
             "name": "test-1",
             "title": "测试对象2测试字段1",
             "typeInfo": {
@@ -85,6 +92,7 @@ exports[`forms 1`] = `
         "fieldInfoList": [
           {
             "description": "",
+            "id": "test-object-1-field-1",
             "name": "test-1",
             "title": "测试对象1测试字段1",
             "typeInfo": {
@@ -94,6 +102,7 @@ exports[`forms 1`] = `
           },
           {
             "description": "",
+            "id": "test-object-1-field-2",
             "name": "test-2",
             "title": "测试对象1测试字段2",
             "typeInfo": {
@@ -103,6 +112,7 @@ exports[`forms 1`] = `
           },
           {
             "description": "",
+            "id": "test-object-1-field-3",
             "name": "test-3",
             "title": "测试对象1测试字段3",
             "typeInfo": {

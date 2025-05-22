@@ -7,6 +7,7 @@ exports[`object 1`] = `
     "fieldInfoList": [
       {
         "description": "",
+        "id": "test-1-object-test-1-object-field",
         "name": "test-1",
         "title": "测试1对象测试1对象字段",
         "typeInfo": {
@@ -16,6 +17,7 @@ exports[`object 1`] = `
       },
       {
         "description": "",
+        "id": "test-1-object-test-2-object-field",
         "name": "test2",
         "title": "测试1对象测试2对象字段",
         "typeInfo": {
@@ -25,6 +27,7 @@ exports[`object 1`] = `
       },
       {
         "description": "",
+        "id": "test-1-object-test-3-object-field",
         "name": "test3",
         "title": "测试1对象测试3对象字段",
         "typeInfo": {
@@ -46,6 +49,7 @@ exports[`object 2`] = `
     "fieldInfoList": [
       {
         "description": "",
+        "id": "test-1-object-test-1-object-field",
         "name": "test-1",
         "title": "测试1对象测试1对象字段",
         "typeInfo": {
@@ -55,6 +59,7 @@ exports[`object 2`] = `
       },
       {
         "description": "",
+        "id": "test-1-object-test-2-object-field",
         "name": "test2",
         "title": "测试1对象测试2对象字段",
         "typeInfo": {
@@ -64,6 +69,7 @@ exports[`object 2`] = `
       },
       {
         "description": "",
+        "id": "test-1-object-test-3-object-field",
         "name": "test3",
         "title": "测试1对象测试3对象字段",
         "typeInfo": {
@@ -73,6 +79,7 @@ exports[`object 2`] = `
       },
       {
         "description": "",
+        "id": "test-2-object-test-1-object-field",
         "name": "test-1",
         "title": "测试2对象测试1对象字段",
         "typeInfo": {
@@ -82,6 +89,7 @@ exports[`object 2`] = `
       },
       {
         "description": "",
+        "id": "test-2-object-test-4-object-field",
         "name": "test-4",
         "title": "测试2对象测试4对象字段",
         "typeInfo": {
@@ -91,6 +99,7 @@ exports[`object 2`] = `
       },
       {
         "description": "",
+        "id": "test-2-object-test-5-object-field",
         "name": "test-5",
         "title": "测试2对象测试5对象字段",
         "typeInfo": {

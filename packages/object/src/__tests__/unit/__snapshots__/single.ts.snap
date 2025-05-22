@@ -7,6 +7,7 @@ exports[`object 1`] = `
     "fieldInfoList": [
       {
         "description": "",
+        "id": "test-object-test-1-object-field",
         "name": "test1",
         "title": "测试对象测试1对象字段",
         "typeInfo": {
@@ -16,6 +17,7 @@ exports[`object 1`] = `
       },
       {
         "description": "",
+        "id": "test-object-test-2-object-field",
         "name": "test2",
         "title": "测试对象测试2对象字段",
         "typeInfo": {
@@ -25,6 +27,7 @@ exports[`object 1`] = `
       },
       {
         "description": "",
+        "id": "test-object-test-3-object-field",
         "name": "test3",
         "title": "测试对象测试3对象字段",
         "typeInfo": {

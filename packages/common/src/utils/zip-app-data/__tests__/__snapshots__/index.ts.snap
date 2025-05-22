@@ -75,7 +75,7 @@ app.listen(port, () => {
     "type": "FILE",
   },
   {
-    "content": "{"name":"ldsg-app","version":"0.0.0","description":"","author":"","private":true,"license":"UNLICENSED","scripts":{"build":"pnpm run --workspace-root build:workspace-root && pnpm run --workspace-root build:recursive","build:workspace-root":"tsc --project tsconfig.json","build:recursive":"pnpm run --recursive build","start":"node dist/index.js"},"dependencies":{"RESOURCE_DEFINITION_RESOURCE_HANDLER":"link:handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER","HANDLER_RESOURCE_HANDLER":"link:handlers/HANDLER_RESOURCE_HANDLER","APPLICATION_RESOURCE_HANDLER":"link:handlers/APPLICATION_RESOURCE_HANDLER","@ldsg/create-app":"latest","graphql":"^16.9.0","graphql-middleware":"^6.1.35","graphql-shield":"^7.6.5"},"devDependencies":{"@types/node":"^22.1.0","ts-loader":"^9.5.1","tslib":"^2.6.3","typescript":"^5.5.4"}}",
+    "content": "{"name":"ldsg-app-template","version":"0.0.0","description":"","author":"","private":true,"license":"UNLICENSED","scripts":{"build":"pnpm run --workspace-root build:workspace-root && pnpm run --workspace-root build:recursive","build:workspace-root":"tsc --project tsconfig.json","build:recursive":"pnpm run --recursive build","start":"node dist/index.js"},"dependencies":{"RESOURCE_DEFINITION_RESOURCE_HANDLER":"link:handlers/RESOURCE_DEFINITION_RESOURCE_HANDLER","HANDLER_RESOURCE_HANDLER":"link:handlers/HANDLER_RESOURCE_HANDLER","APPLICATION_RESOURCE_HANDLER":"link:handlers/APPLICATION_RESOURCE_HANDLER","@ldsg/create-app":"latest","graphql":"^16.9.0","graphql-middleware":"^6.1.35","graphql-shield":"^7.6.5"},"devDependencies":{"@types/node":"^22.1.0","ts-loader":"^9.5.1","tslib":"^2.6.3","typescript":"^5.5.4"}}",
     "name": "package.json",
     "type": "FILE",
   },

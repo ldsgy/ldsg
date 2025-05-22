@@ -4,6 +4,7 @@ exports[`object field 1`] = `
 {
   "fieldInfo": {
     "description": "",
+    "id": "object-field",
     "name": "test",
     "title": "测试字段",
     "typeInfo": {
