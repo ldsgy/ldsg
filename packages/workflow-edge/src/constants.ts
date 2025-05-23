@@ -1,6 +1,7 @@
 import { HandlerSpecificResourceSettings } from "@ldsg/handler";
 import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition";
 import { GeneralResourceSettings } from "@ldsg/types";
+import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as parentResourceDefinitionSpecificResourceSettings } from "@ldsg/workflow";
 
 export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
   title: "工作流节点类型类型资源处理程序",
@@ -31,5 +32,5 @@ export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSetti
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
     kind: "workflow_node_type",
-    parentKind: "",
+    parentKind: parentResourceDefinitionSpecificResourceSettings.kind,
   };
