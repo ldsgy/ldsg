@@ -1,3 +1,4 @@
+import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as applicationResourceDefinitionSpecificResourceSettings } from "@ldsg/application";
 import { HandlerSpecificResourceSettings } from "@ldsg/handler";
 import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition";
 import { GeneralResourceSettings } from "@ldsg/types";
@@ -28,5 +29,5 @@ export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSetti
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
     kind: "route",
-    parentKind: "",
+    parentKind: applicationResourceDefinitionSpecificResourceSettings.kind,
   };
