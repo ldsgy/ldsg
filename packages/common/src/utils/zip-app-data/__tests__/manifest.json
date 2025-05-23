@@ -8,7 +8,7 @@
         "title": "资源定义类型资源定义",
         "description": "",
         "kind": "resource_definition",
-        "subKinds": []
+        "parentKind": ""
       }
     },
     {
@@ -30,7 +30,7 @@
         "title": "处理程序类型资源定义",
         "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
         "kind": "handler",
-        "subKinds": []
+        "parentKind": ""
       }
     },
     {
@@ -52,7 +52,7 @@
         "title": "应用类型资源定义",
         "description": "",
         "kind": "application",
-        "subKinds": []
+        "parentKind": ""
       }
     },
     {

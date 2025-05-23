@@ -14,6 +14,5 @@ export const resourceDefinition: ResourceRecord<ResourceDefinitionSpecificResour
       description: "",
       kind: "",
       parentKind: ROOT_RESOURCE_ID,
-      subKinds: [],
     },
   };

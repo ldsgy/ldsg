@@ -29,7 +29,7 @@ export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSetti
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
     kind: "field_type",
-    subKinds: [],
+    parentKind: "",
   };
 
 export const FieldTypeBasePlatformList = [
