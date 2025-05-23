@@ -8,8 +8,7 @@ export interface ResourceDefinitionSpecificResourceSettings
   kind: string;
 
   /**
-   * Sub Resource Kinds
-   * When it is an empty array, there are no sub resource.
+   * Parent Kind
    */
-  subKinds: string[];
+  parentKind?: string;
 }

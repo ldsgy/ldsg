@@ -17,6 +17,7 @@
     "@dotenvx/dotenvx": "^1.39.1",
     "@ldsg/application": "workspace:*",
     "@ldsg/constants": "workspace:*",
+    "@ldsg/create-app": "workspace:*",
     "@ldsg/database": "workspace:*",
     "@ldsg/field-type": "workspace:*",
     "@ldsg/handler": "workspace:*",

@@ -1,5 +1,5 @@
+import { createApp } from "@ldsg/create-app";
 import request from "supertest";
-import { createApp } from "../../../packages/create-app/dist";
 import { blogResourceRecords as resourceRecords } from "../../apps";
 
 describe("blog", () => {
