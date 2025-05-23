@@ -26,7 +26,7 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
 
     const resourceDefinitionResourceId = `${resourceKind}-resource-definition`;
 
-    const handlerResourceId = `${resourceKind}-resource-handler`;
+    const resourceDefinitionHandlerResourceId = `${resourceDefinitionResourceId}-handler`;
 
     const resourceDefinitionResourceRecord: ResourceRecord<
       HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
@@ -35,7 +35,7 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
       kind: "resource_definition",
       parentId: ROOT_RESOURCE_ID,
       settings: {
-        handlerResourceId,
+        handlerResourceId: resourceDefinitionHandlerResourceId,
         ...resourceModule.RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS,
         ...resourceModule.RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
       },
@@ -44,7 +44,7 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
     const handlerResourceRecord: ResourceRecord<
       HandlerExtendedResourceSettings<ResourceDefinitionSpecificResourceSettings>
     > = {
-      id: handlerResourceId,
+      id: resourceDefinitionHandlerResourceId,
       kind: "handler",
       parentId: ROOT_RESOURCE_ID,
       settings: {
