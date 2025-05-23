@@ -1,10 +1,12 @@
 import { APP_MANIFEST } from "@ldsg/constants";
 import { extendAppData } from "@ldsg/utils";
 import fs from "fs-extra";
+import os from "os";
 import path from "path";
-import { prepare } from "./prepare";
+import { v4 as uuidv4 } from "uuid";
+import { prepare } from "../utils/prepare";
 
-const appsDirPath = path.join(__dirname, "..", "..", "apps");
+const appsDirPath = path.join(os.tmpdir(), uuidv4(), "apps");
 
 const currentAppDirPath = path.join(appsDirPath, "main");
 

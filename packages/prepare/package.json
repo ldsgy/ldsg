@@ -24,7 +24,8 @@
     "@ldsg/resource": "workspace:*",
     "@ldsg/types": "workspace:*",
     "adm-zip": "^0.5.16",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@ldsg/constants": "workspace:*",
