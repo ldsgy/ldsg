@@ -4,30 +4,165 @@ exports[`get constants 1`] = `
 {
   "resourceRecords": [
     {
-      "id": "resource-definition-resource-definition",
+      "id": "application-resource-definition",
       "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
-        "handlerResourceId": "resource-definition-resource-handler",
-        "kind": "resource_definition",
-        "parentKind": "",
-        "title": "资源定义类型资源定义",
+        "handlerResourceId": "application-resource-definition-handler",
+        "kind": "application",
+        "parentKind": "root",
+        "title": "应用类型资源定义",
       },
     },
     {
-      "id": "resource-definition-resource-handler",
+      "id": "application-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
-        "code": "export * from "@ldsg/resource-definition";",
+        "code": "export * from "@ldsg/application";",
         "dependencies": [
           {
-            "name": "@ldsg/resource-definition",
+            "name": "@ldsg/application",
           },
         ],
         "description": "",
-        "title": "资源定义类型资源处理程序",
+        "title": "应用类型资源处理程序",
+      },
+    },
+    {
+      "id": "database-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "database-resource-definition-handler",
+        "kind": "database",
+        "parentKind": "root",
+        "title": "数据库类型资源定义",
+      },
+    },
+    {
+      "id": "database-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/database";",
+        "dependencies": [
+          {
+            "name": "@ldsg/database",
+          },
+        ],
+        "description": "",
+        "title": "数据库类型资源处理程序",
+      },
+    },
+    {
+      "id": "field-type-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "field-type-resource-definition-handler",
+        "kind": "field_type",
+        "parentKind": "root",
+        "title": "字段类型类型资源定义",
+      },
+    },
+    {
+      "id": "field-type-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/field-type";",
+        "dependencies": [
+          {
+            "name": "@ldsg/field-type",
+          },
+        ],
+        "description": "",
+        "title": "字段类型类型资源处理程序",
+      },
+    },
+    {
+      "id": "form-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "form-resource-definition-handler",
+        "kind": "form",
+        "parentKind": "forms",
+        "title": "表单资源定义",
+      },
+    },
+    {
+      "id": "form-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/form";",
+        "dependencies": [
+          {
+            "name": "@ldsg/form",
+          },
+        ],
+        "description": "",
+        "title": "表单资源处理程序",
+      },
+    },
+    {
+      "id": "forms-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "forms-resource-definition-handler",
+        "kind": "forms",
+        "parentKind": "application",
+        "title": "表单组类型资源定义",
+      },
+    },
+    {
+      "id": "forms-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/forms";",
+        "dependencies": [
+          {
+            "name": "@ldsg/forms",
+          },
+        ],
+        "description": "",
+        "title": "表单组类型资源处理程序",
+      },
+    },
+    {
+      "id": "graphql-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "graphql-resource-definition-handler",
+        "kind": "graphql",
+        "parentKind": "application",
+        "title": "GraphQL类型资源定义",
+      },
+    },
+    {
+      "id": "graphql-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/graphql";",
+        "dependencies": [
+          {
+            "name": "@ldsg/graphql",
+          },
+        ],
+        "description": "",
+        "title": "GraphQL类型资源处理程序",
       },
     },
     {
@@ -36,14 +171,14 @@ exports[`get constants 1`] = `
       "parentId": "root",
       "settings": {
         "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
-        "handlerResourceId": "handler-resource-handler",
+        "handlerResourceId": "handler-resource-definition-handler",
         "kind": "handler",
-        "parentKind": "",
+        "parentKind": "root",
         "title": "处理程序类型资源定义",
       },
     },
     {
-      "id": "handler-resource-handler",
+      "id": "handler-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
@@ -58,30 +193,273 @@ exports[`get constants 1`] = `
       },
     },
     {
-      "id": "application-resource-definition",
+      "id": "object-resource-definition",
       "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
-        "handlerResourceId": "application-resource-handler",
-        "kind": "application",
-        "parentKind": "",
-        "title": "应用类型资源定义",
+        "handlerResourceId": "object-resource-definition-handler",
+        "kind": "object",
+        "parentKind": "root",
+        "title": "对象类型资源定义",
       },
     },
     {
-      "id": "application-resource-handler",
+      "id": "object-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
-        "code": "export * from "@ldsg/application";",
+        "code": "export * from "@ldsg/object";",
         "dependencies": [
           {
-            "name": "@ldsg/application",
+            "name": "@ldsg/object",
           },
         ],
         "description": "",
-        "title": "应用类型资源处理程序",
+        "title": "对象类型资源处理程序",
+      },
+    },
+    {
+      "id": "object-field-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "object-field-resource-definition-handler",
+        "kind": "object_field",
+        "parentKind": "object",
+        "title": "对象字段类型资源定义",
+      },
+    },
+    {
+      "id": "object-field-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/object-field";",
+        "dependencies": [
+          {
+            "name": "@ldsg/object-field",
+          },
+        ],
+        "description": "",
+        "title": "对象字段类型资源处理程序",
+      },
+    },
+    {
+      "id": "resource-definition-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "resource-definition-resource-definition-handler",
+        "kind": "resource_definition",
+        "parentKind": "root",
+        "title": "资源定义类型资源定义",
+      },
+    },
+    {
+      "id": "resource-definition-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/resource-definition";",
+        "dependencies": [
+          {
+            "name": "@ldsg/resource-definition",
+          },
+        ],
+        "description": "",
+        "title": "资源定义类型资源处理程序",
+      },
+    },
+    {
+      "id": "route-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "route-resource-definition-handler",
+        "kind": "route",
+        "parentKind": "application",
+        "title": "路由类型资源定义",
+      },
+    },
+    {
+      "id": "route-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/route";",
+        "dependencies": [
+          {
+            "name": "@ldsg/route",
+          },
+        ],
+        "description": "",
+        "title": "路由类型资源处理程序",
+      },
+    },
+    {
+      "id": "table-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "table-resource-definition-handler",
+        "kind": "table",
+        "parentKind": "tables",
+        "title": "表格资源定义",
+      },
+    },
+    {
+      "id": "table-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/table";",
+        "dependencies": [
+          {
+            "name": "@ldsg/table",
+          },
+        ],
+        "description": "",
+        "title": "表格资源处理程序",
+      },
+    },
+    {
+      "id": "tables-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "tables-resource-definition-handler",
+        "kind": "tables",
+        "parentKind": "application",
+        "title": "表格组类型资源定义",
+      },
+    },
+    {
+      "id": "tables-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/tables";",
+        "dependencies": [
+          {
+            "name": "@ldsg/tables",
+          },
+        ],
+        "description": "",
+        "title": "表格组类型资源处理程序",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-node-type-resource-definition-handler",
+        "kind": "workflow_node_type",
+        "parentKind": "root",
+        "title": "工作流类型资源定义",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/workflow";",
+        "dependencies": [
+          {
+            "name": "@ldsg/workflow",
+          },
+        ],
+        "description": "",
+        "title": "工作流类型资源处理程序",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-node-type-resource-definition-handler",
+        "kind": "workflow_node_type",
+        "parentKind": "workflow_node_type",
+        "title": "工作流节点类型类型资源定义",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/workflow-edge";",
+        "dependencies": [
+          {
+            "name": "@ldsg/workflow-edge",
+          },
+        ],
+        "description": "",
+        "title": "工作流节点类型类型资源处理程序",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-node-type-resource-definition-handler",
+        "kind": "workflow_node_type",
+        "parentKind": "workflow_node_type",
+        "title": "工作流节点类型资源定义",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/workflow-node";",
+        "dependencies": [
+          {
+            "name": "@ldsg/workflow-node",
+          },
+        ],
+        "description": "",
+        "title": "工作流节点类型资源处理程序",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition",
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-node-type-resource-definition-handler",
+        "kind": "workflow_node_type",
+        "parentKind": "root",
+        "title": "工作流节点类型类型资源定义",
+      },
+    },
+    {
+      "id": "workflow-node-type-resource-definition-handler",
+      "kind": "handler",
+      "parentId": "root",
+      "settings": {
+        "code": "export * from "@ldsg/workflow-node-type";",
+        "dependencies": [
+          {
+            "name": "@ldsg/workflow-node-type",
+          },
+        ],
+        "description": "",
+        "title": "工作流节点类型类型资源处理程序",
       },
     },
     {
