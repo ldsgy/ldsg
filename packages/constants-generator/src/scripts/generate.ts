@@ -147,6 +147,7 @@ export const ${snakeCaseUpperName} = ${snakeCaseUpperName}_JSON;`;
 `);
 
     const indexTsCode = `export const ROOT_RESOURCE_ID = "root";
+export const ROOT_RESOURCE_KIND = "root";
 ${generatedIndexTsCode}`;
     await fs.writeFile(path.join(constantsSrcPath, "index.ts"), indexTsCode);
   }
