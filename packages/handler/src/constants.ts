@@ -1,3 +1,4 @@
+import { ROOT_RESOURCE_KIND } from "@ldsg/constants";
 import { HandlerSpecificResourceSettings } from "@ldsg/handler-part";
 import { GeneralResourceSettings } from "@ldsg/types";
 
@@ -33,5 +34,5 @@ export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSetti
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
     kind: "handler",
-    parentKind: "",
+    parentKind: ROOT_RESOURCE_KIND,
   };
