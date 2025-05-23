@@ -2,7 +2,7 @@ import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import { ObjectSpecificResourceSettings } from "@ldsg/object";
 import { ResourceRecord } from "@ldsg/types";
 
-export * from "./object-fields";
+export * from "./object-field";
 
 export const postInfoWithoutIdObjectResourceRecord: ResourceRecord<ObjectSpecificResourceSettings> =
   {
