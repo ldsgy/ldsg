@@ -2,6 +2,11 @@
   "name": "@ldsg/route",
   "version": "0.1.0-alpha.20",
   "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist",
   "scripts": {
     "build": "pnpm clean && tsc --project tsconfig.build.json",
     "clean": "rm -rf dist"

@@ -47,6 +47,9 @@ importers:
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:packages/resource-definition
+      '@ldsg/route':
+        specifier: workspace:*
+        version: link:packages/route
       '@ldsg/types':
         specifier: workspace:*
         version: link:packages/types

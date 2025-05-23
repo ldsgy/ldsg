@@ -1,7 +1,7 @@
 import { createApp } from "@ldsg/create-app";
 
-const main = async () => {
-  const app = await createApp({
+const main = () => {
+  const app = createApp({
     resourceRecords: [],
   });
 
