@@ -2,7 +2,12 @@ import { AppDataFile } from "@ldsg/types";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { BASE_RESOURCE_KINDS, MANIFEST_LIST } from "../constants";
+import {
+  BASE_RESOURCE_KINDS,
+  MANIFEST_LIST,
+  ROOT_RESOURCE_ID,
+  ROOT_RESOURCE_KIND,
+} from "../constants";
 import {
   getManifestByResourceRecordsWithResourceModules,
   isJSONString,
@@ -11,11 +16,25 @@ import {
 const main = async () => {
   const jsonList: {
     name: string;
-    data: object;
+    data: object | string;
   }[] = [
     {
       name: "base-resource-kinds",
       data: BASE_RESOURCE_KINDS,
+    },
+    {
+      name: "root-resource-id",
+      data: ROOT_RESOURCE_ID,
+    },
+    {
+      name: "root-resource-kind",
+      data: ROOT_RESOURCE_KIND,
+    },
+    {
+      name: "resource-module-related-resource-records",
+      data: getManifestByResourceRecordsWithResourceModules({
+        resourceRecords: [],
+      }).manifest.resourceRecords,
     },
   ];
 
@@ -136,7 +155,7 @@ const main = async () => {
       );
     }
 
-    const generatedIndexTsCode = jsonList.map((value) => {
+    const indexTsCode = jsonList.map((value) => {
       const { name } = value;
 
       const snakeCaseUpperName = _.toUpper(_.snakeCase(name));
@@ -146,9 +165,6 @@ export const ${snakeCaseUpperName} = ${snakeCaseUpperName}_JSON;`;
     }).join(`
 `);
 
-    const indexTsCode = `export const ROOT_RESOURCE_ID = "root";
-export const ROOT_RESOURCE_KIND = "root";
-${generatedIndexTsCode}`;
     await fs.writeFile(path.join(constantsSrcPath, "index.ts"), indexTsCode);
   }
 };

@@ -217,18 +217,57 @@ importers:
       '@ldsg/application':
         specifier: workspace:*
         version: link:../application
+      '@ldsg/database':
+        specifier: workspace:*
+        version: link:../database
+      '@ldsg/field-type':
+        specifier: workspace:*
+        version: link:../field-type
+      '@ldsg/form':
+        specifier: workspace:*
+        version: link:../form
+      '@ldsg/forms':
+        specifier: workspace:*
+        version: link:../forms
+      '@ldsg/graphql':
+        specifier: workspace:*
+        version: link:../graphql
       '@ldsg/handler':
         specifier: workspace:*
         version: link:../handler
-      '@ldsg/resource':
+      '@ldsg/object':
         specifier: workspace:*
-        version: link:../resource
+        version: link:../object
+      '@ldsg/object-field':
+        specifier: workspace:*
+        version: link:../object-field
       '@ldsg/resource-definition':
         specifier: workspace:*
         version: link:../resource-definition
+      '@ldsg/route':
+        specifier: workspace:*
+        version: link:../route
+      '@ldsg/table':
+        specifier: workspace:*
+        version: link:../table
+      '@ldsg/tables':
+        specifier: workspace:*
+        version: link:../tables
       '@ldsg/types':
         specifier: workspace:*
         version: link:../types
+      '@ldsg/workflow':
+        specifier: workspace:*
+        version: link:../workflow
+      '@ldsg/workflow-edge':
+        specifier: workspace:*
+        version: link:../workflow-edge
+      '@ldsg/workflow-node':
+        specifier: workspace:*
+        version: link:../workflow-node
+      '@ldsg/workflow-node-type':
+        specifier: workspace:*
+        version: link:../workflow-node-type
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4

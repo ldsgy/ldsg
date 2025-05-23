@@ -1,7 +1,11 @@
-export const ROOT_RESOURCE_ID = "root";
-export const ROOT_RESOURCE_KIND = "root";
 import BASE_RESOURCE_KINDS_JSON from "./base-resource-kinds.json";
 export const BASE_RESOURCE_KINDS = BASE_RESOURCE_KINDS_JSON;
+import ROOT_RESOURCE_ID_JSON from "./root-resource-id.json";
+export const ROOT_RESOURCE_ID = ROOT_RESOURCE_ID_JSON;
+import ROOT_RESOURCE_KIND_JSON from "./root-resource-kind.json";
+export const ROOT_RESOURCE_KIND = ROOT_RESOURCE_KIND_JSON;
+import RESOURCE_MODULE_RELATED_RESOURCE_RECORDS_JSON from "./resource-module-related-resource-records.json";
+export const RESOURCE_MODULE_RELATED_RESOURCE_RECORDS = RESOURCE_MODULE_RELATED_RESOURCE_RECORDS_JSON;
 import APP_MANIFEST_JSON from "./app-manifest.json";
 export const APP_MANIFEST = APP_MANIFEST_JSON;
 import FILES_IN_ROOT_MODULE_JSON from "./files-in-root-module.json";
