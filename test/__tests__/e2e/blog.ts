@@ -1,7 +1,7 @@
 import { createApp } from "@ldsg/create-app";
 import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "@ldsg/handler";
 import request from "supertest";
-import {} from "typescript";
+import { transpile } from "typescript";
 import { blogResourceRecords as resourceRecords } from "../../apps";
 
 describe("blog", () => {
@@ -17,17 +17,19 @@ describe("blog", () => {
 
       switch (kind) {
         case HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind: {
-          const { code: tsCode, handler: settingsHandler } = settings;
+          const { code: tsCode, handler } = settings;
 
-          console.debug("id", id);
+          if (!handler) {
+            console.debug("id", id);
 
-          console.debug("tsCode", tsCode);
+            console.debug("tsCode", tsCode);
 
-          const jsCode = tsCode;
+            const jsCode = transpile(tsCode);
 
-          const handler = new Function(jsCode);
+            console.debug("jsCode", jsCode);
 
-          if (!settingsHandler) {
+            const handler = eval(jsCode);
+
             res = {
               ...resourceRecord,
               settings: {

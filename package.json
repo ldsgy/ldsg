@@ -44,7 +44,8 @@
     "nodemon": "^3.1.4",
     "shelljs": "^0.9.2",
     "supertest": "^6.3.4",
-    "ts-jest": "^29.1.5"
+    "ts-jest": "^29.1.5",
+    "typescript": "^5.8.3"
   },
   "nodemonConfig": {
     "ext": "ts",
