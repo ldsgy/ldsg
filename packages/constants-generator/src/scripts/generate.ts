@@ -101,7 +101,11 @@ const main = async () => {
      * 处理 handler 模板内文件
      */
     {
-      const handlerTemplateDirPath = path.join(templatesDirPath, "handler");
+      const handlerTemplateDirPath = path.join(
+        templatesDirPath,
+        "handlers",
+        "handler"
+      );
 
       const filesInHandlerModule: AppDataFile[] = [];
 
