@@ -102,7 +102,7 @@ const main = async () => {
      */
     {
       const handlerTemplateDirPath = path.join(
-        templatesDirPath,
+        appTemplateRootDirPath,
         "handlers",
         "handler"
       );
