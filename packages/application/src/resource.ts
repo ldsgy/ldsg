@@ -22,11 +22,7 @@ export class ApplicationResource extends Resource<ApplicationSpecificResourceSet
   };
 
   extendExpressApp: ExtendExpressApp = (params) => {
-    const {
-      id,
-      settings: { name },
-      getFilteredResources,
-    } = this;
+    const { id, getFilteredResources } = this;
 
     const getFilteredResourcesRes = getFilteredResources<{
       extendExpressApp?: ExtendExpressApp;

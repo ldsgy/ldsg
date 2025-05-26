@@ -2,6 +2,7 @@ import { ExtendExpressApp } from "@ldsg/application";
 import { Resource } from "@ldsg/resource";
 import { SchemaComposer } from "graphql-compose";
 import { createYoga } from "graphql-yoga";
+import { DEFAULT_GRAPHQL_ENDPOINT } from "./constants";
 import { GraphqlSpecificResourceSettings, ModifyGraphQLSchema } from "./types";
 
 export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
@@ -10,7 +11,7 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
 
     const {
       parentId,
-      settings: { graphqlEndpoint },
+      settings: { graphqlEndpoint = DEFAULT_GRAPHQL_ENDPOINT },
       getFilteredResources,
     } = this;
 

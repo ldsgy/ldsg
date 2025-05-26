@@ -15,13 +15,13 @@ export const instantiateResourcesRequiredByApp: InstantiateResources = (
     resourceRecords,
   });
 
-  const resources: Resource[] = resourceRecords.map((manifestResource) => {
-    const { kind } = manifestResource;
+  const resources: Resource[] = resourceRecords.map((resourceRecord) => {
+    const { kind } = resourceRecord;
 
     const { resourceDefinitionResource } = resourceKindMap[kind];
 
     const { resource } = resourceDefinitionResource.instantiateResource({
-      resourceConstructorParams: manifestResource,
+      resourceConstructorParams: resourceRecord,
     });
 
     return resource;

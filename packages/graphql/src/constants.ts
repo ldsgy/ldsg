@@ -31,3 +31,5 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
     kind: "graphql",
     parentKind: parentResourceDefinitionSpecificResourceSettings.kind,
   };
+
+export const DEFAULT_GRAPHQL_ENDPOINT = "/graphql";
