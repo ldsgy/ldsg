@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      mongodb:
+        specifier: ^6.16.0
+        version: 6.16.0
     devDependencies:
       '@babel/preset-typescript':
         specifier: ^7.24.7
@@ -56,6 +60,12 @@ importers:
       '@ldsg/route':
         specifier: workspace:*
         version: link:packages/route
+      '@ldsg/table':
+        specifier: workspace:*
+        version: link:packages/table
+      '@ldsg/tables':
+        specifier: workspace:*
+        version: link:packages/tables
       '@ldsg/types':
         specifier: workspace:*
         version: link:packages/types
@@ -107,6 +117,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      mongoose:
+        specifier: ^8.14.3
+        version: 8.14.3
       nodemon:
         specifier: ^3.1.4
         version: 3.1.4

@@ -23,16 +23,20 @@ export const addFields: AddFields = (params) => {
 
   const resolverFactoryKeys = _.keys(resolverFactory) as ResolverFactoryKeyList;
 
+  /**
+   * TODO：如果 table name 重名就抛出异常
+   */
+
   _.each(tableInfoList, (tableInfo) => {
     const { title, description, name: tableName, objectInfo } = tableInfo;
 
+    const { objectTypeComposer } = getObjectTypeComposer({
+      tableName,
+      objectInfo,
+    });
+
     _.each(resolverFactoryKeys, (key) => {
       const fieldName = _.camelCase(`${tableName}-${key}`);
-
-      const { objectTypeComposer } = getObjectTypeComposer({
-        tableName,
-        objectInfo,
-      });
 
       if (MUTATION_RESOLVER_FACTORY_KEY_LIST.includes(key)) {
         mutationNewFields[fieldName] =

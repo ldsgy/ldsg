@@ -30,9 +30,16 @@ export const getObjectTypeComposer: GetObjectTypeComposer = (params) => {
   const mongooseSchemaDefinition: SchemaDefinition = {};
 
   _.each(fieldInfoList, (fieldInfo) => {
-    const { name, typeInfo } = fieldInfo;
+    const {
+      name,
+      typeInfo: { platformToTypeMap },
+    } = fieldInfo;
 
-    mongooseSchemaDefinition[name] = typeInfo;
+    const { COMMON, MONGOOSE } = platformToTypeMap;
+
+    const type = MONGOOSE ?? COMMON;
+
+    mongooseSchemaDefinition[name] = type;
   });
 
   const mongooseSchema = new mongoose.Schema(mongooseSchemaDefinition);
