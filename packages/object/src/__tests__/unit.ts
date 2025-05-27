@@ -7,8 +7,8 @@ import {
 import { HandlerResource } from "@ldsg/handler";
 import { Resource } from "@ldsg/resource";
 import { SpecificResourceSettings } from "@ldsg/types";
-import { ObjectResource } from "../../resource";
-import { FieldInfo, GetFieldInfo } from "../../types";
+import { ObjectResource } from "../resource";
+import { FieldInfo, GetFieldInfo } from "../types";
 
 interface MockObjectFieldSpecificResourceSettings
   extends SpecificResourceSettings {
