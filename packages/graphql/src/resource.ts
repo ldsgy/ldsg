@@ -10,21 +10,14 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
     const { app } = params;
 
     const {
-      parentId,
       settings: { graphqlEndpoint = DEFAULT_GRAPHQL_ENDPOINT },
-      getFilteredResources,
     } = this;
 
-    const { resources } = getFilteredResources({
-      parentId,
-    });
-
-    /**
-     * TODO: extends graphql schema
-     */
+    const { schema } = this.getGraphQLSchema();
 
     const yoga = createYoga({
       graphqlEndpoint,
+      schema,
     });
 
     app.use(yoga.graphqlEndpoint, yoga);
@@ -35,11 +28,15 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
 
     const { parentId, getFilteredResources } = this;
 
+    console.debug("wcm getGraphQLSchema parentId", parentId);
+
     const { resources } = getFilteredResources<{
       modifyGraphQLSchema?: ModifyGraphQLSchema;
     }>({
       parentId,
     });
+
+    console.debug("wcm getGraphQLSchema resources", resources);
 
     resources.forEach((resource) => {
       resource.modifyGraphQLSchema?.({
