@@ -4,6 +4,8 @@ import {
   HandlerSpecificResourceSettings,
 } from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/types";
+import * as mongodb from "mongodb";
+import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "../constants";
 import {
   FieldTypeBasePlatform,
   FieldTypeResourceHandler,
@@ -14,7 +16,7 @@ export const mongoIdFieldTypeResourceRecord: ResourceRecord<
   HandlerExtendedResourceSettings<FieldTypeSpecificResourceSettings>
 > = {
   id: "mongo-id-field-type",
-  kind: "field_type",
+  kind: RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,
   parentId: ROOT_RESOURCE_ID,
   settings: {
     title: "MongoID字段类型",
@@ -37,6 +39,14 @@ const handler: FieldTypeResourceHandler = (params) => {
       res = {
         ...fieldProperties,
         type: "mongo_id",
+      };
+
+      break;
+    }
+
+    case FieldTypeBasePlatform.MONGOOSE: {
+      res = {
+        type: mongodb.ObjectId,
       };
 
       break;

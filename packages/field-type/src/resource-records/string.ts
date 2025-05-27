@@ -4,6 +4,7 @@ import {
   HandlerSpecificResourceSettings,
 } from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/types";
+import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "../constants";
 import {
   FieldTypeBasePlatform,
   FieldTypeResourceHandler,
@@ -14,7 +15,7 @@ export const stringFieldTypeResourceRecord: ResourceRecord<
   HandlerExtendedResourceSettings<FieldTypeSpecificResourceSettings>
 > = {
   id: "string-field-type",
-  kind: "field_type",
+  kind: RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,
   parentId: ROOT_RESOURCE_ID,
   settings: {
     title: "字符串字段类型",
