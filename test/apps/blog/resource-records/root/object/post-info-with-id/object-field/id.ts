@@ -1,13 +1,16 @@
 import { mongoIdFieldTypeResourceRecord } from "@ldsg/field-type";
-import { ObjectFieldSpecificResourceSettings } from "@ldsg/object-field";
+import {
+  RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as OBJECT_FIELD_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
+  ObjectFieldSpecificResourceSettings,
+} from "@ldsg/object-field";
 import { ResourceRecord } from "@ldsg/types";
-import { postInfoWithIdObjectResourceRecord } from "..";
+import { POST_INFO_WITH_ID_OBJECT_RESOURCE_ID } from "../constants";
 
 export const postInfoWithIdObjectIdObjectFieldResourceRecord: ResourceRecord<ObjectFieldSpecificResourceSettings> =
   {
-    id: `${postInfoWithIdObjectResourceRecord.id}-id-object-field`,
-    kind: "object-field",
-    parentId: postInfoWithIdObjectResourceRecord.id,
+    id: `${POST_INFO_WITH_ID_OBJECT_RESOURCE_ID}-id-object-field`,
+    kind: OBJECT_FIELD_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,
+    parentId: POST_INFO_WITH_ID_OBJECT_RESOURCE_ID,
     settings: {
       title: "ID",
       description: "",

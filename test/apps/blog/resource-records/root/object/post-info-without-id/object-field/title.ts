@@ -1,13 +1,16 @@
 import { stringFieldTypeResourceRecord } from "@ldsg/field-type";
-import { ObjectFieldSpecificResourceSettings } from "@ldsg/object-field";
+import {
+  RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as OBJECT_FIELD_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
+  ObjectFieldSpecificResourceSettings,
+} from "@ldsg/object-field";
 import { ResourceRecord } from "@ldsg/types";
-import { postInfoWithoutIdObjectResourceRecord } from "..";
+import { POST_INFO_WITHOUT_ID_OBJECT_RESOURCE_ID } from "../constants";
 
 export const postInfoWithoutIdObjectTitleObjectFieldResourceRecord: ResourceRecord<ObjectFieldSpecificResourceSettings> =
   {
-    id: `${postInfoWithoutIdObjectResourceRecord.id}-title-object-field`,
-    kind: "object-field",
-    parentId: postInfoWithoutIdObjectResourceRecord.id,
+    id: `${POST_INFO_WITHOUT_ID_OBJECT_RESOURCE_ID}-title-object-field`,
+    kind: OBJECT_FIELD_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,
+    parentId: POST_INFO_WITHOUT_ID_OBJECT_RESOURCE_ID,
     settings: {
       title: "标题",
       description: "",

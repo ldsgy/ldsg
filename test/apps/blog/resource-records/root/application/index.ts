@@ -5,6 +5,7 @@ import { BLOG_APPLICATION_RESOURCE_ID } from "./constants";
 
 export * from "./graphql";
 export * from "./route";
+export * from "./tables";
 
 export const blogApplicationResourceRecord: ResourceRecord<ApplicationSpecificResourceSettings> =
   {
