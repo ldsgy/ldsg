@@ -12,9 +12,17 @@ export class TableResource extends Resource<TableSpecificResourceSettings> {
 
     const { objectResource, databaseResource } = getResourcesFromSettings();
 
-    const { objectInfo } = (objectResource as ObjectResource).getObjectInfo(
-      params
-    );
+    if (!objectResource) {
+      throw new Error("invalid object resource");
+    }
+
+    const { getObjectInfo } = objectResource as ObjectResource;
+
+    if (!getObjectInfo) {
+      throw new Error("invalid get object info");
+    }
+
+    const { objectInfo } = getObjectInfo(params);
 
     const res: TableInfo = {
       title,
