@@ -18,6 +18,10 @@ export const instantiateResourcesRequiredByApp: InstantiateResources = (
   const resources: Resource[] = resourceRecords.map((resourceRecord) => {
     const { kind } = resourceRecord;
 
+    if (!(kind in resourceKindMap)) {
+      throw new Error(`invalid kind '${kind}' in resource record`);
+    }
+
     const { resourceDefinitionResource } = resourceKindMap[kind];
 
     const { resource } = resourceDefinitionResource.instantiateResource({

@@ -31,7 +31,7 @@ export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSetti
 
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
-    kind: "workflow_node_type",
+    kind: "workflow",
     parentKind: ROOT_RESOURCE_KIND,
   };
 
@@ -40,6 +40,6 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
  */
 export const SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP =
   {
-    start: "workflow_node_type_start",
-    end: "workflow_node_type_end",
+    start: "workflow-node-type-start",
+    end: "workflow-node-type-end",
   } as const;

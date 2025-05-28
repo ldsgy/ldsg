@@ -25,12 +25,12 @@ export const HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings
 
 export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "工作流节点类型类型资源定义",
+    title: "工作流连线类型资源定义",
     description: "",
   };
 
 export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionSpecificResourceSettings =
   {
-    kind: "workflow_node_type",
+    kind: "workflow_edge",
     parentKind: parentResourceDefinitionSpecificResourceSettings.kind,
   };
