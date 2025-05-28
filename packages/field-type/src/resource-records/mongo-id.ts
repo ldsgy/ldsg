@@ -44,6 +44,12 @@ const handler: FieldTypeResourceHandler = (params) => {
       break;
     }
 
+    case FieldTypeBasePlatform.GRAPHQL: {
+      res = "ID";
+
+      break;
+    }
+
     case FieldTypeBasePlatform.MONGOOSE: {
       res = {
         type: mongodb.ObjectId,

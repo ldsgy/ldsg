@@ -43,6 +43,12 @@ const handler: FieldTypeResourceHandler = (params) => {
       break;
     }
 
+    case FieldTypeBasePlatform.GRAPHQL: {
+      res = "Boolean";
+
+      break;
+    }
+
     default: {
       break;
     }
