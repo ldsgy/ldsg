@@ -9,6 +9,8 @@
     "build": "pnpm clean && pnpm --recursive --sort build",
     "clean": "pnpm --recursive clean",
     "dev": "nodemon --exec \"pnpm build && pnpm --filter examples dev\"",
+    "serve": "ts-node test/server.ts",
+    "start": "pnpm serve",
     "test": "jest"
   },
   "devDependencies": {
@@ -20,6 +22,8 @@
     "@ldsg/create-app": "workspace:*",
     "@ldsg/database": "workspace:*",
     "@ldsg/field-type": "workspace:*",
+    "@ldsg/form": "workspace:*",
+    "@ldsg/forms": "workspace:*",
     "@ldsg/graphql": "workspace:*",
     "@ldsg/handler": "workspace:*",
     "@ldsg/object": "workspace:*",
@@ -64,6 +68,7 @@
     "delay": 2500
   },
   "dependencies": {
-    "mongodb": "^6.16.0"
+    "mongodb": "^6.16.0",
+    "ts-node": "^10.9.2"
   }
 }
