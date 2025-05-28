@@ -12,7 +12,6 @@ import { BLOG_APPLICATION_RESOURCE_ID } from "../constants";
 const HEALTH_ROUTE_HANDLER_RESOURCE_ID = "health-route-handler";
 
 const handler: RequestHandler = (req, res) => {
-  console.debug("handler req", req);
   res.send("ok");
 };
 

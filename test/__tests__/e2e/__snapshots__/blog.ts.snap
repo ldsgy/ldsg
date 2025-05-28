@@ -505,6 +505,26 @@ exports[`blog resource records is completed 1`] = `
     },
   },
   {
+    "id": "mian-tables",
+    "kind": "tables",
+    "parentId": "blog-application",
+    "settings": {
+      "description": "",
+      "title": "Main Tables",
+    },
+  },
+  {
+    "id": "post-table",
+    "kind": "table",
+    "parentId": "mian-tables",
+    "settings": {
+      "description": "",
+      "name": "post",
+      "objectResourceId": "post-info-without-id-object",
+      "title": "Post Table",
+    },
+  },
+  {
     "id": "main-database",
     "kind": "database",
     "parentId": "root",
@@ -679,6 +699,99 @@ exports[`blog resource records is completed 1`] = `
       },
       "handlerResourceId": "string-field-type-handler",
       "title": "字符串字段类型",
+    },
+  },
+  {
+    "id": "id-object",
+    "kind": "object",
+    "parentId": "root",
+    "settings": {
+      "description": "",
+      "name": "id",
+      "title": "ID",
+    },
+  },
+  {
+    "id": "id-object-id-object-field",
+    "kind": "object_field",
+    "parentId": "id-object",
+    "settings": {
+      "description": "",
+      "fieldTypeResourceId": "mongo-id-field-type",
+      "name": "id",
+      "properties": {},
+      "title": "ID",
+    },
+  },
+  {
+    "id": "post-info-with-id-object",
+    "kind": "object",
+    "parentId": "root",
+    "settings": {
+      "description": "",
+      "extendedResourceIds": [
+        "post-info-without-id-object",
+      ],
+      "name": "post-info-with-id",
+      "title": "有ID博文信息",
+    },
+  },
+  {
+    "id": "post-info-with-id-object-id-object-field",
+    "kind": "object_field",
+    "parentId": "post-info-with-id-object",
+    "settings": {
+      "description": "",
+      "fieldTypeResourceId": "mongo-id-field-type",
+      "name": "id",
+      "properties": {},
+      "title": "ID",
+    },
+  },
+  {
+    "id": "post-info-without-id-object",
+    "kind": "object",
+    "parentId": "root",
+    "settings": {
+      "description": "",
+      "name": "post-info-without-id",
+      "title": "无ID博文信息",
+    },
+  },
+  {
+    "id": "post-info-without-id-object-content-object-field",
+    "kind": "object_field",
+    "parentId": "post-info-without-id-object",
+    "settings": {
+      "description": "",
+      "fieldTypeResourceId": "string-field-type",
+      "name": "content",
+      "properties": {},
+      "title": "内容",
+    },
+  },
+  {
+    "id": "post-info-without-id-object-title-object-field",
+    "kind": "object_field",
+    "parentId": "post-info-without-id-object",
+    "settings": {
+      "description": "",
+      "fieldTypeResourceId": "string-field-type",
+      "name": "title",
+      "properties": {},
+      "title": "标题",
+    },
+  },
+  {
+    "id": "post-info-without-id-object-views-object-field",
+    "kind": "object_field",
+    "parentId": "post-info-without-id-object",
+    "settings": {
+      "description": "",
+      "fieldTypeResourceId": "number-field-type",
+      "name": "views",
+      "properties": {},
+      "title": "访问量",
     },
   },
   {

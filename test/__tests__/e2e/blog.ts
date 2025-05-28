@@ -26,12 +26,108 @@ describe("blog", () => {
       expect(response.text).toBe("ok");
     });
 
-    test("graphql is health", async () => {
-      const response = await request(app).get("/graphql");
+    describe("graphql", () => {
+      test("is health", async () => {
+        const response = await request(app).get("/graphql");
 
-      expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(200);
 
-      expect(response.text).toMatchSnapshot();
+        expect(response.text).toMatchSnapshot();
+      });
+
+      describe("table", () => {
+        const mockTitle = "test context";
+
+        const mockWrongContent = "test context";
+
+        const mockRightContent = "test content";
+
+        let createdRecordId: string;
+
+        test("create", async () => {
+          const response = await request(app)
+            .post("/graphql")
+            .send({
+              query: `mutation{postCreateOne(record:{title:"${mockTitle}" content:"${mockWrongContent}"}){recordId record{_id views title content}}}`,
+            })
+            .set("Accept", "application/json")
+            .expect("Content-Type", /json/)
+            .expect(200);
+
+          expect(response.statusCode).toBe(200);
+
+          expect(response.body.data.postCreateOne.record.title).toBe(mockTitle);
+
+          expect(response.body.data.postCreateOne.record.content).toBe(
+            mockWrongContent
+          );
+
+          expect(response.body.data.postCreateOne.recordId).toBeDefined();
+
+          createdRecordId = response.body.data.postCreateOne.recordId;
+        });
+
+        test("read", async () => {
+          const response = await request(app)
+            .post("/graphql")
+            .send({
+              query: `{postCount postFindMany{_id views title content}postFindById(_id:"${createdRecordId}"){_id views title content}}`,
+            })
+            .set("Accept", "application/json")
+            .expect("Content-Type", /json/)
+            .expect(200);
+
+          expect(response.statusCode).toBe(200);
+
+          expect(response.body.data.postCount).toBeGreaterThanOrEqual(1);
+
+          expect(response.body.data.postFindById._id).toBe(createdRecordId);
+
+          expect(response.body.data.postFindById.title).toBe(mockTitle);
+
+          expect(response.body.data.postFindById.content).toBe(
+            mockWrongContent
+          );
+
+          expect(response.body.data.postFindMany.length).toBe(
+            response.body.data.postCount
+          );
+        });
+
+        test("update", async () => {
+          const response = await request(app)
+            .post("/graphql")
+            .send({
+              query: `mutation{postUpdateMany(record:{content:"${mockRightContent}"}){numAffected}}`,
+            })
+            .set("Accept", "application/json")
+            .expect("Content-Type", /json/)
+            .expect(200);
+
+          expect(response.statusCode).toBe(200);
+
+          expect(
+            response.body.data.postUpdateMany.numAffected
+          ).toBeGreaterThanOrEqual(1);
+        });
+
+        test("delete", async () => {
+          const response = await request(app)
+            .post("/graphql")
+            .send({
+              query: `mutation{postRemoveMany(filter:{content:"${mockRightContent}"}){numAffected}}`,
+            })
+            .set("Accept", "application/json")
+            .expect("Content-Type", /json/)
+            .expect(200);
+
+          expect(response.statusCode).toBe(200);
+
+          expect(
+            response.body.data.postRemoveMany.numAffected
+          ).toBeGreaterThanOrEqual(1);
+        });
+      });
     });
   });
 });

@@ -298,7 +298,5 @@ test("forms", () => {
 
   const schemaDSL = printSchema(schema);
 
-  console.log(schemaDSL);
-
   expect(schemaDSL).toMatchSnapshot();
 });

@@ -28,15 +28,11 @@ export class GraphqlResource extends Resource<GraphqlSpecificResourceSettings> {
 
     const { parentId, getFilteredResources } = this;
 
-    console.debug("wcm getGraphQLSchema parentId", parentId);
-
     const { resources } = getFilteredResources<{
       modifyGraphQLSchema?: ModifyGraphQLSchema;
     }>({
       parentId,
     });
-
-    console.debug("wcm getGraphQLSchema resources", resources);
 
     resources.forEach((resource) => {
       resource.modifyGraphQLSchema?.({
