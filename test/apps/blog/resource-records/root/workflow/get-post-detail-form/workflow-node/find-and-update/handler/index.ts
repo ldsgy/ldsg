@@ -1,0 +1,31 @@
+import { ROOT_RESOURCE_ID } from "@ldsg/constants";
+import {
+  RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
+  HandlerSpecificResourceSettings,
+} from "@ldsg/handler";
+import { ResourceRecord } from "@ldsg/types";
+import { WorkflowNodeExecuter } from "@ldsg/workflow";
+import { GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID } from "./constants";
+
+function handler(this: WorkflowNodeExecuter): void {
+  const { nodeIdToOutputVariablesMap } = this;
+
+  console.debug(
+    "wcm handler nodeIdToOutputVariablesMap",
+    nodeIdToOutputVariablesMap
+  );
+}
+
+export const codeWorkflowNodeTypeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
+  {
+    id: GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID,
+    kind: HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,
+    parentId: ROOT_RESOURCE_ID,
+    settings: {
+      title: "Get Post Detail Workflow Find And Update Workflow Node Handler",
+      description: "",
+      code: "",
+      dependencies: [],
+      handler,
+    },
+  };

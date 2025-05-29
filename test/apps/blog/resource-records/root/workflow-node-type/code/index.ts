@@ -1,7 +1,7 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import {
-  Handler,
   RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
+  HandlerResource,
   HandlerSpecificResourceSettings,
 } from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/types";
@@ -14,26 +14,26 @@ import {
   GetExtraWorkflowNodeInfoParams,
   WorkflowNodeTypeSpecificResourceSettings,
 } from "@ldsg/workflow-node-type";
+import { CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID } from "./constants";
 
-const CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID = "health-route-handler";
-
-const handler: Handler<
-  [GetExtraWorkflowNodeInfoParams],
-  ExtraWorkflowNodeInfo
-> = (params) => {
+function handler(
+  this: HandlerResource,
+  params: GetExtraWorkflowNodeInfoParams
+): ExtraWorkflowNodeInfo {
   const { workflowNodeProperties } = params;
 
   const { handlerResourceId } = workflowNodeProperties;
 
-  const a = () => {
-    this;
-  };
+  const { resource: handlerResource } =
+    this.getFilteredResource<HandlerResource>({
+      id: handlerResourceId,
+    });
+
+  const handler = handlerResource?.getHandler();
 
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = () => {
-      const { setOutputVariables } = this;
-
-      a.bind(this)();
+      (handler as WorkflowNodeExecuterExecute).bind(this)();
     };
   }
 
@@ -42,7 +42,7 @@ const handler: Handler<
   };
 
   return res;
-};
+}
 
 export const codeWorkflowNodeTypeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
   {

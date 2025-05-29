@@ -8,13 +8,14 @@ export class WorkflowNodeTypeResource extends HandlerExtendedResource<WorkflowNo
   getExtraWorkflowNodeInfo: GetExtraWorkflowNodeInfo = (params) => {
     const { workflowNodeProperties } = params;
 
-    const { getHandler } = this;
+    const { getHandlerOrUndefined } = this;
 
-    const handler = getHandler();
+    const handler = getHandlerOrUndefined();
 
-    const extraWorkflowNodeInfo = handler({
-      workflowNodeProperties,
-    });
+    const extraWorkflowNodeInfo =
+      handler?.({
+        workflowNodeProperties,
+      }) ?? {};
 
     const res = {
       extraWorkflowNodeInfo,

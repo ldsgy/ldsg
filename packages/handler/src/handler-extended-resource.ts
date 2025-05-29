@@ -7,15 +7,23 @@ export class HandlerExtendedResource<
   T extends SpecificResourceSettings = SpecificResourceSettings
 > extends Resource<HandlerExtendedResourceSettings<T>> {
   getHandler = () => {
+    const { getHandlerOrUndefined } = this;
+
+    const res = getHandlerOrUndefined();
+
+    if (!res) {
+      throw new Error("invalid handler");
+    }
+
+    return res;
+  };
+
+  getHandlerOrUndefined = () => {
     const { getResourcesFromSettings } = this;
 
     const { handlerResource } = getResourcesFromSettings();
 
-    if (!handlerResource) {
-      throw new Error("invalid handler resource");
-    }
-
-    const res = (handlerResource as HandlerResource).getHandler();
+    const res = (handlerResource as HandlerResource | undefined)?.getHandler();
 
     return res;
   };
