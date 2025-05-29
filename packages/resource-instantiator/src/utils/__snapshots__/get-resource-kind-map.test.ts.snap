@@ -4,9 +4,10 @@ exports[`get-resource-kind-map 1`] = `
 {
   "application": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "application-resource-definition",
       "instantiateResource": [Function],
@@ -23,9 +24,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "database": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "database-resource-definition",
       "instantiateResource": [Function],
@@ -42,9 +44,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "field_type": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "field-type-resource-definition",
       "instantiateResource": [Function],
@@ -61,9 +64,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "form": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "form-resource-definition",
       "instantiateResource": [Function],
@@ -80,9 +84,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "forms": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "forms-resource-definition",
       "instantiateResource": [Function],
@@ -99,9 +104,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "graphql": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "graphql-resource-definition",
       "instantiateResource": [Function],
@@ -118,9 +124,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "handler": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "handler-resource-definition",
       "instantiateResource": [Function],
@@ -137,9 +144,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "object": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "object-resource-definition",
       "instantiateResource": [Function],
@@ -156,9 +164,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "object_field": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "object-field-resource-definition",
       "instantiateResource": [Function],
@@ -175,9 +184,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "resource_definition": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "resource-definition-resource-definition",
       "instantiateResource": [Function],
@@ -194,9 +204,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "route": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "route-resource-definition",
       "instantiateResource": [Function],
@@ -213,9 +224,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "table": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "table-resource-definition",
       "instantiateResource": [Function],
@@ -232,9 +244,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "tables": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "tables-resource-definition",
       "instantiateResource": [Function],
@@ -251,9 +264,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "workflow": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "workflow-resource-definition",
       "instantiateResource": [Function],
@@ -270,9 +284,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "workflow_edge": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "workflow-edge-resource-definition",
       "instantiateResource": [Function],
@@ -289,9 +304,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "workflow_node": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "workflow-node-resource-definition",
       "instantiateResource": [Function],
@@ -308,9 +324,10 @@ exports[`get-resource-kind-map 1`] = `
   },
   "workflow_node_type": {
     "resourceDefinitionResource": ResourceDefinitionResource {
+      "getExtendedHandler": [Function],
+      "getExtendedHandlerOrUndefined": [Function],
       "getFilteredResource": [Function],
       "getFilteredResources": [Function],
-      "getHandler": [Function],
       "getResourcesFromSettings": [Function],
       "id": "workflow-node-type-resource-definition",
       "instantiateResource": [Function],
