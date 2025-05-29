@@ -33,9 +33,11 @@ export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
     }
 
     if (settingsHandler) {
-      this.handler = settingsHandler;
+      const changedThisHandler = settingsHandler.bind(this);
 
-      return settingsHandler;
+      this.handler = changedThisHandler;
+
+      return changedThisHandler;
     }
 
     const moduleId = getModuleId();
@@ -46,9 +48,11 @@ export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
       if ("handler" in requireRes) {
         const { handler } = requireRes;
 
-        this.handler = handler;
+        const changedThisHandler = handler.bind(this);
 
-        return handler;
+        this.handler = changedThisHandler;
+
+        return changedThisHandler;
       } else {
         throw new Error("invalid handler in module");
       }

@@ -68,6 +68,7 @@
     "delay": 2500
   },
   "dependencies": {
+    "jsonata": "^2.0.6",
     "mongodb": "^6.16.0",
     "ts-node": "^10.9.2"
   }

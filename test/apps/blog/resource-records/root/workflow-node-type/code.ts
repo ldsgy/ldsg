@@ -1,15 +1,47 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
 import {
+  Handler,
   RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS,
   HandlerSpecificResourceSettings,
 } from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/types";
-import { WorkflowNodeTypeSpecificResourceSettings } from "@ldsg/workflow-node-type";
+import {
+  WorkflowNodeExecuter,
+  WorkflowNodeExecuterExecute,
+} from "@ldsg/workflow";
+import {
+  ExtraWorkflowNodeInfo,
+  GetExtraWorkflowNodeInfoParams,
+  WorkflowNodeTypeSpecificResourceSettings,
+} from "@ldsg/workflow-node-type";
 
 const CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID = "health-route-handler";
 
-const handler = (req: any, res: any) => {
-  res.send("ok");
+const handler: Handler<
+  [GetExtraWorkflowNodeInfoParams],
+  ExtraWorkflowNodeInfo
+> = (params) => {
+  const { workflowNodeProperties } = params;
+
+  const { handlerResourceId } = workflowNodeProperties;
+
+  const a = () => {
+    this;
+  };
+
+  class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+    execute: WorkflowNodeExecuterExecute = () => {
+      const { setOutputVariables } = this;
+
+      a.bind(this)();
+    };
+  }
+
+  const res: ExtraWorkflowNodeInfo = {
+    Executer: AWorkflowNodeExecuter,
+  };
+
+  return res;
 };
 
 export const codeWorkflowNodeTypeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
@@ -34,7 +66,16 @@ export const codeWorkflowNodeTypeResourceRecord: ResourceRecord<WorkflowNodeType
     settings: {
       title: "代码",
       description: "",
-      fieldPropertiesSchema: {},
+      workflowNodePropertiesSchema: {
+        type: "object",
+        properties: {
+          handlerResourceId: {
+            type: "string",
+            title: "处理程序资源ID",
+            description: "",
+          },
+        },
+      },
       handlerResourceId: CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID,
     },
   };
