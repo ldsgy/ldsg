@@ -1,7 +1,12 @@
 import { ROOT_RESOURCE_ID } from "@ldsg/constants";
-import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "../../constants";
-import { HandlerResource } from "../../resource";
-import { handler as settingsHandler } from "../a";
+import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "../constants";
+import { HandlerResource } from "../resource";
+
+export function settingsHandler(this: HandlerResource) {
+  const res = this.getFilteredResources({});
+
+  return res;
+}
 
 describe("handler module unit test", () => {
   describe("handler", () => {
@@ -27,11 +32,9 @@ describe("handler module unit test", () => {
     test("this is changed", () => {
       const handlerRes = handler();
 
-      console.debug("handlerRes", handlerRes);
-
       expect(handlerRes).toBeDefined();
-    });
 
-    // expect(getHandlerRes()).toMatchSnapshot();
+      expect(handlerRes.resources.length).toBeGreaterThan(0);
+    });
   });
 });

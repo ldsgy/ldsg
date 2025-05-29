@@ -9,21 +9,21 @@ export interface ResourceConstructorParams<
   T extends SpecificResourceSettings = SpecificResourceSettings
 > extends ResourceRecord<T> {}
 
-type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
+export type GetFilteredResourcesParams = ListIterateeCustom<Resource, boolean>;
 
-interface GetFilteredResourceRes<
+export interface GetFilteredResourceRes<
   T extends Record<string, any> = Record<string, any>
 > {
   resource: (Resource & T) | undefined;
 }
 
-interface GetFilteredResourcesRes<
+export interface GetFilteredResourcesRes<
   T extends Record<string, any> = Record<string, any>
 > {
   resources: (Resource & T)[];
 }
 
-type GetResourcesFromSettingsRes<T extends SpecificResourceSettings> = {
+export type GetResourcesFromSettingsRes<T extends SpecificResourceSettings> = {
   [K in keyof T as K extends `${infer P}ResourceId`
     ? `${P}Resource`
     : never]: Resource;
