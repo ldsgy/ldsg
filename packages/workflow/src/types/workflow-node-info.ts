@@ -1,10 +1,10 @@
 import {
   NodeId,
   NodeIdToOutputVariablesMap,
-  NodeOutputVariables,
-} from "./output-variables";
+  NodeVariables,
+} from "./node-variables";
 
-export type WorkflowNodeExecuterExecute = () => void | Promise<void>;
+export type WorkflowNodeExecuterExecute = () => Promise<void>;
 
 interface WorkflowNodeExecuterConstructorParams {
   nodeId: NodeId;
@@ -13,7 +13,7 @@ interface WorkflowNodeExecuterConstructorParams {
 }
 
 interface SetOutputVariablesParams {
-  outputVariables: NodeOutputVariables;
+  outputVariables: NodeVariables;
 }
 
 type SetOutputVariables = (params: SetOutputVariablesParams) => void;
@@ -33,7 +33,7 @@ export class WorkflowNodeExecuter
   }
 
   /**
-   * Set Node Output Variables
+   * Set Current Node Output Variables
    */
   setOutputVariables: SetOutputVariables = (params) => {
     const { outputVariables } = params;
@@ -43,7 +43,7 @@ export class WorkflowNodeExecuter
     nodeIdToOutputVariablesMap[nodeId] = outputVariables;
   };
 
-  execute: WorkflowNodeExecuterExecute = () => {
+  execute: WorkflowNodeExecuterExecute = async () => {
     const { nodeId, nodeIdToOutputVariablesMap } = this;
 
     console.debug("WorkflowNodeExecuter execute nodeId", nodeId);
