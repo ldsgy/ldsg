@@ -8,7 +8,7 @@
     "cli:debug": "pnpm --filter @ldsg/cli debug",
     "build": "pnpm clean && pnpm --recursive --sort build",
     "clean": "pnpm --recursive clean",
-    "dev": "nodemon --exec \"pnpm build && pnpm --filter examples dev\"",
+    "dev": "nodemon --exec \"pnpm build && pnpm start\"",
     "serve": "ts-node test/server.ts",
     "start": "pnpm serve",
     "test": "jest"
@@ -50,12 +50,15 @@
     "express": "^4.18.2",
     "fs-extra": "^11.3.0",
     "jest": "^29.5.0",
+    "jsonata": "^2.0.6",
     "lodash": "^4.17.21",
+    "mongodb": "^6.16.0",
     "mongoose": "^8.14.3",
     "nodemon": "^3.1.4",
     "shelljs": "^0.9.2",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "vm2": "^3.9.19"
   },
@@ -65,11 +68,10 @@
       "**/__tests__/**",
       "**/dist/**"
     ],
-    "delay": 2500
-  },
-  "dependencies": {
-    "jsonata": "^2.0.6",
-    "mongodb": "^6.16.0",
-    "ts-node": "^10.9.2"
+    "watch": [
+      "packages/",
+      "test/"
+    ],
+    "delay": 1500
   }
 }
