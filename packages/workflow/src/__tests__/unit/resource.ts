@@ -38,7 +38,7 @@ class AWorkflowResource extends WorkflowResource {
           id: "2",
           workflowNodeTypeResourceId: "",
           Executer: class a extends WorkflowNodeExecuter {
-            execute = () => {
+            execute = async () => {
               const { setOutputVariables } = this;
 
               setOutputVariables({
@@ -51,7 +51,7 @@ class AWorkflowResource extends WorkflowResource {
           id: "3",
           workflowNodeTypeResourceId: "",
           Executer: class a extends WorkflowNodeExecuter {
-            execute = () => {
+            execute = async () => {
               const { setOutputVariables } = this;
 
               setOutputVariables({
@@ -64,7 +64,7 @@ class AWorkflowResource extends WorkflowResource {
           id: "4",
           workflowNodeTypeResourceId: "",
           Executer: class a extends WorkflowNodeExecuter {
-            execute = () => {
+            execute = async () => {
               const { setOutputVariables } = this;
 
               setOutputVariables({
