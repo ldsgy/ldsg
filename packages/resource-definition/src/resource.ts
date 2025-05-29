@@ -9,9 +9,9 @@ export class ResourceDefinitionResource extends HandlerExtendedResource<Resource
    * 2. 通过 HANDLER 类型子资源内的 handler 方法进行资源实例化
    */
   instantiateResource: InstantiateResource = (params) => {
-    const handler = this.getHandler();
+    const extendedHandler = this.getExtendedHandler();
 
-    const res = handler(params);
+    const res = extendedHandler(params);
 
     return res;
   };

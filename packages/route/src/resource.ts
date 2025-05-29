@@ -8,11 +8,11 @@ export class RouteResource extends HandlerExtendedResource<RouteSpecificResource
 
     const {
       settings: { path },
-      getHandler,
+      getExtendedHandler,
     } = this;
 
-    const handler = getHandler();
+    const extendedHandler = getExtendedHandler();
 
-    app.all(path, handler);
+    app.all(path, extendedHandler);
   };
 }

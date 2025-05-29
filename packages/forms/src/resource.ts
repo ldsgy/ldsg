@@ -81,7 +81,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
       });
 
       const executeRes = await formInfo?.workflowInfo.execute({
-        startNodeOutputVariables: req.body,
+        startNodeInputVariables: req.body,
       });
 
       const data = executeRes?.endNodeOutputVariables;

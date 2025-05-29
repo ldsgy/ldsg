@@ -39,8 +39,6 @@ export interface GetWorkflowInfoRes {
 export type GetWorkflowInfo = () => GetWorkflowInfoRes;
 
 export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings> {
-  nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap = {};
-
   getWorkflowEdgeInfoList: GetWorkflowEdgeInfoList = () => {
     const { id, getFilteredResources } = this;
 
@@ -121,9 +119,21 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
   };
 
   execute: WorkflowExecute = async (params) => {
-    const { startNodeOutputVariables } = params;
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute params",
+      params
+    );
 
-    const { getWorkflowData, nodeIdToOutputVariablesMap } = this;
+    const { startNodeInputVariables } = params;
+
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute startNodeInputVariables",
+      startNodeInputVariables
+    );
+
+    const { getWorkflowData } = this;
+
+    const nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap = {};
 
     const { workflowData } = getWorkflowData();
 
@@ -151,29 +161,48 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       endNode,
     });
 
+    const startNodeOutputVariables = startNodeInputVariables;
+
     nodeIdToOutputVariablesMap[startNode.id] = startNodeOutputVariables;
+
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables nodeIdToOutputVariablesMap",
+      nodeIdToOutputVariablesMap
+    );
 
     const executeList = orderedNodeList.map((node) => {
       const { id, Executer } = node;
 
-      const executer = new Executer({
-        nodeId: id,
-        nodeIdToOutputVariablesMap,
-      });
+      if (Executer) {
+        const executer = new Executer({
+          nodeId: id,
+          nodeIdToOutputVariablesMap,
+        });
 
-      const res = executer.execute;
+        const res = executer.execute;
 
-      return res;
+        return res;
+      }
     });
 
     for (const execute of executeList) {
-      await execute();
+      await execute?.();
     }
+
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables nodeIdToOutputVariablesMap",
+      nodeIdToOutputVariablesMap
+    );
 
     const res = getEndNodeOutputVariables({
       endNode,
       nodeIdToOutputVariablesMap,
     });
+
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables res",
+      res
+    );
 
     return res;
   };

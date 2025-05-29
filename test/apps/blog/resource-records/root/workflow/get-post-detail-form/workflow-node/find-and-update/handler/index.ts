@@ -8,15 +8,19 @@ import { WorkflowNodeExecuter } from "@ldsg/workflow";
 import { GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID } from "./constants";
 
 function handler(this: WorkflowNodeExecuter): void {
-  const { nodeIdToOutputVariablesMap } = this;
+  const { setOutputVariables } = this;
 
   console.debug(
-    "wcm handler nodeIdToOutputVariablesMap",
-    nodeIdToOutputVariablesMap
+    "wcm test/apps/blog/resource-records/root/workflow/get-post-detail-form/workflow-node/find-and-update/handler/index.ts handler this",
+    this
   );
+
+  setOutputVariables({
+    outputVariables: "test",
+  });
 }
 
-export const codeWorkflowNodeTypeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
+export const getPostDetailFormWorkflowFindAndUpdateWorkflowNodeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =
   {
     id: GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID,
     kind: HANDLER_RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS.kind,

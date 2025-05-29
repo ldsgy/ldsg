@@ -2,7 +2,7 @@ import { GetEndNodeOutputVariablesRes } from "../utils";
 import { NodeVariables } from "./node-variables";
 
 export interface WorkflowExecuteParams {
-  startNodeOutputVariables: NodeVariables;
+  startNodeInputVariables: NodeVariables;
 }
 
 export interface WorkflowExecuteRes {

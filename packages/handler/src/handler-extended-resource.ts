@@ -6,10 +6,10 @@ import { HandlerResource } from "./resource";
 export class HandlerExtendedResource<
   T extends SpecificResourceSettings = SpecificResourceSettings
 > extends Resource<HandlerExtendedResourceSettings<T>> {
-  getHandler = () => {
-    const { getHandlerOrUndefined } = this;
+  getExtendedHandler = () => {
+    const { getExtendedHandlerOrUndefined } = this;
 
-    const res = getHandlerOrUndefined();
+    const res = getExtendedHandlerOrUndefined();
 
     if (!res) {
       throw new Error("invalid handler");
@@ -18,7 +18,7 @@ export class HandlerExtendedResource<
     return res;
   };
 
-  getHandlerOrUndefined = () => {
+  getExtendedHandlerOrUndefined = () => {
     const { getResourcesFromSettings } = this;
 
     const { handlerResource } = getResourcesFromSettings();

@@ -17,9 +17,9 @@ export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecific
       extraPlatforms,
     } = params;
 
-    const { getHandler } = this;
+    const { getExtendedHandler } = this;
 
-    const handler: FieldTypeResourceHandler = getHandler();
+    const extendedHandler: FieldTypeResourceHandler = getExtendedHandler();
 
     let platforms: FieldTypePlatform[] = paramsPlatforms
       ? paramsPlatforms
@@ -30,7 +30,7 @@ export class FieldTypeResource extends HandlerExtendedResource<FieldTypeSpecific
     const platformToTypeMap: PlatformToTypeMap = {};
 
     for (const platform of platforms) {
-      const fieldType = handler({
+      const fieldType = extendedHandler({
         fieldProperties,
         platform,
       });

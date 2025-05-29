@@ -14,26 +14,57 @@ import {
   GetExtraWorkflowNodeInfoParams,
   WorkflowNodeTypeSpecificResourceSettings,
 } from "@ldsg/workflow-node-type";
-import { CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID } from "./constants";
+import {
+  CODE_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID,
+  CODE_WORKFLOW_NODE_TYPE_RESOURCE_ID,
+} from "./constants";
 
 function handler(
   this: HandlerResource,
   params: GetExtraWorkflowNodeInfoParams
 ): ExtraWorkflowNodeInfo {
+  console.debug(
+    "test/apps/blog/resource-records/root/workflow-node-type/code/index.ts this",
+    this
+  );
+
   const { workflowNodeProperties } = params;
 
   const { handlerResourceId } = workflowNodeProperties;
+
+  console.debug(
+    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerResourceId",
+    handlerResourceId
+  );
 
   const { resource: handlerResource } =
     this.getFilteredResource<HandlerResource>({
       id: handlerResourceId,
     });
 
-  const handler = handlerResource?.getHandler();
+  console.debug(
+    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerResource",
+    handlerResource
+  );
+
+  const handlerWithoutChangedThisPointer =
+    handlerResource?.getHandlerWithoutChangedThisPointer() as
+      | WorkflowNodeExecuterExecute
+      | undefined;
+
+  console.debug(
+    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerWithoutChangedThisPointer",
+    handlerWithoutChangedThisPointer
+  );
 
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = () => {
-      (handler as WorkflowNodeExecuterExecute).bind(this)();
+      console.debug(
+        "test/apps/blog/resource-records/root/workflow-node-type/code/index.ts execute this",
+        this
+      );
+
+      handlerWithoutChangedThisPointer?.bind(this)();
     };
   }
 
@@ -60,7 +91,7 @@ export const codeWorkflowNodeTypeHandlerResourceRecord: ResourceRecord<HandlerSp
 
 export const codeWorkflowNodeTypeResourceRecord: ResourceRecord<WorkflowNodeTypeSpecificResourceSettings> =
   {
-    id: "workflow-node-type-code",
+    id: CODE_WORKFLOW_NODE_TYPE_RESOURCE_ID,
     kind: "workflow_node_type",
     parentId: ROOT_RESOURCE_ID,
     settings: {

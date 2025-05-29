@@ -13,9 +13,14 @@ type GetHandler<
 
 export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
   /**
-   * Handler
+   * Handler Without Changed This Pointer
    */
-  handler?: Handler;
+  handlerWithoutChangedThisPointer?: Handler;
+
+  /**
+   * Handler With Changed This Pointer
+   */
+  handlerWithChangedThisPointer?: Handler;
 
   getModuleId = (): string => {
     const { id } = this;
@@ -24,20 +29,49 @@ export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
   };
 
   getHandler: GetHandler = () => {
-    const { getModuleId, handler: thisHandler, settings } = this;
+    const { getHandlerWithChangedThisPointer } = this;
+
+    return getHandlerWithChangedThisPointer();
+  };
+
+  getHandlerWithChangedThisPointer: GetHandler = () => {
+    const {
+      handlerWithChangedThisPointer: thisHandlerWithChangedThisPointer,
+      getHandlerWithoutChangedThisPointer,
+    } = this;
+
+    if (thisHandlerWithChangedThisPointer) {
+      return thisHandlerWithChangedThisPointer;
+    }
+
+    const getHandlerWithoutChangedThisPointerRes =
+      getHandlerWithoutChangedThisPointer();
+
+    const handlerWithChangedThisPointer =
+      getHandlerWithoutChangedThisPointerRes.bind(this);
+
+    this.handlerWithChangedThisPointer = handlerWithChangedThisPointer;
+
+    return handlerWithChangedThisPointer;
+  };
+
+  getHandlerWithoutChangedThisPointer: GetHandler = () => {
+    const {
+      getModuleId,
+      handlerWithoutChangedThisPointer: thisHandlerWithoutChangedThisPointer,
+      settings,
+    } = this;
 
     const { handler: settingsHandler } = settings;
 
-    if (thisHandler) {
-      return thisHandler;
+    if (thisHandlerWithoutChangedThisPointer) {
+      return thisHandlerWithoutChangedThisPointer;
     }
 
     if (settingsHandler) {
-      const changedThisHandler = settingsHandler.bind(this);
+      this.handlerWithoutChangedThisPointer = settingsHandler;
 
-      this.handler = changedThisHandler;
-
-      return changedThisHandler;
+      return settingsHandler;
     }
 
     const moduleId = getModuleId();
@@ -48,11 +82,9 @@ export class HandlerResource extends Resource<HandlerSpecificResourceSettings> {
       if ("handler" in requireRes) {
         const { handler } = requireRes;
 
-        const changedThisHandler = handler.bind(this);
+        this.handlerWithoutChangedThisPointer = handler;
 
-        this.handler = changedThisHandler;
-
-        return changedThisHandler;
+        return handler;
       } else {
         throw new Error("invalid handler in module");
       }

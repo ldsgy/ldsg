@@ -45,7 +45,7 @@ export const getNewFields: GetNewFields = (params) => {
       args: inputITC.getFields(),
       resolve: async ({ source, args }) => {
         const { endNodeOutputVariables } = await workflowInfo.execute({
-          startNodeOutputVariables: { source, args },
+          startNodeInputVariables: { source, args },
         });
 
         return endNodeOutputVariables;

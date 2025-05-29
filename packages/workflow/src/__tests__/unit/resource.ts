@@ -32,12 +32,12 @@ class AWorkflowResource extends WorkflowResource {
           id: "1",
           workflowNodeTypeResourceId:
             SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.start,
-          Executer: class a extends WorkflowNodeExecuter {},
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {},
         },
         {
           id: "2",
           workflowNodeTypeResourceId: "",
-          Executer: class a extends WorkflowNodeExecuter {
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
               const { setOutputVariables } = this;
 
@@ -50,7 +50,7 @@ class AWorkflowResource extends WorkflowResource {
         {
           id: "3",
           workflowNodeTypeResourceId: "",
-          Executer: class a extends WorkflowNodeExecuter {
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
               const { setOutputVariables } = this;
 
@@ -63,7 +63,7 @@ class AWorkflowResource extends WorkflowResource {
         {
           id: "4",
           workflowNodeTypeResourceId: "",
-          Executer: class a extends WorkflowNodeExecuter {
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
               const { setOutputVariables } = this;
 
@@ -77,7 +77,15 @@ class AWorkflowResource extends WorkflowResource {
           id: "5",
           workflowNodeTypeResourceId:
             SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end,
-          Executer: class a extends WorkflowNodeExecuter {},
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+            execute = async () => {
+              const { setOutputVariables } = this;
+
+              setOutputVariables({
+                outputVariables: "jkl",
+              });
+            };
+          },
         },
       ],
     };
@@ -101,11 +109,11 @@ test("WorkflowResource execute", async () => {
     },
   });
 
-  await aWorkflowResource.execute({
-    startNodeOutputVariables: {
+  const { endNodeOutputVariables } = await aWorkflowResource.execute({
+    startNodeInputVariables: {
       hello: "world",
     },
   });
 
-  expect(aWorkflowResource.nodeIdToOutputVariablesMap).toMatchSnapshot();
+  expect(endNodeOutputVariables).toMatchSnapshot();
 });
