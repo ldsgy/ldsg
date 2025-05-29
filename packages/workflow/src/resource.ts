@@ -4,7 +4,7 @@ import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } fro
 import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
-  NodeIdToOutputVariablesMap,
+  NodeIdToVariablesMap,
   WorkflowData,
   WorkflowEdgeInfo,
   WorkflowExecute,
@@ -133,7 +133,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
 
     const { getWorkflowData } = this;
 
-    const nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap = {};
+    const nodeIdToVariablesMap: NodeIdToVariablesMap = {};
 
     const { workflowData } = getWorkflowData();
 
@@ -163,11 +163,11 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
 
     const startNodeOutputVariables = startNodeInputVariables;
 
-    nodeIdToOutputVariablesMap[startNode.id] = startNodeOutputVariables;
+    nodeIdToVariablesMap[startNode.id] = startNodeOutputVariables;
 
     console.debug(
-      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables nodeIdToOutputVariablesMap",
-      nodeIdToOutputVariablesMap
+      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables nodeIdToVariablesMap",
+      nodeIdToVariablesMap
     );
 
     const executeList = orderedNodeList.map((node) => {
@@ -176,7 +176,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       if (Executer) {
         const executer = new Executer({
           nodeId: id,
-          nodeIdToOutputVariablesMap,
+          nodeIdToVariablesMap,
         });
 
         const res = executer.execute;
@@ -190,13 +190,13 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     }
 
     console.debug(
-      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables nodeIdToOutputVariablesMap",
-      nodeIdToOutputVariablesMap
+      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables nodeIdToVariablesMap",
+      nodeIdToVariablesMap
     );
 
     const res = getEndNodeOutputVariables({
       endNode,
-      nodeIdToOutputVariablesMap,
+      nodeIdToVariablesMap,
     });
 
     console.debug(

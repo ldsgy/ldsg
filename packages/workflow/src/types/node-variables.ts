@@ -2,4 +2,4 @@ export type NodeId = string;
 
 export type NodeVariables = any;
 
-export type NodeIdToOutputVariablesMap = Record<NodeId, NodeVariables>;
+export type NodeIdToVariablesMap = Record<NodeId, NodeVariables>;

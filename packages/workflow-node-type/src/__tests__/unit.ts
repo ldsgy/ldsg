@@ -82,10 +82,10 @@ test("field type", () => {
 
   const executer = new Executer({
     nodeId: "test-node",
-    nodeIdToOutputVariablesMap: {},
+    nodeIdToVariablesMap: {},
   });
 
   executer.execute();
 
-  expect(executer.nodeIdToOutputVariablesMap).toMatchSnapshot();
+  expect(executer.nodeIdToVariablesMap).toMatchSnapshot();
 });

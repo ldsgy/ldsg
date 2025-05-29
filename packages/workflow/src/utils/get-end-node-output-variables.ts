@@ -1,12 +1,12 @@
 import {
-  NodeIdToOutputVariablesMap,
+  NodeIdToVariablesMap,
   WorkflowExecuteRes,
   WorkflowNodeInfo,
 } from "../types";
 
 export interface GetEndNodeOutputVariablesParams {
   endNode: WorkflowNodeInfo;
-  nodeIdToOutputVariablesMap: NodeIdToOutputVariablesMap;
+  nodeIdToVariablesMap: NodeIdToVariablesMap;
 }
 
 export interface GetEndNodeOutputVariablesRes extends WorkflowExecuteRes {}
@@ -18,9 +18,9 @@ export type GetEndNodeOutputVariables = (
 export const getEndNodeOutputVariables: GetEndNodeOutputVariables = (
   params
 ) => {
-  const { endNode, nodeIdToOutputVariablesMap } = params;
+  const { endNode, nodeIdToVariablesMap } = params;
 
-  const endNodeOutputVariables = nodeIdToOutputVariablesMap[endNode.id];
+  const endNodeOutputVariables = nodeIdToVariablesMap[endNode.id];
 
   const res = {
     endNodeOutputVariables,
