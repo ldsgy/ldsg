@@ -8,11 +8,11 @@ interface WorkflowNodeExecuterConstructorParams {
   nodeIdToVariablesMap: NodeIdToVariablesMap;
 }
 
-interface SetOutputVariablesParams {
+interface SetVariablesParams {
   outputVariables: NodeVariables;
 }
 
-type SetOutputVariables = (params: SetOutputVariablesParams) => void;
+type SetVariables = (params: SetVariablesParams) => void;
 
 export class WorkflowNodeExecuter
   implements WorkflowNodeExecuterConstructorParams
@@ -31,7 +31,7 @@ export class WorkflowNodeExecuter
   /**
    * Set Current Node Output Variables
    */
-  setOutputVariables: SetOutputVariables = (params) => {
+  setVariables: SetVariables = (params) => {
     const { outputVariables } = params;
 
     const { nodeId, nodeIdToVariablesMap } = this;

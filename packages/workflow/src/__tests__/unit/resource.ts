@@ -39,9 +39,9 @@ class AWorkflowResource extends WorkflowResource {
           workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
-              const { setOutputVariables } = this;
+              const { setVariables } = this;
 
-              setOutputVariables({
+              setVariables({
                 outputVariables: "abc",
               });
             };
@@ -52,9 +52,9 @@ class AWorkflowResource extends WorkflowResource {
           workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
-              const { setOutputVariables } = this;
+              const { setVariables } = this;
 
-              setOutputVariables({
+              setVariables({
                 outputVariables: "def",
               });
             };
@@ -65,9 +65,9 @@ class AWorkflowResource extends WorkflowResource {
           workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
-              const { setOutputVariables } = this;
+              const { setVariables } = this;
 
-              setOutputVariables({
+              setVariables({
                 outputVariables: "ghi",
               });
             };
@@ -79,9 +79,9 @@ class AWorkflowResource extends WorkflowResource {
             SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end,
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
-              const { setOutputVariables } = this;
+              const { setVariables } = this;
 
-              setOutputVariables({
+              setVariables({
                 outputVariables: "jkl",
               });
             };

@@ -19,9 +19,9 @@ const handler: Handler<
 
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = async () => {
-      const { setOutputVariables } = this;
+      const { setVariables } = this;
 
-      setOutputVariables({
+      setVariables({
         outputVariables: name,
       });
     };

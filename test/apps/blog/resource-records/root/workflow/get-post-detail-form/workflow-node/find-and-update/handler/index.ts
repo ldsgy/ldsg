@@ -8,14 +8,14 @@ import { WorkflowNodeExecuter } from "@ldsg/workflow";
 import { GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID } from "./constants";
 
 function handler(this: WorkflowNodeExecuter): void {
-  const { setOutputVariables } = this;
+  const { setVariables } = this;
 
   console.debug(
     "wcm test/apps/blog/resource-records/root/workflow/get-post-detail-form/workflow-node/find-and-update/handler/index.ts handler this",
     this
   );
 
-  setOutputVariables({
+  setVariables({
     outputVariables: "test",
   });
 }
