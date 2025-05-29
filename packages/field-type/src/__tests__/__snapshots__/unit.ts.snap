@@ -7,7 +7,7 @@ exports[`field type 1`] = `
       "max": "10",
       "type": "string",
     },
-    "GRAPHQL": undefined,
+    "GRAPHQL": "String",
     "JSON": undefined,
     "MONGOOSE": undefined,
   },

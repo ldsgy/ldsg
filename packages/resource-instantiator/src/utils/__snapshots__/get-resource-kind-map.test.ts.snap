@@ -249,6 +249,63 @@ exports[`get-resource-kind-map 1`] = `
       },
     },
   },
+  "workflow": {
+    "resourceDefinitionResource": ResourceDefinitionResource {
+      "getFilteredResource": [Function],
+      "getFilteredResources": [Function],
+      "getHandler": [Function],
+      "getResourcesFromSettings": [Function],
+      "id": "workflow-resource-definition",
+      "instantiateResource": [Function],
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-resource-definition-handler",
+        "kind": "workflow",
+        "parentKind": "root",
+        "title": "工作流类型资源定义",
+      },
+    },
+  },
+  "workflow_edge": {
+    "resourceDefinitionResource": ResourceDefinitionResource {
+      "getFilteredResource": [Function],
+      "getFilteredResources": [Function],
+      "getHandler": [Function],
+      "getResourcesFromSettings": [Function],
+      "id": "workflow-edge-resource-definition",
+      "instantiateResource": [Function],
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-edge-resource-definition-handler",
+        "kind": "workflow_edge",
+        "parentKind": "workflow",
+        "title": "工作流连线类型资源定义",
+      },
+    },
+  },
+  "workflow_node": {
+    "resourceDefinitionResource": ResourceDefinitionResource {
+      "getFilteredResource": [Function],
+      "getFilteredResources": [Function],
+      "getHandler": [Function],
+      "getResourcesFromSettings": [Function],
+      "id": "workflow-node-resource-definition",
+      "instantiateResource": [Function],
+      "kind": "resource_definition",
+      "parentId": "root",
+      "settings": {
+        "description": "",
+        "handlerResourceId": "workflow-node-resource-definition-handler",
+        "kind": "workflow_node",
+        "parentKind": "workflow",
+        "title": "工作流节点类型资源定义",
+      },
+    },
+  },
   "workflow_node_type": {
     "resourceDefinitionResource": ResourceDefinitionResource {
       "getFilteredResource": [Function],

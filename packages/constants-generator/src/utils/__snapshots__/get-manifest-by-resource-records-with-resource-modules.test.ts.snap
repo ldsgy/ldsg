@@ -355,19 +355,19 @@ exports[`get constants 1`] = `
       },
     },
     {
-      "id": "workflow-node-type-resource-definition",
+      "id": "workflow-resource-definition",
       "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
-        "handlerResourceId": "workflow-node-type-resource-definition-handler",
-        "kind": "workflow_node_type",
+        "handlerResourceId": "workflow-resource-definition-handler",
+        "kind": "workflow",
         "parentKind": "root",
         "title": "工作流类型资源定义",
       },
     },
     {
-      "id": "workflow-node-type-resource-definition-handler",
+      "id": "workflow-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
@@ -382,19 +382,19 @@ exports[`get constants 1`] = `
       },
     },
     {
-      "id": "workflow-node-type-resource-definition",
+      "id": "workflow-edge-resource-definition",
       "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
-        "handlerResourceId": "workflow-node-type-resource-definition-handler",
-        "kind": "workflow_node_type",
-        "parentKind": "workflow_node_type",
-        "title": "工作流节点类型类型资源定义",
+        "handlerResourceId": "workflow-edge-resource-definition-handler",
+        "kind": "workflow_edge",
+        "parentKind": "workflow",
+        "title": "工作流连线类型资源定义",
       },
     },
     {
-      "id": "workflow-node-type-resource-definition-handler",
+      "id": "workflow-edge-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
@@ -409,19 +409,19 @@ exports[`get constants 1`] = `
       },
     },
     {
-      "id": "workflow-node-type-resource-definition",
+      "id": "workflow-node-resource-definition",
       "kind": "resource_definition",
       "parentId": "root",
       "settings": {
         "description": "",
-        "handlerResourceId": "workflow-node-type-resource-definition-handler",
-        "kind": "workflow_node_type",
-        "parentKind": "workflow_node_type",
+        "handlerResourceId": "workflow-node-resource-definition-handler",
+        "kind": "workflow_node",
+        "parentKind": "workflow",
         "title": "工作流节点类型资源定义",
       },
     },
     {
-      "id": "workflow-node-type-resource-definition-handler",
+      "id": "workflow-node-resource-definition-handler",
       "kind": "handler",
       "parentId": "root",
       "settings": {
