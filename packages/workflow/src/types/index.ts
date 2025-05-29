@@ -1,4 +1,4 @@
-export * from "./output-variables";
+export * from "./node-variables";
 export * from "./specific-resource-settings";
 export * from "./workflow-data";
 export * from "./workflow-edge-info";
