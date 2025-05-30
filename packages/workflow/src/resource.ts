@@ -166,24 +166,36 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       nodeIdToVariablesMap
     );
 
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables orderedNodeList",
+      orderedNodeList
+    );
+
     const executeList = orderedNodeList.map((node) => {
       const { id, Executer } = node;
 
-      if (Executer) {
-        const executer = new Executer({
-          nodeId: id,
-          nodeIdToVariablesMap,
-          inputVariables: startNodeInputVariables,
-        });
-
-        const res = executer.execute;
-
-        return res;
+      if (!Executer) {
+        throw new Error("invaild Executer");
       }
+
+      const executer = new Executer({
+        nodeId: id,
+        nodeIdToVariablesMap,
+        inputVariables: startNodeInputVariables,
+      });
+
+      const res = executer.execute;
+
+      return res;
     });
 
+    console.debug(
+      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables executeList",
+      executeList
+    );
+
     for (const execute of executeList) {
-      await execute?.();
+      await execute();
     }
 
     console.debug(

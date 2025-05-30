@@ -47,12 +47,12 @@ export const getOrderedNodeList: GetOrderedNodeList = (params) => {
     );
 
     if (targetWorkflowNode) {
-      orderedNodeList.splice(-1, 0, targetWorkflowNode);
-
-      currentNodeId = targetWorkflowNode.id;
-
       if (currentNodeId === endNode.id) {
         pending = false;
+      } else {
+        orderedNodeList.splice(-1, 0, targetWorkflowNode);
+
+        currentNodeId = targetWorkflowNode.id;
       }
     } else {
       throw new Error("invalid edge");

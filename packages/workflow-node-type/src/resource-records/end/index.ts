@@ -5,6 +5,8 @@ import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS } from "../../constants"
 import { WorkflowNodeTypeSpecificResourceSettings } from "../../types";
 import { END_WORKFLOW_NODE_TYPE_HANDLER_RESOURCE_ID } from "./handler/constants";
 
+export * from "./handler";
+
 export const endWorkflowNodeTypeResourceRecord: ResourceRecord<WorkflowNodeTypeSpecificResourceSettings> =
   {
     id: SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end,

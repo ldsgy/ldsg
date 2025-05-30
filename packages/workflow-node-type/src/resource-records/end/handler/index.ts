@@ -24,13 +24,18 @@ function handler(
 
   const { output } = workflowNodeProperties;
 
-  const jsonataStr = "$sum(example.value)";
+  const { jsonataStr } = output;
 
   const expression = jsonata(jsonataStr);
 
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = async () => {
       const { setVariables, nodeIdToVariablesMap } = this;
+
+      console.debug(
+        "wcm packages/workflow-node-type/src/resource-records/end/handler/index.ts nodeIdToVariablesMap",
+        nodeIdToVariablesMap
+      );
 
       const outputVariables = await expression.evaluate({
         nodeIdToVariablesMap,
