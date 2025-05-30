@@ -161,10 +161,6 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       endNode,
     });
 
-    const startNodeOutputVariables = startNodeInputVariables;
-
-    nodeIdToVariablesMap[startNode.id] = startNodeOutputVariables;
-
     console.debug(
       "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables nodeIdToVariablesMap",
       nodeIdToVariablesMap
@@ -177,6 +173,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
         const executer = new Executer({
           nodeId: id,
           nodeIdToVariablesMap,
+          inputVariables: startNodeInputVariables,
         });
 
         const res = executer.execute;

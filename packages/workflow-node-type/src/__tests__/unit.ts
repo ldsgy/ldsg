@@ -22,7 +22,7 @@ const handler: Handler<
       const { setVariables } = this;
 
       setVariables({
-        outputVariables: name,
+        variables: name,
       });
     };
   }

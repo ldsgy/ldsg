@@ -16,7 +16,7 @@ function handler(this: WorkflowNodeExecuter): void {
   );
 
   setVariables({
-    outputVariables: "test",
+    variables: "test",
   });
 }
 

@@ -42,7 +42,7 @@ class AWorkflowResource extends WorkflowResource {
               const { setVariables } = this;
 
               setVariables({
-                outputVariables: "abc",
+                variables: "abc",
               });
             };
           },
@@ -55,7 +55,7 @@ class AWorkflowResource extends WorkflowResource {
               const { setVariables } = this;
 
               setVariables({
-                outputVariables: "def",
+                variables: "def",
               });
             };
           },
@@ -68,7 +68,7 @@ class AWorkflowResource extends WorkflowResource {
               const { setVariables } = this;
 
               setVariables({
-                outputVariables: "ghi",
+                variables: "ghi",
               });
             };
           },
@@ -82,7 +82,7 @@ class AWorkflowResource extends WorkflowResource {
               const { setVariables } = this;
 
               setVariables({
-                outputVariables: "jkl",
+                variables: "jkl",
               });
             };
           },

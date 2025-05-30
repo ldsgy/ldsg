@@ -6,10 +6,16 @@ interface WorkflowNodeExecuterConstructorParams {
   nodeId: NodeId;
 
   nodeIdToVariablesMap: NodeIdToVariablesMap;
+
+  /**
+   * input variables
+   * only in start node
+   */
+  inputVariables?: any;
 }
 
 interface SetVariablesParams {
-  outputVariables: NodeVariables;
+  variables: NodeVariables;
 }
 
 type SetVariables = (params: SetVariablesParams) => void;
@@ -21,22 +27,29 @@ export class WorkflowNodeExecuter
 
   nodeIdToVariablesMap: NodeIdToVariablesMap;
 
+  /**
+   * input variables
+   * only in start node
+   */
+  inputVariables?: any;
+
   constructor(params: WorkflowNodeExecuterConstructorParams) {
-    const { nodeId, nodeIdToVariablesMap } = params;
+    const { nodeId, nodeIdToVariablesMap, inputVariables } = params;
 
     this.nodeId = nodeId;
     this.nodeIdToVariablesMap = nodeIdToVariablesMap;
+    this.inputVariables = inputVariables;
   }
 
   /**
    * Set Current Node Output Variables
    */
   setVariables: SetVariables = (params) => {
-    const { outputVariables } = params;
+    const { variables } = params;
 
     const { nodeId, nodeIdToVariablesMap } = this;
 
-    nodeIdToVariablesMap[nodeId] = outputVariables;
+    nodeIdToVariablesMap[nodeId] = variables;
   };
 
   execute: WorkflowNodeExecuterExecute = () => {
