@@ -172,6 +172,11 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
     );
 
     const executeList = orderedNodeList.map((node) => {
+      console.debug(
+        "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables node",
+        node
+      );
+
       const { id, Executer } = node;
 
       if (!Executer) {
