@@ -9,13 +9,6 @@ export class WorkflowNodeResource extends Resource<WorkflowNodeSpecificResourceS
 
     const { workflowNodeTypeResource } = getResourcesFromSettings();
 
-    console.debug("wcm packages/workflow-node/src/resource.ts id", id);
-
-    console.debug(
-      "wcm packages/workflow-node/src/resource.ts workflowNodeTypeResource",
-      workflowNodeTypeResource
-    );
-
     const { workflowNodeTypeResourceId, properties } = settings;
 
     const { getExtraWorkflowNodeInfo } =
@@ -31,21 +24,11 @@ export class WorkflowNodeResource extends Resource<WorkflowNodeSpecificResourceS
       workflowNodeProperties: properties,
     });
 
-    console.debug(
-      "wcm packages/workflow-node/src/resource.ts extraWorkflowNodeInfo",
-      extraWorkflowNodeInfo
-    );
-
     const workflowNodeInfo = {
       ...extraWorkflowNodeInfo,
       id,
       workflowNodeTypeResourceId,
     };
-
-    console.debug(
-      "wcm packages/workflow-node/src/resource.ts workflowNodeInfo",
-      workflowNodeInfo
-    );
 
     const res = {
       workflowNodeInfo,

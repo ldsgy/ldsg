@@ -26,10 +26,7 @@ function handler(
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = () => {
       const { setVariables, inputVariables } = this;
-      console.debug(
-        "wcm packages/workflow-node-type/src/resource-records/start/handler/index.ts execute inputVariables",
-        inputVariables
-      );
+
       setVariables({
         variables: inputVariables,
       });

@@ -32,17 +32,12 @@ function handler(
     execute: WorkflowNodeExecuterExecute = async () => {
       const { setVariables, nodeIdToVariablesMap } = this;
 
-      console.debug(
-        "wcm packages/workflow-node-type/src/resource-records/end/handler/index.ts nodeIdToVariablesMap",
-        nodeIdToVariablesMap
-      );
-
-      const outputVariables = await expression.evaluate({
+      const variables = await expression.evaluate({
         nodeIdToVariablesMap,
       });
 
       setVariables({
-        variables: outputVariables,
+        variables,
       });
     };
   }

@@ -119,17 +119,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
   };
 
   execute: WorkflowExecute = async (params) => {
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute params",
-      params
-    );
-
     const { startNodeInputVariables } = params;
-
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute startNodeInputVariables",
-      startNodeInputVariables
-    );
 
     const { getWorkflowData } = this;
 
@@ -161,22 +151,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       endNode,
     });
 
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables nodeIdToVariablesMap",
-      nodeIdToVariablesMap
-    );
-
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables orderedNodeList",
-      orderedNodeList
-    );
-
     const executeList = orderedNodeList.map((node) => {
-      console.debug(
-        "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables node",
-        node
-      );
-
       const { id, Executer } = node;
 
       if (!Executer) {
@@ -194,29 +169,14 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       return res;
     });
 
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute startNodeOutputVariables executeList",
-      executeList
-    );
-
     for (const execute of executeList) {
       await execute();
     }
-
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables nodeIdToVariablesMap",
-      nodeIdToVariablesMap
-    );
 
     const res = getEndNodeOutputVariables({
       endNode,
       nodeIdToVariablesMap,
     });
-
-    console.debug(
-      "wcm packages/workflow/src/resource.ts execute getEndNodeOutputVariables res",
-      res
-    );
 
     return res;
   };

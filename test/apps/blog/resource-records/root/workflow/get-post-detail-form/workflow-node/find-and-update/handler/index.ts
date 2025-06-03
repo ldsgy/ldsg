@@ -5,18 +5,32 @@ import {
 } from "@ldsg/handler";
 import { ResourceRecord } from "@ldsg/types";
 import { WorkflowNodeExecuter } from "@ldsg/workflow";
+import _ from "lodash";
+import mongoose from "mongoose";
 import { GET_POST_DETAIL_FORM_WORKFLOW_FIND_AND_UPDATE_WORKFLOW_NODE_HANDLER_RESOURCE_ID } from "./constants";
 
-function handler(this: WorkflowNodeExecuter): void {
-  const { setVariables } = this;
+async function handler(this: WorkflowNodeExecuter): Promise<void> {
+  const { nodeIdToVariablesMap, setVariables } = this;
 
-  console.debug(
-    "wcm test/apps/blog/resource-records/root/workflow/get-post-detail-form/workflow-node/find-and-update/handler/index.ts handler this",
-    this
+  const { Post } = mongoose.models;
+
+  const id = _.get(
+    nodeIdToVariablesMap,
+    "get-post-detail-form-workflow-start-workflow-node.args.id"
   );
 
+  const findByIdRes = await Post.findById(id);
+
+  let variables;
+
+  if (findByIdRes) {
+    findByIdRes.views = 1;
+
+    variables = findByIdRes;
+  }
+
   setVariables({
-    variables: "test",
+    variables: variables ?? null,
   });
 }
 

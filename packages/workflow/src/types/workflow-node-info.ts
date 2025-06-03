@@ -55,9 +55,9 @@ export class WorkflowNodeExecuter
   execute: WorkflowNodeExecuterExecute = () => {
     const { nodeId, nodeIdToVariablesMap } = this;
 
-    console.debug("WorkflowNodeExecuter execute nodeId", nodeId);
+    console.info("WorkflowNodeExecuter execute nodeId", nodeId);
 
-    console.debug(
+    console.info(
       "WorkflowNodeExecuter execute nodeIdToVariablesMap",
       nodeIdToVariablesMap
     );

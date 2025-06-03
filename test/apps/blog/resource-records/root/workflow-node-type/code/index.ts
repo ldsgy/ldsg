@@ -23,47 +23,22 @@ function handler(
   this: HandlerResource,
   params: GetExtraWorkflowNodeInfoParams
 ): ExtraWorkflowNodeInfo {
-  console.debug(
-    "test/apps/blog/resource-records/root/workflow-node-type/code/index.ts this",
-    this
-  );
-
   const { workflowNodeProperties } = params;
 
   const { handlerResourceId } = workflowNodeProperties;
-
-  console.debug(
-    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerResourceId",
-    handlerResourceId
-  );
 
   const { resource: handlerResource } =
     this.getFilteredResource<HandlerResource>({
       id: handlerResourceId,
     });
 
-  console.debug(
-    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerResource",
-    handlerResource
-  );
-
   const handlerWithoutChangedThisPointer =
     handlerResource?.getHandlerWithoutChangedThisPointer() as
       | WorkflowNodeExecuterExecute
       | undefined;
 
-  console.debug(
-    "wcm test/apps/blog/resource-records/root/workflow-node-type/code/index.ts handlerWithoutChangedThisPointer",
-    handlerWithoutChangedThisPointer
-  );
-
   class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = () => {
-      console.debug(
-        "test/apps/blog/resource-records/root/workflow-node-type/code/index.ts execute this",
-        this
-      );
-
       handlerWithoutChangedThisPointer?.bind(this)();
     };
   }

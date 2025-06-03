@@ -17,6 +17,8 @@ export const getPostDetailFormWorkflowEndWorkflowNodeResourceRecord: ResourceRec
       description: "",
       workflowNodeTypeResourceId:
         SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.end,
-      properties: {},
+      properties: {
+        jsonataStr: `nodeIdToVariablesMap."get-post-detail-form-workflow-find-and-update-workflow-node"`,
+      },
     },
   };
