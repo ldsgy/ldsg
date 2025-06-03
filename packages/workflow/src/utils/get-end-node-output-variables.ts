@@ -20,7 +20,7 @@ export const getEndNodeOutputVariables: GetEndNodeOutputVariables = (
 ) => {
   const { endNode, nodeIdToVariablesMap } = params;
 
-  const endNodeOutputVariables = nodeIdToVariablesMap[endNode.id];
+  const endNodeOutputVariables = nodeIdToVariablesMap.get(endNode.id);
 
   const res = {
     endNodeOutputVariables,

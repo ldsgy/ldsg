@@ -28,12 +28,12 @@ function handler(
 
   const expression = jsonata(jsonataStr);
 
-  class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+  class EndWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = async () => {
       const { setVariables, nodeIdToVariablesMap } = this;
 
       const variables = await expression.evaluate({
-        nodeIdToVariablesMap,
+        nodeIdToVariablesMap: Object.fromEntries(nodeIdToVariablesMap),
       });
 
       setVariables({
@@ -43,7 +43,7 @@ function handler(
   }
 
   const res: ExtraWorkflowNodeInfo = {
-    Executer: AWorkflowNodeExecuter,
+    Executer: EndWorkflowNodeExecuter,
   };
 
   return res;

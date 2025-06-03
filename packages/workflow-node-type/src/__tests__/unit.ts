@@ -80,9 +80,11 @@ test("field type", () => {
 
   const { Executer } = extraWorkflowNodeInfo;
 
+  const nodeIdToVariablesMap = new Map();
+
   const executer = new Executer({
     nodeId: "test-node",
-    nodeIdToVariablesMap: {},
+    nodeIdToVariablesMap,
   });
 
   executer.execute();

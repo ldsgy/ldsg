@@ -49,7 +49,7 @@ export class WorkflowNodeExecuter
 
     const { nodeId, nodeIdToVariablesMap } = this;
 
-    nodeIdToVariablesMap[nodeId] = variables;
+    nodeIdToVariablesMap.set(nodeId, variables);
   };
 
   execute: WorkflowNodeExecuterExecute = () => {

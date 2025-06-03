@@ -14,10 +14,11 @@ async function handler(this: WorkflowNodeExecuter): Promise<void> {
 
   const { Post } = mongoose.models;
 
-  const id = _.get(
-    nodeIdToVariablesMap,
-    "get-post-detail-form-workflow-start-workflow-node.args.id"
+  const startNodeVariables = nodeIdToVariablesMap.get(
+    "get-post-detail-form-workflow-start-workflow-node"
   );
+
+  const id = _.get(startNodeVariables, "args.id");
 
   const findByIdRes = await Post.findById(id);
 
@@ -29,9 +30,11 @@ async function handler(this: WorkflowNodeExecuter): Promise<void> {
     variables = findByIdRes;
   }
 
-  setVariables({
-    variables: variables ?? null,
-  });
+  if (variables) {
+    setVariables({
+      variables,
+    });
+  }
 }
 
 export const getPostDetailFormWorkflowFindAndUpdateWorkflowNodeHandlerResourceRecord: ResourceRecord<HandlerSpecificResourceSettings> =

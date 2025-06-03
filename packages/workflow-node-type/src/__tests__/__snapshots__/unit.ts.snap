@@ -7,7 +7,7 @@ exports[`field type 1`] = `
 `;
 
 exports[`field type 2`] = `
-{
-  "test-node": "test",
+Map {
+  "test-node" => "test",
 }
 `;

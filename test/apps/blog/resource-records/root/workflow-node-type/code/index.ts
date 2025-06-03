@@ -37,14 +37,14 @@ function handler(
       | WorkflowNodeExecuterExecute
       | undefined;
 
-  class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
-    execute: WorkflowNodeExecuterExecute = () => {
-      handlerWithoutChangedThisPointer?.bind(this)();
+  class CodeWorkflowNodeExecuter extends WorkflowNodeExecuter {
+    execute: WorkflowNodeExecuterExecute = async () => {
+      await handlerWithoutChangedThisPointer?.bind(this)();
     };
   }
 
   const res: ExtraWorkflowNodeInfo = {
-    Executer: AWorkflowNodeExecuter,
+    Executer: CodeWorkflowNodeExecuter,
   };
 
   return res;

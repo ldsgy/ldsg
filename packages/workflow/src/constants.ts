@@ -40,6 +40,6 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
  */
 export const SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP =
   {
-    start: "workflow-node-type-start",
-    end: "workflow-node-type-end",
+    start: "start-workflow-node-type",
+    end: "end-workflow-node-type",
   } as const;

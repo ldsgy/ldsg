@@ -23,7 +23,7 @@ function handler(
 
   const { input } = workflowNodeProperties;
 
-  class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+  class StartWorkflowNodeExecuter extends WorkflowNodeExecuter {
     execute: WorkflowNodeExecuterExecute = () => {
       const { setVariables, inputVariables } = this;
 
@@ -34,7 +34,7 @@ function handler(
   }
 
   const res: ExtraWorkflowNodeInfo = {
-    Executer: AWorkflowNodeExecuter,
+    Executer: StartWorkflowNodeExecuter,
   };
 
   return res;

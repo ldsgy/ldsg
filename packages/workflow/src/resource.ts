@@ -4,7 +4,9 @@ import { SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP } fro
 import {
   GetWorkflowEdgeInfo,
   GetWorkflowNodeInfo,
+  NodeId,
   NodeIdToVariablesMap,
+  NodeVariables,
   WorkflowData,
   WorkflowEdgeInfo,
   WorkflowExecute,
@@ -123,7 +125,10 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
 
     const { getWorkflowData } = this;
 
-    const nodeIdToVariablesMap: NodeIdToVariablesMap = {};
+    const nodeIdToVariablesMap: NodeIdToVariablesMap = new Map<
+      NodeId,
+      NodeVariables
+    >();
 
     const { workflowData } = getWorkflowData();
 
@@ -151,7 +156,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       endNode,
     });
 
-    const executeList = orderedNodeList.map((node) => {
+    const executerList = orderedNodeList.map((node) => {
       const { id, Executer } = node;
 
       if (!Executer) {
@@ -161,16 +166,17 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       const executer = new Executer({
         nodeId: id,
         nodeIdToVariablesMap,
-        inputVariables: startNodeInputVariables,
+        ...(node.workflowNodeTypeResourceId ===
+        SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.start
+          ? { inputVariables: startNodeInputVariables }
+          : {}),
       });
 
-      const res = executer.execute;
-
-      return res;
+      return executer;
     });
 
-    for (const execute of executeList) {
-      await execute();
+    for (const executer of executerList) {
+      await executer.execute();
     }
 
     const res = getEndNodeOutputVariables({
