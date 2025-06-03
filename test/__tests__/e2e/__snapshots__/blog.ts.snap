@@ -889,9 +889,13 @@ exports[`blog resource records is completed 1`] = `
     "parentId": "get-post-detail-form-workflow",
     "settings": {
       "description": "",
-      "properties": {},
+      "properties": {
+        "output": {
+          "jsonataStr": "nodeIdToVariablesMap."get-post-detail-form-workflow-find-and-update-workflow-node"",
+        },
+      },
       "title": "Get Post Detail Workflow End Workflow Node",
-      "workflowNodeTypeResourceId": "workflow-node-type-end",
+      "workflowNodeTypeResourceId": "end-workflow-node-type",
     },
   },
   {
@@ -927,7 +931,7 @@ exports[`blog resource records is completed 1`] = `
       "description": "",
       "properties": {},
       "title": "Get Post Detail Workflow Start Workflow Node",
-      "workflowNodeTypeResourceId": "workflow-node-type-start",
+      "workflowNodeTypeResourceId": "start-workflow-node-type",
     },
   },
   {
@@ -963,12 +967,12 @@ exports[`blog resource records is completed 1`] = `
     },
   },
   {
-    "id": "workflow-node-type-end",
+    "id": "end-workflow-node-type",
     "kind": "workflow_node_type",
     "parentId": "root",
     "settings": {
       "description": "",
-      "handlerResourceId": "workflow-node-type-start-handler",
+      "handlerResourceId": "end-workflow-node-type-handler",
       "title": "结束工作流节点类型",
       "workflowNodePropertiesSchema": {
         "properties": {
@@ -983,7 +987,7 @@ exports[`blog resource records is completed 1`] = `
     },
   },
   {
-    "id": "workflow-node-type-start-handler",
+    "id": "end-workflow-node-type-handler",
     "kind": "handler",
     "parentId": "root",
     "settings": {
@@ -991,16 +995,16 @@ exports[`blog resource records is completed 1`] = `
       "dependencies": [],
       "description": "",
       "handler": [Function],
-      "title": "开始工作流节点类型",
+      "title": "结束工作流节点类型",
     },
   },
   {
-    "id": "workflow-node-type-start",
+    "id": "start-workflow-node-type",
     "kind": "workflow_node_type",
     "parentId": "root",
     "settings": {
       "description": "",
-      "handlerResourceId": "workflow-node-type-start-handler",
+      "handlerResourceId": "start-workflow-node-type-handler",
       "title": "开始",
       "workflowNodePropertiesSchema": {
         "properties": {
@@ -1012,6 +1016,18 @@ exports[`blog resource records is completed 1`] = `
         },
         "type": "object",
       },
+    },
+  },
+  {
+    "id": "start-workflow-node-type-handler",
+    "kind": "handler",
+    "parentId": "root",
+    "settings": {
+      "code": "",
+      "dependencies": [],
+      "description": "",
+      "handler": [Function],
+      "title": "开始工作流节点类型",
     },
   },
 ]
