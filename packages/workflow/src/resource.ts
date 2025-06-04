@@ -160,7 +160,7 @@ export class WorkflowResource extends Resource<WorkflowSpecificResourceSettings>
       const { id, Executer } = node;
 
       if (!Executer) {
-        throw new Error("invaild Executer");
+        throw new Error("invalid Executer");
       }
 
       const executer = new Executer({

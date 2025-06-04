@@ -4,7 +4,7 @@ test("database", async () => {
   const { DATABASE_URI } = process.env;
 
   if (!DATABASE_URI) {
-    throw new Error("invaild env DATABASE_URI");
+    throw new Error("invalid env DATABASE_URI");
   }
 
   const databaseResource = new DatabaseResource({

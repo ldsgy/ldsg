@@ -2,6 +2,7 @@ import { ExtendExpressApp } from "@ldsg/application";
 import { PlatformsParams } from "@ldsg/field-type";
 import { ModifyGraphQLSchema } from "@ldsg/graphql";
 import { Resource } from "@ldsg/resource";
+import express from "express";
 import _ from "lodash";
 import { FORMS_ROUTE } from "./constants";
 import { FormInfo, FormsSpecificResourceSettings, GetFormInfo } from "./types";
@@ -54,6 +55,12 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
 
     const { formInfoList } = this.getFormInfoList();
 
+    // 解析 JSON 请求体
+    app.use(express.json());
+
+    // 解析 URL 编码的请求体，extended: true 允许使用复杂对象
+    app.use(express.urlencoded({ extended: true }));
+
     /**
      * RESTful
      */
@@ -80,11 +87,27 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
         return formInfo.id === formId;
       });
 
-      const executeRes = await formInfo?.workflowInfo.execute({
-        startNodeInputVariables: req.body,
+      console.debug("wcm formInfo", formInfo);
+
+      console.debug("wcm req", req);
+
+      const startNodeInputVariables = {
+        args: req.body,
+      };
+
+      console.debug("wcm startNodeInputVariables", startNodeInputVariables);
+
+      if (!formInfo) {
+        throw new Error("invalid form");
+      }
+
+      const executeRes = await formInfo.workflowInfo.execute({
+        startNodeInputVariables,
       });
 
       const data = executeRes?.endNodeOutputVariables;
+
+      console.debug("wcm data", data);
 
       res.json(data);
     });
