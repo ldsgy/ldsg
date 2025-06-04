@@ -87,15 +87,9 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
         return formInfo.id === formId;
       });
 
-      console.debug("wcm formInfo", formInfo);
-
-      console.debug("wcm req", req);
-
       const startNodeInputVariables = {
         args: req.body,
       };
-
-      console.debug("wcm startNodeInputVariables", startNodeInputVariables);
 
       if (!formInfo) {
         throw new Error("invalid form");
@@ -106,8 +100,6 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
       });
 
       const data = executeRes?.endNodeOutputVariables;
-
-      console.debug("wcm data", data);
 
       res.json(data);
     });
