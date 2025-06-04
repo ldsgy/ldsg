@@ -32,11 +32,6 @@ class AWorkflowResource extends WorkflowResource {
           id: "1",
           workflowNodeTypeResourceId:
             SPECIFIC_WORKFLOW_NODE_TYPE_TO_WORKFLOW_NODE_TYPE_RESOURCE_ID_MAP.start,
-          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {},
-        },
-        {
-          id: "2",
-          workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
               const { setVariables } = this;
@@ -48,7 +43,7 @@ class AWorkflowResource extends WorkflowResource {
           },
         },
         {
-          id: "3",
+          id: "2",
           workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
@@ -61,7 +56,7 @@ class AWorkflowResource extends WorkflowResource {
           },
         },
         {
-          id: "4",
+          id: "3",
           workflowNodeTypeResourceId: "",
           Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
             execute = async () => {
@@ -69,6 +64,19 @@ class AWorkflowResource extends WorkflowResource {
 
               setVariables({
                 variables: "ghi",
+              });
+            };
+          },
+        },
+        {
+          id: "4",
+          workflowNodeTypeResourceId: "",
+          Executer: class AWorkflowNodeExecuter extends WorkflowNodeExecuter {
+            execute = async () => {
+              const { setVariables } = this;
+
+              setVariables({
+                variables: "jkl",
               });
             };
           },
@@ -82,7 +90,7 @@ class AWorkflowResource extends WorkflowResource {
               const { setVariables } = this;
 
               setVariables({
-                variables: "jkl",
+                variables: "mno",
               });
             };
           },
