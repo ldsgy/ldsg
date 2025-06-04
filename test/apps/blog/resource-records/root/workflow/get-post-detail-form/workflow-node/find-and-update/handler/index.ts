@@ -25,7 +25,11 @@ async function handler(this: WorkflowNodeExecuter): Promise<void> {
   let variables;
 
   if (findByIdRes) {
-    findByIdRes.views = 1;
+    const views = (findByIdRes.views ?? 0) + 1;
+
+    findByIdRes.views = views;
+
+    await findByIdRes.save();
 
     variables = findByIdRes;
   }

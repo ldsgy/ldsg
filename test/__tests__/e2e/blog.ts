@@ -111,6 +111,57 @@ describe("blog", () => {
           ).toBeGreaterThanOrEqual(1);
         });
 
+        describe("form", () => {
+          describe("add views", () => {
+            describe("graphql", () => {
+              test("mutation", async () => {
+                const response = await request(app)
+                  .post("/graphql")
+                  .send({
+                    query: `mutation{getPostDetail(id:"${createdRecordId}"){id content title views}}`,
+                  })
+                  .set("Accept", "application/json")
+                  .expect("Content-Type", /json/)
+                  .expect(200);
+
+                expect(response.statusCode).toBe(200);
+
+                expect(response.body.data.getPostDetail.views).toEqual(1);
+              });
+
+              test("query", async () => {
+                const response = await request(app)
+                  .post("/graphql")
+                  .send({
+                    query: `{getPostDetail(id:"${createdRecordId}"){id content title views}}`,
+                  })
+                  .set("Accept", "application/json")
+                  .expect("Content-Type", /json/)
+                  .expect(200);
+
+                expect(response.statusCode).toBe(200);
+
+                expect(response.body.data.getPostDetail.views).toEqual(2);
+              });
+            });
+
+            test("http", async () => {
+              const response = await request(app)
+                .post("/forms/get-post-detail-form")
+                .send({
+                  id: createdRecordId,
+                })
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200);
+
+              expect(response.statusCode).toBe(200);
+
+              expect(response.body.views).toEqual(3);
+            });
+          });
+        });
+
         test("delete", async () => {
           const response = await request(app)
             .post("/graphql")
