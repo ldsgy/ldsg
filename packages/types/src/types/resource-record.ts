@@ -30,3 +30,7 @@ export interface ResourceRecord<
    */
   settings: ResourceSettings<T>;
 }
+
+export type ResourceRecords<
+  T extends SpecificResourceSettings = SpecificResourceSettings
+> = ResourceRecord<T>[];
