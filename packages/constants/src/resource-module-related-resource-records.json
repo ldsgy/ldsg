@@ -5,7 +5,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "application-resource-definition-handler",
-      "title": "应用类型资源定义",
+      "title": "应用资源定义",
       "description": "",
       "kind": "application",
       "parentKind": "root"
@@ -28,7 +28,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "database-resource-definition-handler",
-      "title": "数据库类型资源定义",
+      "title": "数据库资源定义",
       "description": "",
       "kind": "database",
       "parentKind": "root"
@@ -51,7 +51,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "field-type-resource-definition-handler",
-      "title": "字段类型类型资源定义",
+      "title": "字段类型资源定义",
       "description": "",
       "kind": "field_type",
       "parentKind": "root"
@@ -97,7 +97,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "forms-resource-definition-handler",
-      "title": "表单组类型资源定义",
+      "title": "表单组资源定义",
       "description": "",
       "kind": "forms",
       "parentKind": "application"
@@ -120,7 +120,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "graphql-resource-definition-handler",
-      "title": "GraphQL类型资源定义",
+      "title": "GraphQL资源定义",
       "description": "",
       "kind": "graphql",
       "parentKind": "application"
@@ -143,7 +143,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "handler-resource-definition-handler",
-      "title": "处理程序类型资源定义",
+      "title": "处理程序资源定义",
       "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
       "kind": "handler",
       "parentKind": "root"
@@ -166,7 +166,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "object-resource-definition-handler",
-      "title": "对象类型资源定义",
+      "title": "对象资源定义",
       "description": "",
       "kind": "object",
       "parentKind": "root"
@@ -189,7 +189,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "object-field-resource-definition-handler",
-      "title": "对象字段类型资源定义",
+      "title": "对象字段资源定义",
       "description": "",
       "kind": "object_field",
       "parentKind": "object"
@@ -212,7 +212,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "resource-definition-resource-definition-handler",
-      "title": "资源定义类型资源定义",
+      "title": "资源定义资源定义",
       "description": "",
       "kind": "resource_definition",
       "parentKind": "root"
@@ -235,7 +235,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "route-resource-definition-handler",
-      "title": "路由类型资源定义",
+      "title": "路由资源定义",
       "description": "",
       "kind": "route",
       "parentKind": "application"
@@ -281,7 +281,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "tables-resource-definition-handler",
-      "title": "表格组类型资源定义",
+      "title": "表格组资源定义",
       "description": "",
       "kind": "tables",
       "parentKind": "application"
@@ -304,7 +304,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "workflow-resource-definition-handler",
-      "title": "工作流类型资源定义",
+      "title": "工作流资源定义",
       "description": "",
       "kind": "workflow",
       "parentKind": "root"
@@ -327,7 +327,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "workflow-edge-resource-definition-handler",
-      "title": "工作流连线类型资源定义",
+      "title": "工作流连线资源定义",
       "description": "",
       "kind": "workflow_edge",
       "parentKind": "workflow"
@@ -350,7 +350,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "workflow-node-resource-definition-handler",
-      "title": "工作流节点类型资源定义",
+      "title": "工作流节点资源定义",
       "description": "",
       "kind": "workflow_node",
       "parentKind": "workflow"
@@ -373,7 +373,7 @@
     "parentId": "root",
     "settings": {
       "handlerResourceId": "workflow-node-type-resource-definition-handler",
-      "title": "工作流节点类型类型资源定义",
+      "title": "工作流节点类型资源定义",
       "description": "",
       "kind": "workflow_node_type",
       "parentKind": "root"

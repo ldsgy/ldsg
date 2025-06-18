@@ -30,7 +30,7 @@ export const INSTANTIATE_RESOURCE_HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpe
 
 export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "工作流连线类型资源定义",
+    title: "工作流连线资源定义",
     description: "",
   };
 

@@ -13,7 +13,7 @@
           "kind": "resource_definition",
           "parentId": "root",
           "settings": {
-            "title": "资源定义类型资源定义",
+            "title": "资源定义资源定义",
             "description": "",
             "kind": "resource_definition",
             "parentKind": ""
@@ -35,7 +35,7 @@
           "kind": "resource_definition",
           "parentId": "root",
           "settings": {
-            "title": "处理程序类型资源定义",
+            "title": "处理程序资源定义",
             "description": "主要包含引入模块列表与相应的处理程序代码，处理程序类型资源无子级资源。",
             "kind": "handler",
             "parentKind": ""
@@ -57,7 +57,7 @@
           "kind": "resource_definition",
           "parentId": "root",
           "settings": {
-            "title": "应用类型资源定义",
+            "title": "应用资源定义",
             "description": "",
             "kind": "application",
             "parentKind": ""

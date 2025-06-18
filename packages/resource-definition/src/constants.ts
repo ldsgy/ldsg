@@ -31,7 +31,7 @@ import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-defin
 
 export const RESOURCE_DEFINITION_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "资源定义类型资源定义",
+    title: "资源定义资源定义",
     description: "",
   };
 
