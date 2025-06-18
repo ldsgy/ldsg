@@ -48,8 +48,8 @@ export const getResourceRecordsByResourceModule: GetResourceRecordsByResourceMod
       kind: "handler",
       parentId: ROOT_RESOURCE_ID,
       settings: {
-        ...resourceModule.HANDLER_GENERAL_RESOURCE_SETTINGS,
-        ...resourceModule.HANDLER_SPECIFIC_RESOURCE_SETTINGS,
+        ...resourceModule.INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS,
+        ...resourceModule.INSTANTIATE_RESOURCE_HANDLER_SPECIFIC_RESOURCE_SETTINGS,
       },
     };
 
