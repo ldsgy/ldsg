@@ -7,7 +7,7 @@
   ],
   "types": "dist",
   "scripts": {
-    "build": "pnpm clean && tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json",
     "clean": "rm -rf dist"
   },
   "author": "wanxger",
