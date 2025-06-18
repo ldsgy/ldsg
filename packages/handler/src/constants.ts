@@ -2,10 +2,15 @@ import { ROOT_RESOURCE_KIND } from "@ldsg/constants";
 import { HandlerSpecificResourceSettings } from "@ldsg/handler-part";
 import { GeneralResourceSettings } from "@ldsg/types";
 
-export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
-  title: "处理程序类型资源处理程序",
-  description: "包含处理程序相应的模块，此模块主要通过",
-};
+/**
+ * Instantiate Resource Handler General Resource Settings
+ * 实例化资源处理程序普通资源配置
+ */
+export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
+  {
+    title: "处理程序类型资源处理程序",
+    description: "包含处理程序相应的模块，此模块主要通过",
+  };
 
 /**
  * Instantiate Resource Handler Resource Settings

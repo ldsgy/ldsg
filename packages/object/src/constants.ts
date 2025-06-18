@@ -3,10 +3,15 @@ import { HandlerSpecificResourceSettings } from "@ldsg/handler";
 import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-definition";
 import { GeneralResourceSettings } from "@ldsg/types";
 
-export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
-  title: "对象类型资源处理程序",
-  description: "",
-};
+/**
+ * Instantiate Resource Handler General Resource Settings
+ * 实例化资源处理程序普通资源配置
+ */
+export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
+  {
+    title: "对象类型资源处理程序",
+    description: "",
+  };
 
 /**
  * Instantiate Resource Handler Resource Settings

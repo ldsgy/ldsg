@@ -3,10 +3,15 @@ import { ResourceDefinitionSpecificResourceSettings } from "@ldsg/resource-defin
 import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as parentResourceDefinitionSpecificResourceSettings } from "@ldsg/tables";
 import { GeneralResourceSettings } from "@ldsg/types";
 
-export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
-  title: "表格资源处理程序",
-  description: "",
-};
+/**
+ * Instantiate Resource Handler General Resource Settings
+ * 实例化资源处理程序普通资源配置
+ */
+export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
+  {
+    title: "表格资源处理程序",
+    description: "",
+  };
 
 /**
  * Instantiate Resource Handler Resource Settings
