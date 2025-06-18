@@ -13,7 +13,7 @@ export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralReso
   };
 
 /**
- * Instantiate Resource Handler Resource Settings
+ * Instantiate Resource Handler Specific Resource Settings
  * 实例化资源处理程序特殊资源配置
  * 框架通过此实例化此资源
  */
