@@ -9,7 +9,7 @@ import { RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS as parentResourceDefinit
  */
 export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "工作流节点类型资源处理程序",
+    title: "工作流节点实例化资源处理程序",
     description: "",
   };
 

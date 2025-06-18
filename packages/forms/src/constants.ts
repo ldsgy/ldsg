@@ -9,7 +9,7 @@ import { GeneralResourceSettings } from "@ldsg/types";
  */
 export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "表单组类型资源处理程序",
+    title: "表单组实例化资源处理程序",
     description: "",
   };
 

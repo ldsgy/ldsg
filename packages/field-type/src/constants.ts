@@ -10,7 +10,7 @@ import { FieldTypeBasePlatform } from "./types/field-type-info";
  */
 export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "字段类型类型资源处理程序",
+    title: "字段类型实例化资源处理程序",
     description: "",
   };
 

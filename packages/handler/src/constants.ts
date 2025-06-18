@@ -8,7 +8,7 @@ import { GeneralResourceSettings } from "@ldsg/types";
  */
 export const INSTANTIATE_RESOURCE_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
   {
-    title: "处理程序类型资源处理程序",
+    title: "处理程序实例化资源处理程序",
     description: "包含处理程序相应的模块，此模块主要通过",
   };
 

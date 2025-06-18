@@ -16,7 +16,7 @@
       "kind": "handler",
       "parentId": "RESOURCE_DEFINITION_RESOURCE_DEFINITION",
       "settings": {
-        "title": "资源定义类型资源处理程序",
+        "title": "资源定义实例化资源处理程序",
         "description": "",
         "code": "export * from \"@ldsg/resource-definition\";",
         "dependencies": [{ "name": "@ldsg/resource-definition" }]
@@ -38,7 +38,7 @@
       "kind": "handler",
       "parentId": "HANDLER_RESOURCE_DEFINITION",
       "settings": {
-        "title": "处理程序类型资源处理程序",
+        "title": "处理程序实例化资源处理程序",
         "description": "包含处理程序相应的模块，此模块主要通过",
         "code": "export * from \"@ldsg/handler\";",
         "dependencies": [{ "name": "@ldsg/handler" }]
@@ -60,7 +60,7 @@
       "kind": "handler",
       "parentId": "APPLICATION_RESOURCE_DEFINITION",
       "settings": {
-        "title": "应用类型资源处理程序",
+        "title": "应用实例化资源处理程序",
         "description": "",
         "code": "export * from \"@ldsg/application\";",
         "dependencies": [{ "name": "@ldsg/application" }]

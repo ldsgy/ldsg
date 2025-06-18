@@ -27,7 +27,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "应用类型资源处理程序",
+        "title": "应用实例化资源处理程序",
       },
     },
     {
@@ -54,7 +54,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "数据库类型资源处理程序",
+        "title": "数据库实例化资源处理程序",
       },
     },
     {
@@ -81,7 +81,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "字段类型类型资源处理程序",
+        "title": "字段类型实例化资源处理程序",
       },
     },
     {
@@ -135,7 +135,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "表单组类型资源处理程序",
+        "title": "表单组实例化资源处理程序",
       },
     },
     {
@@ -162,7 +162,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "GraphQL类型资源处理程序",
+        "title": "GraphQL实例化资源处理程序",
       },
     },
     {
@@ -189,7 +189,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "包含处理程序相应的模块，此模块主要通过",
-        "title": "处理程序类型资源处理程序",
+        "title": "处理程序实例化资源处理程序",
       },
     },
     {
@@ -216,7 +216,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "对象类型资源处理程序",
+        "title": "对象实例化资源处理程序",
       },
     },
     {
@@ -243,7 +243,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "对象字段类型资源处理程序",
+        "title": "对象字段实例化资源处理程序",
       },
     },
     {
@@ -270,7 +270,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "资源定义类型资源处理程序",
+        "title": "资源定义实例化资源处理程序",
       },
     },
     {
@@ -297,7 +297,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "路由类型资源处理程序",
+        "title": "路由实例化资源处理程序",
       },
     },
     {
@@ -351,7 +351,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "表格组类型资源处理程序",
+        "title": "表格组实例化资源处理程序",
       },
     },
     {
@@ -378,7 +378,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "工作流类型资源处理程序",
+        "title": "工作流实例化资源处理程序",
       },
     },
     {
@@ -405,7 +405,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "工作流节点类型类型资源处理程序",
+        "title": "工作流节点类型实例化资源处理程序",
       },
     },
     {
@@ -432,7 +432,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "工作流节点类型资源处理程序",
+        "title": "工作流节点实例化资源处理程序",
       },
     },
     {
@@ -459,7 +459,7 @@ exports[`get constants 1`] = `
           },
         ],
         "description": "",
-        "title": "工作流节点类型类型资源处理程序",
+        "title": "工作流节点类型实例化资源处理程序",
       },
     },
     {
