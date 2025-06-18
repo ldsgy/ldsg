@@ -9,11 +9,11 @@ export const HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings = {
 };
 
 /**
- * Handler Resource Settings
- * 此类型资源的子级处理程序资源的配置
- * 如无或为 undefined，则说明无需子级处理程序。
+ * Instantiate Resource Handler Resource Settings
+ * 实例化资源处理程序特殊资源配置
+ * 框架通过此实例化此资源
  */
-export const HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
+export const INSTANTIATE_RESOURCE_HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
   {
     code: `export * from "@ldsg/application";`,
     dependencies: [
