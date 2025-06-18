@@ -44,3 +44,60 @@ export const FieldTypeBasePlatformList = [
   FieldTypeBasePlatform.JSON,
   FieldTypeBasePlatform.MONGOOSE,
 ];
+
+/**
+ * Default Extended Handler General Resource Settings
+ * 默认扩展处理程序普通资源配置
+ */
+export const DEFAULT_EXTENDED_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
+  {
+    title: "字段类型默认扩展处理程序",
+    description: "",
+  };
+
+/**
+ * Default Extended Handler Specific Resource Settings
+ * 默认扩展处理程序特殊资源配置
+ */
+export const DEFAULT_EXTENDED_HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
+  {
+    code: `import {
+  FieldTypeBasePlatform,
+  FieldTypeResourceHandler,
+} from "@ldsg/field-type";
+
+export const handler: FieldTypeResourceHandler = (params) => {
+  const { fieldProperties, platform } = params;
+
+  let res;
+
+  switch (platform) {
+    case FieldTypeBasePlatform.COMMON: {
+      res = {
+        ...fieldProperties,
+        type: "string",
+      };
+
+      break;
+    }
+
+    case FieldTypeBasePlatform.GRAPHQL: {
+      res = "String";
+
+      break;
+    }
+
+    default: {
+      break;
+    }
+  }
+
+  return res;
+};
+`,
+    dependencies: [
+      {
+        name: "@ldsg/field-type",
+      },
+    ],
+  };

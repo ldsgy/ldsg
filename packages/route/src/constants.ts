@@ -36,3 +36,31 @@ export const RESOURCE_DEFINITION_SPECIFIC_RESOURCE_SETTINGS: ResourceDefinitionS
     kind: "route",
     parentKind: parentResourceDefinitionSpecificResourceSettings.kind,
   };
+
+/**
+ * Default Extended Handler General Resource Settings
+ * 默认扩展处理程序普通资源配置
+ */
+export const DEFAULT_EXTENDED_HANDLER_GENERAL_RESOURCE_SETTINGS: GeneralResourceSettings =
+  {
+    title: "路由默认扩展处理程序",
+    description: "",
+  };
+
+/**
+ * Default Extended Handler Specific Resource Settings
+ * 默认扩展处理程序特殊资源配置
+ */
+export const DEFAULT_EXTENDED_HANDLER_SPECIFIC_RESOURCE_SETTINGS: HandlerSpecificResourceSettings =
+  {
+    code: `import { RequestHandler } from "express";
+
+const handler: RequestHandler = (req, res) => {
+  res.send("Hello, World!");
+};`,
+    dependencies: [
+      {
+        name: "express",
+      },
+    ],
+  };
