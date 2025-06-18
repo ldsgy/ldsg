@@ -25,7 +25,7 @@ pnpm build
 
 在 .env.local 配置 NPM_TOKEN 环境变量，token 从 [npm](https://www.npmjs.com/settings/wanxger/tokens) 获取。
 
-```.env
+```.env.local
 NPM_TOKEN=xxx
 ```
 
