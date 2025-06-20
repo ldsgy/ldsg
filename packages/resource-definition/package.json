@@ -1,6 +1,6 @@
 {
   "name": "@ldsg/resource-definition",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "",
   "main": "dist/index.js",
   "files": [
