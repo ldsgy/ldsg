@@ -10,5 +10,5 @@ export interface WorkflowNodeSpecificResourceSettings
   /**
    * Workflow Node Properties
    */
-  properties: any;
+  properties?: any;
 }
