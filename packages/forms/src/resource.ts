@@ -108,6 +108,8 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
   modifyGraphQLSchema: ModifyGraphQLSchema = (params) => {
     const { schemaComposer } = params;
 
+    const { Mutation, Query } = schemaComposer;
+
     const { formInfoList } = this.getFormInfoList();
 
     const { newFields } = getNewFields({
@@ -115,8 +117,8 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
       schemaComposer,
     });
 
-    schemaComposer.Mutation.addFields(newFields);
-
-    schemaComposer.Query.addFields(newFields);
+    [Mutation, Query].forEach((value) => {
+      value.addFields(newFields);
+    });
   };
 }
