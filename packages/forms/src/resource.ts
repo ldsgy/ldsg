@@ -116,6 +116,7 @@ export class FormsResource extends Resource<FormsSpecificResourceSettings> {
     });
 
     schemaComposer.Mutation.addFields(newFields);
+
     schemaComposer.Query.addFields(newFields);
   };
 }
